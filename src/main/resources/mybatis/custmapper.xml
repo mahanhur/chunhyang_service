@@ -2,36 +2,38 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kbstar.mapper.CustMapper">
+<mapper namespace="com.chflower.mapper.CustMapper">
 
-    <select id="getpage" resultType="cust">
-        SELECT *
-        FROM cust
-    </select>
     <select id="select" parameterType="String" resultType="cust">
-        SELECT *
-        FROM cust
-        WHERE ID = #{id}
+        SELECT * FROM cust WHERE cust_id=#{cust_id}
     </select>
-    <!--    id는 CustMapper의 함수의 이름들이다-->
+
     <select id="selectall" resultType="cust">
-        SELECT *
-        FROM cust
+        SELECT * FROM cust
     </select>
+
+    <!-- 탈퇴여부Y/N 무조건 대문자로 변경-->
     <insert id="insert" parameterType="cust">
         INSERT INTO cust
-        VALUES (#{id}, #{pwd}, #{name})
+        VALUES (#{cust_id}, #{cust_name}, #{cust_pwd}, #{phone}, #{age}, #{email}, UPPER(#{cust_del_yn}), #{cust_del_date})
     </insert>
+
     <update id="update" parameterType="cust">
         UPDATE cust
-        SET name=#{name},
-            pwd=#{pwd}
-        WHERE id = #{id}
+        SET cust_name=#{cust_name},
+            cust_pwd=#{cust_pwd},
+            phone=#{phone},
+            age=#{age},
+            email=#{email},
+            cust_del_yn=UPPER(#{cust_del_yn}),
+            cust_del_date=TO_DATE(SYSDATE,'YYYY-MM-DD')
+        WHERE cust_id = #{cust_id}
     </update>
+
     <delete id="delete" parameterType="String">
         DELETE
         FROM cust
-        WHERE id = #{id}
+        WHERE cust_id = #{cust_id}
     </delete>
 
 </mapper>
