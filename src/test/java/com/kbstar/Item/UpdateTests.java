@@ -17,7 +17,7 @@ class UpdateTests {
     void contextLoads() {
 
         try {
-            service.modify(new Item(200, "청바지", 100000, "z.jpg", null));
+            service.modify(new Item());
             log.info("수정완료");
         } catch (Exception e) {
 

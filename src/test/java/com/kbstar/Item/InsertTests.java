@@ -16,7 +16,7 @@ class InsertTests {
 
     @Test
     void contextLoads() {
-        Item obj = new Item(0, "모자", 5000, "hat.jpg", null);
+        Item obj = new Item();
         try {
             service.register(obj);
             log.info("등록정상...");
