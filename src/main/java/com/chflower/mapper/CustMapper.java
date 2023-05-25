@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface CustMapper extends CHMapper<String, Cust> {
-    Page<Cust> getpage() throws Exception;
+//    Page<Cust> getpage() throws Exception;
 }

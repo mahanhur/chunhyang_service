@@ -22,8 +22,10 @@ class InsertTest {
         } catch (Exception e) {
             if(e instanceof DuplicateKeyException){
                 log.info("ID가 중복 되었습니다.-------------------------------");
+
             }else{
                 log.info("시스템 장애입니다.----------------------------------");
+                e.printStackTrace();
             }
         }
     }
