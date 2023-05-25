@@ -8,31 +8,34 @@
         SELECT *
         FROM item
     </select>
+
     <select id="select" parameterType="Integer" resultType="item">
         SELECT *
         FROM item
-        WHERE ID = #{id}
+        WHERE item_id = #{item_id}
     </select>
     <!--    id는 ItemMapper의 함수의 이름들이다-->
     <select id="selectall" resultType="item">
         SELECT *
         FROM item
     </select>
-    <insert id="insert" parameterType="item">
-        INSERT INTO item
-        VALUES (item_seq.NEXTVAL, #{name}, #{price}, #{imgname}, SYSDATE)
-    </insert>
-    <update id="update" parameterType="item">
-        UPDATE item
-        SET name=#{name},
-            price=#{price},
-            imgname=#{imgname}
-        WHERE id = #{id}
-    </update>
-    <delete id="delete" parameterType="Integer">
-        DELETE
-        FROM item
-        WHERE id = #{id}
-    </delete>
+
+
+<!--    <insert id="insert" parameterType="item">-->
+<!--        INSERT INTO item-->
+<!--        VALUES (item_seq.NEXTVAL, #{name}, #{price}, #{imgname}, SYSDATE)-->
+<!--    </insert>-->
+<!--    <update id="update" parameterType="item">-->
+<!--        UPDATE item-->
+<!--        SET name=#{name},-->
+<!--            price=#{price},-->
+<!--            imgname=#{imgname}-->
+<!--        WHERE id = #{id}-->
+<!--    </update>-->
+<!--    <delete id="delete" parameterType="Integer">-->
+<!--        DELETE-->
+<!--        FROM item-->
+<!--        WHERE id = #{id}-->
+<!--    </delete>-->
 
 </mapper>

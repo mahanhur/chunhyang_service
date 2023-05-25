@@ -18,7 +18,7 @@ class SelectOneTests {
         Item item = null;
 
         try {
-            item = service.get(100);
+            item = service.get(201);
 
         } catch (Exception e) {
 

@@ -8,9 +8,8 @@ import lombok.ToString;
 @Getter
 @ToString
 public class Category {
-    private int id;
-    private String cate_name;
-    private int top_cate;
-    private int topid;
-    private String topname;
+    private int category_id;
+    private String category_name;
+    private int topcate_id;
+    private String topcate_name;
 }
