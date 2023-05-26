@@ -44,7 +44,7 @@
               Orders
             </a>
             <a class="list-group-item list-group-item-action dropend-toggle active" href="/account-wishlist">
-              Widhlist
+              Wishlist
             </a>
             <a class="list-group-item list-group-item-action dropend-toggle " href="/account-personal-info">
               Personal Info

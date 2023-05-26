@@ -44,7 +44,7 @@
               Orders
             </a>
             <a class="list-group-item list-group-item-action dropend-toggle " href="/account-wishlist">
-              Widhlist
+              Wishlist
             </a>
             <a class="list-group-item list-group-item-action dropend-toggle " href="/account-personal-info">
               Personal Info
@@ -164,7 +164,7 @@
                   <div class="col-6">
 
                     <!-- Button -->
-                    <a class="btn btn-sm w-100 btn-outline-dark" href="account-order.html">
+                    <a class="btn btn-sm w-100 btn-outline-dark" href="/account-order">
                       Order Details
                     </a>
 

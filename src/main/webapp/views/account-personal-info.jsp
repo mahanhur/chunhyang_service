@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
-
 <!-- BREADCRUMB -->
 <nav class="py-5">
   <div class="container">
@@ -45,7 +44,7 @@
               Orders
             </a>
             <a class="list-group-item list-group-item-action dropend-toggle " href="/account-wishlist">
-              Widhlist
+              Wishlist
             </a>
             <a class="list-group-item list-group-item-action dropend-toggle active" href="/account-personal-info">
               Personal Info

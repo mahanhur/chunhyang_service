@@ -44,10 +44,10 @@
             <a class="list-group-item list-group-item-action dropend-toggle active" href="/account-orders">
               Orders
             </a>
-            <a class="list-group-item list-group-item-action dropend-toggle " href="account-wishlist.html">
-              Widhlist
+            <a class="list-group-item list-group-item-action dropend-toggle " href="/account-wishlist">
+              Wishlist
             </a>
-            <a class="list-group-item list-group-item-action dropend-toggle " href="account-personal-info.html">
+            <a class="list-group-item list-group-item-action dropend-toggle " href="/account-personal-info">
               Personal Info
             </a>
             <a class="list-group-item list-group-item-action dropend-toggle " href="/account-address">

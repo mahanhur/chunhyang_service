@@ -1041,16 +1041,16 @@
             <div class="collapse" id="sidebarPages" data-bs-parent="#sidebarNav">
               <ul class="list-styled fs-lg py-3 mb-0">
                 <li class="list-styled-item">
-                  <a class="list-styled-link" href="./about.jsp">About</a>
+                  <a class="list-styled-link" href="/about">About</a>
                 </li>
                 <li class="list-styled-item">
-                  <a class="list-styled-link" href="./contact-us.jsp">Contact Us</a>
+                  <a class="list-styled-link" href="/contact-us">Contact Us</a>
                 </li>
                 <li class="list-styled-item">
                   <a class="list-styled-link" href="./store-locator.jsp">Store Locator</a>
                 </li>
                 <li class="list-styled-item">
-                  <a class="list-styled-link" href="./faq.jsp">FAQ</a>
+                  <a class="list-styled-link" href="/faq">FAQ</a>
                 </li>
                 <li class="list-styled-item">
                   <a class="list-styled-link" href="./coming-soon.jsp">Coming Soon</a>
@@ -1554,10 +1554,10 @@
               <a class="nav-link" href="./shipping-and-returns.jsp">Shipping</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./faq.jsp">FAQ</a>
+              <a class="nav-link" href="/faq">FAQ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./contact-us.jsp">Contact</a>
+              <a class="nav-link" href="/contact-us">Contact</a>
             </li>
           </ul>
     
@@ -2044,13 +2044,13 @@
                         <a class="list-styled-link" href="/about">소개 About</a>
                       </li>
                       <li class="list-styled-item">
-                        <a class="list-styled-link" href="./contact-us.jsp">Contact Us</a>
+                        <a class="list-styled-link" href="/contact-us">Contact Us</a>
                       </li>
                       <li class="list-styled-item">
                         <a class="list-styled-link" href="./store-locator.jsp">Store Locator</a>
                       </li>
                       <li class="list-styled-item">
-                        <a class="list-styled-link" href="./faq.jsp">FAQ</a>
+                        <a class="list-styled-link" href="/faq">FAQ</a>
                       </li>
                       <li class="list-styled-item">
                         <a class="list-styled-link" href="./coming-soon.jsp">Coming Soon</a>
@@ -2121,7 +2121,6 @@
     
       </div>
     </nav>
-
 
     <!-- -------------------------------------------------------------------------------- -->
     <!-- center  -->
@@ -2206,10 +2205,10 @@
               <!-- Links -->
               <ul class="list-unstyled mb-7 mb-sm-0">
                 <li>
-                  <a class="text-gray-300" href="./contact-us.jsp">Contact Us</a>
+                  <a class="text-gray-300" href="/contact-us">Contact Us</a>
                 </li>
                 <li>
-                  <a class="text-gray-300" href="./faq.jsp">FAQs</a>
+                  <a class="text-gray-300" href="/faq">FAQs</a>
                 </li>
                 <li>
                   <a class="text-gray-300" data-bs-toggle="modal" href="#modalSizeChart">Size Guide</a>
@@ -2254,7 +2253,7 @@
               <!-- Links -->
               <ul class="list-unstyled mb-0">
                 <li>
-                  <a class="text-gray-300" href="./about.jsp">Our Story</a>
+                  <a class="text-gray-300" href="/about">Our Story</a>
                 </li>
                 <li>
                   <a class="text-gray-300" href="#!">Careers</a>

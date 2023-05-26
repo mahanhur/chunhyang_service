@@ -38,19 +38,29 @@ public class MainController {
         model.addAttribute("center","account-orders");
         return "index";
     }
-    @RequestMapping("/account-personal-info")  // home > My account > addresses > orders(주문들))
+    @RequestMapping("/account-personal-info")
     public String account_personal_info(Model model){
         model.addAttribute("center","account-personal-info");
         return "index";
     }
-    @RequestMapping("/account-wishlist")  // home > My account > addresses > orders(주문들))
+    @RequestMapping("/account-wishlist")
     public String account_wishlist(Model model){
         model.addAttribute("center","account-wishlist");
         return "index";
     }
-    @RequestMapping("/overview")  // home > My account > addresses > orders(주문들))
+    @RequestMapping("/overview")
     public String overview(Model model){
         model.addAttribute("center","overview");
+        return "index";
+    }
+    @RequestMapping("/contact-us")
+    public String contact_us(Model model){
+        model.addAttribute("center","contact-us");
+        return "index";
+    }
+    @RequestMapping("/faq")
+    public String faq(Model model){
+        model.addAttribute("center","faq");
         return "index";
     }
     @RequestMapping("/register")
