@@ -1597,7 +1597,7 @@
       <div class="container">
     
         <!-- Brand -->
-        <a class="navbar-brand" href="./overview.jsp">
+        <a class="navbar-brand" href="/">
           <!-- 메인로고자리 -->춘향전
         </a>
     
@@ -1622,7 +1622,10 @@
                   <div class="card-body">
                     <ul class="list-styled fs-sm">
                       <li class="list-styled-item">
-                        <a class="list-styled-link" href="./index.jsp">Default</a>
+                        <a class="list-styled-link" href="/">기본화면 Default</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="/overview">Overview</a>
                       </li>
                       <li class="list-styled-item">
                         <a class="list-styled-link" href="./index-classic.jsp">Classic</a>
@@ -2030,7 +2033,7 @@
             <li class="nav-item dropdown">
     
               <!-- Toggle -->
-              <a class="nav-link" data-bs-toggle="dropdown" href="/about">Pages</a>
+              <a class="nav-link" data-bs-toggle="dropdown" href="#">Pages</a>
     
               <!-- Menu -->
               <div class="dropdown-menu">
@@ -2038,7 +2041,7 @@
                   <div class="card-body">
                     <ul class="list-styled fs-sm">
                       <li class="list-styled-item">
-                        <a class="list-styled-link" href="/about">About</a>
+                        <a class="list-styled-link" href="/about">소개 About</a>
                       </li>
                       <li class="list-styled-item">
                         <a class="list-styled-link" href="./contact-us.jsp">Contact Us</a>
@@ -2101,7 +2104,7 @@
               </a>
             </li>
             <li class="nav-item ms-lg-n4">
-              <a class="nav-link" href="./account-wishlist.jsp">
+              <a class="nav-link" href="/account-wishlist">
                 <i class="fe fe-heart"></i>
               </a>
             </li>

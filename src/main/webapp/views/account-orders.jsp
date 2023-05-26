@@ -40,16 +40,16 @@
         <!-- Nav -->
         <nav class="mb-10 mb-md-0">
           <div class="list-group list-group-sm list-group-strong list-group-flush-x">
-            <a class="list-group-item list-group-item-action dropend-toggle active" href="account-orders.html">
+            <a class="list-group-item list-group-item-action dropend-toggle active" href="/account-orders">
               Orders
             </a>
-            <a class="list-group-item list-group-item-action dropend-toggle " href="account-wishlist.html">
+            <a class="list-group-item list-group-item-action dropend-toggle " href="/account-wishlist">
               Widhlist
             </a>
-            <a class="list-group-item list-group-item-action dropend-toggle " href="account-personal-info.html">
+            <a class="list-group-item list-group-item-action dropend-toggle " href="/account-personal-info">
               Personal Info
             </a>
-            <a class="list-group-item list-group-item-action dropend-toggle " href="account-address.html">
+            <a class="list-group-item list-group-item-action dropend-toggle " href="/account-address">
               Addresses
             </a>
             <a class="list-group-item list-group-item-action dropend-toggle " href="account-payment.html">

@@ -18,8 +18,6 @@ public class MainController {
         model.addAttribute("center","about");
         return "index";
     }
-
-
     @RequestMapping("/account-address")  // home > My account > addresses
     public String account_address(Model model){
         model.addAttribute("center","account-address");
@@ -38,6 +36,21 @@ public class MainController {
     @RequestMapping("/account-orders")  // home > My account > addresses > orders(주문들))
     public String account_orders(Model model){
         model.addAttribute("center","account-orders");
+        return "index";
+    }
+    @RequestMapping("/account-personal-info")  // home > My account > addresses > orders(주문들))
+    public String account_personal_info(Model model){
+        model.addAttribute("center","account-personal-info");
+        return "index";
+    }
+    @RequestMapping("/account-wishlist")  // home > My account > addresses > orders(주문들))
+    public String account_wishlist(Model model){
+        model.addAttribute("center","account-wishlist");
+        return "index";
+    }
+    @RequestMapping("/overview")  // home > My account > addresses > orders(주문들))
+    public String overview(Model model){
+        model.addAttribute("center","overview");
         return "index";
     }
     @RequestMapping("/register")
