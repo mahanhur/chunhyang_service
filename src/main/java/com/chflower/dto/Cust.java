@@ -17,7 +17,29 @@ public class Cust {
     private String phone;
     private int age;
     private String email;
-    private String cust_del_yn;
+    private Date cust_rdate;
     private Date cust_del_date;
 
+    public Cust(String cust_id, String cust_name, String cust_pwd, String phone, int age, String email, Date cust_rdate) {
+        this.cust_id = cust_id;
+        this.cust_name = cust_name;
+        this.cust_pwd = cust_pwd;
+        this.phone = phone;
+        this.age = age;
+        this.email = email;
+        this.cust_rdate = cust_rdate;
+    }
+
+    public Cust(String cust_id, String cust_name, String cust_pwd, String phone, int age, String email) {
+        this.cust_id = cust_id;
+        this.cust_name = cust_name;
+        this.cust_pwd = cust_pwd;
+        this.phone = phone;
+        this.age = age;
+        this.email = email;
+    }
+
+    public Cust(String cust_id, Date cust_del_date) {
+        this.cust_id = cust_id;
+    }
 }

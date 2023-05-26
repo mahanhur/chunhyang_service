@@ -6,7 +6,6 @@ import com.chflower.mapper.CustMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,8 +18,6 @@ public class CustService implements CHService<String, Cust> {
 
     public void register(Cust cust) throws Exception {
         mapper.insert(cust);
-        //mapper.insert(cust);
-        log.info("Send mail.... " + cust.getCust_id());
     }
 
     @Override
@@ -32,6 +29,9 @@ public class CustService implements CHService<String, Cust> {
     public void modify(Cust cust) throws Exception {
         mapper.update(cust);
     }
+    public void withdraw(String cust_id) throws Exception {
+        mapper.withdraw(cust_id);
+    }
 
     @Override
     public Cust get(String s) throws Exception {
@@ -42,5 +42,4 @@ public class CustService implements CHService<String, Cust> {
     public List<Cust> get() throws Exception {
         return mapper.selectall();
     }
-
 }
