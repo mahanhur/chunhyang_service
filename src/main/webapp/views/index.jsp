@@ -17,11 +17,11 @@
 
     <!-- -------------------------------------------------------------------------------- -->
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" type="image/x-icon" />
     <!-- Libs CSS -->
-    <link rel="stylesheet" href="./assets/css/libs.bundle.css" />
+    <link rel="stylesheet" href="/assets/css/libs.bundle.css" />
     <!-- Theme CSS -->
-    <link rel="stylesheet" href="./assets/css/theme.bundle.css" />
+    <link rel="stylesheet" href="/assets/css/theme.bundle.css" />
     <!-- -------------------------------------------------------------------------------- -->
     <title>chunhyang</title>
 
@@ -46,7 +46,7 @@
             <div class="col-12 col-lg-5">
     
               <!-- Image -->
-              <img class="img-fluid" src="./assets/img/covers/cover-25.jpg" alt="...">
+              <img class="img-fluid" src="/assets/img/covers/cover-25.jpg" alt="...">
     
             </div>
             <div class="col-12 col-lg-7 d-flex flex-column px-md-8">
@@ -122,7 +122,7 @@
           </button>
     
           <!-- Body -->
-          <div class="modal-body mt-2 me-2 ms-2 py-10 bg-cover text-center text-white" style="background-image: url(./assets/img/covers/cover-26.jpg);">
+          <div class="modal-body mt-2 me-2 ms-2 py-10 bg-cover text-center text-white" style="background-image: url(/assets/img/covers/cover-26.jpg);">
     
             <!-- Heading -->
             <h4>Subscribe to Newsletter and get 15% Discount</h4>
@@ -248,7 +248,7 @@
               <div class="col-12 col-lg-6 col-xl-5 py-4 py-xl-0 px-xl-0">
     
                 <!-- Image -->
-                <img class="img-fluid" src="./assets/img/products/product-7.jpg" alt="...">
+                <img class="img-fluid" src="/assets/img/products/product-7.jpg" alt="...">
     
                 <!-- Button -->
                 <a class="btn btn-sm w-100 btn-primary" href="./product.jsp">
@@ -279,10 +279,10 @@
                     <!-- Radio -->
                     <div class="mb-8 ms-n1">
                       <div class="form-check form-check-inline form-check-img">
-                        <input type="radio" class="form-check-input" id="modalProductColorOne" name="modalProductColor" data-toggle="form-caption" data-target="#modalProductColorCaption" value="White" style="background-image: url(./assets/img/products/product-7.jpg);" checked>
+                        <input type="radio" class="form-check-input" id="modalProductColorOne" name="modalProductColor" data-toggle="form-caption" data-target="#modalProductColorCaption" value="White" style="background-image: url(/assets/img/products/product-7.jpg);" checked>
                       </div>
                       <div class="form-check form-check-inline form-check-img">
-                        <input type="radio" class="form-check-input" id="modalProductColorTwo" name="modalProductColor" data-toggle="form-caption" data-target="#modalProductColorCaption" value="Black" style="background-image: url(./assets/img/products/product-49.jpg);">
+                        <input type="radio" class="form-check-input" id="modalProductColorTwo" name="modalProductColor" data-toggle="form-caption" data-target="#modalProductColorCaption" value="Black" style="background-image: url(/assets/img/products/product-49.jpg);">
                       </div>
                     </div>
     
@@ -444,7 +444,7 @@
           <div class="col-4 col-md-3">
     
             <!-- Image -->
-            <img class="img-fluid" src="./assets/img/products/product-5.jpg" alt="...">
+            <img class="img-fluid" src="/assets/img/products/product-5.jpg" alt="...">
     
           </div>
           <div class="col position-static">
@@ -461,7 +461,7 @@
           <div class="col-4 col-md-3">
     
             <!-- Image -->
-            <img class="img-fluid" src="./assets/img/products/product-6.jpg" alt="...">
+            <img class="img-fluid" src="/assets/img/products/product-6.jpg" alt="...">
     
           </div>
           <div class="col position-static">
@@ -478,7 +478,7 @@
           <div class="col-4 col-md-3">
     
             <!-- Image -->
-            <img class="img-fluid" src="./assets/img/products/product-7.jpg" alt="...">
+            <img class="img-fluid" src="/assets/img/products/product-7.jpg" alt="...">
     
           </div>
           <div class="col position-static">
@@ -495,7 +495,7 @@
           <div class="col-4 col-md-3">
     
             <!-- Image -->
-            <img class="img-fluid" src="./assets/img/products/product-8.jpg" alt="...">
+            <img class="img-fluid" src="/assets/img/products/product-8.jpg" alt="...">
     
           </div>
           <div class="col position-static">
@@ -512,7 +512,7 @@
           <div class="col-4 col-md-3">
     
             <!-- Image -->
-            <img class="img-fluid" src="./assets/img/products/product-9.jpg" alt="...">
+            <img class="img-fluid" src="/assets/img/products/product-9.jpg" alt="...">
     
           </div>
           <div class="col position-static">
@@ -573,7 +573,7 @@
     
               <!-- Image -->
               <a href="./product.jsp">
-                <img class="img-fluid" src="./assets/img/products/product-6.jpg" alt="...">
+                <img class="img-fluid" src="/assets/img/products/product-6.jpg" alt="...">
               </a>
     
             </div>
@@ -611,7 +611,7 @@
     
               <!-- Image -->
               <a href="./product.jsp">
-                <img class="img-fluid" src="./assets/img/products/product-10.jpg" alt="...">
+                <img class="img-fluid" src="/assets/img/products/product-10.jpg" alt="...">
               </a>
     
             </div>
@@ -1378,7 +1378,7 @@
     
                 <!-- Image -->
                 <a href="./product.jsp">
-                  <img class="img-fluid mb-7 mb-md-0" src="./assets/img/products/product-6.jpg" alt="...">
+                  <img class="img-fluid mb-7 mb-md-0" src="/assets/img/products/product-6.jpg" alt="...">
                 </a>
     
               </div>
@@ -1504,19 +1504,19 @@
     
               <!-- Toggle -->
               <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
-                <img class="mb-1 me-1" src="./assets/img/flags/usa.svg" alt="..." /> United States
+                <img class="mb-1 me-1" src="/assets/img/flags/usa.svg" alt="..." /> United States
               </a>
     
               <!-- Menu -->
               <div class="dropdown-menu min-w-0">
                 <a class="dropdown-item" href="#!">
-                  <img class="mb-1 me-2" src="./assets/img/flags/usa.svg" alt="USA">United States
+                  <img class="mb-1 me-2" src="/assets/img/flags/usa.svg" alt="USA">United States
                 </a>
                 <a class="dropdown-item" href="#!">
-                  <img class="mb-1 me-2" src="./assets/img/flags/canada.svg" alt="Canada">Canada
+                  <img class="mb-1 me-2" src="/assets/img/flags/canada.svg" alt="Canada">Canada
                 </a>
                 <a class="dropdown-item" href="#!">
-                  <img class="mb-1 me-2" src="./assets/img/flags/germany.svg" alt="Germany">Germany
+                  <img class="mb-1 me-2" src="/assets/img/flags/germany.svg" alt="Germany">Germany
                 </a>
               </div>
     
@@ -1835,7 +1835,7 @@
                               <div class="card">
               
                                 <!-- Image -->
-                                <img class="card-img" src="./assets/img/products/product-110.jpg" alt="...">
+                                <img class="card-img" src="/assets/img/products/product-110.jpg" alt="...">
               
                                 <!-- Overlay -->
                                 <div class="card-img-overlay bg-dark-0 bg-hover align-items-center">
@@ -2136,7 +2136,7 @@
 
     <!-- --------------------------------------------------------------------------------- -->
     <!-- FOOTER -->
-    <footer class="bg-dark bg-cover " style="background-image: url(./assets/img/patterns/pattern-2.svg)">
+    <footer class="bg-dark bg-cover " style="background-image: url(/assets/img/patterns/pattern-2.svg)">
       <div class="py-12 border-bottom border-gray-700">
         <div class="container">
           <div class="row justify-content-center">
@@ -2305,12 +2305,12 @@
             <div class="col-auto">
     
               <!-- Payment methods -->
-              <img class="footer-payment" src="./assets/img/payment/mastercard.svg" alt="...">
-              <img class="footer-payment" src="./assets/img/payment/visa.svg" alt="...">
-              <img class="footer-payment" src="./assets/img/payment/amex.svg" alt="...">
-              <img class="footer-payment" src="./assets/img/payment/paypal.svg" alt="...">
-              <img class="footer-payment" src="./assets/img/payment/maestro.svg" alt="...">
-              <img class="footer-payment" src="./assets/img/payment/klarna.svg" alt="...">
+              <img class="footer-payment" src="/assets/img/payment/mastercard.svg" alt="...">
+              <img class="footer-payment" src="/assets/img/payment/visa.svg" alt="...">
+              <img class="footer-payment" src="/assets/img/payment/amex.svg" alt="...">
+              <img class="footer-payment" src="/assets/img/payment/paypal.svg" alt="...">
+              <img class="footer-payment" src="/assets/img/payment/maestro.svg" alt="...">
+              <img class="footer-payment" src="/assets/img/payment/klarna.svg" alt="...">
     
             </div>
           </div>
@@ -2323,10 +2323,10 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnKt8_N4-FKOnhI_pSaDL7g_g-XI1-R9E"></script>
     
     <!-- Vendor JS -->
-    <script src="./assets/js/vendor.bundle.js"></script>
+    <script src="/assets/js/vendor.bundle.js"></script>
     
     <!-- Theme JS -->
-    <script src="./assets/js/theme.bundle.js"></script>
+    <script src="/assets/js/theme.bundle.js"></script>
 
   </body>
 </html>
