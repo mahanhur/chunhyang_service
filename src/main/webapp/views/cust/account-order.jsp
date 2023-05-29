@@ -41,7 +41,7 @@
         <!-- Nav -->
         <nav class="mb-10 mb-md-0">
           <div class="list-group list-group-sm list-group-strong list-group-flush-x">
-            <a class="list-group-item list-group-item-action dropend-toggle active" href="/account-orders">
+            <a class="list-group-item list-group-item-action dropend-toggle active" href="/cust/account-orders">
               Orders
             </a>
             <a class="list-group-item list-group-item-action dropend-toggle " href="/account-wishlist">
@@ -139,7 +139,7 @@
                   <div class="col-4 col-md-3 col-xl-2">
 
                     <!-- Image -->
-                    <a href="product.html"><img src="assets/img/products/product-6.jpg" alt="..." class="img-fluid"></a>
+                    <a href="product.html"><img src="/assets/img/products/product-6.jpg" alt="..." class="img-fluid"></a>
 
                   </div>
                   <div class="col">
@@ -164,7 +164,7 @@
                   <div class="col-4 col-md-3 col-xl-2">
 
                     <!-- Image -->
-                    <a href="product.html"><img src="assets/img/products/product-10.jpg" alt="..." class="img-fluid"></a>
+                    <a href="product.html"><img src="/assets/img/products/product-10.jpg" alt="..." class="img-fluid"></a>
 
                   </div>
                   <div class="col">
@@ -189,7 +189,7 @@
                   <div class="col-4 col-md-3 col-xl-2">
 
                     <!-- Image -->
-                    <a href="product.html"><img src="assets/img/products/product-48.jpg" alt="..." class="img-fluid"></a>
+                    <a href="product.html"><img src="/assets/img/products/product-48.jpg" alt="..." class="img-fluid"></a>
 
                   </div>
                   <div class="col">

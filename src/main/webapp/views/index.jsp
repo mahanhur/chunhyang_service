@@ -949,10 +949,10 @@
                   <!-- Links -->
                   <ul class="list-styled fs-lg">
                     <li class="list-styled-item">
-                      <a class="list-styled-link" href="./account-order.jsp">Order</a>
+                      <a class="list-styled-link" href="/cust/account-order.jsp">Order</a>
                     </li>
                     <li class="list-styled-item">
-                      <a class="list-styled-link" href="./account-orders.jsp">Orders</a>
+                      <a class="list-styled-link" href="/cust/account-orders.jsp">Orders</a>
                     </li>
                     <li class="list-styled-item">
                       <a class="list-styled-link" href="./account-wishlist.jsp">Wishlist</a>
@@ -1943,10 +1943,10 @@
                         <!-- Links -->
                         <ul class="list-styled fs-sm">
                           <li class="list-styled-item">
-                            <a class="list-styled-link" href="./account-order.jsp">Order</a>
+                            <a class="list-styled-link" href="/cust/account-order.jsp">Order</a>
                           </li>
                           <li class="list-styled-item">
-                            <a class="list-styled-link" href="./account-orders.jsp">Orders</a>
+                            <a class="list-styled-link" href="/cust/account-orders.jsp">Orders</a>
                           </li>
                           <li class="list-styled-item">
                             <a class="list-styled-link" href="./account-wishlist.jsp">Wishlist</a>
@@ -2099,7 +2099,7 @@
               </a>
             </li>
             <li class="nav-item ms-lg-n4">
-              <a class="nav-link" href="/account-orders">
+              <a class="nav-link" href="/cust/account-orders">
                 <i class="fe fe-user"></i>
               </a>
             </li>

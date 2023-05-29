@@ -40,7 +40,7 @@
         <!-- Nav -->
         <nav class="mb-10 mb-md-0">
           <div class="list-group list-group-sm list-group-strong list-group-flush-x">
-            <a class="list-group-item list-group-item-action dropend-toggle active" href="/account-orders">
+            <a class="list-group-item list-group-item-action dropend-toggle active" href="/cust/account-orders">
               Orders
             </a>
             <a class="list-group-item list-group-item-action dropend-toggle " href="/account-wishlist">
@@ -130,19 +130,19 @@
                   <div class="col-3">
 
                     <!-- Image -->
-                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(assets/img/products/product-5.jpg);"></div>
+                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(/assets/img/products/product-5.jpg);"></div>
 
                   </div>
                   <div class="col-3">
 
                     <!-- Image -->
-                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(assets/img/products/product-112.jpg);"></div>
+                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(/assets/img/products/product-112.jpg);"></div>
 
                   </div>
                   <div class="col-3">
 
                     <!-- Image -->
-                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(assets/img/products/product-7.jpg);"></div>
+                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(/assets/img/products/product-7.jpg);"></div>
 
                   </div>
                   <div class="col-3">
@@ -164,7 +164,7 @@
                   <div class="col-6">
 
                     <!-- Button -->
-                    <a class="btn btn-sm w-100 btn-outline-dark" href="/account-order">
+                    <a class="btn btn-sm w-100 btn-outline-dark" href="/cust/account-order">
                       Order Details
                     </a>
 
@@ -250,7 +250,7 @@
                   <div class="col-3">
 
                     <!-- Image -->
-                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(assets/img/products/product-11.jpg);"></div>
+                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(/assets/img/products/product-11.jpg);"></div>
 
                   </div>
                 </div>
@@ -260,7 +260,7 @@
                   <div class="col-6">
 
                     <!-- Button -->
-                    <a class="btn btn-sm w-100 btn-outline-dark" href="/account-order">
+                    <a class="btn btn-sm w-100 btn-outline-dark" href="/cust/account-order">
                       Order Details
                     </a>
 
@@ -346,13 +346,13 @@
                   <div class="col-3">
 
                     <!-- Image -->
-                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(assets/img/products/product-14.jpg);"></div>
+                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(/assets/img/products/product-14.jpg);"></div>
 
                   </div>
                   <div class="col-3">
 
                     <!-- Image -->
-                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(assets/img/products/product-15.jpg);"></div>
+                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(/assets/img/products/product-15.jpg);"></div>
 
                   </div>
                 </div>
@@ -362,7 +362,7 @@
                   <div class="col-6">
 
                     <!-- Button -->
-                    <a class="btn btn-sm w-100 btn-outline-dark" href="/account-order">
+                    <a class="btn btn-sm w-100 btn-outline-dark" href="/cust/account-order">
                       Order Details
                     </a>
 
