@@ -15,7 +15,7 @@
     <!-- 가입일(SYSDATE) 탈퇴일(default null) -->
     <insert id="insert" parameterType="cust">
         INSERT INTO cust
-        VALUES (#{cust_id}, #{cust_name}, #{cust_pwd}, #{phone}, #{age}, #{email}, SYSDATE, null)
+        VALUES (#{cust_id}, #{cust_name}, #{cust_pwd}, #{phone}, #{age}, #{email}, SYSDATE, NULL)
     </insert>
 
     <update id="update" parameterType="cust">

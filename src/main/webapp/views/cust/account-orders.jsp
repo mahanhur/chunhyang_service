@@ -38,28 +38,7 @@
       <div class="col-12 col-md-3">
 
         <!-- Nav -->
-        <nav class="mb-10 mb-md-0">
-          <div class="list-group list-group-sm list-group-strong list-group-flush-x">
-            <a class="list-group-item list-group-item-action dropend-toggle active" href="/cust/account-orders">
-              Orders
-            </a>
-            <a class="list-group-item list-group-item-action dropend-toggle " href="/account-wishlist">
-              Wishlist
-            </a>
-            <a class="list-group-item list-group-item-action dropend-toggle " href="/account-personal-info">
-              Personal Info
-            </a>
-            <a class="list-group-item list-group-item-action dropend-toggle " href="/account-address">
-              Addresses
-            </a>
-            <a class="list-group-item list-group-item-action dropend-toggle " href="account-payment.html">
-              Payment Methods
-            </a>
-            <a class="list-group-item list-group-item-action dropend-toggle" href="#!">
-              Logout
-            </a>
-          </div>
-        </nav>
+        <jsp:include page="/views/cust/leftnav.jsp"/>
 
       </div>
       <div class="col-12 col-md-9 col-lg-8 offset-lg-1">

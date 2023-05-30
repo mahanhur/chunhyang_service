@@ -59,7 +59,7 @@
 
                     <!-- Text -->
                     <p class="mb-lg-0 fs-sm fw-bold">
-                      673290789
+                      여기가 subsinfo
                     </p>
 
                   </div>

@@ -28,16 +28,7 @@ public class MainController {
         model.addAttribute("center","account-address-edit");
         return "index";
     }
-    @RequestMapping("/account-order")  // home > My account > addresses > order(단건))
-    public String account_order(Model model){
-        model.addAttribute("center","account-order");
-        return "index";
-    }
-    @RequestMapping("/account-orders")  // home > My account > addresses > orders(주문들))
-    public String account_orders(Model model){
-        model.addAttribute("center","account-orders");
-        return "index";
-    }
+
     @RequestMapping("/account-personal-info")
     public String account_personal_info(Model model){
         model.addAttribute("center","account-personal-info");

@@ -17,6 +17,7 @@ public class CustService implements CHService<String, Cust> {
     CustMapper mapper;
 
     public void register(Cust cust) throws Exception {
+        log.info("bbbbbbb : custService cust :"+cust.toString());
         mapper.insert(cust);
     }
 

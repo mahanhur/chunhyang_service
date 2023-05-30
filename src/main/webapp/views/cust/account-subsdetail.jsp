@@ -52,61 +52,25 @@
             <div class="card card-sm">
               <div class="card-body bg-light">
                 <div class="row">
-                  <div class="col-6 col-lg-3">
+                  <div class="col-12">
 
                     <!-- Heading -->
-                    <h6 class="heading-xxxs text-muted">Order No:</h6>
+                    <h6 class="heading-xxxs text-muted">춘향이가 전달드리는 Notice !</h6>
 
                     <!-- Text -->
                     <p class="mb-lg-0 fs-sm fw-bold">
-                      673290789
+                      고객님이 신청하신 구독 상품의 배송일정과 세부 정보를 수정하실 수 있습니다.
                     </p>
-
-                  </div>
-                  <div class="col-6 col-lg-3">
-
-                    <!-- Heading -->
-                    <h6 class="heading-xxxs text-muted">Shipped date:</h6>
-
-                    <!-- Text -->
-                    <p class="mb-lg-0 fs-sm fw-bold">
-                      <time datetime="2019-10-01">
-                        01 Oct, 2019
-                      </time>
-                    </p>
-
-                  </div>
-                  <div class="col-6 col-lg-3">
-
-                    <!-- Heading -->
-                    <h6 class="heading-xxxs text-muted">Status:</h6>
-
-                    <!-- Text -->
-                    <p class="mb-0 fs-sm fw-bold">
-                      Awating Delivery
-                    </p>
-
-                  </div>
-                  <div class="col-6 col-lg-3">
-
-                    <!-- Heading -->
-                    <h6 class="heading-xxxs text-muted">Order Amount:</h6>
-
-                    <!-- Text -->
-                    <p class="mb-0 fs-sm fw-bold">
-                      $259.00
-                    </p>
-
-                  </div>
                 </div>
               </div>
             </div>
-
           </div>
+
+<%--            내용시작--%>
           <div class="card-footer">
 
             <!-- Heading -->
-            <h6 class="mb-7">Order Items (3)</h6>
+            <h6 class="mb-7">Order List</h6>
 
             <!-- Divider -->
             <hr class="my-5">
@@ -117,8 +81,8 @@
                 <div class="row align-items-center">
                   <div class="col-4 col-md-3 col-xl-2">
 
-                    <!-- Image -->
-                    <a href="product.html"><img src="assets/img/products/product-6.jpg" alt="..." class="img-fluid"></a>
+                    <!-- 구독상품Image -->
+                    <a href="product.html"><img src="/assets/img/products/product-6.jpg" alt="..." class="img-fluid"></a>
 
                   </div>
                   <div class="col">
@@ -143,7 +107,7 @@
                   <div class="col-4 col-md-3 col-xl-2">
 
                     <!-- Image -->
-                    <a href="product.html"><img src="assets/img/products/product-10.jpg" alt="..." class="img-fluid"></a>
+                    <a href="product.html"><img src="/assets/img/products/product-10.jpg" alt="..." class="img-fluid"></a>
 
                   </div>
                   <div class="col">
@@ -168,7 +132,7 @@
                   <div class="col-4 col-md-3 col-xl-2">
 
                     <!-- Image -->
-                    <a href="product.html"><img src="assets/img/products/product-48.jpg" alt="..." class="img-fluid"></a>
+                    <a href="product.html"><img src="/assets/img/products/product-48.jpg" alt="..." class="img-fluid"></a>
 
                   </div>
                   <div class="col">
