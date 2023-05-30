@@ -54,9 +54,4 @@ public class MainController {
         model.addAttribute("center","faq");
         return "index";
     }
-    @RequestMapping("/register")
-    public String register(Model model){
-        model.addAttribute("center","register");
-        return "index";
-    }
 }

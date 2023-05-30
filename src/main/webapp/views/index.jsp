@@ -2106,7 +2106,7 @@
 
         <li class="nav-item ms-lg-n4 dropdown">
           <c:choose>
-            <c:when test="${loginadm == null}">
+            <c:when test="${logincust == null}">
               <!-- Toggle -->
               <a class="nav-link" data-bs-toggle="dropdown" href="/cust/login">
                 <i class="fe fe-user"></i>
