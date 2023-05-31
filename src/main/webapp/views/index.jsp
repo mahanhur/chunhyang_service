@@ -20,14 +20,13 @@
 
   <!-- -------------------------------------------------------------------------------- -->
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/assets/favicon/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/assets/favicon/logo.png" type="image/x-icon" />
   <!-- Libs CSS -->
   <link rel="stylesheet" href="/assets/css/libs.bundle.css" />
   <!-- Theme CSS -->
   <link rel="stylesheet" href="/assets/css/theme.bundle.css" />
   <!-- -------------------------------------------------------------------------------- -->
   <title>:: 봄의 향기</title>
-  <link rel="shortcut icon" type="image/x-icon" href="/uimg/logo.png">
 
 </head>
 
