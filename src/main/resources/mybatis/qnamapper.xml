@@ -5,7 +5,10 @@
 <mapper namespace="com.chflower.mapper.QnaMapper">
 
     <select id="getQna" parameterType="String" resultType="qna">
-        SELECT * FROM qna WHERE cust_id=#{cust_id}
+        SELECT *
+        FROM qna
+        WHERE cust_id=#{cust_id}
+        order by QNA_ID desc
     </select>
 
     <select id="selectall" resultType="qna">
