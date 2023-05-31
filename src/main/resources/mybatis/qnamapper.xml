@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chflower.mapper.QnaMapper">
+
+    <select id="getQna" parameterType="String" resultType="qna">
+        SELECT * FROM qna WHERE cust_id=#{cust_id}
+    </select>
+
+    <select id="selectall" resultType="cust">
+        SELECT * FROM qna
+    </select>
+
+</mapper>
