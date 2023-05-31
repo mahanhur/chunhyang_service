@@ -25,6 +25,9 @@
     <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/account-payment">
       Payment Methods
     </a>
+    <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/account-qna?cust_id=${logincust.cust_id}">
+      1:1 문의
+    </a>
     <a class="list-group-item list-group-item-action dropend-toggle" href="/cust/logout">
       로그아웃
     </a>
