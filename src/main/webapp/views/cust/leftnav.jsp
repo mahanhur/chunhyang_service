@@ -3,21 +3,21 @@
 
 <nav class="mb-10 mb-md-0">
   <div class="list-group list-group-sm list-group-strong list-group-flush-x">
-    <a class="list-group-item list-group-item-action dropend-toggle active" href="/cust/account-orders">
+    <a class="list-group-item list-group-item-action dropend-toggle active" href="/cust/account-orders?cust_id=${logincust.cust_id}">
       Orders
     </a>
-    <a class="list-group-item list-group-item-action dropend-toggle" href="/cust/account-subsinfo">
+    <a class="list-group-item list-group-item-action dropend-toggle" href="/cust/account-subsinfo?cust_id=${logincust.cust_id}">
       구독 정보
     </a>
-    <a class="list-group-item list-group-item-action dropend-toggle" href="/cust/account-subsdetail">
+    <a class="list-group-item list-group-item-action dropend-toggle" href="/cust/account-subsdetail?cust_id=${logincust.cust_id}">
       구독상품 배송 정보
     </a>
 
-    <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/account-wishlist">
+    <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/account-wishlist?cust_id=${logincust.cust_id}">
       Wishlist
     </a>
-    <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/account-personal-info">
-      Personal Info
+    <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/personalinfo?cust_id=${logincust.cust_id}">
+      나의 정보 수정
     </a>
     <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/account-address">
       Addresses
@@ -25,8 +25,8 @@
     <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/account-payment">
       Payment Methods
     </a>
-    <a class="list-group-item list-group-item-action dropend-toggle" href="#!">
-      Logout
+    <a class="list-group-item list-group-item-action dropend-toggle" href="/cust/logout">
+      로그아웃
     </a>
   </div>
 </nav>

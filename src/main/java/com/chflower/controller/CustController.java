@@ -43,17 +43,19 @@ public class CustController {
         return "index";
     }
     @RequestMapping("/login")  //마이페이지 첫화면
-    public String login(Model model) throws Exception {
+    public String login(Model model,String redirectURL){
+        model.addAttribute("redirectURL",  redirectURL);
         model.addAttribute("center",dir+"login");
         return "index";
     }
     @RequestMapping("/loginimpl")
     public String loginimpl(Model model, String cust_id, String cust_pwd,
                             HttpSession session) throws Exception {
+        String nextPage = dir+"login";  //loginfail 했을 경우
         Cust cust = null;
-        String nextPage = dir+"login";
         try {
             cust =custservice.get(cust_id);
+            log.info(cust.toString());
             if(cust != null && encoder.matches(cust_pwd, cust.getCust_pwd())){
                 // ==null : 아이디가 틀렸어  !=null 아이디까지는 성공
                 // pwd는 입력된 패스워드. cust.getPwd 암호화된 패스워드 일치하는지 확인
@@ -98,5 +100,31 @@ public class CustController {
     public String account_subsdetail(Model model){
         model.addAttribute("center",dir+"account-subsdetail");
         return "index";
+    }
+    @RequestMapping("/personalinfo")
+    public String personalinfo(Model model, String cust_id) throws Exception {
+        Cust cust = null;
+        try {
+            cust =custservice.get(cust_id);
+            log.info("----------------------");
+            log.info(cust.toString());
+            log.info("----------------------");
+        } catch (Exception e) {
+            log.info("오류");
+        }
+        model.addAttribute("personalinfo",cust);
+        model.addAttribute("center",dir+"personalinfo");
+        return "index";
+    }
+    @RequestMapping("/personalinfoimpl")
+    public String personalinfoimpl(Model model, Cust cust) throws Exception {
+//        try {
+//            cust.setCust_pwd(encoder.encode(cust.getCust_pwd()));
+//            custservice.modify(cust);
+//        } catch (Exception e) {
+//            throw new Exception("시스템장애 : 나의정보 수정 에러");
+//        }
+//        //수정이 끝나면 account-personal-info 화면으로 보낸다
+        return "redirect:/cust/personalinfo?cust_id="+cust.getCust_id();
     }
 }

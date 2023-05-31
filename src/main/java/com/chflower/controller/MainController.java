@@ -29,11 +29,7 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/account-personal-info")
-    public String account_personal_info(Model model){
-        model.addAttribute("center","account-personal-info");
-        return "index";
-    }
+
     @RequestMapping("/account-wishlist")
     public String account_wishlist(Model model){
         model.addAttribute("center","account-wishlist");
@@ -52,16 +48,6 @@ public class MainController {
     @RequestMapping("/faq")
     public String faq(Model model){
         model.addAttribute("center","faq");
-        return "index";
-    }
-    @RequestMapping("/register")
-    public String register(Model model){
-        model.addAttribute("center","register");
-        return "index";
-    }
-    @RequestMapping("/subscribe")
-    public String subscribe(Model model){
-        model.addAttribute("center","subscribe");
         return "index";
     }
 }
