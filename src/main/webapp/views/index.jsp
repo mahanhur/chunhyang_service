@@ -719,7 +719,7 @@
               <a class="list-styled-link" href="./index-classic.jsp">Classic</a>
             </li>
             <li class="list-styled-item">
-              <a class="list-styled-link" href="./index-fashion.jsp">Fashion</a>
+              <a class="list-styled-link" href="./subscribe.jsp">Fashion</a>
             </li>
             <li class="list-styled-item">
               <a class="list-styled-link" href="./index-boxed.jsp">Boxed</a>
@@ -1636,7 +1636,7 @@
                     <a class="list-styled-link" href="./index-classic.jsp">Classic</a>
                   </li>
                   <li class="list-styled-item">
-                    <a class="list-styled-link" href="./index-fashion.jsp">Fashion</a>
+                    <a class="list-styled-link" href="./subscribe.jsp">Fashion</a>
                   </li>
                   <li class="list-styled-item">
                     <a class="list-styled-link" href="./index-boxed.jsp">Boxed</a>
