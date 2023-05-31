@@ -19,9 +19,13 @@
           $('#register_btn').removeClass('disabled');
         }
       });
+
+      //id 4자리 이상. 중복체크
       $('#cust_id').keyup(function (){
         var txt_id = $(this).val();
         if (txt_id.length <= 3){
+          $('#check_id').html('ID는 영문소문자, 숫자 4자리이상 입니다.');
+          $('#check_id').css('color','red');
           return;
         }
         $.ajax({
@@ -30,14 +34,32 @@
           success:function(result){
             if(result == 0){
               $('#check_id').html('사용가능한 ID입니다.');
-              $('#check_id').css('color','blue');
+              $('#check_id').css('color','rgb(0, 0, 255)');
               $('#cust_pwd').focus();
             }else{
               $('#check_id').html('이미 사용중인 ID입니다.');
-              $('#check_id').css('color','red');
+              $('#check_id').css('color','rgb(255, 0, 0)');
+
             }
           }
         });
+      });
+
+      // ID 입력 필드에 영어가 들어오면 무조건 소문자로 변환
+      // ID에는 한글 입력 안됨
+      $('#cust_id').on('input', function(){
+        var value = $(this).val();
+        value = value.toLowerCase();
+        value = value.replace(/[ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
+        $(this).val(value);
+      });
+
+
+      // Phone, Age 입력 필드에 숫자만 입력되도록 제한
+      $('#phone, #age').on('input', function(){
+        var value = $(this).val();
+        value = value.replace(/[^0-9]/g, ''); // 비 숫자 문자 제거
+        $(this).val(value);
       });
 
     },
@@ -45,9 +67,10 @@
       var cust_id = $('#cust_id').val();
       var cust_name = $('#cust_name').val();
       var cust_pwd = $('#cust_pwd').val();
-      if(cust_id.length <=  3){
-        $('#check_cust_id').text('4자리 이상이어야 합니다.');
-        $('#cust_id').focus();
+
+      // Check if ID가 빨간색인 경우 전송 안됨
+      if ($('#check_id').css('color') == 'rgb(255, 0, 0)') {
+        $('#register_btn').addClass('disabled');
         return;
       }
       if(cust_name == ''){
@@ -152,7 +175,7 @@
                 <label class="form-label">
                   PHONE *
                 </label>
-                <input class="form-control form-control-sm" id="phone" type="text" name="phone" placeholder="전화번호를 숫자로만 입력하세요 *">
+                <input class="form-control form-control-sm" id="phone" type="text" name="phone" placeholder="전화번호를 입력하세요 *">
               </div>
             </div>
 
