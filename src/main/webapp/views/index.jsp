@@ -2138,7 +2138,7 @@
                   <div class="card-body">
                     <ul class="list-styled fs-sm">
                       <li class="list-styled-item">
-                        <a class="list-styled-link" href="#">내정보수정</a>
+                        <a class="list-styled-link" href="/cust/account-orders">My account</a>
                       </li>
                       <li class="list-styled-item">
                         <a class="list-styled-link" href="/cust/logout">로그아웃</a>
@@ -2369,7 +2369,7 @@
 
 <!-- JAVASCRIPT -->
 <!-- Map (replace the API key to enable) -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnKt8_N4-FKOnhI_pSaDL7g_g-XI1-R9E"></script>
+<%--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnKt8_N4-FKOnhI_pSaDL7g_g-XI1-R9E"></script>--%>
 
 <!-- Vendor JS -->
 <script src="/assets/js/vendor.bundle.js"></script>

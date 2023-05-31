@@ -29,11 +29,7 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/account-personal-info")
-    public String account_personal_info(Model model){
-        model.addAttribute("center","account-personal-info");
-        return "index";
-    }
+
     @RequestMapping("/account-wishlist")
     public String account_wishlist(Model model){
         model.addAttribute("center","account-wishlist");

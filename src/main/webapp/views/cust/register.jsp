@@ -13,7 +13,7 @@
       $('#cust_name').keyup(function (){
         var cust_id = $('#cust_id').val();
         var cust_name = $('#cust_name').val();
-        var cust_pwd = $('#cust_pwd').val();
+        var cust_pwd = $('#cust_pwd').val();`1`
 
         if(cust_id != '' && cust_name != '' && cust_pwd != ''){
           $('#register_btn').removeClass('disabled');
@@ -29,7 +29,7 @@
           data:{'id':txt_id},
           success:function(result){
             if(result == 0){
-              $('#check_id').text('사용가능한 ID입니다.');
+              $('#check_cust_id').text('사용가능한 ID입니다.');
               $('#cust_pwd').focus();
             }else{
               $('#check_id').text('이미 사용중인 ID입니다.');
@@ -44,7 +44,7 @@
       var cust_name = $('#cust_name').val();
       var cust_pwd = $('#cust_pwd').val();
       if(cust_id.length <=  3){
-        $('#check_id').text('4자리 이상이어야 합니다.');
+        $('#check_cust_id').text('4자리 이상이어야 합니다.');
         $('#cust_id').focus();
         return;
       }

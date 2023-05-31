@@ -16,8 +16,8 @@
     <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/account-wishlist">
       Wishlist
     </a>
-    <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/account-personal-info">
-      Personal Info
+    <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/personalinfo">
+      나의 정보 수정
     </a>
     <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/account-address">
       Addresses
@@ -25,8 +25,8 @@
     <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/account-payment">
       Payment Methods
     </a>
-    <a class="list-group-item list-group-item-action dropend-toggle" href="#!">
-      Logout
+    <a class="list-group-item list-group-item-action dropend-toggle" href="/cust/logout">
+      로그아웃
     </a>
   </div>
 </nav>
