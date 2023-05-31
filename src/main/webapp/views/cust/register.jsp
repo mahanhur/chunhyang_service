@@ -26,13 +26,15 @@
         }
         $.ajax({
           url:'/checkid',
-          data:{'id':txt_id},
+          data:{'cust_id':txt_id},
           success:function(result){
             if(result == 0){
-              $('#check_cust_id').text('사용가능한 ID입니다.');
+              $('#check_id').html('사용가능한 ID입니다.');
+              $('#check_id').css('color','blue');
               $('#cust_pwd').focus();
             }else{
-              $('#check_id').text('이미 사용중인 ID입니다.');
+              $('#check_id').html('이미 사용중인 ID입니다.');
+              $('#check_id').css('color','red');
             }
           }
         });
@@ -119,6 +121,7 @@
                 </label>
                 <input class="form-control form-control-sm" id="cust_id" type="text" name="cust_id" placeholder="아이디를 입력하세요 *" required>
               </div>
+
             </div>
 
             <div class="col-12 col-md-6">
@@ -130,6 +133,8 @@
                 <input class="form-control form-control-sm" id="cust_pwd" type="password" name="cust_pwd" placeholder="비밀번호를 입력하세요 *" required>
               </div>
             </div>
+
+            <div style="font-size:12px;padding-bottom: 10px" id="check_id"></div>
 
             <div class="col-12">
               <!-- Name -->
