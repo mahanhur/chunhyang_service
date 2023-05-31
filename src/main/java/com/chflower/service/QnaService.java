@@ -16,7 +16,7 @@ public class QnaService implements CHService<String, Qna> {
     QnaMapper mapper;
     @Override
     public void register(Qna qna) throws Exception {
-
+        mapper.insert(qna);
     }
 
     @Override

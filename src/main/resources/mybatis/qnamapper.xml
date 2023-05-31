@@ -8,8 +8,11 @@
         SELECT * FROM qna WHERE cust_id=#{cust_id}
     </select>
 
-    <select id="selectall" resultType="cust">
+    <select id="selectall" resultType="qna">
         SELECT * FROM qna
     </select>
-
+    <insert id="insert" parameterType="qna">
+        INSERT INTO QNA (QNA_ID, CUST_ID, POST_TYPE, SUBSITEM_ID, QNA_TITLE, QNA_CONTENTS, QNA_WDATE, QNA_UDATE, QNA_IMAGE1, QNA_IMAGE2)
+               VALUES(QNA_SEQ.NEXTVAL,#{cust_id}, #{post_type}, #{subsitem_id}, #{qna_title}, #{qna_contents},SYSDATE,SYSDATE,#{qna_image1},#{qna_image2})
+    </insert>
 </mapper>

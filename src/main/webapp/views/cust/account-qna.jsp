@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!-- BREADCRUMB -->
 <nav class="py-5">
@@ -57,43 +58,37 @@
               </div>
             </br>
             <!-- Button -->
-            <a class="btn btn-sm w-100 btn-outline-dark" href="/cust/account-question">
+            <a class="btn btn-sm w-100 btn-outline-dark" href="/cust/account-question?cust_id=${logincust.cust_id}">
               문의하기
             </a>
 
           <div class="card-footer">
             <!-- Heading -->
-            <h6 class="mb-7">문의내역</h6>
-
+            <h6 class="mb-1">문의내역</h6>
             <!-- Divider -->
             <hr class="my-5">
-
-            <!-- List group -->
-
+            <!-- table -->
               <table class="table table-hover table-borderless">
                   <thead>
                   <tr>
                     <th>질  문</th>
                     <th>등록 일자</th>
+                    <th>답변여부</th>
                   </tr>
                   </thead>
                   <tbody>
                   <c:forEach var="obj" items="${qlist}">
                     <tr>
                       <td>${obj.qna_title}</td>
-                      <td>${obj.qna_wdate}</td>
+                      <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${obj.qna_wdate}"/></td>
+                      <td>#</td>
                     </tr>
                   </c:forEach>
                   </tbody>
                 </table>
           </div>
-            </div>
-
-              </div>
-            </div>
-          </div>
+    </div>
         </div>
-
       </div>
     </div>
   </div>

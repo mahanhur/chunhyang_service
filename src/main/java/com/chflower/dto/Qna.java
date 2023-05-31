@@ -1,8 +1,8 @@
 package com.chflower.dto;
 
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import javax.xml.crypto.Data;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -21,4 +21,7 @@ public class Qna {
     private Date qna_udate;
     private String qna_image1;
     private String qna_image2;
-}
+
+    private MultipartFile img1;
+    private MultipartFile img2;
+    }
