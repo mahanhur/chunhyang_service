@@ -2,29 +2,23 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.chflower.mapper.ItemMapper">
+<mapper namespace="com.chflower.mapper.ItemimgMapper">
 
-    <select id="selectLargestid" resultType="Integer">
-        SELECT MAX(ITEM_ID) AS LagestId
-        FROM item
+    <select id="getpage" resultType="itemimg">
+        SELECT *
+        FROM item_img
     </select>
 
-    <select id="getpage" resultType="item">
+    <select id="select" parameterType="Integer" resultType="itemimg">
         SELECT *
-        FROM item
-    </select>
-
-    <select id="select" parameterType="Integer" resultType="item">
-        SELECT *
-        FROM item
+        FROM item_img
         WHERE item_id = #{item_id}
     </select>
 
-
     <!--    id는 ItemMapper의 함수의 이름들이다-->
-    <select id="selectall" resultType="item">
+    <select id="selectall" resultType="itemimg">
         SELECT *
-        FROM item
+        FROM item_img
     </select>
 
 
@@ -34,24 +28,24 @@
 <!--                VALUES (item_seq.NEXTVAL, #{category_id}, #{item_img1} ,#{item_name}, #{item_cnt}, #{item_price}, #{item_content},#{item_img2}, #{item_img3}, #{item_img4}, #{item_img5}, SYSDATE, #{flower_color}, #{flower_type}, #{flower_size})-->
 <!--    </insert>-->
 
-    <insert id="insert" parameterType="item">
-        INSERT INTO ITEM
-        (ITEM_ID, CATEGORY_ID, ITEM_IMG, ITEM_NAME, ITEM_CNT, ITEM_PRICE, ITEM_CONTENT, ITEM_RDATE, FLOWER_COLOR, FLOWER_TYPE, FLOWER_SIZE, MAIN_IMG)
-        VALUES (#{item_id}, #{category_id}, #{item_img}, #{item_name}, #{item_cnt}, #{item_price}, #{item_content}, SYSDATE, #{flower_color}, #{flower_type}, #{flower_size}, '1')
-    </insert>
 
+    <insert id="insert" parameterType="itemimg">
+        INSERT INTO ITEM_IMG
+        (ITEM_ID, ITEM_SUBIMG)
+        VALUES (#{item_id}, #{item_subimg})
+    </insert>
 
 
 <!--    <update id="update" parameterType="item">-->
 <!--        UPDATE item-->
 <!--        SET name=#{name},-->
 <!--            price=#{price},-->
-<!--            imgname=#{imgname}-->
+<!--            imgname=#`{imgname}-->
 <!--        WHERE id = #{id}-->
 <!--    </update>-->
     <delete id="delete" parameterType="Integer">
         DELETE
-        FROM item
+        FROM item_img
         WHERE item_id = #{item_id}
     </delete>
 

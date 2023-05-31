@@ -1867,8 +1867,8 @@
         <li class="nav-item dropdown">
 
           <!-- Toggle -->
-          <a class="nav-link" data-bs-toggle="dropdown" href="#">Shop</a>
-
+          <a class="nav-link"  href="/item/all">꽃</a>
+<%--          위에서 href 연결하려고 일단빼놈 data-bs-toggle="dropdown"--%>
           <!-- Menu -->
           <div class="dropdown-menu" style="min-width: 650px;">
             <div class="card card-lg">
