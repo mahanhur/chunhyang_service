@@ -10,8 +10,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
+<%--  <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">--%>
 
-
+<%--  <style>--%>
+<%--    body {font-family: 'SUIT Variable', sans-serif;}--%>
+<%--  </style>--%>
 
 
 
