@@ -23,7 +23,8 @@
   <!-- Theme CSS -->
   <link rel="stylesheet" href="/assets/css/theme.bundle.css" />
   <!-- -------------------------------------------------------------------------------- -->
-  <title>chunhyang</title>
+  <title>:: 봄의 향기</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/uimg/logo.png">
 
 </head>
 
@@ -1602,7 +1603,7 @@
 
     <!-- Brand -->
     <a class="navbar-brand" href="/">
-      <!-- 메인로고자리 -->춘향전
+      <img src="/uimg/logo_txt.png" style="height: 80px;">
     </a>
 
     <!-- Toggler -->

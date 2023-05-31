@@ -106,10 +106,11 @@ public class CustController {
         Cust cust = null;
         try {
             cust =custservice.get(cust_id);
+            log.info("----------------------");
+            log.info(cust.toString());
+            log.info("----------------------");
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new Exception("시스템장애 : 나의정보 조회 에러");
-
+            log.info("오류");
         }
         model.addAttribute("personalinfo",cust);
         model.addAttribute("center",dir+"personalinfo");
