@@ -1871,6 +1871,7 @@
 
           <!-- Toggle -->
           <a class="nav-link"  href="/item/all">꽃</a>
+
 <%--          위에서 href 연결하려고 일단빼놈 data-bs-toggle="dropdown"--%>
           <!-- Menu -->
           <div class="dropdown-menu" style="min-width: 650px;">
@@ -2038,6 +2039,11 @@
           </div>
 
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link"  href="/subscribe">정기구독</a>
+        </li>
+
         <li class="nav-item dropdown">
 
           <!-- Toggle -->
