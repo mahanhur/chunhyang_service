@@ -22,21 +22,11 @@
           AND C.ID = #{id}
     </select>
     <select id="getmycart" parameterType="String" resultType="cart">
-        SELECT C.ID
-             , C.CUST_ID
-             , C.ITEM_ID
-             , C.CNT
-             , C.RDATE
-             , CU.NAME   AS CUST_NAME
-             , I.NAME    AS ITEM_NAME
-             , I.PRICE   AS ITEM_PRICE
-             , I.IMGNAME AS ITEM_IMGNAME
-        FROM CART C,
-             CUST CU,
-             ITEM I
-        WHERE C.CUST_ID = CU.ID
-          AND C.ITEM_ID = I.ID
-          AND C.CUST_ID = #{cid}
+        select ca.cart_id, ca.cust_id, ca.item_id, ca.cnt, ca.item_rdate, cu.cust_name, i.item_img, i.item_name, i.item_price, i.flower_color, i.flower_type, i.flower_size
+        from cart ca, cust cu, item i
+        where ca.cust_id = cu.cust_id
+          AND ca.item_id = i.item_id
+          AND cu.cust_id = #{cid}
     </select>
     <select id="selectall" resultType="cart">
         SELECT C.ID

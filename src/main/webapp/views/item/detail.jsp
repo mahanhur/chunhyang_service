@@ -2,7 +2,35 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+<script>
+    let item_get = {
+        init: function () {
+            $('.cart_btn').click(function () {
+                let cust_id = "${logincust.id}";
+                let item_id = $(this).data('itemid');
+                let cnt = null;
+                $.ajax({
+                    url: '/addcart',
+                    type: 'post',
+                    data: {cust_id: cust_id, item_id: item_id, cnt: 1},
+                    success: function () {
+                        if(cust_id != '') {
+                            location.href="/cart?cid="+cust_id;
+                        } else {
+                            location.href="/login"
+                        }
+                    },
+                    error:()=>{
+                        alert("ajax에러")
+                    }
+                });
+            });
+        }
+    };
+    $(function () {
+        item_get.init();
+    });
+</script>
 <!doctype html>
 <html lang="en">
 <head>
@@ -260,127 +288,127 @@
                             <span class="fs-sm">(In Stock)</span>
                         </div>
 
-                        <!-- Form -->
-                        <form>
-                            <div class="form-group">
+<%--                        <!-- Form -->--%>
+<%--                        <form>--%>
+<%--                            <div class="form-group">--%>
 
-                                <!-- Label -->
-                                <p>
-                                    Color: <strong id="modalProductColorCaption">White</strong>
-                                </p>
+<%--                                <!-- Label -->--%>
+<%--                                <p>--%>
+<%--                                    Color: <strong id="modalProductColorCaption">White</strong>--%>
+<%--                                </p>--%>
 
-                                <!-- Radio -->
-                                <div class="mb-8 ms-n1">
-                                    <div class="form-check form-check-inline form-check-img">
-                                        <input type="radio" class="form-check-input" id="modalProductColorOne" name="modalProductColor" data-toggle="form-caption" data-target="#modalProductColorCaption" value="White" style="background-image: url(./assets/img/products/product-7.jpg);" checked>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-img">
-                                        <input type="radio" class="form-check-input" id="modalProductColorTwo" name="modalProductColor" data-toggle="form-caption" data-target="#modalProductColorCaption" value="Black" style="background-image: url(./assets/img/products/product-49.jpg);">
-                                    </div>
-                                </div>
+<%--                                <!-- Radio -->--%>
+<%--                                <div class="mb-8 ms-n1">--%>
+<%--                                    <div class="form-check form-check-inline form-check-img">--%>
+<%--                                        <input type="radio" class="form-check-input" id="modalProductColorOne" name="modalProductColor" data-toggle="form-caption" data-target="#modalProductColorCaption" value="White" style="background-image: url(./assets/img/products/product-7.jpg);" checked>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-img">--%>
+<%--                                        <input type="radio" class="form-check-input" id="modalProductColorTwo" name="modalProductColor" data-toggle="form-caption" data-target="#modalProductColorCaption" value="Black" style="background-image: url(./assets/img/products/product-49.jpg);">--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
 
-                            </div>
-                            <div class="form-group">
+<%--                            </div>--%>
+<%--                            <div class="form-group">--%>
 
-                                <!-- Label -->
-                                <p>
-                                    Size: <strong><span id="modalProductSizeCaption">7.5</span> US</strong>
-                                </p>
+<%--                                <!-- Label -->--%>
+<%--                                <p>--%>
+<%--                                    Size: <strong><span id="modalProductSizeCaption">7.5</span> US</strong>--%>
+<%--                                </p>--%>
 
-                                <!-- Radio -->
-                                <div class="mb-2">
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeOne" value="6" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeOne">6</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeTwo" value="6.5" data-toggle="form-caption" data-target="#modalProductSizeCaption" disabled>
-                                        <label class="form-check-label" for="modalProductSizeTwo">6.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeThree" value="7" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeThree">7</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeFour" value="7.5" data-toggle="form-caption" data-target="#modalProductSizeCaption" checked>
-                                        <label class="form-check-label" for="modalProductSizeFour">7.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeFive" value="8" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeFive">8</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeSix" value="8.5" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeSix">8.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeSeven" value="9" data-toggle="form-caption" data-target="#modalProductSizeCaption" disabled>
-                                        <label class="form-check-label" for="modalProductSizeSeven">9</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeEight" value="9.5" data-toggle="form-caption" data-target="#modalProductSizeCaption" disabled>
-                                        <label class="form-check-label" for="modalProductSizeEight">9.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeNine" value="10" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeNine">10</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeTen" value="10.5" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeTen">10.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeEleven" value="11" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeEleven">11</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeTwelve" value="12" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeTwelve">12</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeThirteen" value="13" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeThirteen">13</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeFourteen" value="14" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeFourteen">14</label>
-                                    </div>
-                                </div>
+<%--                                <!-- Radio -->--%>
+<%--                                <div class="mb-2">--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeOne" value="6" data-toggle="form-caption" data-target="#modalProductSizeCaption">--%>
+<%--                                        <label class="form-check-label" for="modalProductSizeOne">6</label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeTwo" value="6.5" data-toggle="form-caption" data-target="#modalProductSizeCaption" disabled>--%>
+<%--                                        <label class="form-check-label" for="modalProductSizeTwo">6.5</label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeThree" value="7" data-toggle="form-caption" data-target="#modalProductSizeCaption">--%>
+<%--                                        <label class="form-check-label" for="modalProductSizeThree">7</label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeFour" value="7.5" data-toggle="form-caption" data-target="#modalProductSizeCaption" checked>--%>
+<%--                                        <label class="form-check-label" for="modalProductSizeFour">7.5</label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeFive" value="8" data-toggle="form-caption" data-target="#modalProductSizeCaption">--%>
+<%--                                        <label class="form-check-label" for="modalProductSizeFive">8</label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeSix" value="8.5" data-toggle="form-caption" data-target="#modalProductSizeCaption">--%>
+<%--                                        <label class="form-check-label" for="modalProductSizeSix">8.5</label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeSeven" value="9" data-toggle="form-caption" data-target="#modalProductSizeCaption" disabled>--%>
+<%--                                        <label class="form-check-label" for="modalProductSizeSeven">9</label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeEight" value="9.5" data-toggle="form-caption" data-target="#modalProductSizeCaption" disabled>--%>
+<%--                                        <label class="form-check-label" for="modalProductSizeEight">9.5</label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeNine" value="10" data-toggle="form-caption" data-target="#modalProductSizeCaption">--%>
+<%--                                        <label class="form-check-label" for="modalProductSizeNine">10</label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeTen" value="10.5" data-toggle="form-caption" data-target="#modalProductSizeCaption">--%>
+<%--                                        <label class="form-check-label" for="modalProductSizeTen">10.5</label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeEleven" value="11" data-toggle="form-caption" data-target="#modalProductSizeCaption">--%>
+<%--                                        <label class="form-check-label" for="modalProductSizeEleven">11</label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeTwelve" value="12" data-toggle="form-caption" data-target="#modalProductSizeCaption">--%>
+<%--                                        <label class="form-check-label" for="modalProductSizeTwelve">12</label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeThirteen" value="13" data-toggle="form-caption" data-target="#modalProductSizeCaption">--%>
+<%--                                        <label class="form-check-label" for="modalProductSizeThirteen">13</label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeFourteen" value="14" data-toggle="form-caption" data-target="#modalProductSizeCaption">--%>
+<%--                                        <label class="form-check-label" for="modalProductSizeFourteen">14</label>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
 
-                            </div>
-                            <div class="form-group mb-0">
-                                <div class="row gx-5">
-                                    <div class="col-12 col-lg-auto">
+<%--                            </div>--%>
+<%--                            <div class="form-group mb-0">--%>
+<%--                                <div class="row gx-5">--%>
+<%--                                    <div class="col-12 col-lg-auto">--%>
 
-                                        <!-- Quantity -->
-                                        <select class="form-select mb-2">
-                                            <option value="1" selected>1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>
+<%--                                        <!-- Quantity -->--%>
+<%--                                        <select class="form-select mb-2">--%>
+<%--                                            <option value="1" selected>1</option>--%>
+<%--                                            <option value="2">2</option>--%>
+<%--                                            <option value="3">3</option>--%>
+<%--                                            <option value="4">4</option>--%>
+<%--                                            <option value="5">5</option>--%>
+<%--                                        </select>--%>
 
-                                    </div>
-                                    <div class="col-12 col-lg">
+<%--                                    </div>--%>
+<%--                                    <div class="col-12 col-lg">--%>
 
-                                        <!-- Submit -->
-                                        <button type="submit" class="btn w-100 btn-dark mb-2">
-                                            Add to Cart <i class="fe fe-shopping-cart ms-2"></i>
-                                        </button>
+<%--                                        <!-- Submit -->--%>
+<%--                                        <button type="submit" class="btn w-100 btn-dark mb-2">--%>
+<%--                                            Add to Cart <i class="fe fe-shopping-cart ms-2"></i>--%>
+<%--                                        </button>--%>
 
-                                    </div>
-                                    <div class="col-12 col-lg-auto">
+<%--                                    </div>--%>
+<%--                                    <div class="col-12 col-lg-auto">--%>
 
-                                        <!-- Wishlist -->
-                                        <button class="btn btn-outline-dark w-100 mb-2" data-toggle="button">
-                                            Wishlist <i class="fe fe-heart ms-2"></i>
-                                        </button>
+<%--                                        <!-- Wishlist -->--%>
+<%--                                        <button class="btn btn-outline-dark w-100 mb-2" data-toggle="button">--%>
+<%--                                            Wishlist <i class="fe fe-heart ms-2"></i>--%>
+<%--                                        </button>--%>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </form>--%>
 
                     </div>
                 </div>
@@ -1612,100 +1640,68 @@
                             <span class="ms-1 fs-5 fw-bolder text-primary">
                                 <fmt:formatNumber value="${detail.item_price}" pattern="###,###원"/>
                             </span>
+                            <span class="badge rounded bg-success">재고: ${detail.item_cnt}개</span>
                             <span class="fs-sm ms-1">(In Stock)</span>
                         </div>
 
                         <!-- Form -->
                         <form>
                             <div class="form-group">
-
                                 <!-- Label -->
                                 <p class="mb-5">
-                                    Color: <strong id="colorCaption">White</strong>
+                                    <strong id="contentCaption">${detail.item_content}</strong>
                                 </p>
-
-                                <!-- Radio -->
-                                <div class="mb-8 ms-n1">
-                                    <div class="form-check form-check-inline form-check-img">
-                                        <input type="radio" class="form-check-input" id="imgRadioOne" name="imgRadio" data-toggle="form-caption" data-target="#colorCaption" value="White" style="background-image: url(assets/img/products/product-7.jpg);" checked>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-img">
-                                        <input type="radio" class="form-check-input" id="imgRadioTwo" name="imgRadio" data-toggle="form-caption" data-target="#colorCaption" value="Black" style="background-image: url(assets/img/products/product-49.jpg);">
-                                    </div>
-                                </div>
-
                             </div>
                             <div class="form-group">
-
                                 <!-- Label -->
                                 <p class="mb-5">
-                                    Size: <strong><span id="sizeCaption">7.5</span> US</strong>
+                                    Type: <strong id="typeCaption">${detail.flower_type}</strong>
                                 </p>
+                            </div>
+                            <div class="form-group">
+                                <!-- Label -->
+                                <p class="mb-5">
+                                    Color: <strong id="colorCaption">${detail.flower_color}</strong>
+                                </p>
+                            </div>
+<%--                                <!-- Radio -->--%>
+<%--                                <div class="mb-8 ms-n1">--%>
+<%--                                    <div class="form-check form-check-inline form-check-img">--%>
+<%--                                        <input type="radio" class="form-check-input" id="imgRadioOne" name="imgRadio" data-toggle="form-caption" data-target="#colorCaption" value="White" style="background-image: url(assets/img/products/product-7.jpg);" checked>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-img">--%>
+<%--                                        <input type="radio" class="form-check-input" id="imgRadioTwo" name="imgRadio" data-toggle="form-caption" data-target="#colorCaption" value="Black" style="background-image: url(assets/img/products/product-49.jpg);">--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
 
+
+                            <div class="form-group">
+                                <!-- Label -->
+                                <p class="mb-5">
+                                    Size: <strong><span id="sizeCaption">${detail.flower_size}</span></strong>
+                                </p>
+                            </div>
                                 <!-- Radio -->
-                                <div class="mb-2">
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioOne" value="6" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioOne">6</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioTwo" value="6.5" data-toggle="form-caption" data-target="#sizeCaption" disabled>
-                                        <label class="form-check-label" for="sizeRadioTwo">6.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioThree" value="7" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioThree">7</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioFour" value="7.5" data-toggle="form-caption" data-target="#sizeCaption" checked>
-                                        <label class="form-check-label" for="sizeRadioFour">7.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioFive" value="8" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioFive">8</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioSix" value="8.5" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioSix">8.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioSeven" value="9" data-toggle="form-caption" data-target="#sizeCaption" disabled>
-                                        <label class="form-check-label" for="sizeRadioSeven">9</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioEight" value="9.5" data-toggle="form-caption" data-target="#sizeCaption" disabled>
-                                        <label class="form-check-label" for="sizeRadioEight">9.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioNine" value="10" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioNine">10</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioTen" value="10.5" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioTen">10.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioEleven" value="11" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioEleven">11</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioTwelve" value="12" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioTwelve">12</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioThirteen" value="13" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioThirteen">13</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioFourteen" value="14" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioFourteen">14</label>
-                                    </div>
-                                </div>
+<%--                                <div class="mb-2">--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioOne" value="S" data-toggle="form-caption" data-target="#sizeCaption">--%>
+<%--                                        <label class="form-check-label" for="sizeRadioOne">Small</label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioTwo" value="M" data-toggle="form-caption" data-target="#sizeCaption" >--%>
+<%--&lt;%&ndash;                                        disabled 하면 클릭불가됨&ndash;%&gt;--%>
+<%--                                        <label class="form-check-label" for="sizeRadioTwo">Medium</label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
+<%--                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioThree" value="L" data-toggle="form-caption" data-target="#sizeCaption">--%>
+<%--                                        <label class="form-check-label" for="sizeRadioThree">Large</label>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
 
-                                <!-- Size chart -->
-                                <p class="mb-8">
-                                    <img src="assets/img/icons/icon-ruler.svg" alt="..." class="img-fluid"> <a class="text-reset text-decoration-underline ms-3" data-bs-toggle="modal" href="#modalSizeChart">Size chart</a>
-                                </p>
+<%--                                <!-- Size chart -->--%>
+<%--                                <p class="mb-8">--%>
+<%--                                    <img src="assets/img/icons/icon-ruler.svg" alt="..." class="img-fluid"> <a class="text-reset text-decoration-underline ms-3" data-bs-toggle="modal" href="#modalSizeChart">Size chart</a>--%>
+<%--                                </p>--%>
 
                                 <div class="row gx-5 mb-7">
                                     <div class="col-12 col-lg-auto">
@@ -1723,7 +1719,7 @@
                                     <div class="col-12 col-lg">
 
                                         <!-- Submit -->
-                                        <button type="submit" class="btn w-100 btn-dark mb-2">
+                                        <button type="button" class="btn w-100 btn-dark mb-2 cart_btn">
                                             Add to Cart <i class="fe fe-shopping-cart ms-2"></i>
                                         </button>
 
@@ -2835,188 +2831,6 @@
     </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="bg-dark bg-cover " style="background-image: url(./assets/img/patterns/pattern-2.svg)">
-    <div class="py-12 border-bottom border-gray-700">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-10 col-lg-8 col-xl-6">
-
-                    <!-- Heading -->
-                    <h5 class="mb-7 text-center text-white">Want style Ideas and Treats?</h5>
-
-                    <!-- Form -->
-                    <form class="mb-11">
-                        <div class="row gx-5 align-items-start">
-                            <div class="col">
-                                <input type="email" class="form-control form-control-gray-700 form-control-lg" placeholder="Enter Email *">
-                            </div>
-                            <div class="col-auto">
-                                <button type="submit" class="btn btn-gray-500 btn-lg">Subscribe</button>
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-3">
-
-                    <!-- Heading -->
-                    <h4 class="mb-6 text-white">Shopper.</h4>
-
-                    <!-- Social -->
-                    <ul class="list-unstyled list-inline mb-7 mb-md-0">
-                        <li class="list-inline-item">
-                            <a href="#!" class="text-gray-350">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!" class="text-gray-350">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!" class="text-gray-350">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!" class="text-gray-350">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!" class="text-gray-350">
-                                <i class="fab fa-medium"></i>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="col-6 col-sm">
-
-                    <!-- Heading -->
-                    <h6 class="heading-xxs mb-4 text-white">
-                        Support
-                    </h6>
-
-                    <!-- Links -->
-                    <ul class="list-unstyled mb-7 mb-sm-0">
-                        <li>
-                            <a class="text-gray-300" href="./contact-us.html">Contact Us</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="./faq.html">FAQs</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" data-bs-toggle="modal" href="#modalSizeChart">Size Guide</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="./shipping-and-returns.html">Shipping & Returns</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="col-6 col-sm">
-
-                    <!-- Heading -->
-                    <h6 class="heading-xxs mb-4 text-white">
-                        Shop
-                    </h6>
-
-                    <!-- Links -->
-                    <ul class="list-unstyled mb-7 mb-sm-0">
-                        <li>
-                            <a class="text-gray-300" href="./shop.html">Men's Shopping</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="./shop.html">Women's Shopping</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="./shop.html">Kids' Shopping</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="./shop.html">Discounts</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="col-6 col-sm">
-
-                    <!-- Heading -->
-                    <h6 class="heading-xxs mb-4 text-white">
-                        Company
-                    </h6>
-
-                    <!-- Links -->
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <a class="text-gray-300" href="./about.html">Our Story</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="#!">Careers</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="#!">Terms & Conditions</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="#!">Privacy & Cookie policy</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="col-6 col-sm">
-
-                    <!-- Heading -->
-                    <h6 class="heading-xxs mb-4 text-white">
-                        Contact
-                    </h6>
-
-                    <!-- Links -->
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <a class="text-gray-300" href="#!">1-202-555-0105</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="#!">1-202-555-0106</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="#!">help@shopper.com</a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="py-6">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-
-                    <!-- Copyright -->
-                    <p class="mb-3 mb-md-0 fs-xxs text-muted">
-                        © 2019 All rights reserved. Designed by Unvab.
-                    </p>
-
-                </div>
-                <div class="col-auto">
-
-                    <!-- Payment methods -->
-                    <img class="footer-payment" src="./assets/img/payment/mastercard.svg" alt="...">
-                    <img class="footer-payment" src="./assets/img/payment/visa.svg" alt="...">
-                    <img class="footer-payment" src="./assets/img/payment/amex.svg" alt="...">
-                    <img class="footer-payment" src="./assets/img/payment/paypal.svg" alt="...">
-                    <img class="footer-payment" src="./assets/img/payment/maestro.svg" alt="...">
-                    <img class="footer-payment" src="./assets/img/payment/klarna.svg" alt="...">
-
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 
 <!-- JAVASCRIPT -->
 <!-- Map (replace the API key to enable) -->

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chflower.mapper.BipumimgMapper">
+
+    <select id="getpage" resultType="itemimg">
+        SELECT *
+        FROM item_img
+    </select>
+
+    <select id="select" parameterType="Integer" resultType="bipumimg">
+        SELECT *
+        FROM item_img
+        WHERE item_id = #{item_id}
+    </select>
+
+    <!--    id는 ItemMapper의 함수의 이름들이다-->
+    <select id="selectall" resultType="bipumimg">
+        SELECT *
+        FROM item_img
+    </select>
+
+    <insert id="insert" parameterType="itemimg">
+        INSERT INTO ITEM_IMG
+        (ITEM_ID, ITEM_SUBIMG)
+        VALUES (#{item_id}, #{item_subimg})
+    </insert>
+
+    <delete id="delete" parameterType="Integer">
+        DELETE
+        FROM item_img
+        WHERE item_id = #{item_id}
+    </delete>
+
+</mapper>

@@ -1749,14 +1749,14 @@
   <div class="container">
     <div class="row">
 
-<c:forEach var="obj" items="${ilist}">
+<c:forEach var="obj" items="${ilist}" varStatus="status">
       <div class="col-6 col-md-3 col-lg">
 
         <!-- Card -->
         <div class="card mb-7" data-toggle="card-collapse">
 
           <!-- Image -->
-          <a href="/item/detail?item_id=${obj.item_id}">
+          <a href="/bipum/detail?item_id=${obj.item_id}">
             <img src="/uimg/${obj.item_img}" alt="..." class="card-img-top">
           </a>
 
@@ -1811,12 +1811,12 @@
                 </button>
               </div>
             </div>
-
           </div>
-
         </div>
-
       </div>
+  <c:if test="${status.count % 4 == 0}">
+    <div class="w-100 d-none d-lg-block"></div>
+  </c:if>
 </c:forEach>
     <div class="row">
       <div class="col-12">
