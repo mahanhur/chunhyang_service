@@ -27,12 +27,12 @@
     <!-- WELCOME -->
     <section>
       <div class="container">
-        <div class="row justify-content-center py-14 bg-cover" style="background-image: url(assets/img/covers/cover-21.jpg);">
-          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="row justify-content-center py-14 bg-cover" style="background-image: url(/uimg/about_1.png);">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-10">
 
             <!-- Heading -->
             <h1 class="mb-0 text-center text-white">
-              We believe we can all make a stylish.
+              NO REASON FOR FLOWERS
             </h1>
 
           </div>
