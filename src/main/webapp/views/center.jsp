@@ -32,96 +32,65 @@
 <!-- center  -->
 
 <!-- PROMO ( 검은배너 ) -->
-<div class="py-3 bg-dark bg-pattern mb-4">
+<div class="py-3 bg-dark bg-pattern mb-4" style="position:sticky;z-index: 1">
   <div class="container">
     <div class="row">
       <div class="col-12">
 
         <!-- Text -->
-        <form>
-          <div class="text-center text-white">
-                <span class="heading-xxs letter-spacing-xl">
-                  🌸🌸[<span id="server_time"></span>] 오늘의 꽃은 ---- 입니다 🌸🌸
-                </span>
-          </div>
-        </form>
+        <div class="text-center text-white">
+              <span class="heading-xxs letter-spacing-xl">
+                🌸🌸[<span id="server_time"></span>] 오늘의 꽃은 <span style="text-decoration: underline white">&nbsp;장미&nbsp;</span> 입니다 🌸🌸
+              </span>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CATEGORIES (사진 세개) -->
-<section>
-  <div class="row gx-0 d-block d-lg-flex flickity flickity-lg-none" data-flickity='{"watchCSS": true}'>
 
-    <!-- Item -->
-    <div class="col-12 col-md-6 col-lg-4 d-flex flex-column bg-cover" style="background-image: url(assets/img/covers/cover-1.jpg);">
-      <div class="card bg-dark-5 bg-hover text-white text-center" style="min-height: 470px;">
-        <div class="card-body mt-auto mb-n11 py-8">
+<!-- center - maintop -->
+<section class="mt-n12" data-jarallax data-speed=".8" style="background-image: url(/uimg/maintop.jpg);z-index: 0">
+  <div class="container d-flex flex-column">
+    <div class="row justify-content-center align-items-center min-vh-100 pt-15 pb-12">
+      <div class="col-12 col-md-7 col-lg-5 text-center text-black">
 
-          <!-- Heading -->
-          <h1 class="mb-0 fw-bolder">
-            Women
-          </h1>
+        <!-- Heading -->
+        <h1 class="display-4 mb-10">
+          Better Things In a Better Way
+        </h1>
+        <!-- Links -->
+        <button type="button" class="btn btn-outline-dark" href="/subscribe" style="opacity: 70%;margin:10px">정기구독</button>
+        <button type="button" class="btn btn-outline-dark" href="/item/all" style="opacity: 70%;margin:10px">꽃선물</button>
 
-        </div>
-        <div class="card-body mt-auto py-8">
-
-          <!-- Button -->
-          <a class="btn btn-white stretched-link" href="shop.jsp">
-            Shop Women <i class="fe fe-arrow-right ms-2"></i>
-          </a>
-
-        </div>
       </div>
     </div>
-
-    <!-- Card -->
-    <div class="col-12 col-md-6 col-lg-4 d-flex flex-column bg-cover" style="background-image: url(assets/img/covers/cover-2.jpg);">
-      <div class="card bg-dark-5 bg-hover text-white text-center" style="min-height: 470px;">
-        <div class="card-body mt-auto mb-n11 py-8">
-
-          <!-- Heading -->
-          <h1 class="mb-0 fw-bolder">
-            Men
-          </h1>
-
-        </div>
-        <div class="card-body mt-auto py-8">
-
-          <!-- Button -->
-          <a class="btn btn-white stretched-link" href="shop.jsp">
-            Shop Men <i class="fe fe-arrow-right ms-2"></i>
-          </a>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- Card -->
-    <div class="col-12 col-md-6 col-lg-4 d-flex flex-column bg-cover" style="background-image: url(assets/img/covers/cover-3.jpg);">
-      <div class="card bg-dark-5 bg-hover text-white text-center" style="min-height: 470px;">
-        <div class="card-body mt-auto mb-n11 py-8">
-
-          <!-- Heading -->
-          <h1 class="mb-0 fw-bolder">
-            Kids
-          </h1>
-
-        </div>
-        <div class="card-body mt-auto py-8">
-
-          <!-- Button -->
-          <a class="btn btn-white stretched-link" href="shop.jsp">
-            Shop Kids <i class="fe fe-arrow-right ms-2"></i>
-          </a>
-
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
+
+
+<%--<section>--%>
+<%--  <div class="owl-carousel owl-single home-slider">--%>
+<%--    <div class="item">--%>
+<%--      <div class="untree_co-hero" style="background-image: url('/uimg/hero-slider-1-min.jpg');">--%>
+<%--        <div class="container">--%>
+<%--          <div class="row align-items-center">--%>
+<%--            <div class="col-lg-6">--%>
+
+<%--              <h1 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">'Blooming Today'</br>꽃다발 출시(선착순)</h1>--%>
+<%--              <div class="mb-5 text-white desc mx-auto" data-aos="fade-up" data-aos-delay="200">--%>
+<%--              </div>--%>
+
+<%--              <p class="mb-0" data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-outline-black">Explore now</a></p>--%>
+
+<%--            </div>--%>
+<%--          </div>--%>
+<%--        </div>--%>
+<%--      </div> <!-- /.untree_co-hero -->--%>
+<%--    </div>--%>
+
+<%--  </div>--%>
+<%--</section>--%>
 
 <!-- FEATURES (사진 밑 문구4개) -->
 <section class="pt-7">
