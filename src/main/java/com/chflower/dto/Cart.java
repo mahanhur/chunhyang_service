@@ -17,4 +17,11 @@ public class Cart {
     private int cnt;
     private Date item_rdate;
 
+    private String cust_name;
+    private String item_img;
+    private String item_name;
+    private int item_price;
+    private String flower_color;
+    private String flower_type;
+    private String flower_size;
 }
