@@ -1,9 +1,8 @@
 package com.chflower.controller;
 
-import com.chflower.dto.Item;
-import com.chflower.dto.Itemimg;
-import com.chflower.service.ItemService;
-import com.chflower.service.ItemimgService;
+import com.chflower.dto.Bipum;
+import com.chflower.service.BipumService;
+import com.chflower.service.BipumimgService;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +19,11 @@ import java.util.List;
 @RequestMapping("/bipum")
 public class BipumController {
     @Autowired
-    ItemService itemService;
+    BipumService bipumService;
     @Autowired
-    ItemimgService itemimgService;
+    BipumimgService bipumimgService;
 //    @Autowired
 //    CartService cartService;
-
 
     String dir = "bipum/";
 
@@ -37,101 +35,68 @@ public class BipumController {
         return "index";
     }
 
-
     @RequestMapping("all")
     public String all(Model model) throws Exception {
-        List<Item> list = null;
+        List<Bipum> list = null;
         try {
-            list = itemService.get();
+            list = bipumService.get();
         } catch (Exception e) {
-            throw new Exception("시스템장애:ERORR002");
+            throw new Exception("화병/비품 전체 리스트를 가져오지 못함");
         }
-
         log.info("+++++++++++++++++++++"+list);
-
         model.addAttribute("ilist", list);
         model.addAttribute("left", dir + "left");
         model.addAttribute("center", dir + "all");
         return "index";
     }
-    @RequestMapping("/detail")
-    public String detail(Model model, Integer item_id, Item item, Itemimg itemimg) throws Exception {
-
-        item = itemService.get(item_id);
-        List<Itemimg> list= new ArrayList<>();
-        list = itemimgService.get();
-//        log.info("---------------------"+list);
-
-        List<Itemimg> ilist = new ArrayList<>();
-       for (Itemimg obj : list) {
-            if (obj.getItem_id() == item_id) {
-                ilist.add(obj);
-            }
-        }
-//        log.info("=================="+ilist);
-
-        model.addAttribute("detail", item);
-        model.addAttribute("img", itemimg);
-        model.addAttribute("ilist", ilist);
-        model.addAttribute("center", dir+"detail");
-        return "index";
-    }
-
-
-
-    @RequestMapping("allpage")
-    public String allpage(@RequestParam(required = false, defaultValue = "1") int pageNo, Model model) throws Exception {
-        PageInfo<Item> p;
-        try {
-            p = new PageInfo<>(itemService.getPage(pageNo), 5); // 5:하단 네비게이션 개수
-        } catch (Exception e) {
-            throw new Exception("시스템장애:ERORR002");
-        }
-        model.addAttribute("target", "item");
-        model.addAttribute("cpage", p);
-        model.addAttribute("left", dir + "left");
-        model.addAttribute("center", dir + "allpage");
-        return "index";
-    }
-
-    @RequestMapping("get")
-    public String get(Model model, Integer id) throws Exception {
-        Item item = null;
-        item = itemService.get(id);
-        model.addAttribute("gitem", item);
-
-        model.addAttribute("left", dir + "left");
-        model.addAttribute("center", dir + "get");
-        return "index";
-    }
-
-//    @RequestMapping("allcart")
-//    public String allcart(Model model, String id) throws Exception {
-//        List<Cart> list = null;
+//    @RequestMapping("/detail")
+//    public String detail(Model model, Integer item_id, Item item, Itemimg itemimg) throws Exception {
+//
+//        item = itemService.get(item_id);
+//        List<Itemimg> list= new ArrayList<>();
+//        list = itemimgService.get();
+////        log.info("---------------------"+list);
+//
+//        List<Itemimg> ilist = new ArrayList<>();
+//       for (Itemimg obj : list) {
+//            if (obj.getItem_id() == item_id) {
+//                ilist.add(obj);
+//            }
+//        }
+////        log.info("=================="+ilist);
+//
+//        model.addAttribute("detail", item);
+//        model.addAttribute("img", itemimg);
+//        model.addAttribute("ilist", ilist);
+//        model.addAttribute("center", dir+"detail");
+//        return "index";
+//    }
+//
+//
+//
+//    @RequestMapping("allpage")
+//    public String allpage(@RequestParam(required = false, defaultValue = "1") int pageNo, Model model) throws Exception {
+//        PageInfo<Item> p;
 //        try {
-//            list = cartService.getMyCart(id);
+//            p = new PageInfo<>(itemService.getPage(pageNo), 5); // 5:하단 네비게이션 개수
 //        } catch (Exception e) {
 //            throw new Exception("시스템장애:ERORR002");
 //        }
-//
-//        model.addAttribute("allcart", list);
-//        model.addAttribute("center", "cart");
+//        model.addAttribute("target", "item");
+//        model.addAttribute("cpage", p);
+//        model.addAttribute("left", dir + "left");
+//        model.addAttribute("center", dir + "allpage");
 //        return "index";
 //    }
-
-//    @RequestMapping("/addcart")
-//    public String addcart(Model model, Cart cart) throws Exception {
-//        cartService.register(cart);
-//        return "redirect:/item/allcart?id=" + cart.getCust_id();
-//    }
 //
-//    @RequestMapping("/delcart")
-//    public String delcart(Model model, Integer id, HttpSession session) throws Exception {
-//        cartService.remove(id);
-//        if (session != null) {
-//            Cust cust = (Cust) session.getAttribute("logincust");
-//            return "redirect:/item/allcart?id=" + cust.getId();
-//        }
-//        return "redirect:/";
+//    @RequestMapping("get")
+//    public String get(Model model, Integer id) throws Exception {
+//        Item item = null;
+//        item = itemService.get(id);
+//        model.addAttribute("gitem", item);
+//
+//        model.addAttribute("left", dir + "left");
+//        model.addAttribute("center", dir + "get");
+//        return "index";
 //    }
 }
