@@ -1,6 +1,7 @@
 package com.chflower.controller;
 
 import com.chflower.dto.Cart;
+import com.chflower.dto.Cust;
 import com.chflower.dto.Item;
 import com.chflower.dto.Itemimg;
 import com.chflower.service.CartService;
@@ -14,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +58,22 @@ public class CartController {
     //    model.addAttribute("left", dir + "left");
         model.addAttribute("center", dir + "all");
         return "index";
+    }
+
+    @RequestMapping("/addcart")
+    public String addcart(Model model, Cart cart) throws Exception {
+        cartService.register(cart);
+        return "redirect:/cart/all?id=" + cart.getCust_id();
+    }
+
+    @RequestMapping("/delcart")
+    public String delcart(Model model, Integer id, HttpSession session) throws Exception {
+        cartService.remove(id);
+        if (session != null) {
+            Cust cust = (Cust) session.getAttribute("logincust");
+            return "redirect:/cart/all?id=" + cust.getCust_id();
+        }
+        return "redirect:/";
     }
 
     @RequestMapping("/detail")
