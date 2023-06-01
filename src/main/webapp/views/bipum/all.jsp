@@ -1749,7 +1749,7 @@
   <div class="container">
     <div class="row">
 
-<c:forEach var="obj" items="${ilist}">
+<c:forEach var="obj" items="${ilist}" varStatus="status">
       <div class="col-6 col-md-3 col-lg">
 
         <!-- Card -->
@@ -1811,12 +1811,12 @@
                 </button>
               </div>
             </div>
-
           </div>
-
         </div>
-
       </div>
+  <c:if test="${status.count % 4 == 0}">
+    <div class="w-100 d-none d-lg-block"></div>
+  </c:if>
 </c:forEach>
     <div class="row">
       <div class="col-12">

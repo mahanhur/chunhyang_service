@@ -5,8 +5,7 @@
 
 <body>
 
-<!-- MODALS -->
-<!-- Newsletter: Horizontal -->
+<%--<!-- Newsletter: Horizontal -->
 <div class="modal fade" id="modalNewsletterHorizontal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
@@ -205,1279 +204,7 @@
         </div>
 
     </div>
-</div>
-
-<!-- Product -->
-<div class="modal fade" id="modalProduct" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-        <div class="modal-content">
-
-            <!-- Close -->
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                <i class="fe fe-x" aria-hidden="true"></i>
-            </button>
-
-            <!-- Content -->
-            <div class="container-fluid px-xl-0">
-                <div class="row align-items-center mx-xl-0">
-                    <div class="col-12 col-lg-6 col-xl-5 py-4 py-xl-0 px-xl-0">
-
-                        <!-- Image -->
-                        <img class="img-fluid" src="/uimg/${detail.item_img}" alt="...">
-
-                        <!-- Button -->
-                        <a class="btn btn-sm w-100 btn-primary" href="./product.html">
-                            More Product Info <i class="fe fe-info ms-2"></i>
-                        </a>
-
-                    </div>
-                    <div class="col-12 col-lg-6 col-xl-7 py-9 px-md-9">
-
-                        <!-- Heading -->
-                        <h4 class="mb-3">${detail.item_name}</h4>
-
-                        <!-- Price -->
-                        <div class="mb-7">
-                            <span class="h5">${detail.item_price}</span>
-                            <span class="fs-sm">(In Stock)</span>
-                        </div>
-
-                        <!-- Form -->
-                        <form>
-                            <div class="form-group">
-
-                                <!-- Label -->
-                                <p>
-                                    Color: <strong id="modalProductColorCaption">White</strong>
-                                </p>
-
-                                <!-- Radio -->
-                                <div class="mb-8 ms-n1">
-                                    <div class="form-check form-check-inline form-check-img">
-                                        <input type="radio" class="form-check-input" id="modalProductColorOne" name="modalProductColor" data-toggle="form-caption" data-target="#modalProductColorCaption" value="White" style="background-image: url(./assets/img/products/product-7.jpg);" checked>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-img">
-                                        <input type="radio" class="form-check-input" id="modalProductColorTwo" name="modalProductColor" data-toggle="form-caption" data-target="#modalProductColorCaption" value="Black" style="background-image: url(./assets/img/products/product-49.jpg);">
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="form-group">
-
-                                <!-- Label -->
-                                <p>
-                                    Size: <strong><span id="modalProductSizeCaption">7.5</span> US</strong>
-                                </p>
-
-                                <!-- Radio -->
-                                <div class="mb-2">
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeOne" value="6" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeOne">6</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeTwo" value="6.5" data-toggle="form-caption" data-target="#modalProductSizeCaption" disabled>
-                                        <label class="form-check-label" for="modalProductSizeTwo">6.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeThree" value="7" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeThree">7</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeFour" value="7.5" data-toggle="form-caption" data-target="#modalProductSizeCaption" checked>
-                                        <label class="form-check-label" for="modalProductSizeFour">7.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeFive" value="8" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeFive">8</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeSix" value="8.5" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeSix">8.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeSeven" value="9" data-toggle="form-caption" data-target="#modalProductSizeCaption" disabled>
-                                        <label class="form-check-label" for="modalProductSizeSeven">9</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeEight" value="9.5" data-toggle="form-caption" data-target="#modalProductSizeCaption" disabled>
-                                        <label class="form-check-label" for="modalProductSizeEight">9.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeNine" value="10" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeNine">10</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeTen" value="10.5" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeTen">10.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeEleven" value="11" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeEleven">11</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeTwelve" value="12" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeTwelve">12</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeThirteen" value="13" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeThirteen">13</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="modalProductSize" id="modalProductSizeFourteen" value="14" data-toggle="form-caption" data-target="#modalProductSizeCaption">
-                                        <label class="form-check-label" for="modalProductSizeFourteen">14</label>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="form-group mb-0">
-                                <div class="row gx-5">
-                                    <div class="col-12 col-lg-auto">
-
-                                        <!-- Quantity -->
-                                        <select class="form-select mb-2">
-                                            <option value="1" selected>1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>
-
-                                    </div>
-                                    <div class="col-12 col-lg">
-
-                                        <!-- Submit -->
-                                        <button type="submit" class="btn w-100 btn-dark mb-2">
-                                            Add to Cart <i class="fe fe-shopping-cart ms-2"></i>
-                                        </button>
-
-                                    </div>
-                                    <div class="col-12 col-lg-auto">
-
-                                        <!-- Wishlist -->
-                                        <button class="btn btn-outline-dark w-100 mb-2" data-toggle="button">
-                                            Wishlist <i class="fe fe-heart ms-2"></i>
-                                        </button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!-- Search -->
-<div class="offcanvas offcanvas-end" id="modalSearch" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Close -->
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
-        <i class="fe fe-x" aria-hidden="true"></i>
-    </button>
-
-    <!-- Header-->
-    <div class="offcanvas-header lh-fixed fs-lg">
-        <strong class="mx-auto">Search Products</strong>
-    </div>
-
-    <!-- Body: Form -->
-    <div class="offcanvas-body">
-        <form>
-            <div class="form-group">
-                <label class="visually-hidden" for="modalSearchCategories">Categories:</label>
-                <select class="form-select" id="modalSearchCategories">
-                    <option selected>All Categories</option>
-                    <option>Women</option>
-                    <option>Men</option>
-                    <option>Kids</option>
-                </select>
-            </div>
-            <div class="input-group input-group-merge">
-                <input class="form-control" type="search" placeholder="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-border" type="submit">
-                        <i class="fe fe-search"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-
-    <!-- Body: Results (add `.d-none` to disable it) -->
-    <div class="offcanvas-body border-top fs-sm">
-
-        <!-- Heading -->
-        <p>Search Results:</p>
-
-        <!-- Items -->
-        <div class="row align-items-center position-relative mb-5">
-            <div class="col-4 col-md-3">
-
-                <!-- Image -->
-                <img class="img-fluid" src="./assets/img/products/product-5.jpg" alt="...">
-
-            </div>
-            <div class="col position-static">
-
-                <!-- Text -->
-                <p class="mb-0 fw-bold">
-                    <a class="stretched-link text-body" href="./product.html">Leather mid-heel Sandals</a> <br>
-                    <span class="text-muted">$129.00</span>
-                </p>
-
-            </div>
-        </div>
-        <div class="row align-items-center position-relative mb-5">
-            <div class="col-4 col-md-3">
-
-                <!-- Image -->
-                <img class="img-fluid" src="./assets/img/products/product-6.jpg" alt="...">
-
-            </div>
-            <div class="col position-static">
-
-                <!-- Text -->
-                <p class="mb-0 fw-bold">
-                    <a class="stretched-link text-body" href="./product.html">Cotton floral print Dress</a> <br>
-                    <span class="text-muted">$40.00</span>
-                </p>
-
-            </div>
-        </div>
-        <div class="row align-items-center position-relative mb-5">
-            <div class="col-4 col-md-3">
-
-                <!-- Image -->
-                <img class="img-fluid" src="./assets/img/products/product-7.jpg" alt="...">
-
-            </div>
-            <div class="col position-static">
-
-                <!-- Text -->
-                <p class="mb-0 fw-bold">
-                    <a class="stretched-link text-body" href="./product.html">여기뭐냐</a> <br>
-                    <span class="text-primary">$85.00</span>
-                </p>
-
-            </div>
-        </div>
-        <div class="row align-items-center position-relative mb-5">
-            <div class="col-4 col-md-3">
-
-                <!-- Image -->
-                <img class="img-fluid" src="./assets/img/products/product-8.jpg" alt="...">
-
-            </div>
-            <div class="col position-static">
-
-                <!-- Text -->
-                <p class="mb-0 fw-bold">
-                    <a class="stretched-link text-body" href="./product.html">Cropped cotton Top</a> <br>
-                    <span class="text-muted">$29.00</span>
-                </p>
-
-            </div>
-        </div>
-        <div class="row align-items-center position-relative mb-5">
-            <div class="col-4 col-md-3">
-
-                <!-- Image -->
-                <img class="img-fluid" src="./assets/img/products/product-9.jpg" alt="...">
-
-            </div>
-            <div class="col position-static">
-
-                <!-- Text -->
-                <p class="mb-0 fw-bold">
-                    <a class="stretched-link text-body" href="./product.html">Floral print midi Dress</a> <br>
-                    <span class="text-muted">$50.00</span>
-                </p>
-
-            </div>
-        </div>
-
-        <!-- Button -->
-        <a class="btn btn-link px-0 text-reset" href="./shop.html">
-            View All <i class="fe fe-arrow-right ms-2"></i>
-        </a>
-
-    </div>
-
-    <!-- Body: Empty (remove `.d-none` to enable it) -->
-    <div class="offcanvas-body d-none">
-
-        <!-- Text -->
-        <p class="mb-3 fs-sm text-center">
-            Nothing matches your search
-        </p>
-
-        <!-- Smiley -->
-        <p class="mb-0 fs-sm text-center">
-            😞
-        </p>
-
-    </div>
-
-</div>
-
-<!-- Shopping Cart -->
-<div class="offcanvas offcanvas-end" id="modalShoppingCart" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Full cart (add `.d-none` to disable it) -->
-
-    <!-- Close -->
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
-        <i class="fe fe-x" aria-hidden="true"></i>
-    </button>
-
-    <!-- Header-->
-    <div class="offcanvas-header lh-fixed fs-lg">
-        <strong class="mx-auto">Your Cart (2)</strong>
-    </div>
-
-    <!-- List group -->
-    <ul class="list-group list-group-lg list-group-flush">
-        <li class="list-group-item">
-            <div class="row align-items-center">
-                <div class="col-4">
-
-                    <!-- Image -->
-                    <a href="./product.html">
-                        <img class="img-fluid" src="./assets/img/products/product-6.jpg" alt="...">
-                    </a>
-
-                </div>
-                <div class="col-8">
-
-                    <!-- Title -->
-                    <p class="fs-sm fw-bold mb-6">
-                        <a class="text-body" href="./product.html">Cotton floral print Dress</a> <br>
-                        <span class="text-muted">$40.00</span>
-                    </p>
-
-                    <!--Footer -->
-                    <div class="d-flex align-items-center">
-
-                        <!-- Select -->
-                        <select class="form-select form-select-xxs w-auto">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
-                        </select>
-
-                        <!-- Remove -->
-                        <a class="fs-xs text-gray-400 ms-auto" href="#!">
-                            <i class="fe fe-x"></i> Remove
-                        </a>
-
-                    </div>
-
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row align-items-center">
-                <div class="col-4">
-
-                    <!-- Image -->
-                    <a href="./product.html">
-                        <img class="img-fluid" src="./assets/img/products/product-10.jpg" alt="...">
-                    </a>
-
-                </div>
-                <div class="col-8">
-
-                    <!-- Title -->
-                    <p class="fs-sm fw-bold mb-6">
-                        <a class="text-body" href="./product.html">Suede cross body Bag</a> <br>
-                        <span class="text-muted">$49.00</span>
-                    </p>
-
-                    <!--Footer -->
-                    <div class="d-flex align-items-center">
-
-                        <!-- Select -->
-                        <select class="form-select form-select-xxs w-auto">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
-                        </select>
-
-                        <!-- Remove -->
-                        <a class="fs-xs text-gray-400 ms-auto" href="#!">
-                            <i class="fe fe-x"></i> Remove
-                        </a>
-
-                    </div>
-
-                </div>
-            </div>
-        </li>
-    </ul>
-
-    <!-- Footer -->
-    <div class="offcanvas-footer justify-between lh-fixed fs-sm bg-light mt-auto">
-        <strong>Subtotal</strong> <strong class="ms-auto">$89.00</strong>
-    </div>
-
-    <!-- Buttons -->
-    <div class="offcanvas-body">
-        <a class="btn w-100 btn-dark" href="./checkout.html">Continue to Checkout</a>
-        <a class="btn w-100 btn-outline-dark mt-2" href="./shopping-cart.html">View Cart</a>
-    </div>
-
-    <!-- Empty cart (remove `.d-none` to enable it) -->
-    <div class="d-none">
-
-        <!-- Close -->
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
-            <i class="fe fe-x" aria-hidden="true"></i>
-        </button>
-
-        <!-- Header-->
-        <div class="offcanvas-header lh-fixed fs-lg">
-            <strong class="mx-auto">Your Cart (0)</strong>
-        </div>
-
-        <!-- Body -->
-        <div class="offcanvas-body flex-grow-0 my-auto">
-
-            <!-- Heading -->
-            <h6 class="mb-7 text-center">Your cart is empty 😞</h6>
-
-            <!-- Button -->
-            <a class="btn w-100 btn-outline-dark" href="#!">
-                Continue Shopping
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-<!-- Sidebar -->
-<div class="offcanvas offcanvas-end" id="modalSidebar" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Close -->
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
-        <i class="fe fe-x" aria-hidden="true"></i>
-    </button>
-
-    <!-- Body -->
-    <div class="offcanvas-body px-10 my-auto">
-
-        <!-- Nav -->
-        <ul class="nav nav-vertical nav-unstyled fs-2" id="sidebarNav">
-            <li class="nav-item">
-
-                <!-- Toggle -->
-                <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#sidebarHome">
-                    Home
-                </a>
-
-                <!-- Collapse -->
-                <div class="collapse" id="sidebarHome" data-bs-parent="#sidebarNav">
-                    <ul class="list-styled fs-lg py-3 mb-0">
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./index.html">Default</a>
-                        </li>
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./index-classic.html">Classic</a>
-                        </li>
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./index-fashion.html">Fashion</a>
-                        </li>
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./index-boxed.html">Boxed</a>
-                        </li>
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./index-simple.html">Simple</a>
-                        </li>
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./index-asymmetric.html">Asymmetric</a>
-                        </li>
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./index-sidenav.html">Sidenav</a>
-                        </li>
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./index-landing.html">Landing</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </li>
-            <li class="nav-item">
-
-                <!-- Toggle -->
-                <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#sidebarCatalog">
-                    Catalog
-                </a>
-
-                <!-- Collapse -->
-                <div class="collapse" id="sidebarCatalog" data-bs-parent="#sidebarNav">
-                    <div class="row">
-                        <div class="col-12 py-3">
-
-                            <!-- Heading -->
-                            <h6 class="mb-5 fw-bold">Clothing</h6>
-
-                            <!-- Links -->
-                            <ul class="list-styled fs-lg py-3">
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">All Clothing</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Blouses & Shirts</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Coats & Jackets</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Dresses</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Hoodies & Sweats</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Denim</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Jeans</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Jumpers & Cardigans</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Leggings</a>
-                                </li>
-                            </ul>
-
-                        </div>
-                        <div class="col-12 py-3">
-
-                            <!-- Heading -->
-                            <h6 class="mb-5 fw-bold">Shoes & Boots</h6>
-
-                            <!-- Links -->
-                            <ul class="list-styled fs-lg">
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">All Shoes & Boots</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Branded Shoes</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Boots</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Heels</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Trainers</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Sandals</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Shoes</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Wide Fit Shoes</a>
-                                </li>
-                            </ul>
-
-                        </div>
-                        <div class="col-12 py-3">
-
-                            <!-- Heading -->
-                            <h6 class="mb-5 fw-bold">Bags & Accessories</h6>
-
-                            <!-- Links -->
-                            <ul class="list-styled fs-lg">
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">All Bags & Accessories</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Accessories</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Bags & Purses</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Luggage</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Belts</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Hats</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Hair Accessories</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Jewellery</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Travel Accessories</a>
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-            </li>
-            <li class="nav-item">
-
-                <!-- Toggle -->
-                <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#sidebarShop">
-                    Shop
-                </a>
-
-                <!-- Collapse -->
-                <div class="collapse" id="sidebarShop" data-bs-parent="#sidebarNav">
-                    <div class="row">
-                        <div class="col-12 py-3">
-
-                            <!-- Heading -->
-                            <h6 class="mb-5">Shop</h6>
-
-                            <!-- Links -->
-                            <ul class="list-styled fs-lg">
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop.html">Default</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop-topbar.html">Topbar</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop-collapse.html">Collapse</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop-simple.html">Simple</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shop-masonry.html">Masonry</a>
-                                </li>
-                            </ul>
-
-                        </div>
-                        <div class="col-12 py-3">
-
-                            <!-- Heading -->
-                            <h6 class="mb-5">Product</h6>
-
-                            <!-- Links -->
-                            <ul class="list-styled fs-lg">
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./product.html">Default</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./product-images-left.html">Images Left</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./product-image-grid.html">Image Grid</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./product-image-slider.html">Image Slider</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./product-images-stacked.html">Images Stacked</a>
-                                </li>
-                            </ul>
-
-                        </div>
-                        <div class="col-12 py-3">
-
-                            <!-- Heading -->
-                            <h6 class="mb-5">Support</h6>
-
-                            <!-- Links -->
-                            <ul class="list-styled fs-lg">
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shopping-cart.html">Shopping Cart</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./checkout.html">Checkout</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./order-completed.html">Order Completed</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./shipping-and-returns.html">Shipping & Returns</a>
-                                </li>
-                            </ul>
-
-                        </div>
-                        <div class="col-12 py-3">
-
-                            <!-- Heading -->
-                            <h6 class="mb-5">Account</h6>
-
-                            <!-- Links -->
-                            <ul class="list-styled fs-lg">
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./account-order.html">Order</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./account-orders.html">Orders</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./account-wishlist.html">Wishlist</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./account-personal-info.html">Personal Info</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./account-address.html">Addresses</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./account-address-edit.html">Addresses: New</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./account-payment.html">Payment</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./account-payment-edit.html">Payment: New</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./account-payment-choose.html">Payment: Choose</a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" href="./auth.html">Auth</a>
-                                </li>
-                            </ul>
-
-                        </div>
-                        <div class="col-12 py-3">
-
-                            <!-- Heading -->
-                            <h6 class="mb-5">Modals</h6>
-
-                            <!-- Links -->
-                            <ul class="list-styled fs-lg">
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" data-bs-toggle="modal" href="#modalNewsletterHorizontal">
-                                        Newsletter: Horizontal
-                                    </a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" data-bs-toggle="modal" href="#modalNewsletterVertical">
-                                        Newsletter: Vertical
-                                    </a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" data-bs-toggle="modal" href="#modalProduct">
-                                        Product
-                                    </a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" data-bs-toggle="offcanvas" href="#modalSearch">
-                                        Search
-                                    </a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" data-bs-toggle="offcanvas" href="#modalShoppingCart">
-                                        Shopping Cart
-                                    </a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" data-bs-toggle="modal" href="#modalSizeChart">
-                                        Size Chart
-                                    </a>
-                                </li>
-                                <li class="list-styled-item">
-                                    <a class="list-styled-link" data-bs-toggle="modal" href="#modalWaitList">
-                                        Wait List
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-            </li>
-            <li class="nav-item">
-
-                <!-- Toggle -->
-                <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#sidebarPages">
-                    Pages
-                </a>
-
-                <!-- Collapse -->
-                <div class="collapse" id="sidebarPages" data-bs-parent="#sidebarNav">
-                    <ul class="list-styled fs-lg py-3 mb-0">
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./about.html">About</a>
-                        </li>
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./contact-us.html">Contact Us</a>
-                        </li>
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./store-locator.html">Store Locator</a>
-                        </li>
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./faq.html">FAQ</a>
-                        </li>
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./coming-soon.html">Coming Soon</a>
-                        </li>
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./404.html">404</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </li>
-            <li class="nav-item">
-
-                <!-- Toggle -->
-                <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#sidebarBlog">
-                    Blog
-                </a>
-
-                <!-- Collapse -->
-                <div class="collapse" id="sidebarBlog" data-bs-parent="#sidebarNav">
-                    <ul class="list-styled fs-lg py-3 mb-0">
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./blog.html">Blog</a>
-                        </li>
-                        <li class="list-styled-item">
-                            <a class="list-styled-link" href="./blog-post.html">Blog Post</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./docs/getting-started.html">Docs</a>
-            </li>
-        </ul>
-
-    </div>
-
-    <!-- Body -->
-    <div class="moda-body px-10 py-9">
-
-        <!-- Social links -->
-        <ul class="list-inline">
-            <li class="list-inline-item">
-                <a class="text-gray-350" href="#!">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="text-gray-350" href="#!">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="text-gray-350" href="#!">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="text-gray-350" href="#!">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="text-gray-350" href="#!">
-                    <i class="fab fa-medium-m"></i>
-                </a>
-            </li>
-        </ul>
-
-        <!-- Footer -->
-        <div class="fs-xxs text-gray-350">
-            © 2019 All rights reserved. Designed by Unvab.
-        </div>
-
-    </div>
-
-</div>
-
-<!-- Size Chart -->
-<div class="modal fade" id="modalSizeChart" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-
-            <!-- Close -->
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                <i class="fe fe-x" aria-hidden="true"></i>
-            </button>
-
-            <!-- Header-->
-            <div class="modal-header lh-fixed fs-lg">
-                <strong class="mx-auto">Size Chart</strong>
-            </div>
-
-            <!-- Body -->
-            <div class="modal-body border-bottom">
-
-                <!-- Header -->
-                <div class="d-flex mb-7">
-
-                    <!-- Heading -->
-                    <h5 class="mb-0">Clothing</h5>
-
-                    <!-- Inputs -->
-                    <div class="ms-auto">
-
-                        <!-- IN -->
-                        <input type="radio" class="btn-check" name="modalSizeChartUnitOne" id="inOne" checked>
-                        <label class="btn btn-xxs btn-circle btn-outline-dark fs-xxxs rounded-0" for="inOne">IN</label>
-
-                        <!-- CM -->
-                        <input type="radio" class="btn-check" name="modalSizeChartUnitOne" id="cmOne">
-                        <label class="btn btn-xxs btn-circle btn-outline-dark fs-xxxs rounded-0" for="cmOne">CM</label>
-
-                    </div>
-
-                </div>
-
-                <!-- Table -->
-                <div class="table-responsive">
-                    <table class="table table-bordered table-sm table-hover mb-0">
-                        <thead>
-                        <tr>
-                            <th>Size</th>
-                            <th>US</th>
-                            <th>Bust</th>
-                            <th>Waist</th>
-                            <th>Hips</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>XS</td>
-                            <td>2</td>
-                            <td>32</td>
-                            <td>24 - 25</td>
-                            <td>33 - 34</td>
-                        </tr>
-                        <tr>
-                            <td>S</td>
-                            <td>4</td>
-                            <td>34 - 35</td>
-                            <td>26 - 27</td>
-                            <td>35 - 26</td>
-                        </tr>
-                        <tr>
-                            <td>M</td>
-                            <td>6</td>
-                            <td>36 - 37</td>
-                            <td>28 - 29</td>
-                            <td>38 - 40</td>
-                        </tr>
-                        <tr>
-                            <td>L</td>
-                            <td>8</td>
-                            <td>38 - 29</td>
-                            <td>30 - 31</td>
-                            <td>42 - 44</td>
-                        </tr>
-                        <tr>
-                            <td>XL</td>
-                            <td>10</td>
-                            <td>40 - 41</td>
-                            <td>32 - 33</td>
-                            <td>45 - 47</td>
-                        </tr>
-                        <tr>
-                            <td>XXL</td>
-                            <td>12</td>
-                            <td>42 - 43</td>
-                            <td>34 - 35</td>
-                            <td>48 - 50</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-
-            <!-- Body -->
-            <div class="modal-body">
-
-                <!-- Header -->
-                <div class="d-flex mb-7">
-
-                    <!-- Heading -->
-                    <h5 class="mb-0">Shoes</h5>
-
-                    <!-- Inputs -->
-                    <div class="ms-auto">
-
-                        <!-- IN -->
-                        <input type="radio" class="btn-check" name="modalSizeChartUnitTwo" id="inTwo" checked>
-                        <label class="btn btn-xxs btn-circle btn-outline-dark fs-xxxs rounded-0" for="inTwo">IN</label>
-
-                        <!-- CM -->
-                        <input type="radio" class="btn-check" name="modalSizeChartUnitTwo" id="cmTwo">
-                        <label class="btn btn-xxs btn-circle btn-outline-dark fs-xxxs rounded-0" for="cmTwo">CM</label>
-
-                    </div>
-
-                </div>
-
-                <!-- Tables -->
-                <div class="row">
-                    <div class="col-12 col-lg-6">
-
-                        <!-- Table -->
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-sm table-hover mb-lg-0">
-                                <thead>
-                                <tr>
-                                    <th>Size</th>
-                                    <th>US</th>
-                                    <th>Foot Length</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>36</td>
-                                    <td>5</td>
-                                    <td>22.8</td>
-                                </tr>
-                                <tr>
-                                    <td>26.5</td>
-                                    <td>5.5</td>
-                                    <td>23.1</td>
-                                </tr>
-                                <tr>
-                                    <td>37</td>
-                                    <td>6</td>
-                                    <td>23.5</td>
-                                </tr>
-                                <tr>
-                                    <td>37.5</td>
-                                    <td>6.</td>
-                                    <td>23.5</td>
-                                </tr>
-                                <tr>
-                                    <td>38</td>
-                                    <td>7</td>
-                                    <td>24.1</td>
-                                </tr>
-                                <tr>
-                                    <td>38.5</td>
-                                    <td>7.5</td>
-                                    <td>24.5</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                    <div class="col-12 col-lg-6">
-
-                        <!-- Table -->
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-sm table-hover mb-0">
-                                <thead>
-                                <tr>
-                                    <th>Size</th>
-                                    <th>US</th>
-                                    <th>Foot Length</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>36</td>
-                                    <td>5</td>
-                                    <td>22.8</td>
-                                </tr>
-                                <tr>
-                                    <td>39</td>
-                                    <td>8</td>
-                                    <td>24.1</td>
-                                </tr>
-                                <tr>
-                                    <td>40</td>
-                                    <td>9</td>
-                                    <td>25.4</td>
-                                </tr>
-                                <tr>
-                                    <td>40.5</td>
-                                    <td>9.5</td>
-                                    <td>25.7</td>
-                                </tr>
-                                <tr>
-                                    <td>41</td>
-                                    <td>10</td>
-                                    <td>26.0</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-<!-- Wait List -->
-<div class="modal fade" id="modalWaitList" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-
-            <!-- Close -->
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                <i class="fe fe-x" aria-hidden="true"></i>
-            </button>
-
-            <!-- Header-->
-            <div class="modal-header lh-fixed fs-lg">
-                <strong class="mx-auto">Wait List</strong>
-            </div>
-
-            <!-- Body -->
-            <div class="modal-body">
-                <div class="row mb-6">
-                    <div class="col-12 col-md-3">
-
-                        <!-- Image -->
-                        <a href="./product.html">
-                            <img class="img-fluid mb-7 mb-md-0" src="./assets/img/products/product-6.jpg" alt="...">
-                        </a>
-
-                    </div>
-                    <div class="col-12 col-md-9">
-
-                        <!-- Label -->
-                        <p>
-                            <a class="fw-bold text-body" href="./product.html">Cotton floral print Dress</a>
-                        </p>
-
-                        <!-- Radio -->
-                        <div class="form-check form-check-inline form-check-size mb-2">
-                            <input type="radio" class="form-check-input" name="modalWaitListSize" id="modalWaitListSizeOne" value="6" data-toggle="form-caption" data-target="#modalWaitListSizeCaption">
-                            <label class="form-check-label" for="modalWaitListSizeOne">3XS</label>
-                        </div>
-                        <div class="form-check form-check-inline form-check-size mb-2">
-                            <input type="radio" class="form-check-input" name="modalWaitListSize" id="modalWaitListSizeTwo" value="6.5" data-toggle="form-caption" data-target="#modalWaitListSizeCaption">
-                            <label class="form-check-label" for="modalWaitListSizeTwo">2XS</label>
-                        </div>
-                        <div class="form-check form-check-inline form-check-size mb-2">
-                            <input type="radio" class="form-check-input" name="modalWaitListSize" id="modalWaitListSizeThree" value="7" data-toggle="form-caption" data-target="#modalWaitListSizeCaption">
-                            <label class="form-check-label" for="modalWaitListSizeThree">XS</label>
-                        </div>
-                        <div class="form-check form-check-inline form-check-size mb-2">
-                            <input type="radio" class="form-check-input" name="modalWaitListSize" id="modalWaitListSizeFour" value="7.5" data-toggle="form-caption" data-target="#modalWaitListSizeCaption" checked>
-                            <label class="form-check-label" for="modalWaitListSizeFour">S</label>
-                        </div>
-                        <div class="form-check form-check-inline form-check-size mb-2">
-                            <input type="radio" class="form-check-input" name="modalWaitListSize" id="modalWaitListSizeFive" value="8" data-toggle="form-caption" data-target="#modalWaitListSizeCaption">
-                            <label class="form-check-label" for="modalWaitListSizeFive">M</label>
-                        </div>
-                        <div class="form-check form-check-inline form-check-size mb-2">
-                            <input type="radio" class="form-check-input" name="modalWaitListSize" id="modalWaitListSizeSix" value="8.5" data-toggle="form-caption" data-target="#modalWaitListSizeCaption">
-                            <label class="form-check-label" for="modalWaitListSizeSix">LG</label>
-                        </div>
-                        <div class="form-check form-check-inline form-check-size mb-2">
-                            <input type="radio" class="form-check-input" name="modalWaitListSize" id="modalWaitListSizeSeven" value="9" data-toggle="form-caption" data-target="#modalWaitListSizeCaption">
-                            <label class="form-check-label" for="modalWaitListSizeSeven">XL</label>
-                        </div>
-                        <div class="form-check form-check-inline form-check-size mb-2">
-                            <input type="radio" class="form-check-input" name="modalWaitListSize" id="modalWaitListSizeEight" value="9.5" data-toggle="form-caption" data-target="#modalWaitListSizeCaption">
-                            <label class="form-check-label" for="modalWaitListSizeEight">2XL</label>
-                        </div>
-                        <div class="form-check form-check-inline form-check-size mb-2">
-                            <input type="radio" class="form-check-input" name="modalWaitListSize" id="modalWaitListSizeNine" value="10" data-toggle="form-caption" data-target="#modalWaitListSizeCaption">
-                            <label class="form-check-label" for="modalWaitListSizeNine">3XL</label>
-                        </div>
-                        <div class="form-check form-check-inline form-check-size mb-2">
-                            <input type="radio" class="form-check-input" name="modalWaitListSize" id="modalWaitListSizeTen" value="10.5" data-toggle="form-caption" data-target="#modalWaitListSizeCaption">
-                            <label class="form-check-label" for="modalWaitListSizeTen">4XL</label>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-12">
-
-                        <!-- Text -->
-                        <p class="fs-sm text-center text-gray-500">
-                            Justo ut diam erat hendrerit morbi porttitor,
-                            per eu curabitur diam sociis.
-                        </p>
-
-                    </div>
-                </div>
-                <div class="row gx-5 mb-2">
-                    <div class="col-12 col-md-6">
-
-                        <!-- Form group -->
-                        <div class="form-group">
-                            <label class="visually-hidden" for="listName">Your Name</label>
-                            <input class="form-control" id="listName" type="text" placeholder="Your Name *" required>
-                        </div>
-
-                    </div>
-                    <div class="col-12 col-md-6">
-
-                        <!-- Form group -->
-                        <div class="form-group">
-                            <label class="visually-hidden" for="listEmail">Your Name</label>
-                            <input class="form-control" id="listEmail" type="email" placeholder="Your Email *" required>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 text-center">
-
-                        <!-- Button -->
-                        <button class="btn btn-dark" type="submit">Subscribe</button>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-<!-- BREADCRUMB -->
-<nav class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-
-                <!-- Breadcrumb -->
-                <ol class="breadcrumb mb-0 fs-xs text-gray-400">
-                    <li class="breadcrumb-item">
-                        <a class="text-gray-400" href="index.html">Home</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a class="text-gray-400" href="shop.html">Women's Shoes</a>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        Leather Sneakers
-                    </li>
-                </ol>
-
-            </div>
-        </div>
-    </div>
-</nav>
+</div>--%>
 
 <!-- PRODUCT -->
 <section>
@@ -1486,77 +213,60 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-12 col-md-6">
-
-                        <!-- Card -->
+                        <!-- 왼쪽 상단 Card 시작-->
                         <div class="card">
-
                             <!-- Badge -->
                             <div class="badge bg-primary card-badge text-uppercase">
-                                Sale
+                                초특가!
                             </div>
-
-                            <!-- Slider -->
+                            <!-- 큰 이미지 시작 -->
                             <div class="mb-4" data-flickity='{"draggable": false, "fade": true}' id="productSlider">
 
                                 <!-- main Itemimg -->
-                                <a href="#" data-bigpicture='{ "imgSrc": "assets/img/products/product-7.jpg"}'>
+                                <a href="#" data-bigpicture='{ "imgSrc": "/uimg/${detail.item_img}"}'>
                                     <img src="/uimg/${detail.item_img}" alt="..." class="card-img-top">
                                 </a>
                                 <!-- sub Itemimg -->
-                                <c:forEach var="obj" items="${ilist}">
-                                    <a href="#" data-bigpicture='{ "imgSrc": "assets/img/products/product-122.jpg"}'>
+                                <c:forEach var="obj" items="${bipumlist}">
+                                    <a href="#" data-bigpicture='{"imgSrc": "/uimg/${obj.item_subimg}"}'>
                                         <img src="/uimg/${obj.item_subimg}" alt="..." class="card-img-top">
                                     </a>
                                 </c:forEach>
-
                             </div>
-
+                            <!-- 큰 이미지 끝 -->
                         </div>
+                        <!-- 왼쪽 상단 Card 끝-->
 
-                        <!-- Slider -->
+                        <!-- 작은 이미지 Slider 시작-->
                         <div class="flickity-nav mx-n2 mb-10 mb-md-0" data-flickity='{"asNavFor": "#productSlider", "contain": true, "wrapAround": false}'>
 
-                            <!-- Item -->
+                            <!-- main Item -->
                             <div class="col-12 px-2" style="max-width: 113px;">
 
-                                <!-- Image -->
-                                <div class="ratio ratio-1x1 bg-cover" style="background-image: url(/uimg/튤립1.jpg);"></div>
-
+                                <!-- main Image -->
+                                <div class="ratio ratio-1x1 bg-cover"><img src="/uimg/${detail.item_img}"></div>
                             </div>
-
-                            <!-- Item -->
+                            <!-- sub Item  -->
+                            <c:forEach var="obj" items="${bipumlist}">
                             <div class="col-12 px-2" style="max-width: 113px;">
-
-                                <!-- Image -->
-                                <div class="ratio ratio-1x1 bg-cover" style="background-image: url(assets/img/products/product-122.jpg);"></div>
-
+                                <!-- sub Image -->
+                                <div class="ratio ratio-1x1 bg-cover"><img src="/uimg/${obj.item_subimg}"></div>
                             </div>
-
-                            <!-- Item -->
-                            <div class="col-12 px-2" style="max-width: 113px;">
-
-                                <!-- Image -->
-                                <div class="ratio ratio-1x1 bg-cover" style="background-image: url(assets/img/products/product-146.jpg);"></div>
-
-                            </div>
-
+                            </c:forEach>
                         </div>
-
+                        <!-- 작은 이미지 Slider 끝-->
                     </div>
+                    <!-- 오른쪽 부분 시작 -->
                     <div class="col-12 col-md-6 ps-lg-10">
-
                         <!-- Header -->
                         <div class="row mb-1">
                             <div class="col">
-
-                                <!-- Preheading -->
-                                <a class="text-muted" href="shop.html">Sneakers</a>
-
+                                <!-- 링크. 지울까? -->
+                                <a class="text-muted" href="#">링크...넣을까??</a>
                             </div>
+                            <!-- 별점 및 리뷰 시작-->
                             <div class="col-auto">
-
-                                <!-- Rating -->
-                                <div class="rating fs-xs text-dark" data-value="4">
+                                <div class="rating fs-xs text-dark" data-value="3">
                                     <div class="rating-item">
                                         <i class="fas fa-star"></i>
                                     </div>
@@ -1573,123 +283,35 @@
                                         <i class="fas fa-star"></i>
                                     </div>
                                 </div>
-
                                 <a class="fs-sm text-reset ms-2" href="#reviews">
-                                    Reviews (6)
+                                    리뷰 (6)
                                 </a>
-
                             </div>
+                            <!-- 별점 및 리뷰 끝-->
                         </div>
+                        </br>
+                        <!-- 아이템 이름 -->
 
-                        <!-- Heading -->
-                        <h3 class="mb-2">${detail.item_name}</h3>
-
-                        <!-- Price -->
+                        <h3 class="mb-2">${detail.item_name}</h3></br>
+                        <h7 class="mb-2">${detail.item_content}</h7>
+                        <hr>
+                        <!-- 가격 및 재고 -->
                         <div class="mb-7">
-<%--                            <span class="fs-lg fw-bold text-gray-350 text-decoration-line-through">--%>
-<%--                                <fmt:formatNumber value="${detail.item_price}" pattern="###,###원"/>--%>
-<%--                            </span>--%>
                             <span class="ms-1 fs-5 fw-bolder text-primary">
                                 <fmt:formatNumber value="${detail.item_price}" pattern="###,###원"/>
                             </span>
-                            <span class="fs-sm ms-1">(In Stock)</span>
+                            <span class="badge rounded bg-success">재고: ${detail.item_cnt}개</span>
                         </div>
-
-                        <!-- Form -->
+                        <!-- 수량, 카트, 찜 입력 Form 시작-->
                         <form>
                             <div class="form-group">
-
-                                <!-- Label -->
-                                <p class="mb-5">
-                                    Color: <strong id="colorCaption">White</strong>
-                                </p>
-
-                                <!-- Radio -->
-                                <div class="mb-8 ms-n1">
-                                    <div class="form-check form-check-inline form-check-img">
-                                        <input type="radio" class="form-check-input" id="imgRadioOne" name="imgRadio" data-toggle="form-caption" data-target="#colorCaption" value="White" style="background-image: url(assets/img/products/product-7.jpg);" checked>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-img">
-                                        <input type="radio" class="form-check-input" id="imgRadioTwo" name="imgRadio" data-toggle="form-caption" data-target="#colorCaption" value="Black" style="background-image: url(assets/img/products/product-49.jpg);">
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="form-group">
-
-                                <!-- Label -->
-                                <p class="mb-5">
-                                    Size: <strong><span id="sizeCaption">7.5</span> US</strong>
-                                </p>
-
-                                <!-- Radio -->
-                                <div class="mb-2">
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioOne" value="6" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioOne">6</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioTwo" value="6.5" data-toggle="form-caption" data-target="#sizeCaption" disabled>
-                                        <label class="form-check-label" for="sizeRadioTwo">6.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioThree" value="7" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioThree">7</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioFour" value="7.5" data-toggle="form-caption" data-target="#sizeCaption" checked>
-                                        <label class="form-check-label" for="sizeRadioFour">7.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioFive" value="8" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioFive">8</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioSix" value="8.5" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioSix">8.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioSeven" value="9" data-toggle="form-caption" data-target="#sizeCaption" disabled>
-                                        <label class="form-check-label" for="sizeRadioSeven">9</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioEight" value="9.5" data-toggle="form-caption" data-target="#sizeCaption" disabled>
-                                        <label class="form-check-label" for="sizeRadioEight">9.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioNine" value="10" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioNine">10</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioTen" value="10.5" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioTen">10.5</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioEleven" value="11" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioEleven">11</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioTwelve" value="12" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioTwelve">12</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioThirteen" value="13" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioThirteen">13</label>
-                                    </div>
-                                    <div class="form-check form-check-inline form-check-size mb-2">
-                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioFourteen" value="14" data-toggle="form-caption" data-target="#sizeCaption">
-                                        <label class="form-check-label" for="sizeRadioFourteen">14</label>
-                                    </div>
-                                </div>
-
                                 <!-- Size chart -->
                                 <p class="mb-8">
-                                    <img src="assets/img/icons/icon-ruler.svg" alt="..." class="img-fluid"> <a class="text-reset text-decoration-underline ms-3" data-bs-toggle="modal" href="#modalSizeChart">Size chart</a>
+                                    <img src="/assets/img/icons/icon-ruler.svg" alt="..." class="img-fluid">
+                                    <a class="text-reset text-decoration-underline ms-3" data-bs-toggle="modal" href="#modalSizeChart">기본 안내사항 넣을까?</a>
                                 </p>
-
                                 <div class="row gx-5 mb-7">
                                     <div class="col-12 col-lg-auto">
-
                                         <!-- Quantity -->
                                         <select class="form-select mb-2">
                                             <option value="1" selected>1</option>
@@ -1698,35 +320,29 @@
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         </select>
-
                                     </div>
                                     <div class="col-12 col-lg">
-
-                                        <!-- Submit -->
+                                        <!-- 장바구니 담기 -->
                                         <button type="submit" class="btn w-100 btn-dark mb-2">
-                                            Add to Cart <i class="fe fe-shopping-cart ms-2"></i>
+                                            장바구니에 담기 <i class="fe fe-shopping-cart ms-2"></i>
                                         </button>
-
                                     </div>
                                     <div class="col-12 col-lg-auto">
-
-                                        <!-- Wishlist -->
+                                        <!-- 찜하기 -->
                                         <button class="btn btn-outline-dark w-100 mb-2" data-toggle="button">
-                                            Wishlist <i class="fe fe-heart ms-2"></i>
+                                            찜하기 <i class="fe fe-heart ms-2"></i>
                                         </button>
 
                                     </div>
                                 </div>
-
-                                <!-- Text -->
+                                <!-- 담당자에게 연락하기 -->
                                 <p>
-                                    <span class="text-gray-500">Is your size/color sold out?</span>
-                                    <a class="text-reset text-decoration-underline" data-bs-toggle="modal" href="#modalWaitList">Join the Wait List!</a>
+                                    <span class="text-gray-500">원하시는 상품이 품절인가요??</span>
+                                    <a class="text-reset text-decoration-underline" data-bs-toggle="modal" href="#modalWaitList">담당자에게 연락 주세요!</a>
                                 </p>
-
-                                <!-- Share -->
+                                <!-- 공유하기 -->
                                 <p class="mb-0">
-                                    <span class="me-4">Share:</span>
+                                    <span class="me-4">공유하기:</span>
                                     <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
                                         <i class="fab fa-twitter"></i>
                                     </a>
@@ -1737,13 +353,14 @@
                                         <i class="fab fa-pinterest-p"></i>
                                     </a>
                                 </p>
-
                             </div>
                         </form>
+                        <!-- 수량, 카트, 찜 입력 Form 끝-->
 
                     </div>
+                    <!-- 오른쪽 부분 끝 -->
                 </div>
-            </div>
+           </div>
         </div>
     </div>
 </section>
@@ -1757,13 +374,13 @@
                 <!-- Nav -->
                 <div class="nav nav-tabs nav-overflow justify-content-start justify-content-md-center border-bottom">
                     <a class="nav-link active" data-bs-toggle="tab" href="#descriptionTab">
-                        Description
+                        설명
                     </a>
                     <a class="nav-link" data-bs-toggle="tab" href="#sizeTab">
-                        Size & Fit
+                        상품 크기
                     </a>
                     <a class="nav-link" data-bs-toggle="tab" href="#shippingTab">
-                        Shipping & Return
+                        배송 및 환율
                     </a>
                 </div>
 
@@ -2814,7 +1431,7 @@
         </div>
     </div>
 </section>
-
+<%--
 <!-- FOOTER -->
 <footer class="bg-dark bg-cover " style="background-image: url(./assets/img/patterns/pattern-2.svg)">
     <div class="py-12 border-bottom border-gray-700">
@@ -2996,7 +1613,7 @@
             </div>
         </div>
     </div>
-</footer>
+</footer>--%>
 
 <!-- JAVASCRIPT -->
 <!-- Map (replace the API key to enable) -->

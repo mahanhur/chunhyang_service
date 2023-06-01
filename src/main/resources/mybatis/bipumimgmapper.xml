@@ -21,28 +21,12 @@
         FROM item_img
     </select>
 
-
-<!--    <insert id="insert" parameterType="item">-->
-<!--        INSERT INTO ITEM-->
-<!--                (ITEM_ID, CATEGORY_ID, ITEM_IMG1, ITEM_NAME, ITEM_CNT, ITEM_PRICE, ITEM_CONTENT, ITEM_IMG2, ITEM_IMG3, ITEM_IMG4, ITEM_IMG5, ITEM_RDATE, FLOWER_COLOR, FLOWER_TYPE, FLOWER_SIZE)-->
-<!--                VALUES (item_seq.NEXTVAL, #{category_id}, #{item_img1} ,#{item_name}, #{item_cnt}, #{item_price}, #{item_content},#{item_img2}, #{item_img3}, #{item_img4}, #{item_img5}, SYSDATE, #{flower_color}, #{flower_type}, #{flower_size})-->
-<!--    </insert>-->
-
-
     <insert id="insert" parameterType="itemimg">
         INSERT INTO ITEM_IMG
         (ITEM_ID, ITEM_SUBIMG)
         VALUES (#{item_id}, #{item_subimg})
     </insert>
 
-
-<!--    <update id="update" parameterType="item">-->
-<!--        UPDATE item-->
-<!--        SET name=#{name},-->
-<!--            price=#{price},-->
-<!--            imgname=#`{imgname}-->
-<!--        WHERE id = #{id}-->
-<!--    </update>-->
     <delete id="delete" parameterType="Integer">
         DELETE
         FROM item_img

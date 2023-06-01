@@ -1,6 +1,8 @@
 package com.chflower.controller;
 
 import com.chflower.dto.Bipum;
+import com.chflower.dto.Bipumimg;
+import com.chflower.dto.Itemimg;
 import com.chflower.service.BipumService;
 import com.chflower.service.BipumimgService;
 import com.github.pagehelper.PageInfo;
@@ -49,28 +51,25 @@ public class BipumController {
         model.addAttribute("center", dir + "all");
         return "index";
     }
-//    @RequestMapping("/detail")
-//    public String detail(Model model, Integer item_id, Item item, Itemimg itemimg) throws Exception {
-//
-//        item = itemService.get(item_id);
-//        List<Itemimg> list= new ArrayList<>();
-//        list = itemimgService.get();
-////        log.info("---------------------"+list);
-//
-//        List<Itemimg> ilist = new ArrayList<>();
-//       for (Itemimg obj : list) {
-//            if (obj.getItem_id() == item_id) {
-//                ilist.add(obj);
-//            }
-//        }
-////        log.info("=================="+ilist);
-//
-//        model.addAttribute("detail", item);
-//        model.addAttribute("img", itemimg);
-//        model.addAttribute("ilist", ilist);
-//        model.addAttribute("center", dir+"detail");
-//        return "index";
-//    }
+    @RequestMapping("/detail")
+    public String detail(Model model, Integer item_id, Bipum bipum, Bipumimg bipumimg) throws Exception {
+        bipum = bipumService.get(item_id);
+        List<Bipumimg> list= new ArrayList<>();
+        list = bipumimgService.get();
+//        log.info("---------------------"+list);
+
+        List<Bipumimg> bipumlist = new ArrayList<>();
+       for (Bipumimg obj : list) {
+            if (obj.getItem_id() == item_id) {
+                bipumlist.add(obj);
+            }
+        }
+        model.addAttribute("detail", bipum);
+        model.addAttribute("img", bipumimg);
+        model.addAttribute("bipumlist", bipumlist);
+        model.addAttribute("center", dir+"detail");
+        return "index";
+    }
 //
 //
 //
