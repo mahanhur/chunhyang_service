@@ -2,7 +2,35 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+<script>
+  let item_get = {
+    init: function () {
+      $('.cart_btn').click(function () {
+        let cust_id = "${logincust.cust_id}";
+        let item_id = $(this).data('itemid');
+        let cnt = null;
+        $.ajax({
+          url: '/cart/addcart',
+          type: 'post',
+          data: {cust_id: cust_id, item_id: item_id, cnt: 1},
+          success: function () {
+            if(cust_id != '') {
+              location.href="/cart/all?cust_id="+cust_id;
+            } else {
+              location.href="/cust/login"
+            }
+          },
+          error:()=>{
+            alert("ajax에러")
+          }
+        });
+      });
+    }
+  };
+  $(function () {
+    item_get.init();
+  });
+</script>
 
 <!doctype html>
 <html lang="en">
@@ -1825,7 +1853,7 @@
                 <button class="btn btn-xs btn-link btn-circle" data-bs-toggle="modal" data-bs-target="#modalProduct">
                   <i class="fe fe-eye"></i>
                 </button>
-                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">
+                <button type="button" class="btn btn-xs btn-link btn-circle cart_btn" data-itemid="${obj.item_id}" data-toggle="button" onclick="href.location='/addcart'">
                   <i class="fe fe-shopping-cart"></i>
                 </button>
                 <button class="btn btn-xs btn-link btn-circle" data-toggle="button">
