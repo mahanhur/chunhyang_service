@@ -1,6 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<script>
+  let today_form = {
+    init:function(){
+
+      setInterval(function(){
+        $.ajax({
+          url:'/getservertime',
+          success:function(data){
+            today_form.display(data);
+          },
+          error:function(){
+          }
+        });
+      },1000);
+
+    },
+    display:function(data){
+      $('#server_time').text(data);
+    }
+  };
+
+  $(function(){
+    today_form.init();
+  })
+</script>
+
 
 <!-- center  -->
 
@@ -11,12 +38,13 @@
       <div class="col-12">
 
         <!-- Text -->
-        <div class="text-center text-white">
-              <span class="heading-xxs letter-spacing-xl">
-                ⚡️ Happy Holiday Deals on Everything ⚡️
-              </span>
-        </div>
-
+        <form>
+          <div class="text-center text-white">
+                <span class="heading-xxs letter-spacing-xl">
+                  🌸🌸[<span id="server_time"></span>] 오늘의 꽃은 ---- 입니다 🌸🌸
+                </span>
+          </div>
+        </form>
       </div>
     </div>
   </div>
