@@ -54,6 +54,13 @@ public class ItemController {
         model.addAttribute("center", dir + "all");
         return "index";
     }
+    @RequestMapping("all2")
+    public String all2(Model model) {
+        model.addAttribute("left", dir + "left");
+        model.addAttribute("center", dir + "all2");
+        return "index";
+    }
+
     @RequestMapping("/detail")
     public String detail(Model model, Integer item_id, Item item, Itemimg itemimg) throws Exception {
 

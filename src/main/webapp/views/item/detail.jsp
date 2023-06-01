@@ -1517,12 +1517,12 @@
                             <div class="mb-4" data-flickity='{"draggable": false, "fade": true}' id="productSlider">
 
                                 <!-- main Itemimg -->
-                                <a href="#" data-bigpicture='{ "imgSrc": "assets/img/products/product-7.jpg"}'>
+                                <a href="#" data-bigpicture='{ "imgSrc": "/uimg/${detail.item_img}"}'>
                                     <img src="/uimg/${detail.item_img}" alt="..." class="card-img-top">
                                 </a>
                                 <!-- sub Itemimg -->
                                 <c:forEach var="obj" items="${ilist}">
-                                    <a href="#" data-bigpicture='{ "imgSrc": "assets/img/products/product-122.jpg"}'>
+                                    <a href="#" data-bigpicture='{ "imgSrc": "/uimg/${obj.item_subimg}"}'>
                                         <img src="/uimg/${obj.item_subimg}" alt="..." class="card-img-top">
                                     </a>
                                 </c:forEach>
@@ -1534,32 +1534,34 @@
                         <!-- Slider -->
                         <div class="flickity-nav mx-n2 mb-10 mb-md-0" data-flickity='{"asNavFor": "#productSlider", "contain": true, "wrapAround": false}'>
 
-                            <!-- Item -->
+                            <!-- main Item -->
                             <div class="col-12 px-2" style="max-width: 113px;">
 
-                                <!-- Image -->
-                                <div class="ratio ratio-1x1 bg-cover" style="background-image: url(/uimg/튤립1.jpg);"></div>
+                                <!-- main Image -->
+                                <div class="ratio ratio-1x1 bg-cover"><img src="/uimg/${detail.item_img}"></div>
+<%--                                style="background-image: url(/uimg/${detail.item_img});">--%>
 
                             </div>
 
-                            <!-- Item -->
+                            <!-- sub Item -->
+                            <c:forEach var="obj" items="${ilist}">
                             <div class="col-12 px-2" style="max-width: 113px;">
-
-                                <!-- Image -->
-                                <div class="ratio ratio-1x1 bg-cover" style="background-image: url(assets/img/products/product-122.jpg);"></div>
-
+                                <!-- sub Image -->
+                                <div class="ratio ratio-1x1 bg-cover"><img src="/uimg/${obj.item_subimg}"></div>
+<%--                                style="background-image: url(/uimg/${obj.item_subimg});"--%>
                             </div>
+                            </c:forEach>
 
-                            <!-- Item -->
-                            <div class="col-12 px-2" style="max-width: 113px;">
 
-                                <!-- Image -->
-                                <div class="ratio ratio-1x1 bg-cover" style="background-image: url(assets/img/products/product-146.jpg);"></div>
+<%--                            <!-- Item -->--%>
+<%--                            <div class="col-12 px-2" style="max-width: 113px;">--%>
 
-                            </div>
+<%--                                <!-- Image -->--%>
+<%--                                <div class="ratio ratio-1x1 bg-cover" style="background-image: url(assets/img/products/product-146.jpg);"></div>--%>
+
+<%--                            </div>--%>
 
                         </div>
-
                     </div>
                     <div class="col-12 col-md-6 ps-lg-10">
 
