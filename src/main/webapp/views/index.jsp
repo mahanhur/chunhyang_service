@@ -1618,260 +1618,264 @@
 
       <!-- Nav -->
       <ul class="navbar-nav mx-auto">
+<%--        <li class="nav-item dropdown">--%>
+
+<%--          <!-- Toggle -->--%>
+<%--          <a class="nav-link" data-bs-toggle="dropdown" href="#">Home</a>--%>
+
+<%--          <!-- Menu -->--%>
+<%--          <div class="dropdown-menu">--%>
+<%--            <div class="card card-lg">--%>
+<%--              <div class="card-body">--%>
+<%--                <ul class="list-styled fs-sm">--%>
+<%--                  <li class="list-styled-item">--%>
+<%--                    <a class="list-styled-link" href="/">기본화면 Default</a>--%>
+<%--                  </li>--%>
+<%--                  <li class="list-styled-item">--%>
+<%--                    <a class="list-styled-link" href="/overview">Overview</a>--%>
+<%--                  </li>--%>
+<%--                  <li class="list-styled-item">--%>
+<%--                    <a class="list-styled-link" href="./index-classic.jsp">Classic</a>--%>
+<%--                  </li>--%>
+<%--                  <li class="list-styled-item">--%>
+<%--                    <a class="list-styled-link" href="./subscribe.jsp">Fashion</a>--%>
+<%--                  </li>--%>
+<%--                  <li class="list-styled-item">--%>
+<%--                    <a class="list-styled-link" href="./index-boxed.jsp">Boxed</a>--%>
+<%--                  </li>--%>
+<%--                  <li class="list-styled-item">--%>
+<%--                    <a class="list-styled-link" href="./index-simple.jsp">Simple</a>--%>
+<%--                  </li>--%>
+<%--                  <li class="list-styled-item">--%>
+<%--                    <a class="list-styled-link" href="./index-asymmetric.jsp">Asymmetric</a>--%>
+<%--                  </li>--%>
+<%--                  <li class="list-styled-item">--%>
+<%--                    <a class="list-styled-link" href="./index-sidenav.jsp">Sidenav</a>--%>
+<%--                  </li>--%>
+<%--                  <li class="list-styled-item">--%>
+<%--                    <a class="list-styled-link" href="./index-landing.jsp">Landing</a>--%>
+<%--                  </li>--%>
+<%--                </ul>--%>
+<%--              </div>--%>
+<%--            </div>--%>
+<%--          </div>--%>
+
+<%--        </li>--%>
+<%--        <li class="nav-item dropdown position-static">--%>
+
+<%--          <!-- Toggle -->--%>
+<%--          <a class="nav-link" data-bs-toggle="dropdown" href="#">Catalog</a>--%>
+
+<%--          <!-- Menu -->--%>
+<%--          <div class="dropdown-menu w-100">--%>
+
+<%--            <!-- Tabs -->--%>
+<%--            <div class="mb-2 mb-lg-0 border-bottom-lg">--%>
+<%--              <div class="container">--%>
+<%--                <div class="row">--%>
+<%--                  <div class="col-12">--%>
+
+<%--                    <!-- Nav -->--%>
+<%--                    <nav class="nav nav-tabs nav-overflow fs-xs border-bottom border-bottom-lg-0">--%>
+<%--                      <a class="nav-link text-uppercase active" data-bs-toggle="tab" href="#navTab">--%>
+<%--                        Women--%>
+<%--                      </a>--%>
+<%--                      <a class="nav-link text-uppercase" data-bs-toggle="tab" href="#navTab">--%>
+<%--                        Men--%>
+<%--                      </a>--%>
+<%--                      <a class="nav-link text-uppercase" data-bs-toggle="tab" href="#navTab">--%>
+<%--                        Kids--%>
+<%--                      </a>--%>
+<%--                    </nav>--%>
+
+<%--                  </div>--%>
+<%--                </div>--%>
+<%--              </div>--%>
+<%--            </div>--%>
+
+<%--            <!-- Tab content -->--%>
+<%--            <div class="card card-lg">--%>
+<%--              <div class="card-body">--%>
+<%--                <div class="tab-content">--%>
+<%--                  <div class="tab-pane fade show active" id="navTab">--%>
+<%--                    <div class="container">--%>
+<%--                      <div class="row">--%>
+<%--                        <div class="col-6 col-md">--%>
+
+<%--                          <!-- Heading -->--%>
+<%--                          <div class="mb-5 fw-bold">Clothing</div>--%>
+
+<%--                          <!-- Links -->--%>
+<%--                          <ul class="list-styled mb-6 mb-md-0 fs-sm">--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">All Clothing</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Blouses & Shirts</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Coats & Jackets</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Dresses</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Hoodies & Sweats</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Denim</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Jeans</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Jumpers & Cardigans</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Leggings</a>--%>
+<%--                            </li>--%>
+<%--                          </ul>--%>
+
+<%--                        </div>--%>
+<%--                        <div class="col-6 col-md">--%>
+
+<%--                          <!-- Heading -->--%>
+<%--                          <div class="mb-5 fw-bold">Shoes & Boots</div>--%>
+
+<%--                          <!-- Links -->--%>
+<%--                          <ul class="list-styled mb-6 mb-md-0 fs-sm">--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">All Shoes & Boots</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Branded Shoes</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Boots</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Heels</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Trainers</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Sandals</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Shoes</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Wide Fit Shoes</a>--%>
+<%--                            </li>--%>
+<%--                          </ul>--%>
+
+<%--                        </div>--%>
+<%--                        <div class="col-6 col-md">--%>
+
+<%--                          <!-- Heading -->--%>
+<%--                          <div class="mb-5 fw-bold">Bags & Accessories</div>--%>
+
+<%--                          <!-- Links -->--%>
+<%--                          <ul class="list-styled mb-0 fs-sm">--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">All Bags & Accessories</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Accessories</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Bags & Purses</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Luggage</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Belts</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Hats</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Hair Accessories</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Jewellery</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Travel Accessories</a>--%>
+<%--                            </li>--%>
+<%--                          </ul>--%>
+
+<%--                        </div>--%>
+<%--                        <div class="col-6 col-md">--%>
+
+<%--                          <!-- Heading -->--%>
+<%--                          <div class="mb-5 fw-bold">Collections</div>--%>
+
+<%--                          <!-- Links -->--%>
+<%--                          <ul class="list-styled mb-0 fs-sm">--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">All Collections</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Occasionwear</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Going Out</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Workwear</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Holiday Shop</a>--%>
+<%--                            </li>--%>
+<%--                            <li class="list-styled-item">--%>
+<%--                              <a class="list-styled-link" href="./shop.jsp">Jean Fit Guide</a>--%>
+<%--                            </li>--%>
+<%--                          </ul>--%>
+
+<%--                        </div>--%>
+<%--                        <div class="col-4 d-none d-lg-block">--%>
+
+<%--                          <!-- Card -->--%>
+<%--                          <div class="card">--%>
+
+<%--                            <!-- Image -->--%>
+<%--                            <img class="card-img" src="/assets/img/products/product-110.jpg" alt="...">--%>
+
+<%--                            <!-- Overlay -->--%>
+<%--                            <div class="card-img-overlay bg-dark-0 bg-hover align-items-center">--%>
+<%--                              <div class="text-center">--%>
+<%--                                <a class="btn btn-white stretched-link" href="./shop.jsp">--%>
+<%--                                  Shop Sweaters <i class="fe fe-arrow-right ms-2"></i>--%>
+<%--                                </a>--%>
+<%--                              </div>--%>
+<%--                            </div>--%>
+<%--                          </div>--%>
+<%--                        </div>--%>
+<%--                      </div>--%>
+<%--                    </div>--%>
+<%--                  </div>--%>
+<%--                </div>--%>
+<%--              </div>--%>
+<%--            </div>--%>
+<%--          </div>--%>
+<%--        </li>--%>
+
+        <!-- ------------------------------------------------------------------- -->
         <li class="nav-item dropdown">
-
           <!-- Toggle -->
-          <a class="nav-link" data-bs-toggle="dropdown" href="#">Home</a>
-
+          <a class="nav-link"  href="/subscribe">정기구독</a>
           <!-- Menu -->
-          <div class="dropdown-menu">
-            <div class="card card-lg">
-              <div class="card-body">
-                <ul class="list-styled fs-sm">
-                  <li class="list-styled-item">
-                    <a class="list-styled-link" href="/">기본화면 Default</a>
-                  </li>
-                  <li class="list-styled-item">
-                    <a class="list-styled-link" href="/overview">Overview</a>
-                  </li>
-                  <li class="list-styled-item">
-                    <a class="list-styled-link" href="./index-classic.jsp">Classic</a>
-                  </li>
-                  <li class="list-styled-item">
-                    <a class="list-styled-link" href="./subscribe.jsp">Fashion</a>
-                  </li>
-                  <li class="list-styled-item">
-                    <a class="list-styled-link" href="./index-boxed.jsp">Boxed</a>
-                  </li>
-                  <li class="list-styled-item">
-                    <a class="list-styled-link" href="./index-simple.jsp">Simple</a>
-                  </li>
-                  <li class="list-styled-item">
-                    <a class="list-styled-link" href="./index-asymmetric.jsp">Asymmetric</a>
-                  </li>
-                  <li class="list-styled-item">
-                    <a class="list-styled-link" href="./index-sidenav.jsp">Sidenav</a>
-                  </li>
-                  <li class="list-styled-item">
-                    <a class="list-styled-link" href="./index-landing.jsp">Landing</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
 
         </li>
-        <li class="nav-item dropdown position-static">
 
-          <!-- Toggle -->
-          <a class="nav-link" data-bs-toggle="dropdown" href="#">Catalog</a>
-
-          <!-- Menu -->
-          <div class="dropdown-menu w-100">
-
-            <!-- Tabs -->
-            <div class="mb-2 mb-lg-0 border-bottom-lg">
-              <div class="container">
-                <div class="row">
-                  <div class="col-12">
-
-                    <!-- Nav -->
-                    <nav class="nav nav-tabs nav-overflow fs-xs border-bottom border-bottom-lg-0">
-                      <a class="nav-link text-uppercase active" data-bs-toggle="tab" href="#navTab">
-                        Women
-                      </a>
-                      <a class="nav-link text-uppercase" data-bs-toggle="tab" href="#navTab">
-                        Men
-                      </a>
-                      <a class="nav-link text-uppercase" data-bs-toggle="tab" href="#navTab">
-                        Kids
-                      </a>
-                    </nav>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tab content -->
-            <div class="card card-lg">
-              <div class="card-body">
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="navTab">
-                    <div class="container">
-                      <div class="row">
-                        <div class="col-6 col-md">
-
-                          <!-- Heading -->
-                          <div class="mb-5 fw-bold">Clothing</div>
-
-                          <!-- Links -->
-                          <ul class="list-styled mb-6 mb-md-0 fs-sm">
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">All Clothing</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Blouses & Shirts</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Coats & Jackets</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Dresses</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Hoodies & Sweats</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Denim</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Jeans</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Jumpers & Cardigans</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Leggings</a>
-                            </li>
-                          </ul>
-
-                        </div>
-                        <div class="col-6 col-md">
-
-                          <!-- Heading -->
-                          <div class="mb-5 fw-bold">Shoes & Boots</div>
-
-                          <!-- Links -->
-                          <ul class="list-styled mb-6 mb-md-0 fs-sm">
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">All Shoes & Boots</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Branded Shoes</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Boots</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Heels</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Trainers</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Sandals</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Shoes</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Wide Fit Shoes</a>
-                            </li>
-                          </ul>
-
-                        </div>
-                        <div class="col-6 col-md">
-
-                          <!-- Heading -->
-                          <div class="mb-5 fw-bold">Bags & Accessories</div>
-
-                          <!-- Links -->
-                          <ul class="list-styled mb-0 fs-sm">
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">All Bags & Accessories</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Accessories</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Bags & Purses</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Luggage</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Belts</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Hats</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Hair Accessories</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Jewellery</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Travel Accessories</a>
-                            </li>
-                          </ul>
-
-                        </div>
-                        <div class="col-6 col-md">
-
-                          <!-- Heading -->
-                          <div class="mb-5 fw-bold">Collections</div>
-
-                          <!-- Links -->
-                          <ul class="list-styled mb-0 fs-sm">
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">All Collections</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Occasionwear</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Going Out</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Workwear</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Holiday Shop</a>
-                            </li>
-                            <li class="list-styled-item">
-                              <a class="list-styled-link" href="./shop.jsp">Jean Fit Guide</a>
-                            </li>
-                          </ul>
-
-                        </div>
-                        <div class="col-4 d-none d-lg-block">
-
-                          <!-- Card -->
-                          <div class="card">
-
-                            <!-- Image -->
-                            <img class="card-img" src="/assets/img/products/product-110.jpg" alt="...">
-
-                            <!-- Overlay -->
-                            <div class="card-img-overlay bg-dark-0 bg-hover align-items-center">
-                              <div class="text-center">
-                                <a class="btn btn-white stretched-link" href="./shop.jsp">
-                                  Shop Sweaters <i class="fe fe-arrow-right ms-2"></i>
-                                </a>
-                              </div>
-                            </div>
-
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </li>
+        <!-- ------------------------------------------------------------------- -->
         <li class="nav-item dropdown">
-
           <!-- Toggle -->
           <a class="nav-link"  href="/item/all">꽃</a>
-
-<%--          위에서 href 연결하려고 일단빼놈 data-bs-toggle="dropdown"--%>
+          <%--위에서 href 연결하려고 일단빼놈 data-bs-toggle="dropdown"--%>
           <!-- Menu -->
           <div class="dropdown-menu" style="min-width: 650px;">
             <div class="card card-lg">
@@ -2036,17 +2040,192 @@
               </div>
             </div>
           </div>
-
         </li>
 
+        <!-- ------------------------------------------------------------------- -->
         <li class="nav-item dropdown">
-          <a class="nav-link"  href="/subscribe">정기구독</a>
-        </li>
-
-        <li class="nav-item dropdown">
-
           <!-- Toggle -->
-          <a class="nav-link" data-bs-toggle="dropdown" href="#">Pages</a>
+          <a class="nav-link"  href="#">화병/비품</a>
+          <%--위에서 href 연결하려고 일단빼놈 data-bs-toggle="dropdown"--%>
+          <!-- Menu -->
+          <div class="dropdown-menu" style="min-width: 650px;">
+            <div class="card card-lg">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+
+                    <!-- Heading -->
+                    <div class="mb-5 fw-bold">Shop</div>
+
+                    <!-- Links -->
+                    <ul class="list-styled mb-7 fs-sm">
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./shop.jsp">Default</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./shop-topbar.jsp">Topbar</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./shop-collapse.jsp">Collapse</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./shop-simple.jsp">Simple</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./shop-masonry.jsp">Masonry</a>
+                      </li>
+                    </ul>
+
+                    <!-- Heading -->
+                    <div class="mb-5 fw-bold">Product</div>
+
+                    <!-- Links -->
+                    <ul class="list-styled fs-sm">
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./product.jsp">Default</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./product-images-left.jsp">Images Left</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./product-image-grid.jsp">Image Grid</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./product-image-slider.jsp">Image Slider</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./product-images-stacked.jsp">Images Stacked</a>
+                      </li>
+                    </ul>
+
+                  </div>
+                  <div class="col">
+
+                    <!-- Heading -->
+                    <div class="mb-5 fw-bold">Support</div>
+
+                    <!-- Links -->
+                    <ul class="list-styled mb-7 fs-sm">
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./shopping-cart.jsp">Shopping Cart</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./checkout.jsp">Checkout</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./order-completed.jsp">Order Completed</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./shipping-and-returns.jsp">Shipping & Returns</a>
+                      </li>
+                    </ul>
+
+                    <!-- Heading -->
+                    <div class="mb-5 fw-bold">Account</div>
+
+                    <!-- Links -->
+                    <ul class="list-styled fs-sm">
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="/cust/account-order.jsp">Order</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="/cust/account-orders.jsp">Orders</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./account-wishlist.jsp">Wishlist</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./account-personal-info.jsp">Personal Info</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./account-address.jsp">Addresses</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./account-address-edit.jsp">Addresses: New</a>
+                      </li>
+                    </ul>
+
+                  </div>
+                  <div class="col">
+
+                    <!-- Links -->
+                    <ul class="list-styled mb-7 fs-sm">
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./account-payment.jsp">Payment</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./account-payment-edit.jsp">Payment: New</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./account-payment-choose.jsp">Payment: Choose</a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" href="./auth.jsp">Auth</a>
+                      </li>
+                    </ul>
+
+                    <!-- Heading -->
+                    <div class="mb-5 fw-bold">Modals</div>
+
+                    <!-- Links -->
+                    <ul class="list-styled fs-sm">
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" data-bs-toggle="modal" href="#modalNewsletterHorizontal">
+                          Newsletter: Horizontal
+                        </a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" data-bs-toggle="modal" href="#modalNewsletterVertical">
+                          Newsletter: Vertical
+                        </a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" data-bs-toggle="modal" href="#modalProduct">
+                          Product
+                        </a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" data-bs-toggle="offcanvas" href="#modalSearch">
+                          Search
+                        </a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" data-bs-toggle="offcanvas" href="#modalShoppingCart">
+                          Shopping Cart
+                        </a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" data-bs-toggle="modal" href="#modalSizeChart">
+                          Size Chart
+                        </a>
+                      </li>
+                      <li class="list-styled-item">
+                        <a class="list-styled-link" data-bs-toggle="modal" href="#modalWaitList">
+                          Wait List
+                        </a>
+                      </li>
+                    </ul>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- ------------------------------------------------------------------- -->
+        <li class="nav-item">
+          <a class="nav-link">플라워클래스</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link">꽃사전</a>
+        </li>
+
+        <!-- ------------------------------------------------------------------- -->
+        <li class="nav-item dropdown">
+          <!-- Toggle -->
+          <a class="nav-link" data-bs-toggle="dropdown" href="#">소개</a>
 
           <!-- Menu -->
           <div class="dropdown-menu">
@@ -2075,33 +2254,36 @@
               </div>
             </div>
           </div>
-
         </li>
-        <li class="nav-item dropdown">
 
-          <!-- Toggle -->
-          <a class="nav-link" data-bs-toggle="dropdown" href="#">Blog</a>
+        <!-- ------------------------------------------------------------------- -->
+<%--        <li class="nav-item dropdown">--%>
+<%--          <!-- Toggle -->--%>
+<%--          <a class="nav-link" data-bs-toggle="dropdown" href="#">Blog</a>--%>
 
-          <!-- Menu -->
-          <div class="dropdown-menu">
-            <div class="card card-lg">
-              <div class="card-body">
-                <ul class="list-styled fs-sm">
-                  <li class="list-styled-item">
-                    <a class="list-styled-link" href="./blog.jsp">Blog</a>
-                  </li>
-                  <li class="list-styled-item">
-                    <a class="list-styled-link" href="./blog-post.jsp">Blog Post</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+<%--          <!-- Menu -->--%>
+<%--          <div class="dropdown-menu">--%>
+<%--            <div class="card card-lg">--%>
+<%--              <div class="card-body">--%>
+<%--                <ul class="list-styled fs-sm">--%>
+<%--                  <li class="list-styled-item">--%>
+<%--                    <a class="list-styled-link" href="./blog.jsp">Blog</a>--%>
+<%--                  </li>--%>
+<%--                  <li class="list-styled-item">--%>
+<%--                    <a class="list-styled-link" href="./blog-post.jsp">Blog Post</a>--%>
+<%--                  </li>--%>
+<%--                </ul>--%>
+<%--              </div>--%>
+<%--            </div>--%>
+<%--          </div>--%>
+<%--        </li>--%>
 
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="docs/getting-started.jsp">Docs</a>
-        </li>
+
+<%--        <li class="nav-item">--%>
+<%--          <a class="nav-link" href="docs/getting-started.jsp">Docs</a>--%>
+<%--        </li>--%>
+        <!-- ------------------------------------------------------------------- -->
+
       </ul>
 
       <!-- Nav -->
