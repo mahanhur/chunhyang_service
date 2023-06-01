@@ -13,7 +13,7 @@
             <div class="col d-none d-xl-block bg-cover" style="background-image: url(/uimg/subs01.jpg);"></div>
             <div class="col d-none d-lg-block bg-cover" style="background-image: url(/uimg/subs02.jpg);"></div>
             <div class="col d-none d-md-block bg-cover" style="background-image: url(/uimg/subs03.jpg);"></div>
-            <div class="col bg-cover" style="background-image: url(uimg/subs04.jpg);"></div>
+            <div class="col bg-cover" style="background-image: url(/uimg/subs04.jpg);"></div>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
                 </p>
 
                 <!-- Button -->
-                <a class="btn btn-dark btn-sm mb-n12" href="shop.html">
+                <a class="btn btn-dark btn-sm mb-n12" href="/subs/all">
                   지금 신청하기<i class="fe fe-arrow-right ms-2"></i>
                 </a>
 
@@ -217,7 +217,7 @@
             </p>
 
             <!-- Button -->
-            <a class="btn btn-dark" href="shop.html">
+            <a class="btn btn-dark" href="/subs/all">
               지금 신청하기 <i class="fe fe-arrow-right ms-2"></i>
             </a>
 
@@ -225,7 +225,7 @@
           <div class="col-12 col-md-6">
 
             <!-- Image -->
-            <div class="h-100 vw-50 bg-cover" style="background-image: url(/uimg/subs05.jpg);"></div>
+            <div class="h-100 vw-50 bg-cover" style="background-image: url(/uimg/subs01.jpg);"></div>
 
           </div>
         </div>
@@ -281,7 +281,7 @@
 
         <!-- Link  -->
         <div class="mt-10 text-center">
-          <a class="link-underline" href="#">지금 신청하기</a>
+          <a class="link-underline" href="/subs/all">지금 신청하기</a>
         </div>
 
       </div>
@@ -542,7 +542,7 @@
         </div>
 
   <!-- Button -->
-  <a href="#" class="btn btn-sm btn-outline-primary">
+  <a href="/subs/all" class="btn btn-sm btn-outline-primary">
     지금 신청
   </a>
       </div>

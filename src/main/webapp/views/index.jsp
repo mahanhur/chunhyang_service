@@ -10,6 +10,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
+  <%--datepicker--%>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
 <%--  <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">--%>
 
 <%--  <style>--%>
@@ -721,7 +727,7 @@
               <a class="list-styled-link" href="./index-classic.jsp">Classic</a>
             </li>
             <li class="list-styled-item">
-              <a class="list-styled-link" href="./subscribe.jsp">Fashion</a>
+              <a class="list-styled-link" href="subs/subscribe.jsp">Fashion</a>
             </li>
             <li class="list-styled-item">
               <a class="list-styled-link" href="./index-boxed.jsp">Boxed</a>
@@ -1866,7 +1872,7 @@
         <!-- ------------------------------------------------------------------- -->
         <li class="nav-item dropdown">
           <!-- Toggle -->
-          <a class="nav-link"  href="/subscribe">정기구독</a>
+          <a class="nav-link"  href="/subs/subscribe">정기구독</a>
           <!-- Menu -->
 
         </li>

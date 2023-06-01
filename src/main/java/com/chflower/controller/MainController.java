@@ -50,9 +50,5 @@ public class MainController {
         model.addAttribute("center","faq");
         return "index";
     }
-    @RequestMapping("/subscribe")
-    public String subscribe(Model model){
-        model.addAttribute("center","subscribe");
-        return "index";
-    }
+
 }
