@@ -2348,8 +2348,9 @@
           </a>
         </li>
         <li class="nav-item ms-lg-n4">
-          <a class="nav-link" data-bs-toggle="offcanvas" href="#modalShoppingCart">
-                <span data-cart-items="2">
+          <a class="nav-link" href="/cart/all?cust_id=${logincust.cust_id}">
+            <%--          모달로 할꺼면..... data-bs-toggle="offcanvas" href="#modalShoppingCart"--%>
+            <span data-cart-items="2">
                   <i class="fe fe-shopping-cart"></i>
                 </span>
           </a>

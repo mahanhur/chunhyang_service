@@ -38,7 +38,7 @@ public class ItemController {
     }
 
 
-    @RequestMapping("all")
+    @RequestMapping("/all")
     public String all(Model model) throws Exception {
         List<Item> list = null;
         try {
@@ -120,19 +120,5 @@ public class ItemController {
 //        return "index";
 //    }
 
-//    @RequestMapping("/addcart")
-//    public String addcart(Model model, Cart cart) throws Exception {
-//        cartService.register(cart);
-//        return "redirect:/item/allcart?id=" + cart.getCust_id();
-//    }
-//
-//    @RequestMapping("/delcart")
-//    public String delcart(Model model, Integer id, HttpSession session) throws Exception {
-//        cartService.remove(id);
-//        if (session != null) {
-//            Cust cust = (Cust) session.getAttribute("logincust");
-//            return "redirect:/item/allcart?id=" + cust.getId();
-//        }
-//        return "redirect:/";
-//    }
+
 }
