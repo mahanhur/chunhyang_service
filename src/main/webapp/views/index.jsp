@@ -2045,7 +2045,7 @@
         <!-- ------------------------------------------------------------------- -->
         <li class="nav-item dropdown">
           <!-- Toggle -->
-          <a class="nav-link"  href="#">화병/비품</a>
+          <a class="nav-link"  href="/bipum/all">화병/비품</a>
           <%--위에서 href 연결하려고 일단빼놈 data-bs-toggle="dropdown"--%>
           <!-- Menu -->
           <div class="dropdown-menu" style="min-width: 650px;">
