@@ -13,7 +13,7 @@
       $('#cust_name').keyup(function (){
         var cust_id = $('#cust_id').val();
         var cust_name = $('#cust_name').val();
-        var cust_pwd = $('#cust_pwd').val();`1`
+        var cust_pwd = $('#cust_pwd').val();
 
         if(cust_id != '' && cust_name != '' && cust_pwd != ''){
           $('#register_btn').removeClass('disabled');
