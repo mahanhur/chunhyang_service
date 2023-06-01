@@ -2,9 +2,12 @@ package com.chflower.controller;
 
 import com.chflower.dto.Bipum;
 import com.chflower.dto.Bipumimg;
+import com.chflower.dto.ItemReview;
 import com.chflower.dto.Itemimg;
 import com.chflower.service.BipumService;
 import com.chflower.service.BipumimgService;
+import com.chflower.service.CustService;
+import com.chflower.service.ItemReviewService;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,10 @@ public class BipumController {
     BipumService bipumService;
     @Autowired
     BipumimgService bipumimgService;
+    @Autowired
+    ItemReviewService itemReviewService;
+    @Autowired
+    CustService custservice;
 //    @Autowired
 //    CartService cartService;
 
@@ -45,25 +52,30 @@ public class BipumController {
         } catch (Exception e) {
             throw new Exception("화병/비품 전체 리스트를 가져오지 못함");
         }
-        log.info("+++++++++++++++++++++"+list);
+
         model.addAttribute("ilist", list);
         model.addAttribute("left", dir + "left");
         model.addAttribute("center", dir + "all");
         return "index";
     }
     @RequestMapping("/detail")
-    public String detail(Model model, Integer item_id, Bipum bipum, Bipumimg bipumimg) throws Exception {
+    public String detail(Model model,Integer item_id, Bipum bipum, Bipumimg bipumimg) throws Exception {
         bipum = bipumService.get(item_id);
         List<Bipumimg> list= new ArrayList<>();
         list = bipumimgService.get();
-//        log.info("---------------------"+list);
-
         List<Bipumimg> bipumlist = new ArrayList<>();
        for (Bipumimg obj : list) {
             if (obj.getItem_id() == item_id) {
                 bipumlist.add(obj);
             }
         }
+        List<ItemReview> reviewlist = null;
+        reviewlist = itemReviewService.getItemReview(item_id);
+        ItemReview itemReview = itemReviewService.getAvgItemReview(item_id);
+        log.info(itemReview.toString());
+        model.addAttribute("reviewlist",reviewlist);
+        model.addAttribute("itemReview",itemReview);
+
         model.addAttribute("detail", bipum);
         model.addAttribute("img", bipumimg);
         model.addAttribute("bipumlist", bipumlist);

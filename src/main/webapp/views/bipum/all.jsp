@@ -1756,7 +1756,7 @@
         <div class="card mb-7" data-toggle="card-collapse">
 
           <!-- Image -->
-          <a href="/bipum/detail?item_id=${obj.item_id}">
+          <a href="/bipum/detail?item_id=${obj.item_id}?cust_id=${logincust.cust_id}">
             <img src="/uimg/${obj.item_img}" alt="..." class="card-img-top">
           </a>
 
@@ -1777,7 +1777,7 @@
               </div>
 
               <!-- Rating -->
-              <div class="rating fs-xxs text-dark justify-content-center" data-value="3">
+              <div class="rating fs-xxs text-dark justify-content-center" data-value="${obj.avgscore}">
                 <div class="rating-item">
                   <i class="fas fa-star"></i>
                 </div>
@@ -1793,7 +1793,7 @@
                 <div class="rating-item">
                   <i class="fas fa-star"></i>
                 </div>
-              </div>
+              </div>(${obj.cnt})
 
             </div>
 
@@ -1837,7 +1837,7 @@
 
             <!-- Button -->
             <a class="btn btn-sm btn-outline-dark" href="#!">
-              Load more
+              상품 더보기
             </a>
 
           </div>
