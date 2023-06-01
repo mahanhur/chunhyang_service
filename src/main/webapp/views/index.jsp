@@ -1489,7 +1489,7 @@
 <!-- -------------------------------------------------------------------------------- -->
 <!-- 회색 상단 고정바 -->
 <!-- NAVBAR -->
-<div class="navbar navbar-topbar navbar-expand-xl navbar-light bg-light" style="position: sticky;top: 0px;z-index: 100">
+<div class="navbar navbar-topbar navbar-expand-xl navbar-light bg-light" style="top: 0px">
   <div class="container">
 
     <!-- Promo -->
@@ -1551,7 +1551,6 @@
             <a class="dropdown-item" href="#">French</a>
             <a class="dropdown-item" href="#">German</a>
           </div>
-
         </li>
       </ul>
 
@@ -1600,7 +1599,7 @@
 <!-- -------------------------------------------------------------------------------- -->
 <!-- 흰색 상단네비 고정바 -->
 <!-- NAVBAR -->
-<nav class="sticky-nav navbar navbar-expand-lg navbar-light bg-white" style="position: sticky;top: 0px;background-color: white;z-index: 100">
+<nav class="sticky-nav navbar navbar-expand-lg navbar-light bg-white" style="position: sticky;top: 0px;background-color: white;z-index: 2">
   <div class="container">
 
     <!-- Brand -->
@@ -1874,7 +1873,7 @@
         <!-- ------------------------------------------------------------------- -->
         <li class="nav-item dropdown">
           <!-- Toggle -->
-          <a class="nav-link"  href="/item/all">꽃</a>
+          <a class="nav-link"  href="/item/all">꽃선물</a>
           <%--위에서 href 연결하려고 일단빼놈 data-bs-toggle="dropdown"--%>
           <!-- Menu -->
           <div class="dropdown-menu" style="min-width: 650px;">
