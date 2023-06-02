@@ -1538,17 +1538,12 @@
 
                     <!--Footer -->
                     <div class="d-flex align-items-center">
+                    <!--장바구니 상품개수-->
+                      상품수량:  <input type="number" id="inputcnt" class="form-input mb-2" value="${obj.cnt}"/>
 
-                      <!-- Select -->
-                      <select class="form-select form-select-xxs w-auto">
-                        <option value="1">1</option>
-                        <option value="1">2</option>
-                        <option value="1">3</option>
-                      </select>
-
-                      <!-- Remove -->
-                      <a class="fs-xs text-gray-400 ms-auto" href="#">
-                        <i class="fe fe-x"></i> Remove
+                      <!-- 삭제 -->
+                      <a class="fs-xs text-gray-400 ms-auto" role="button" href="/cart/delcart?cart_id=${obj.cart_id}">
+                        <i class="fe fe-x"></i> 삭제
                       </a>
 
                     </div>

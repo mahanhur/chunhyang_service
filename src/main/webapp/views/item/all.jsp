@@ -1536,10 +1536,10 @@
         <nav class="nav nav-overflow mb-6 mb-md-0">
           <a class="nav-link active" data-bs-toggle="tab" href="#">전체</a>
           <a class="nav-link" data-bs-toggle="tab" href="#">꽃다발</a>
-          <a class="nav-link" data-bs-toggle="tab" href="#">꽃</a>
           <a class="nav-link" data-bs-toggle="tab" href="#">감사</a>
           <a class="nav-link" data-bs-toggle="tab" href="#">사랑</a>
-          <a class="nav-link" data-bs-toggle="tab" href="#">비품</a>
+          <a class="nav-link" data-bs-toggle="tab" href="#">축하</a>
+          <a class="nav-link" data-bs-toggle="tab" href="#">꽃</a>
         </nav>
 
       </div>
@@ -1853,7 +1853,7 @@
                 <button class="btn btn-xs btn-link btn-circle" data-bs-toggle="modal" data-bs-target="#modalProduct">
                   <i class="fe fe-eye"></i>
                 </button>
-                <button type="button" class="btn btn-xs btn-link btn-circle cart_btn" data-itemid="${obj.item_id}" data-toggle="button" onclick="href.location='/addcart'">
+                <button type="button" class="btn btn-xs btn-link btn-circle cart_btn" data-itemid="${obj.item_id}" data-toggle="button">
                   <i class="fe fe-shopping-cart"></i>
                 </button>
                 <button class="btn btn-xs btn-link btn-circle" data-toggle="button">
