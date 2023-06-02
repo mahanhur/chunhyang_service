@@ -12,6 +12,7 @@
 <script src="./assets/js/theme.bundle.js"></script>
 
 <body>
+
 <%--
 <!-- Newsletter: Horizontal -->
 <div class="modal fade" id="modalNewsletterHorizontal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -1777,7 +1778,7 @@
               </div>
 
               <!-- Rating -->
-              <div class="rating fs-xxs text-dark justify-content-center" data-value="3">
+              <div class="rating fs-xxs text-dark justify-content-center" data-value="${obj.avgscore}">
                 <div class="rating-item">
                   <i class="fas fa-star"></i>
                 </div>
@@ -1793,7 +1794,7 @@
                 <div class="rating-item">
                   <i class="fas fa-star"></i>
                 </div>
-              </div>
+              </div>(${obj.cnt})
 
             </div>
 
@@ -1837,7 +1838,7 @@
 
             <!-- Button -->
             <a class="btn btn-sm btn-outline-dark" href="#!">
-              Load more
+              상품 더보기
             </a>
 
           </div>

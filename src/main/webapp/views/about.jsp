@@ -47,11 +47,11 @@
           <div class="col-12 col-md-6">
 
             <!-- Image -->
-            <img src="assets/img/products/product-62.jpg" alt="..." class="img-fluid w-50">
+            <img src="/uimg/about_22.jpg" alt="..." class="img-fluid w-50">
 
             <!-- Image -->
             <div class="text-end mt-n13 mt-lg-n15 mb-10 mb-md-0">
-              <img src="assets/img/products/product-63.jpg" alt="..." class="img-fluid w-75">
+              <img src="/uimg/about_2.png" alt="..." class="img-fluid w-75">
             </div>
 
           </div>
@@ -89,7 +89,7 @@
           <div class="col-12 text-center">
 
             <!-- Heading -->
-            <h2 class="mb-10">Fashion Democracy</h2>
+            <h2 class="mb-10">Flowers Democracy</h2>
 
           </div>
         </div>
@@ -145,11 +145,11 @@
           <div class="col-12 col-md-6 order-md-2 text-end">
 
             <!-- Image -->
-            <img src="assets/img/products/product-36.jpg" alt="..." class="img-fluid w-50">
+            <img src="/uimg/about_33.jpg" alt="..." class="img-fluid w-50">
 
             <!-- Image -->
             <div class="text-start mt-n13 mt-lg-n15 mb-10 mb-md-0">
-              <img src="assets/img/products/product-37.jpg" alt="..." class="img-fluid w-75">
+              <img src="/uimg/about_3.png" alt="..." class="img-fluid w-75">
             </div>
 
           </div>
@@ -289,7 +289,7 @@
 
     <!-- SOCIAL -->
     <section class="pt-12">
-      <div class="container bg-h-100" style="background-image: url(assets/img/covers/cover-15.jpg);">
+      <div class="container bg-h-100" style="background-image: url(/uimg/about_review.jpg);">
         <div class="row">
           <div class="col-12 py-13 text-center">
 

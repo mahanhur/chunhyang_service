@@ -24,4 +24,12 @@ public class Cart {
     private String flower_color;
     private String flower_type;
     private String flower_size;
+
+    public Cart(int cart_id, String cust_id, double item_id, int cnt, Date item_rdate) {
+        this.cart_id = cart_id;
+        this.cust_id = cust_id;
+        this.item_id = item_id;
+        this.cnt = cnt;
+        this.item_rdate = item_rdate;
+    }
 }

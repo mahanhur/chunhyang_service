@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chflower.mapper.ItemReviewMapper">
+
+    <select id="getItemReview" parameterType="int" resultType="itemreview">
+        SELECT *
+        FROM item_review
+        WHERE item_id=#{item_id}
+        order by review_rdata desc
+    </select>
+
+    <select id="getAvgItemReview" parameterType="int" resultType="itemreview">
+        SELECT COUNT(*) AS cnt,NVL(ROUND(AVG(REVIEW_SCORE),0),0) AS avgscore
+        FROM item_review
+        WHERE item_id=#{item_id}
+    </select>
+    <select id="getAvgAllItemReview" resultType="itemreview">
+        SELECT a.ITEM_ID, COUNT(b.REVIEW_ID) as cnt, NVL(ROUND(AVG(b.REVIEW_SCORE),0),0) as avgscore
+        FROM item a left outer join item_review b
+        ON a.item_id = b.item_id
+        GROUP BY a.ITEM_ID
+        order by a.ITEM_ID desc
+    </select>
+
+    <insert id="insert" parameterType="itemreview">
+        INSERT INTO ITEM_REVIEW (review_id, cust_id, item_id, review_title, review_content,review_rdata,review_score, review_img)
+               VALUES(ITEM_REVIEW_SEQ.NEXTVAL,#{cust_id}, #{item_id}, #{review_title}, #{review_content},SYSDATE,#{review_score},null)
+    </insert>
+</mapper>

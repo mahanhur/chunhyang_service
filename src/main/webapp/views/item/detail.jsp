@@ -6,18 +6,19 @@
     let item_get = {
         init: function () {
             $('.cart_btn').click(function () {
-                let cust_id = "${logincust.id}";
-                let item_id = $(this).data('itemid');
-                let cnt = null;
+                let cust_id = "${logincust.cust_id}";
+                let item_id = "${detail.item_id}"
+                // $(this).data('itemid');
+                let cnt = parseInt($('#inputcnt').val());
                 $.ajax({
-                    url: '/addcart',
+                    url: '/cart/addcart',
                     type: 'post',
-                    data: {cust_id: cust_id, item_id: item_id, cnt: 1},
+                    data: {cust_id: cust_id, item_id: item_id, cnt: cnt},
                     success: function () {
                         if(cust_id != '') {
-                            location.href="/cart?cid="+cust_id;
+                            location.href="/cart/all?cust_id="+cust_id;
                         } else {
-                            location.href="/login"
+                            location.href="/cust/login"
                         }
                     },
                     error:()=>{
@@ -30,6 +31,7 @@
     $(function () {
         item_get.init();
     });
+</script>
 </script>
 <!doctype html>
 <html lang="en">
@@ -1634,9 +1636,6 @@
 
                         <!-- Price -->
                         <div class="mb-7">
-<%--                            <span class="fs-lg fw-bold text-gray-350 text-decoration-line-through">--%>
-<%--                                <fmt:formatNumber value="${detail.item_price}" pattern="###,###원"/>--%>
-<%--                            </span>--%>
                             <span class="ms-1 fs-5 fw-bolder text-primary">
                                 <fmt:formatNumber value="${detail.item_price}" pattern="###,###원"/>
                             </span>
@@ -1644,39 +1643,23 @@
                             <span class="fs-sm ms-1">(In Stock)</span>
                         </div>
 
-                        <!-- Form -->
-                        <form>
-                            <div class="form-group">
-                                <!-- Label -->
+
+                            <div class="mb-7">
                                 <p class="mb-5">
                                     <strong id="contentCaption">${detail.item_content}</strong>
                                 </p>
                             </div>
-                            <div class="form-group">
-                                <!-- Label -->
+                            <div class="mb-7">
                                 <p class="mb-5">
                                     Type: <strong id="typeCaption">${detail.flower_type}</strong>
                                 </p>
                             </div>
-                            <div class="form-group">
-                                <!-- Label -->
+                            <div class="mb-7">
                                 <p class="mb-5">
                                     Color: <strong id="colorCaption">${detail.flower_color}</strong>
                                 </p>
                             </div>
-<%--                                <!-- Radio -->--%>
-<%--                                <div class="mb-8 ms-n1">--%>
-<%--                                    <div class="form-check form-check-inline form-check-img">--%>
-<%--                                        <input type="radio" class="form-check-input" id="imgRadioOne" name="imgRadio" data-toggle="form-caption" data-target="#colorCaption" value="White" style="background-image: url(assets/img/products/product-7.jpg);" checked>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="form-check form-check-inline form-check-img">--%>
-<%--                                        <input type="radio" class="form-check-input" id="imgRadioTwo" name="imgRadio" data-toggle="form-caption" data-target="#colorCaption" value="Black" style="background-image: url(assets/img/products/product-49.jpg);">--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-
-
-                            <div class="form-group">
-                                <!-- Label -->
+                            <div class="mb-7">
                                 <p class="mb-5">
                                     Size: <strong><span id="sizeCaption">${detail.flower_size}</span></strong>
                                 </p>
@@ -1702,27 +1685,19 @@
 <%--                                <p class="mb-8">--%>
 <%--                                    <img src="assets/img/icons/icon-ruler.svg" alt="..." class="img-fluid"> <a class="text-reset text-decoration-underline ms-3" data-bs-toggle="modal" href="#modalSizeChart">Size chart</a>--%>
 <%--                                </p>--%>
-
+                        <!-- Form -->
+                        <form>
                                 <div class="row gx-5 mb-7">
                                     <div class="col-12 col-lg-auto">
-
                                         <!-- Quantity -->
-                                        <select class="form-select mb-2">
-                                            <option value="1" selected>1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>
-
+                                        <input type="number" id="inputcnt" class="form-input mb-2" value="${cnt}"/>
                                     </div>
                                     <div class="col-12 col-lg">
-
                                         <!-- Submit -->
-                                        <button type="button" class="btn w-100 btn-dark mb-2 cart_btn">
-                                            Add to Cart <i class="fe fe-shopping-cart ms-2"></i>
+                                        <button type="button" class="btn w-100 btn-dark mb-2 cart_btn"
+                                                data-itemid="${obj.item_id}">
+                                            장바구니 추가 <i class="fe fe-shopping-cart ms-2"></i>
                                         </button>
-
                                     </div>
                                     <div class="col-12 col-lg-auto">
 

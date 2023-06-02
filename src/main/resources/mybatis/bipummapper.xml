@@ -22,9 +22,12 @@
 
     <!--    id는 ItemMapper의 함수의 이름들이다-->
     <select id="selectall" resultType="bipum">
-        SELECT *
-        FROM item
-        WHERE CATEGORY_ID IN('300','400')
+        SELECT a.ITEM_ID, a.CATEGORY_ID, a.ITEM_IMG, a.ITEM_NAME, a.ITEM_CNT, a.ITEM_PRICE, a.ITEM_CONTENT, a.ITEM_RDATE, a.FLOWER_COLOR, a.FLOWER_TYPE, a.FLOWER_SIZE, a.MAIN_IMG,
+               COUNT(b.REVIEW_ID) as cnt, NVL(ROUND(AVG(b.REVIEW_SCORE),0),0) as avgscore
+        FROM item a left outer join item_review b
+        ON a.item_id = b.item_id
+        where a.category_id in(300,400)
+        GROUP BY a.ITEM_ID, a.CATEGORY_ID, a.ITEM_IMG, a.ITEM_NAME, a.ITEM_CNT, a.ITEM_PRICE, a.ITEM_CONTENT, a.ITEM_RDATE, a.FLOWER_COLOR, a.FLOWER_TYPE, a.FLOWER_SIZE, a.MAIN_IMG
     </select>
 
     <insert id="insert" parameterType="bipum">
