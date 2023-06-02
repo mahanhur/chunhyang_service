@@ -1690,11 +1690,11 @@
                                 <div class="row gx-5 mb-7">
                                     <div class="col-12 col-lg-auto">
                                         <!-- Quantity -->
-                                        <input type="number" id="inputcnt" class="form-input mb-2" value="${cnt}"/>
+                                        <input type="number" id="inputcnt" class="form-control form-control-sm" value="${cnt}"/>
                                     </div>
                                     <div class="col-12 col-lg">
                                         <!-- Submit -->
-                                        <button type="button" class="btn w-100 btn-dark mb-2 cart_btn"
+                                        <button type="button" class="btn w-60 btn-dark mb-2 cart_btn"
                                                 data-itemid="${obj.item_id}">
                                             장바구니 추가 <i class="fe fe-shopping-cart ms-2"></i>
                                         </button>

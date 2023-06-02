@@ -1530,19 +1530,72 @@
 <section class="py-7 border-bottom">
   <div class="container">
     <div class="row align-items-center">
+
+
       <div class="col-12 col-md">
 
         <!-- Categories -->
         <nav class="nav nav-overflow mb-6 mb-md-0">
           <a class="nav-link active" data-bs-toggle="tab" href="#">전체</a>
-          <a class="nav-link" data-bs-toggle="tab" href="#">꽃다발</a>
-          <a class="nav-link" data-bs-toggle="tab" href="#">감사</a>
-          <a class="nav-link" data-bs-toggle="tab" href="#">사랑</a>
-          <a class="nav-link" data-bs-toggle="tab" href="#">축하</a>
-          <a class="nav-link" data-bs-toggle="tab" href="#">꽃</a>
+          <!-- Toggle -->
+          <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown" href="#">꽃다발</a>
+          <!-- Menu -->
+            <form class="dropdown-menu">
+              <div class="card">
+                <div class="card-body">
+                  <!-- Form group -->
+                  <div class="form-group-overflow">
+                    <div class="form-check form-check-text mb-3">
+                      <input class="form-check-input" id="Default" name="sort" type="radio" value="전체">
+                      <label class="form-check-label" for="sortOne">전체</label>
+                    </div>
+                    <div class="form-check form-check-text mb-3">
+                      <input class="form-check-input" id="Newest" name="sort" type="radio" value="사랑">
+                      <label class="form-check-label" for="sortTwo">사랑</label>
+                    </div>
+                    <div class="form-check form-check-text mb-3">
+                      <input class="form-check-input" id="Most Popular" name="sort" type="radio" value="응원">
+                      <label class="form-check-label" for="sortThree">응원</label>
+                    </div>
+                    <div class="form-check form-check-text mb-3">
+                      <input class="form-check-input" id="Default Price" name="sort" type="radio" value="감사">
+                      <label class="form-check-label" for="sortFour">감사</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown" href="#">꽃</a>
+          <!-- Menu -->
+          <form class="dropdown-menu">
+            <div class="card">
+              <div class="card-body">
+                <!-- Form group -->
+                <div class="form-group-overflow">
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" name="sort" type="radio" value="전체">
+                    <label class="form-check-label" for="sortOne">전체</label>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input"  name="sort" type="radio" value="장미">
+                    <label class="form-check-label" for="sortTwo">장미</label>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input"  name="sort" type="radio" value="수국">
+                    <label class="form-check-label" for="sortThree">수국</label>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input"  name="sort" type="radio" value="프리지아">
+                    <label class="form-check-label" for="sortFour">프리지아</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </nav>
 
       </div>
+
       <div class="col-12 col-md-auto text-center">
 
         <!-- Filter -->
@@ -1797,701 +1850,77 @@
 <section class="py-12">
   <div class="container">
     <div class="row">
-<%--    <div class="col-6 col-sm-6 col-md-4 col-lg-3">--%>
+      <c:forEach var="obj" items="${ilist}" varStatus="status">
+        <div class="col-6 col-md-3 col-lg">
 
-<c:forEach var="obj" items="${ilist}" varStatus="status">
-      <div class="col-6 col-md-3 col-lg">
+            <!-- Card -->
+            <div class="card mb-7" data-toggle="card-collapse">
 
-        <!-- Card -->
-        <div class="card mb-7" data-toggle="card-collapse">
+              <!-- Image -->
+              <a href="/item/detail?item_id=${obj.item_id}">
+                <img src="/uimg/${obj.item_img}" alt="..." class="card-img-top">
+              </a>
 
-          <!-- Image -->
-          <a href="/item/detail?item_id=${obj.item_id}">
-            <img src="/uimg/${obj.item_img}" alt="..." class="card-img-top">
-          </a>
+              <!-- Collapse -->
+              <div class="card-collapse-parent">
 
-          <!-- Collapse -->
-          <div class="card-collapse-parent">
+                <!-- Body -->
+                <div class="card-body px-0 bg-white text-center">
 
-            <!-- Body -->
-            <div class="card-body px-0 bg-white text-center">
+                  <!-- Heading -->
+                  <div class="mb-1 fw-bold">
+                    <a class="text-body" href="#">${obj.item_name}</a>
+                  </div>
 
-              <!-- Heading -->
-              <div class="mb-1 fw-bold">
-                <a class="text-body" href="#">${obj.item_name}</a>
-              </div>
+                  <!-- Price -->
+                  <div class="mb-1 fw-bold text-muted">
+                    <fmt:formatNumber value="${obj.item_price}" pattern="###,###원"/>
+                  </div>
 
-              <!-- Price -->
-              <div class="mb-1 fw-bold text-muted">
-                <fmt:formatNumber value="${obj.item_price}" pattern="###,###원"/>
-              </div>
+                  <!-- Rating -->
+                  <div class="rating fs-xxs text-dark justify-content-center" data-value="3">
+                    <div class="rating-item">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="rating-item">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="rating-item">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="rating-item">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="rating-item">
+                      <i class="fas fa-star"></i>
+                    </div>
+                  </div>
 
-              <!-- Rating -->
-              <div class="rating fs-xxs text-dark justify-content-center" data-value="3">
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
                 </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
 
-            </div>
-
-            <!-- Footer -->
-            <div class="card-collapse collapse">
-              <div class="card-footer px-0 pt-0 bg-white text-center">
-                <button class="btn btn-xs btn-link btn-circle" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                  <i class="fe fe-eye"></i>
-                </button>
-                <button type="button" class="btn btn-xs btn-link btn-circle cart_btn" data-itemid="${obj.item_id}" data-toggle="button">
-                  <i class="fe fe-shopping-cart"></i>
-                </button>
-                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">
-                  <i class="fe fe-heart"></i>
-                </button>
+                <!-- Footer -->
+                <div class="card-collapse collapse">
+                  <div class="card-footer px-0 pt-0 bg-white text-center">
+                    <button class="btn btn-xs btn-link btn-circle" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                      <i class="fe fe-eye"></i>
+                    </button>
+                    <button type="button" class="btn btn-xs btn-link btn-circle cart_btn" data-itemid="${obj.item_id}" data-toggle="button">
+                      <i class="fe fe-shopping-cart"></i>
+                    </button>
+                    <button class="btn btn-xs btn-link btn-circle" data-toggle="button">
+                      <i class="fe fe-heart"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-  <c:if test="${status.count % 4 == 0}">
-    <div class="w-100 d-none d-lg-block"></div>
-  </c:if>
-</c:forEach>
-<%--      <div class="col-6 col-md-3 col-lg">--%>
+        <c:if test="${status.count % 4 == 0}">
+          <div class="w-100 d-none d-lg-block"></div>
+        </c:if>
+      </c:forEach>
+    </div>
 
-<%--        <!-- Card -->--%>
-<%--        <div class="card mb-7" data-toggle="card-collapse">--%>
-
-<%--          <!-- Badge -->--%>
-<%--          <div class="badge bg-dark card-badge card-badge-start text-uppercase">--%>
-<%--            Sale--%>
-<%--          </div>--%>
-
-<%--          <!-- Image -->--%>
-<%--          <a href="product.html">--%>
-<%--            <img src="assets/img/products/product-6.jpg" alt="..." class="card-img-top">--%>
-<%--          </a>--%>
-
-<%--          <!-- Collapse -->--%>
-<%--          <div class="card-collapse-parent">--%>
-
-<%--            <!-- Body -->--%>
-<%--            <div class="card-body px-0 bg-white text-center">--%>
-
-<%--              <!-- Heading -->--%>
-<%--              <div class="mb-1 fw-bold">--%>
-<%--                <a class="text-body" href="product.html">Cotton floral print Dress</a>--%>
-<%--              </div>--%>
-
-<%--              <!-- Price -->--%>
-<%--              <div class="mb-1 fw-bold text-muted">--%>
-<%--                    <span class="fs-xs text-gray-350 text-decoration-line-through">--%>
-<%--                      $76.00--%>
-<%--                    </span>--%>
-<%--                <span class="text-primary">$25.00</span>--%>
-<%--              </div>--%>
-
-<%--              <!-- Rating -->--%>
-<%--              <div class="rating fs-xxs text-dark justify-content-center" data-value="4">--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--              </div>--%>
-
-<%--            </div>--%>
-
-<%--            <!-- Footer -->--%>
-<%--            <div class="card-collapse collapse">--%>
-<%--              <div class="card-footer px-0 pt-0 bg-white text-center">--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-bs-toggle="modal" data-bs-target="#modalProduct">--%>
-<%--                  <i class="fe fe-eye"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-shopping-cart"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-heart"></i>--%>
-<%--                </button>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-
-<%--          </div>--%>
-
-<%--        </div>--%>
-
-<%--      </div>--%>
-<%--      <div class="col-6 col-md-3 col-lg">--%>
-
-<%--        <!-- Card -->--%>
-<%--        <div class="card mb-7" data-toggle="card-collapse">--%>
-
-<%--          <!-- Image -->--%>
-<%--          <a href="product.html">--%>
-<%--            <img src="assets/img/products/product-7.jpg" alt="..." class="card-img-top">--%>
-<%--          </a>--%>
-
-<%--          <!-- Collapse -->--%>
-<%--          <div class="card-collapse-parent">--%>
-
-<%--            <!-- Body -->--%>
-<%--            <div class="card-body px-0 bg-white text-center">--%>
-
-<%--              <!-- Heading -->--%>
-<%--              <div class="mb-1 fw-bold">--%>
-<%--                <a class="text-body" href="product.html">Leather Sneakers</a>--%>
-<%--              </div>--%>
-
-<%--              <!-- Price -->--%>
-<%--              <div class="mb-1 fw-bold text-muted">--%>
-<%--                $115.00--%>
-<%--              </div>--%>
-
-<%--              <!-- Rating -->--%>
-<%--              <div class="rating fs-xxs text-dark justify-content-center">--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--              </div>--%>
-
-<%--            </div>--%>
-
-<%--            <!-- Footer -->--%>
-<%--            <div class="card-collapse collapse">--%>
-<%--              <div class="card-footer px-0 pt-0 bg-white text-center">--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-bs-toggle="modal" data-bs-target="#modalProduct">--%>
-<%--                  <i class="fe fe-eye"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-shopping-cart"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-heart"></i>--%>
-<%--                </button>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-
-<%--          </div>--%>
-
-<%--        </div>--%>
-
-<%--      </div>--%>
-<%--      <div class="col-6 col-md-3 col-lg">--%>
-
-<%--        <!-- Card -->--%>
-<%--        <div class="card mb-7" data-toggle="card-collapse">--%>
-
-<%--          <!-- Image -->--%>
-<%--          <a href="product.html">--%>
-<%--            <img src="assets/img/products/product-32.jpg" alt="..." class="card-img-top">--%>
-<%--          </a>--%>
-
-<%--          <!-- Collapse -->--%>
-<%--          <div class="card-collapse-parent">--%>
-
-<%--            <!-- Body -->--%>
-<%--            <div class="card-body px-0 bg-white text-center">--%>
-
-<%--              <!-- Heading -->--%>
-<%--              <div class="mb-1 fw-bold">--%>
-<%--                <a class="text-body" href="product.html">Cotton leaf print Shirt</a>--%>
-<%--              </div>--%>
-
-<%--              <!-- Price -->--%>
-<%--              <div class="mb-1 fw-bold text-muted">--%>
-<%--                $65.00--%>
-<%--              </div>--%>
-
-<%--              <!-- Rating -->--%>
-<%--              <div class="rating fs-xxs text-dark justify-content-center" data-value="2">--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--              </div>--%>
-
-<%--            </div>--%>
-
-<%--            <!-- Footer -->--%>
-<%--            <div class="card-collapse collapse">--%>
-<%--              <div class="card-footer px-0 pt-0 bg-white text-center">--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-bs-toggle="modal" data-bs-target="#modalProduct">--%>
-<%--                  <i class="fe fe-eye"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-shopping-cart"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-heart"></i>--%>
-<%--                </button>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-
-<%--          </div>--%>
-
-<%--        </div>--%>
-
-<%--      </div>--%>
-<%--      <div class="col-6 col-md-3 col-lg">--%>
-
-<%--        <!-- Card -->--%>
-<%--        <div class="card mb-7" data-toggle="card-collapse">--%>
-
-<%--          <!-- Image -->--%>
-<%--          <a href="product.html">--%>
-<%--            <img src="assets/img/products/product-8.jpg" alt="..." class="card-img-top">--%>
-<%--          </a>--%>
-
-<%--          <!-- Collapse -->--%>
-<%--          <div class="card-collapse-parent">--%>
-
-<%--            <!-- Body -->--%>
-<%--            <div class="card-body px-0 bg-white text-center">--%>
-
-<%--              <!-- Heading -->--%>
-<%--              <div class="mb-1 fw-bold">--%>
-<%--                <a class="text-body" href="product.html">Cropped cotton Top</a>--%>
-<%--              </div>--%>
-
-<%--              <!-- Price -->--%>
-<%--              <div class="mb-1 fw-bold text-muted">--%>
-<%--                $29.00--%>
-<%--              </div>--%>
-
-<%--              <!-- Rating -->--%>
-<%--              <div class="rating fs-xxs text-dark justify-content-center">--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--              </div>--%>
-
-<%--            </div>--%>
-
-<%--            <!-- Footer -->--%>
-<%--            <div class="card-collapse collapse">--%>
-<%--              <div class="card-footer px-0 pt-0 bg-white text-center">--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-bs-toggle="modal" data-bs-target="#modalProduct">--%>
-<%--                  <i class="fe fe-eye"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-shopping-cart"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-heart"></i>--%>
-<%--                </button>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-
-<%--          </div>--%>
-
-<%--        </div>--%>
-
-<%--      </div>--%>
-
-<%--      <!-- Divider -->--%>
-<%--      <div class="w-100 d-none d-lg-block"></div>--%>
-
-<%--      <div class="col-6 col-md-3 col-lg">--%>
-
-<%--        <!-- Card -->--%>
-<%--        <div class="card mb-7" data-toggle="card-collapse">--%>
-
-<%--          <!-- Image -->--%>
-<%--          <a href="product.html">--%>
-<%--            <img src="assets/img/products/product-9.jpg" alt="..." class="card-img-top">--%>
-<%--          </a>--%>
-
-<%--          <!-- Collapse -->--%>
-<%--          <div class="card-collapse-parent">--%>
-
-<%--            <!-- Body -->--%>
-<%--            <div class="card-body px-0 bg-white text-center">--%>
-
-<%--              <!-- Heading -->--%>
-<%--              <div class="mb-1 fw-bold">--%>
-<%--                <a class="text-body" href="product.html">Floral print midi Dress</a>--%>
-<%--              </div>--%>
-
-<%--              <!-- Price -->--%>
-<%--              <div class="mb-1 fw-bold text-muted">--%>
-<%--                $50.00--%>
-<%--              </div>--%>
-
-<%--              <!-- Rating -->--%>
-<%--              <div class="rating fs-xxs text-dark justify-content-center">--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--              </div>--%>
-
-<%--            </div>--%>
-
-<%--            <!-- Footer -->--%>
-<%--            <div class="card-collapse collapse">--%>
-<%--              <div class="card-footer px-0 pt-0 bg-white text-center">--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-bs-toggle="modal" data-bs-target="#modalProduct">--%>
-<%--                  <i class="fe fe-eye"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-shopping-cart"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-heart"></i>--%>
-<%--                </button>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-
-<%--          </div>--%>
-
-<%--        </div>--%>
-
-<%--      </div>--%>
-<%--      <div class="col-6 col-md-3 col-lg">--%>
-
-<%--        <!-- Card -->--%>
-<%--        <div class="card mb-7" data-toggle="card-collapse">--%>
-
-<%--          <!-- Image -->--%>
-<%--          <a href="product.html">--%>
-<%--            <img src="assets/img/products/product-10.jpg" alt="..." class="card-img-top">--%>
-<%--          </a>--%>
-
-<%--          <!-- Collapse -->--%>
-<%--          <div class="card-collapse-parent">--%>
-
-<%--            <!-- Body -->--%>
-<%--            <div class="card-body px-0 bg-white text-center">--%>
-
-<%--              <!-- Heading -->--%>
-<%--              <div class="mb-1 fw-bold">--%>
-<%--                <a class="text-body" href="product.html">Suede cross body Bag</a>--%>
-<%--              </div>--%>
-
-<%--              <!-- Price -->--%>
-<%--              <div class="mb-1 fw-bold text-muted">--%>
-<%--                $79.00--%>
-<%--              </div>--%>
-
-<%--              <!-- Rating -->--%>
-<%--              <div class="rating fs-xxs text-dark justify-content-center" data-value="5">--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--              </div>--%>
-
-<%--            </div>--%>
-
-<%--            <!-- Footer -->--%>
-<%--            <div class="card-collapse collapse">--%>
-<%--              <div class="card-footer px-0 pt-0 bg-white text-center">--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-bs-toggle="modal" data-bs-target="#modalProduct">--%>
-<%--                  <i class="fe fe-eye"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-shopping-cart"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-heart"></i>--%>
-<%--                </button>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-
-<%--          </div>--%>
-
-<%--        </div>--%>
-
-<%--      </div>--%>
-<%--      <div class="col-6 col-md-3 col-lg">--%>
-
-<%--        <!-- Card -->--%>
-<%--        <div class="card mb-7" data-toggle="card-collapse">--%>
-
-<%--          <!-- Image -->--%>
-<%--          <a href="product.html">--%>
-<%--            <img src="assets/img/products/product-48.jpg" alt="..." class="card-img-top">--%>
-<%--          </a>--%>
-
-<%--          <!-- Collapse -->--%>
-<%--          <div class="card-collapse-parent">--%>
-
-<%--            <!-- Body -->--%>
-<%--            <div class="card-body px-0 bg-white text-center">--%>
-
-<%--              <!-- Heading -->--%>
-<%--              <div class="mb-1 fw-bold">--%>
-<%--                <a class="text-body" href="product.html">Sweatshirt with Pocket</a>--%>
-<%--              </div>--%>
-
-<%--              <!-- Price -->--%>
-<%--              <div class="mb-1 fw-bold text-muted">--%>
-<%--                $39.00--%>
-<%--              </div>--%>
-
-<%--              <!-- Rating -->--%>
-<%--              <div class="rating fs-xxs text-dark justify-content-center" data-value="4">--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--              </div>--%>
-
-<%--            </div>--%>
-
-<%--            <!-- Footer -->--%>
-<%--            <div class="card-collapse collapse">--%>
-<%--              <div class="card-footer px-0 pt-0 bg-white text-center">--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-bs-toggle="modal" data-bs-target="#modalProduct">--%>
-<%--                  <i class="fe fe-eye"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-shopping-cart"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-heart"></i>--%>
-<%--                </button>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-
-<%--          </div>--%>
-
-<%--        </div>--%>
-
-<%--      </div>--%>
-<%--      <div class="col-6 col-md-3 col-lg">--%>
-
-<%--        <!-- Card -->--%>
-<%--        <div class="card mb-7" data-toggle="card-collapse">--%>
-
-<%--          <!-- Image -->--%>
-<%--          <a href="product.html">--%>
-<%--            <img src="assets/img/products/product-11.jpg" alt="..." class="card-img-top">--%>
-<%--          </a>--%>
-
-<%--          <!-- Collapse -->--%>
-<%--          <div class="card-collapse-parent">--%>
-
-<%--            <!-- Body -->--%>
-<%--            <div class="card-body px-0 bg-white text-center">--%>
-
-<%--              <!-- Heading -->--%>
-<%--              <div class="mb-1 fw-bold">--%>
-<%--                <a class="text-body" href="product.html">Printed A-line Skirt</a>--%>
-<%--              </div>--%>
-
-<%--              <!-- Price -->--%>
-<%--              <div class="mb-1 fw-bold text-muted">--%>
-<%--                $79.00--%>
-<%--              </div>--%>
-
-<%--              <!-- Rating -->--%>
-<%--              <div class="rating fs-xxs text-dark justify-content-center" data-value="5">--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--              </div>--%>
-
-<%--            </div>--%>
-
-<%--            <!-- Footer -->--%>
-<%--            <div class="card-collapse collapse">--%>
-<%--              <div class="card-footer px-0 pt-0 bg-white text-center">--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-bs-toggle="modal" data-bs-target="#modalProduct">--%>
-<%--                  <i class="fe fe-eye"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-shopping-cart"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-heart"></i>--%>
-<%--                </button>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-
-<%--          </div>--%>
-
-<%--        </div>--%>
-
-<%--      </div>--%>
-<%--      <div class="col-6 col-md-3 col-lg">--%>
-
-<%--        <!-- Card -->--%>
-<%--        <div class="card mb-7" data-toggle="card-collapse">--%>
-
-<%--          <!-- Badge -->--%>
-<%--          <div class="badge bg-dark card-badge card-badge-start text-uppercase">--%>
-<%--            Sale--%>
-<%--          </div>--%>
-
-<%--          <!-- Image -->--%>
-<%--          <a href="product.html">--%>
-<%--            <img src="assets/img/products/product-49.jpg" alt="..." class="card-img-top">--%>
-<%--          </a>--%>
-
-<%--          <!-- Collapse -->--%>
-<%--          <div class="card-collapse-parent">--%>
-
-<%--            <!-- Body -->--%>
-<%--            <div class="card-body px-0 bg-white text-center">--%>
-
-<%--              <!-- Heading -->--%>
-<%--              <div class="mb-1 fw-bold">--%>
-<%--                <a class="text-body" href="product.html">Men’s leather Sneakers</a>--%>
-<%--              </div>--%>
-
-<%--              <!-- Price -->--%>
-<%--              <div class="mb-1 fw-bold text-muted">--%>
-<%--                    <span class="fs-xs text-gray-350 text-decoration-line-through">--%>
-<%--                      $145.00--%>
-<%--                    </span>--%>
-<%--                <span class="text-primary">$99.00</span>--%>
-<%--              </div>--%>
-
-<%--              <!-- Rating -->--%>
-<%--              <div class="rating fs-xxs text-dark justify-content-center" data-value="3">--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--                <div class="rating-item">--%>
-<%--                  <i class="fas fa-star"></i>--%>
-<%--                </div>--%>
-<%--              </div>--%>
-
-<%--            </div>--%>
-
-<%--            <!-- Footer -->--%>
-<%--            <div class="card-collapse collapse">--%>
-<%--              <div class="card-footer px-0 pt-0 bg-white text-center">--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-bs-toggle="modal" data-bs-target="#modalProduct">--%>
-<%--                  <i class="fe fe-eye"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-shopping-cart"></i>--%>
-<%--                </button>--%>
-<%--                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">--%>
-<%--                  <i class="fe fe-heart"></i>--%>
-<%--                </button>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-
-<%--          </div>--%>
-
-<%--        </div>--%>
-
-<%--      </div>--%>
-<%--    </div>--%>
     <div class="row">
       <div class="col-12">
 
