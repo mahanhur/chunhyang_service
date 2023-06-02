@@ -62,20 +62,25 @@ public class CartController {
 
     @RequestMapping("/addcart")
     public String addcart(Model model, Cart cart, HttpSession session) throws Exception {
+
+        log.info("========================="+cart);
+
         cartService.register(cart);
         if (session != null) {
             Cust cust = (Cust) session.getAttribute("logincust");
-            return "redirect:/cart/all?id=" + cust.getCust_id();
+            return "redirect:/cart/all?cust_id=" + cust.getCust_id();
         }
         return "redirect:/";
     }
 
     @RequestMapping("/delcart")
-    public String delcart(Model model, Integer id, HttpSession session) throws Exception {
-        cartService.remove(id);
+    public String delcart(Model model, Integer cart_id, HttpSession session) throws Exception {
+        log.info("========================"+cart_id);
+        cartService.remove(cart_id);
+
         if (session != null) {
             Cust cust = (Cust) session.getAttribute("logincust");
-            return "redirect:/cart/all?id=" + cust.getCust_id();
+            return "redirect:/cart/all?cust_id=" + cust.getCust_id();
         }
         return "redirect:/";
     }

@@ -65,7 +65,7 @@
     <delete id="delete" parameterType="Integer">
         DELETE
         FROM CART
-        WHERE ID = #{id}
+        WHERE CART_ID = #{cart_id}
     </delete>
 
 </mapper>
