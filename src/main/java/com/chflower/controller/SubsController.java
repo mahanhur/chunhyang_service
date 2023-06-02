@@ -56,5 +56,10 @@ public class SubsController {
         model.addAttribute("center",dir+"detail");
         return "index";
     }
+    @RequestMapping("/checkout")
+    public String checkout(Model model){
+        model.addAttribute("center","checkout1");
+        return "index";
+    }
 
 }

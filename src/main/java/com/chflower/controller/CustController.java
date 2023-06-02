@@ -1,6 +1,8 @@
 package com.chflower.controller;
 
+import com.chflower.dto.Addr;
 import com.chflower.dto.Cust;
+import com.chflower.service.AddrService;
 import com.chflower.service.CustService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -17,6 +20,8 @@ import javax.servlet.http.HttpSession;
 public class CustController {
     @Autowired
     CustService custservice;
+    @Autowired
+    AddrService addrservice;
     @Autowired
     private BCryptPasswordEncoder encoder;
 
@@ -126,5 +131,76 @@ public class CustController {
 //        }
 //        //수정이 끝나면 account-personal-info 화면으로 보낸다
         return "redirect:/cust/personalinfo?cust_id="+cust.getCust_id();
+    }
+
+    @RequestMapping("/addr")
+    public String addr(Model model, HttpSession session){
+        Cust cust = (Cust) session.getAttribute("logincust");
+        if (cust != null) {
+            String cust_id = cust.getCust_id();
+            List<Addr> list ;
+            try {
+                list = addrservice.getaddr(cust_id);
+                model.addAttribute("addrlist", list);
+            } catch (Exception e) {
+                throw new RuntimeException("주소 리스트 호출 오류입니다.");
+            }
+        } else {
+            // logincust 세션에 대한 처리가 필요한 경우
+            return "redirect:/cust/login";
+        }
+        model.addAttribute("center",dir+"addr");
+        return "index";
+    }
+
+    @RequestMapping("/addradd")
+    public String addradd(Model model, HttpSession session, String addr_name, String def_addr1, String def_addr2){
+        model.addAttribute("center",dir+"addradd");
+        return "index";
+    }
+    @RequestMapping("/addraddimpl")
+    public String addraddimpl(Model model, HttpSession session, String def_addr1, String def_addr2,  String addr_name){
+        Cust cust = (Cust) session.getAttribute("logincust");
+        String cust_id = cust.getCust_id();
+        Addr addr = new Addr(def_addr1, def_addr2, addr_name,cust_id);
+        try {
+            addrservice.register(addr);
+        } catch (Exception e) {
+            throw new RuntimeException("주소 등록 오류입니다.");
+        }
+        return "redirect:/cust/addr";
+    }
+    @RequestMapping("/addrdel")
+    public String adddel(Model model, int addr_id){
+        try {
+            addrservice.remove(addr_id);
+        } catch (Exception e) {
+            throw new RuntimeException("주소 등록 오류입니다.");
+        }
+        return "redirect:/cust/addr";
+    }
+
+    @RequestMapping("/addrupdate")
+    public String addrupdate(Model model, int addr_id){
+        Addr addr = null;
+        try {
+            addr = addrservice.get(addr_id);
+        } catch (Exception e) {
+            throw new RuntimeException("주소 업데이트 화면 오류입니다");
+        }
+        model.addAttribute("obj",addr);
+        model.addAttribute("center",dir+"addrupdate");
+        return "index";
+    }
+
+    @RequestMapping("/addrupdateimpl")
+    public String addrupdateimpl(Model model, int addr_id, String def_addr1, String def_addr2, String addr_name){
+        Addr addr = new Addr(addr_id, def_addr1, def_addr2, addr_name);
+        try {
+            addrservice.modify(addr);
+        } catch (Exception e) {
+            throw new RuntimeException("주소 업데이트 오류입니다.");
+        }
+        return "redirect:/cust/addr";
     }
 }

@@ -1,13 +1,7 @@
 package com.chflower.controller;
 
-import com.chflower.dto.Bipum;
-import com.chflower.dto.Bipumimg;
-import com.chflower.dto.ItemReview;
-import com.chflower.dto.Itemimg;
-import com.chflower.service.BipumService;
-import com.chflower.service.BipumimgService;
-import com.chflower.service.CustService;
-import com.chflower.service.ItemReviewService;
+import com.chflower.dto.*;
+import com.chflower.service.*;
 import com.chflower.util.FileUploadUtil;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +27,8 @@ public class BipumController {
     ItemReviewService itemReviewService;
     @Autowired
     CustService custservice;
+    @Autowired
+    RecommandItemService recommandItemService;
 //    @Autowired
 //    CartService cartService;
 
@@ -78,6 +74,11 @@ public class BipumController {
         model.addAttribute("reviewlist",reviewlist);
         model.addAttribute("itemReview",itemReview);
 
+        List<RecommandItem> recommandItemList= new ArrayList<>();
+        recommandItemList = recommandItemService.get();
+        log.info("recommandItemList={}", recommandItemList);
+
+        model.addAttribute("recommandlist", recommandItemList);
         /* ▼리뷰등록을 위해서 item_id를 모델에 넣어서 detail.jsp화면에 던져서 form에 넣어 둔다 */
         model.addAttribute("item_id", item_id);
         model.addAttribute("detail", bipum);

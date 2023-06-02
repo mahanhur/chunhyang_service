@@ -1,7 +1,13 @@
 package com.chflower.dto;
 
-import java.util.Date;
+import lombok.*;
 
+import java.util.Date;
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+@ToString
 public class RecommandItem {
     private int item_id;
     private double category_id;
