@@ -57,11 +57,10 @@
     </insert>
     <update id="update" parameterType="cart">
         UPDATE CART
-        SET CUST_ID=#{cust_id},
-            ITEM_ID=#{item_id},
-            CNT=#{cnt}
-        WHERE ID = #{id}
+        SET CNT=#{cnt}
+        WHERE CART_ID = #{cart_id}
     </update>
+
     <delete id="delete" parameterType="Integer">
         DELETE
         FROM CART

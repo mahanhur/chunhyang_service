@@ -2,20 +2,50 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+  let cartupdate_form = {
+    init: function () {
+      $('.cartupdate_btn').click(function () {
+        let cart_id = $(this).data('cartid');
+        let cust_id = "${logincust.cust_id}";
+        let cnt = parseInt($('#inputcnt').val());
 
+        <%--     동적으로 생성되는거라..? ${obj.cart_id} 이렇게 하면 데이터를 못끌고옴  --%>
+
+        $.ajax({
+          url: '/cart/updatecart',
+          type: 'post',
+          data: {cnt:cnt, cart_id: cart_id, cust_id: cust_id},
+          success:function() {
+            alert("장바구니 상품의 정보가 변경되었습니다.")
+            if(cust_id != '') {
+              location.href="/cart/all?cust_id="+cust_id;
+            } else {
+              location.href="/cust/login"
+            }
+          }
+        })
+      });
+    }}
+  $(function () {
+    cartupdate_form.init();
+  });
+
+</script>
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="./assets/favicon/favicon.ico" type="image/x-icon" />
-    
+
     <!-- Libs CSS -->
     <link rel="stylesheet" href="./assets/css/libs.bundle.css" />
-    
+
     <!-- Theme CSS -->
     <link rel="stylesheet" href="./assets/css/theme.bundle.css" />
 
@@ -1535,11 +1565,31 @@
                       Type: ${obj.flower_type}<br/>
                       Color: ${obj.flower_color}
                     </p>
-
-                    <!--Footer -->
                     <div class="d-flex align-items-center">
                     <!--장바구니 상품개수-->
-                      상품수량:  <input type="number" id="inputcnt" class="form-input mb-2" value="${obj.cnt}"/>
+                      <form class="mb-7 mb-md-0">
+                        <label class="form-label fs-sm fw-bold" for="cartCouponCode">
+                          상품수량:
+                        </label>
+                        <div class="row row gx-5">
+                          <div class="col">
+
+                            <!-- Input -->
+                            <input class="form-control form-control-sm" id="inputcnt" type="number" value="${obj.cnt}">
+
+                          </div>
+                          <div class="col-auto">
+
+                            <!-- Button -->
+                            <button type="button" class="btn btn-sm btn-dark cartupdate_btn"
+                                    data-cartid=${obj.cart_id}>
+                              변경
+                            </button>
+
+                          </div>
+                        </div>
+                      </form>
+
 
                       <!-- 삭제 -->
                       <a class="fs-xs text-gray-400 ms-auto" role="button" href="/cart/delcart?cart_id=${obj.cart_id}">
@@ -1551,50 +1601,9 @@
                   </div>
                 </div>
               </li>
+                  <c:set var="total" value="${total +(obj.cnt * obj.item_price)}"/>
               </c:forEach>
-<%--              <li class="list-group-item">--%>
-<%--                <div class="row align-items-center">--%>
-<%--                  <div class="col-3">--%>
 
-<%--                    <!-- Image -->--%>
-<%--                    <a href="product.html">--%>
-<%--                      <img src="assets/img/products/product-10.jpg" alt="..." class="img-fluid">--%>
-<%--                    </a>--%>
-
-<%--                  </div>--%>
-<%--                  <div class="col">--%>
-
-<%--                    <!-- Title -->--%>
-<%--                    <div class="d-flex mb-2 fw-bold">--%>
-<%--                      <a class="text-body" href="product.html">Suede cross body Bag</a> <span class="ms-auto">$49.00</span>--%>
-<%--                    </div>--%>
-
-<%--                    <!-- Text -->--%>
-<%--                    <p class="mb-7 fs-sm text-muted">--%>
-<%--                      Color: Brown--%>
-<%--                    </p>--%>
-
-<%--                    <!--Footer -->--%>
-<%--                    <div class="d-flex align-items-center">--%>
-
-<%--                      <!-- Select -->--%>
-<%--                      <select class="form-select form-select-xxs w-auto">--%>
-<%--                        <option value="1">1</option>--%>
-<%--                        <option value="1">2</option>--%>
-<%--                        <option value="1">3</option>--%>
-<%--                      </select>--%>
-
-<%--                      <!-- Remove -->--%>
-<%--                      <a class="fs-xs text-gray-400 ms-auto" href="#!">--%>
-<%--                        <i class="fe fe-x"></i> Remove--%>
-<%--                      </a>--%>
-
-<%--                    </div>--%>
-
-<%--                  </div>--%>
-<%--                </div>--%>
-<%--              </li>--%>
-            </ul>
 
             <!-- Footer -->
             <div class="row align-items-end justify-content-between mb-10 mb-md-0">
@@ -1640,13 +1649,17 @@
               <div class="card-body">
                 <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
                   <li class="list-group-item d-flex">
-                    <span>Subtotal</span> <span class="ms-auto fs-sm">$89.00</span>
+                    <span>총 주문금액</span> <span class="ms-auto fs-sm">
+                    <fmt:formatNumber value="${total}" pattern="###,###원"/>
+                  </span>
                   </li>
                   <li class="list-group-item d-flex">
-                    <span>Tax</span> <span class="ms-auto fs-sm">$00.00</span>
+                    <span>포인트 사용금액</span> <span class="ms-auto fs-sm">$00.00</span>
                   </li>
                   <li class="list-group-item d-flex fs-lg fw-bold">
-                    <span>Total</span> <span class="ms-auto fs-sm">$89.00</span>
+                    <span>총 결제금액</span> <span class="ms-auto fs-sm">
+                    <fmt:formatNumber value="${total}" pattern="###,###원"/>
+                  </span>
                   </li>
                   <li class="list-group-item fs-sm text-center text-gray-500">
                     Shipping cost calculated at Checkout *
@@ -1656,11 +1669,11 @@
             </div>
 
             <!-- Button -->
-            <a class="btn w-100 btn-dark mb-2" href="checkout.html">Proceed to Checkout</a>
+            <a class="btn w-100 btn-dark mb-2" href="checkout.html">주문하기</a>
 
             <!-- Link -->
-            <a class="btn btn-link btn-sm px-0 text-body" href="shop.html">
-              <i class="fe fe-arrow-left me-2"></i> Continue Shopping
+            <a class="btn btn-link btn-sm px-0 text-body" href="/item/all">
+              <i class="fe fe-arrow-left me-2"></i> 쇼핑하러 가기
             </a>
 
           </div>
@@ -1779,189 +1792,6 @@
         </div>
       </div>
     </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-dark bg-cover " style="background-image: url(./assets/img/patterns/pattern-2.svg)">
-      <div class="py-12 border-bottom border-gray-700">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-8 col-xl-6">
-    
-              <!-- Heading -->
-              <h5 class="mb-7 text-center text-white">Want style Ideas and Treats?</h5>
-    
-              <!-- Form -->
-              <form class="mb-11">
-                <div class="row gx-5 align-items-start">
-                  <div class="col">
-                    <input type="email" class="form-control form-control-gray-700 form-control-lg" placeholder="Enter Email *">
-                  </div>
-                  <div class="col-auto">
-                    <button type="submit" class="btn btn-gray-500 btn-lg">Subscribe</button>
-                  </div>
-                </div>
-              </form>
-    
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-3">
-    
-              <!-- Heading -->
-              <h4 class="mb-6 text-white">Shopper.</h4>
-    
-              <!-- Social -->
-              <ul class="list-unstyled list-inline mb-7 mb-md-0">
-                <li class="list-inline-item">
-                  <a href="#!" class="text-gray-350">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#!" class="text-gray-350">
-                    <i class="fab fa-youtube"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#!" class="text-gray-350">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#!" class="text-gray-350">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#!" class="text-gray-350">
-                    <i class="fab fa-medium"></i>
-                  </a>
-                </li>
-              </ul>
-    
-            </div>
-            <div class="col-6 col-sm">
-    
-              <!-- Heading -->
-              <h6 class="heading-xxs mb-4 text-white">
-                Support
-              </h6>
-    
-              <!-- Links -->
-              <ul class="list-unstyled mb-7 mb-sm-0">
-                <li>
-                  <a class="text-gray-300" href="./contact-us.html">Contact Us</a>
-                </li>
-                <li>
-                  <a class="text-gray-300" href="./faq.html">FAQs</a>
-                </li>
-                <li>
-                  <a class="text-gray-300" data-bs-toggle="modal" href="#modalSizeChart">Size Guide</a>
-                </li>
-                <li>
-                  <a class="text-gray-300" href="./shipping-and-returns.html">Shipping & Returns</a>
-                </li>
-              </ul>
-    
-            </div>
-            <div class="col-6 col-sm">
-    
-              <!-- Heading -->
-              <h6 class="heading-xxs mb-4 text-white">
-                Shop
-              </h6>
-    
-              <!-- Links -->
-              <ul class="list-unstyled mb-7 mb-sm-0">
-                <li>
-                  <a class="text-gray-300" href="./shop.html">Men's Shopping</a>
-                </li>
-                <li>
-                  <a class="text-gray-300" href="./shop.html">Women's Shopping</a>
-                </li>
-                <li>
-                  <a class="text-gray-300" href="./shop.html">Kids' Shopping</a>
-                </li>
-                <li>
-                  <a class="text-gray-300" href="./shop.html">Discounts</a>
-                </li>
-              </ul>
-    
-            </div>
-            <div class="col-6 col-sm">
-    
-              <!-- Heading -->
-              <h6 class="heading-xxs mb-4 text-white">
-                Company
-              </h6>
-    
-              <!-- Links -->
-              <ul class="list-unstyled mb-0">
-                <li>
-                  <a class="text-gray-300" href="./about.html">Our Story</a>
-                </li>
-                <li>
-                  <a class="text-gray-300" href="#!">Careers</a>
-                </li>
-                <li>
-                  <a class="text-gray-300" href="#!">Terms & Conditions</a>
-                </li>
-                <li>
-                  <a class="text-gray-300" href="#!">Privacy & Cookie policy</a>
-                </li>
-              </ul>
-    
-            </div>
-            <div class="col-6 col-sm">
-    
-              <!-- Heading -->
-              <h6 class="heading-xxs mb-4 text-white">
-                Contact
-              </h6>
-    
-              <!-- Links -->
-              <ul class="list-unstyled mb-0">
-                <li>
-                  <a class="text-gray-300" href="#!">1-202-555-0105</a>
-                </li>
-                <li>
-                  <a class="text-gray-300" href="#!">1-202-555-0106</a>
-                </li>
-                <li>
-                  <a class="text-gray-300" href="#!">help@shopper.com</a>
-                </li>
-              </ul>
-    
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="py-6">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-    
-              <!-- Copyright -->
-              <p class="mb-3 mb-md-0 fs-xxs text-muted">
-                © 2019 All rights reserved. Designed by Unvab.
-              </p>
-    
-            </div>
-            <div class="col-auto">
-    
-              <!-- Payment methods -->
-              <img class="footer-payment" src="./assets/img/payment/mastercard.svg" alt="...">
-              <img class="footer-payment" src="./assets/img/payment/visa.svg" alt="...">
-              <img class="footer-payment" src="./assets/img/payment/amex.svg" alt="...">
-              <img class="footer-payment" src="./assets/img/payment/paypal.svg" alt="...">
-              <img class="footer-payment" src="./assets/img/payment/maestro.svg" alt="...">
-              <img class="footer-payment" src="./assets/img/payment/klarna.svg" alt="...">
-    
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
 
     <!-- JAVASCRIPT -->
     <!-- Map (replace the API key to enable) -->
