@@ -1846,7 +1846,7 @@
   </form>
 </section>
 
-<!-- CONTENT -->
+<!-- 상품리스트 -->
 <section class="py-12">
   <div class="container">
     <div class="row">
@@ -1878,7 +1878,7 @@
                   </div>
 
                   <!-- Rating -->
-                  <div class="rating fs-xxs text-dark justify-content-center" data-value="3">
+                  <div class="rating fs-xxs text-dark justify-content-center" data-value="${obj.avgscore}">
                     <div class="rating-item">
                       <i class="fas fa-star"></i>
                     </div>
@@ -1894,7 +1894,7 @@
                     <div class="rating-item">
                       <i class="fas fa-star"></i>
                     </div>
-                  </div>
+                  </div>(${obj.cnt})
 
                 </div>
 

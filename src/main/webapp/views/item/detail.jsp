@@ -32,6 +32,30 @@
         item_get.init();
     });
 </script>
+<script>
+    let register_review = {
+        init:function (){
+            $('#register_btn').click(function (){
+                var checkTitle = $('#review_title').val();
+                var checkContents = $('#review_content').val();
+                if (checkTitle == '' || checkContents == ''){
+                    return;
+                };
+                register_review.send();
+            });
+        },
+        send:function(){
+            $('#review_form').attr({
+                method:'post',
+                action:'/bipum/register_reviewimpl',
+                enctype:'multipart/form-data'
+            });
+            $('#review_form').submit();
+        }
+    };
+    $(function (){
+        register_review.init();
+    })
 </script>
 <!doctype html>
 <html lang="en">
@@ -1606,7 +1630,7 @@
                             <div class="col-auto">
 
                                 <!-- Rating -->
-                                <div class="rating fs-xs text-dark" data-value="4">
+                                <div class="rating fs-xs text-dark" data-value="${itemReview.avgscore}">
                                     <div class="rating-item">
                                         <i class="fas fa-star"></i>
                                     </div>
@@ -1625,7 +1649,7 @@
                                 </div>
 
                                 <a class="fs-sm text-reset ms-2" href="#reviews">
-                                    Reviews (6)
+                                    리뷰보기 (${itemReview.cnt})
                                 </a>
 
                             </div>
@@ -1708,30 +1732,25 @@
 
                                     </div>
                                 </div>
-
-                                <!-- Text -->
-                                <p>
-                                    <span class="text-gray-500">Is your size/color sold out?</span>
-                                    <a class="text-reset text-decoration-underline" data-bs-toggle="modal" href="#modalWaitList">Join the Wait List!</a>
-                                </p>
-
-                                <!-- Share -->
-                                <p class="mb-0">
-                                    <span class="me-4">Share:</span>
-                                    <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                    <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                    <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                        <i class="fab fa-pinterest-p"></i>
-                                    </a>
-                                </p>
-
-                            </div>
-                        </form>
-
+                            <!-- 담당자에게 연락하기 -->
+                            <p>
+                                <span class="text-gray-500">원하시는 상품이 품절인가요??</span>
+                                <a class="text-reset text-decoration-underline" data-bs-toggle="modal" href="#modalWaitList">담당자에게 연락 주세요!</a>
+                            </p>
+                            <!-- 공유하기 -->
+                            <p class="mb-0">
+                                <span class="me-4">공유하기:</span>
+                                <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                            </p>
+                    </form>
                     </div>
                 </div>
             </div>
