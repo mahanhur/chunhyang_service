@@ -10,6 +10,35 @@
 <script src="./assets/js/vendor.bundle.js"></script>
 <!-- Theme JS -->
 <script src="./assets/js/theme.bundle.js"></script>
+<script>
+  let item_get = {
+    init: function () {
+      $('.cart_btn').click(function () {
+        let cust_id = "${logincust.cust_id}";
+        let item_id = $(this).data('itemid');
+        let cnt = null;
+        $.ajax({
+          url: '/cart/addcart',
+          type: 'post',
+          data: {cust_id: cust_id, item_id: item_id, cnt: 1},
+          success: function () {
+            if(cust_id != '') {
+              location.href="/cart/all?cust_id="+cust_id;
+            } else {
+              location.href="/cust/login"
+            }
+          },
+          error:()=>{
+            alert("ajax에러")
+          }
+        });
+      });
+    }
+  };
+  $(function () {
+    item_get.init();
+  });
+</script>
 
 <body>
 
@@ -1775,7 +1804,7 @@
               <!-- Price -->
               <div class="mb-1 fw-bold text-muted">
                 <fmt:formatNumber value="${obj.item_price}" pattern="###,###원"/>
-              </div>
+</div>
 
               <!-- Rating -->
               <div class="rating fs-xxs text-dark justify-content-center" data-value="${obj.avgscore}">
@@ -1804,7 +1833,7 @@
                 <button class="btn btn-xs btn-link btn-circle" data-bs-toggle="modal" data-bs-target="#modalProduct">
                   <i class="fe fe-eye"></i>
                 </button>
-                <button class="btn btn-xs btn-link btn-circle" data-toggle="button">
+                <button type="button" class="btn btn-xs btn-link btn-circle cart_btn" data-itemid="${obj.item_id}" data-toggle="button">
                   <i class="fe fe-shopping-cart"></i>
                 </button>
                 <button class="btn btn-xs btn-link btn-circle" data-toggle="button">
