@@ -1,9 +1,13 @@
 package com.chflower.controller;
 
 import com.chflower.dto.Item;
+import com.chflower.dto.ItemReview;
 import com.chflower.dto.Itemimg;
+import com.chflower.dto.RecommandItem;
+import com.chflower.service.ItemReviewService;
 import com.chflower.service.ItemService;
 import com.chflower.service.ItemimgService;
+import com.chflower.service.RecommandItemService;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +27,12 @@ public class ItemController {
     ItemService itemService;
     @Autowired
     ItemimgService itemimgService;
+    @Autowired
+    ItemReviewService itemReviewService;
+    @Autowired
+    RecommandItemService recommandItemService;
+
+
 //    @Autowired
 //    CartService cartService;
 
@@ -70,7 +80,20 @@ public class ItemController {
                 ilist.add(obj);
             }
         }
-//        log.info("=================="+ilist);
+        List<ItemReview> reviewlist = null;
+        reviewlist = itemReviewService.getItemReview(item_id);
+        ItemReview itemReview = itemReviewService.getAvgItemReview(item_id);
+        log.info(itemReview.toString());
+        model.addAttribute("reviewlist",reviewlist);
+        model.addAttribute("itemReview",itemReview);
+
+        List<RecommandItem> recommandItemList= new ArrayList<>();
+        recommandItemList = recommandItemService.get();
+        log.info("recommandItemList={}", recommandItemList);
+
+        model.addAttribute("recommandlist", recommandItemList);
+        /* ▼리뷰등록을 위해서 item_id를 모델에 넣어서 detail.jsp화면에 던져서 form에 넣어 둔다 */
+        model.addAttribute("item_id", item_id);
 
         model.addAttribute("detail", item);
         model.addAttribute("img", itemimg);
@@ -78,7 +101,16 @@ public class ItemController {
         model.addAttribute("center", dir+"detail");
         return "index";
     }
-
+    @RequestMapping("/register_reviewimpl")
+    public String registerreviewimpl(ItemReview bipumreview, Integer item_id,String cust_id) throws Exception {
+        bipumreview.setCust_id(cust_id);
+        bipumreview.setItem_id(item_id);
+        log.info(bipumreview.toString());
+        log.info("cust_id={}", cust_id);
+        log.info("item_id={}", item_id);
+        itemReviewService.register(bipumreview);
+        return "redirect:/bipum/detail?item_id="+bipumreview.getItem_id();
+    }
 
 
     @RequestMapping("allpage")
