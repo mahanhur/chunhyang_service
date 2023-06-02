@@ -101,19 +101,7 @@
     <div class="w-100 d-none d-lg-block"></div>
   </c:if>
 </c:forEach>
-
+    </div>
   </div>
 </section>
 
-<!-- JAVASCRIPT -->
-<!-- Map (replace the API key to enable) -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnKt8_N4-FKOnhI_pSaDL7g_g-XI1-R9E"></script>
-
-<!-- Vendor JS -->
-<script src="./assets/js/vendor.bundle.js"></script>
-
-<!-- Theme JS -->
-<script src="./assets/js/theme.bundle.js"></script>
-
-</body>
-</html>

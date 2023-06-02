@@ -4,20 +4,100 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <link rel="stylesheet" href="/assets/css/datepick.css" />
+<style>
+  .datepickcard {
+    border: solid 0.2px lightgray;
+  }
+</style>
 
 <script>
 
   let subsdetail = {
     init: () => {
+  <c:choose>
+    <c:when test="${obj.subsitem_id == 106}">
+        $('#datepicker1').datepicker({
+          onSelect: function() {
+            $('.checkbox1').attr('checked', 'checked');
+          }
+        });
+        $('#datepicker2').datepicker({
+          onSelect: function() {
+            $('.checkbox2').attr('checked', 'checked');
+          }
+        });
+        $('#datepicker3').datepicker({
+          onSelect: function() {
+            $('.checkbox3').attr('checked', 'checked');
+          }
+        });
+    </c:when>
+    <c:when test="${obj.subsitem_id == 107}">
+      $('.datepicker1').datepicker({
+        onSelect: function() {
+          $('.checkbox1').attr('checked', 'checked');
+        }
+      });
+      $('.datepicker2').datepicker({
+        onSelect: function() {
+          $('.checkbox2').attr('checked', 'checked');
+        }
+      });
+      $('.datepicker3').datepicker({
+        onSelect: function() {
+          $('.checkbox3').attr('checked', 'checked');
+        }
+      });
+      $('.datepicker4').datepicker({
+        onSelect: function() {
+          $('.checkbox4').attr('checked', 'checked');
+        }
+      });
+      $('.datepicker5').datepicker({
+        onSelect: function() {
+          $('.checkbox5').attr('checked', 'checked');
+        }
+      });
+      $('.datepicker6').datepicker({
+        onSelect: function() {
+          $('.checkbox6').attr('checked', 'checked');
+        }
+      });
+      $('.datepicker7').datepicker({
+        onSelect: function() {
+          $('.checkbox7').attr('checked', 'checked');
+        }
+      });
+    </c:when>
+    <c:otherwise>
+      $('.datepicker1').datepicker({
+        onSelect: function() {
+          $('.checkbox1').attr('checked', 'checked');
+        }
+      });
+    </c:otherwise>
+  </c:choose>
+
     }
   }
 
 
   $(function () {
     subsdetail.init();
-    $('.datepicker').datepicker( ()=> {
-      format: 'yyyy-MM-dd'
+    $.datepicker.setDefaults({
+      dateFormat: 'yy-mm-dd',
+      prevText: '이전 달',
+      nextText: '다음 달',
+      monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+      monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+      dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+      dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+      dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+      showMonthAfterYear: true,
+      yearSuffix: '년'
     });
+
+
   });
 </script>
 
@@ -65,6 +145,7 @@
                   <!-- Price -->
                   <div class="mb-7">
                     <span class="ms-1 fs-5 fw-bolder"><fmt:formatNumber value="${obj.subsitem_price}" pattern="#,###원"/></span>
+                    <span class="fs-sm"><fmt:formatNumber value="${obj.subsitem_price/obj.subsitem_cnt}" pattern="(1회당 #,###원)"/></span>
                   </div>
 
                   <!-- Form -->
@@ -76,14 +157,118 @@
                         <strong id="colorCaption">${obj.subsitem_content}</strong>
                       </p>
                       <hr/>
-
-
-                      <!-- Text -->
-                      <p>캘린더들어갈자리
-                      </p>
-                      <input type="text" class="datepicker subs_duedate" name="subs_duedate" inline/>
                     </div>
 
+                    <div class="form-group">
+
+                      <div class="row gx-5 mb-7">
+                        <div class="col-12 col-lg-auto">
+                        </div>
+
+                        <c:choose>
+                          <c:when test="${obj.subsitem_id == 106}">
+                            <div class="col-12 col-lg">
+                              <div class="card datepickcard">
+                                <div class="card-body">
+                                  <span style="color:red">* 수령일을 지정해주세요</span><hr/>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="option1" checked>
+                                    <input type="text" class="form-control form-control-underline"  placeholder="총 ${obj.subsitem_cnt}회"/>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input checkbox1" id="checkbox1" type="checkbox" value="option1">
+                                    <input type="text" class="datepicker datepicker1 form-control form-control-underline" id="datepicker1" name="datepicker" placeholder="1회 수령일 선택"/>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input checkbox2" id="checkbox2" type="checkbox" value="option1">
+                                    <input type="text" class="datepicker datepicker2 form-control form-control-underline" id="datepicker2" name="datepicker" placeholder="2회 수령일 선택"/>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input checkbox3" id="checkbox3" type="checkbox" value="option1">
+                                    <input type="text" class="datepicker datepicker3 form-control form-control-underline" id="datepicker3" name="datepicker" placeholder="3회 수령일 선택"/>
+                                  </div>
+                                  <br/>
+                                  <br/>
+                                  <div class="form-check form-check-inline">
+                                    <span style="color:gray; font-size: 13px">(회차별로 수령 일자와 주소 변경을 원하시는 경우 향후 '마이페이지'에서 수정하실 수 있습니다.)</span>
+                                  </div>
+                                </div>
+                              </div>
+                          </c:when>
+                          <c:when test="${obj.subsitem_id == 107}">
+                              <div class="col-12 col-lg">
+                                <div class="card datepickcard">
+                                  <div class="card-body">
+                                    <span style="color:red">* 수령일을 지정해주세요</span><hr/>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" value="option1" checked>
+                                      <input type="text" class="form-control form-control-underline"  placeholder="총 ${obj.subsitem_cnt}회"/>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input checkbox1" type="checkbox" value="option1">
+                                      <input type="text" class="datepicker datepicker1 form-control form-control-underline" name="datepicker" placeholder="1회 수령일 선택"/>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input checkbox2" type="checkbox" value="option1">
+                                      <input type="text" class="datepicker datepicker2 form-control form-control-underline" name="datepicker" placeholder="2회 수령일 선택"/>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input checkbox3" type="checkbox" value="option1">
+                                      <input type="text" class="datepicker datepicker3 form-control form-control-underline" name="datepicker" placeholder="3회 수령일 선택"/>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input checkbox4" type="checkbox" value="option1">
+                                      <input type="text" class="datepicker datepicker4 form-control form-control-underline" name="datepicker" placeholder="4회 수령일 선택"/>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input checkbox5" type="checkbox" value="option1">
+                                      <input type="text" class="datepicker datepicker5 form-control form-control-underline" name="datepicker" placeholder="5회 수령일 선택"/>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input checkbox6" type="checkbox" value="option1">
+                                      <input type="text" class="datepicker datepicker6 form-control form-control-underline" name="datepicker" placeholder="6회 수령일 선택"/>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input checkbox7" type="checkbox" value="option1">
+                                      <input type="text" class="datepicker datepicker7 form-control form-control-underline" name="datepicker" placeholder="7회 수령일 선택"/>
+                                    </div>
+                                    <br/>
+                                    <br/>
+                                    <div class="form-check form-check-inline">
+                                      <span style="color:gray; font-size: 13px">(회차별로 수령 일자와 주소 변경을 원하시는 경우 향후 '마이페이지'에서 수정하실 수 있습니다.)</span>
+                                    </div>
+                                  </div>
+                                </div>
+                          </c:when>
+                          <c:otherwise>
+                            <div class="col-12 col-lg">
+                              <div class="card datepickcard">
+                                <div class="card-body">
+                                  <span style="color:red">* 수령일을 지정해주세요</span><hr/>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
+                                    <input type="text" class="form-control form-control-underline"  placeholder="2주마다"/>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1" checked>
+                                    <input type="text" class="form-control form-control-underline"  placeholder="<fmt:formatNumber value="${obj.subsitem_cnt / 2}" pattern="#개월간"/>"/>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input checkbox1" type="checkbox" value="option1">
+                                    <input type="text" class="datepicker datepicker1 form-control form-control-underline" name="datepicker" placeholder="최초 수령일 선택"/>
+                                  </div>
+                                </div>
+                              </div>
+                          </c:otherwise>
+                        </c:choose>
+
+
+
+                        </div>
+                        <div class="col-12 col-lg-auto">
+                        </div>
+                      </div>
+                    </div>
 
                     <div class="form-group">
 
