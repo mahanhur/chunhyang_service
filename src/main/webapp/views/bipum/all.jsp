@@ -12,6 +12,7 @@
 <script src="./assets/js/theme.bundle.js"></script>
 
 <body>
+
 <%--
 <!-- Newsletter: Horizontal -->
 <div class="modal fade" id="modalNewsletterHorizontal" tabindex="-1" role="dialog" aria-hidden="true">
