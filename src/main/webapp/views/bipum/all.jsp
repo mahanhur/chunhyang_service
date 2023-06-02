@@ -1756,7 +1756,7 @@
         <div class="card mb-7" data-toggle="card-collapse">
 
           <!-- Image -->
-          <a href="/bipum/detail?item_id=${obj.item_id}?cust_id=${logincust.cust_id}">
+          <a href="/bipum/detail?item_id=${obj.item_id}">
             <img src="/uimg/${obj.item_img}" alt="..." class="card-img-top">
           </a>
 

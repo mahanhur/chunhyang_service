@@ -3,210 +3,42 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+<!-- 템플릿 제공 JAVASCRIPT -->
+<!-- 1) Map (replace the API key to enable) -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnKt8_N4-FKOnhI_pSaDL7g_g-XI1-R9E"></script>
+<!-- 2) Vendor JS -->
+<script src="./assets/js/vendor.bundle.js"></script>
+<!-- 3) Theme JS -->
+<script src="./assets/js/theme.bundle.js"></script>
+<script>
+    let register_review = {
+        init:function (){
+            $('#register_btn').click(function (){
+                var checkTitle = $('#review_title').val();
+                var checkContents = $('#review_content').val();
+                if (checkTitle == '' || checkContents == ''){
+                    return;
+                };
+                register_review.send();
+            });
+        },
+        send:function(){
+            $('#review_form').attr({
+                method:'post',
+                action:'/bipum/register_reviewimpl',
+                enctype:'multipart/form-data'
+            });
+            $('#review_form').submit();
+        }
+    };
+    $(function (){
+        register_review.init();
+    })
+</script>
+
 <body>
 
-<%--<!-- Newsletter: Horizontal -->
-<div class="modal fade" id="modalNewsletterHorizontal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-
-            <!-- Close -->
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                <i class="fe fe-x" aria-hidden="true"></i>
-            </button>
-
-            <!-- Content -->
-            <div class="row gx-0">
-                <div class="col-12 col-lg-5">
-
-                    <!-- Image -->
-                    <img class="img-fluid" src="./assets/img/covers/cover-25.jpg" alt="...">
-
-                </div>
-                <div class="col-12 col-lg-7 d-flex flex-column px-md-8">
-
-                    <!-- Body -->
-                    <div class="modal-body my-auto py-10">
-
-                        <!-- Heading -->
-                        <h4>Subscribe to Newsletter and get 15% Discount</h4>
-
-                        <!-- Text -->
-                        <p class="mb-7 fs-lg">
-                            On your next purchase
-                        </p>
-
-                        <!-- Form -->
-                        <form>
-                            <div class="row gx-5">
-                                <div class="col">
-
-                                    <!-- Input -->
-                                    <label class="visually-hidden" for="modalNewsletterHorizontalEmail">Enter Email *</label>
-                                    <input class="form-control form-control-sm" id="modalNewsletterHorizontalEmail" type="email" placeholder="Enter Email *">
-
-                                </div>
-                                <div class="col-auto">
-
-                                    <!-- Button -->
-                                    <button class="btn btn-sm btn-dark" type="submit">
-                                        <i class="fe fe-send"></i>
-                                    </button>
-
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="modal-footer pt-0">
-
-                        <!-- Checkbox -->
-                        <div class="form-check">
-
-                            <!-- Input -->
-                            <input class="form-check-input" id="modalNewsletterHorizontalCheckbox" type="checkbox">
-
-                            <!-- Label -->
-                            <label class="form-check-label fs-xs" for="modalNewsletterHorizontalCheckbox">
-                                Prevent this Pop-up
-                            </label>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-<!-- Newsletter: Vertical -->
-<div class="modal fade" id="modalNewsletterVertical" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-
-            <!-- Close -->
-            <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close">
-                <i class="fe fe-x" aria-hidden="true"></i>
-            </button>
-
-            <!-- Body -->
-            <div class="modal-body mt-2 me-2 ms-2 py-10 bg-cover text-center text-white" style="background-image: url(./assets/img/covers/cover-26.jpg);">
-
-                <!-- Heading -->
-                <h4>Subscribe to Newsletter and get 15% Discount</h4>
-
-                <!-- Text -->
-                <p class="mb-0 fs-lg">
-                    On your next purchase
-                </p>
-
-            </div>
-
-            <!-- Body -->
-            <div class="modal-body py-9">
-
-                <!-- Form -->
-                <form>
-                    <div class="row gx-5">
-                        <div class="col">
-
-                            <!-- Input -->
-                            <label class="visually-hidden" for="modalNewsletterVerticalEmail">Enter Email *</label>
-                            <input class="form-control form-control-sm" id="modalNewsletterVerticalEmail" type="email" placeholder="Enter Email *">
-
-                        </div>
-                        <div class="col-auto">
-
-                            <!-- Button -->
-                            <button class="btn btn-sm btn-dark" type="submit">
-                                Subscribe
-                            </button>
-
-                        </div>
-                    </div>
-                </form>
-
-            </div>
-
-            <!-- Footer -->
-            <div class="modal-footer justify-content-center pt-0">
-
-                <!-- Checkbox -->
-                <div class="form-check">
-
-                    <!-- Input -->
-                    <input class="form-check-input" id="modalNewsletterVerticalCheckbox" type="checkbox">
-
-                    <!-- Label -->
-                    <label class="form-check-label fs-xs" for="modalNewsletterVerticalCheckbox">
-                        Prevent this Pop-up
-                    </label>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-<!-- Password Reset -->
-<div class="modal fade" id="modalPasswordReset" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-
-            <!-- Close -->
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                <i class="fe fe-x" aria-hidden="true"></i>
-            </button>
-
-            <!-- Header-->
-            <div class="modal-header lh-fixed fs-lg">
-                <strong class="mx-auto">Forgot Password?</strong>
-            </div>
-
-            <!-- Body -->
-            <div class="modal-body text-center">
-
-                <!-- Text -->
-                <p class="mb-7 fs-sm text-gray-500">
-                    Please enter your Email Address. You will receive a link
-                    to create a new password via Email.
-                </p>
-
-                <!-- Form -->
-                <form>
-
-                    <!-- Email -->
-                    <div class="form-group">
-                        <label class="visually-hidden" for="modalPasswordResetEmail">
-                            Email Address *
-                        </label>
-                        <input class="form-control form-control-sm" id="modalPasswordResetEmail" type="email" placeholder="Email Address *" required>
-                    </div>
-
-                    <!-- Button -->
-                    <button class="btn btn-sm btn-dark">
-                        Reset Password
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </div>
-</div>--%>
-
-<!-- PRODUCT -->
+<!-- 현재 보고있는 PRODUCT -->
 <section>
     <div class="container">
         <div class="row">
@@ -365,7 +197,7 @@
     </div>
 </section>
 
-<!-- DESCRIPTION -->
+<!-- DESCRIPTION: 페이지 하단의 설명 -->
 <section class="pt-11">
     <div class="container">
         <div class="row">
@@ -546,14 +378,14 @@
     </div>
 </section>
 
-<!-- PRODUCTS -->
+<!-- 추천 PRODUCTS -->
 <section class="pt-11">
     <div class="container">
         <div class="row">
             <div class="col-12">
 
                 <!-- Heading -->
-                <h4 class="mb-10 text-center">You might also like</h4>
+                <h4 class="mb-10 text-center">MD 강력추천 상품!!</h4>
 
                 <!-- Items -->
                 <div class="row">
@@ -622,7 +454,8 @@
                         </div>
 
                     </div>
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+
+                    <%--<div class="col-6 col-sm-6 col-md-4 col-lg-3">
 
                         <!-- Card -->
                         <div class="card mb-7">
@@ -802,7 +635,7 @@
                                     $29.00
                                 </div>
 
-                            </div>
+                            </div>--%> <%--나머지 3개 상품들--%>
 
                         </div>
 
@@ -814,7 +647,7 @@
     </div>
 </section>
 
-<!-- REVIEWS -->
+<!-- REVIEWS : 리뷰쓰기 다른사람 리뷰 보기-->
 <section class="pt-9 pb-11" id="reviews">
     <div class="container">
         <div class="row">
@@ -882,7 +715,9 @@
                     <!-- Divider -->
                     <hr class="my-8">
                     <!-- Form -->
-                    <form>
+                    <form id="review_form"  name="review_form">
+                        <input type="hidden"  id="cust_id"  name="cust_id" value="${logincust.cust_id}">
+                        <input type="hidden"  id="item_id"  name="item_id" value="${item_id}">
                         <div class="row">
                             <div class="col-12 mb-6 text-center">
 
@@ -893,9 +728,8 @@
 
                                 <!-- Rating form -->
                                 <div class="rating-form">
-
                                     <!-- Input -->
-                                    <input class="rating-input" type="range" min="1" max="5" value="5">
+                                    <input class="rating-input" id="review_score"  name="review_score" type="range" min="1" max="5" value="5">
                                     <!-- Rating -->
                                     <div class="rating h5 text-dark" data-value="5">
                                         <div class="rating-item">
@@ -920,19 +754,19 @@
                             </div>
                                 <!-- 제목 -->
                                 <div class="col-12 form-group">
-                                    <label class="visually-hidden" for="reviewTitle">제목:</label>
-                                    <input class="form-control form-control-sm" id="reviewTitle" type="text" placeholder="제목을 적으세요*" required>
+                                    <label class="visually-hidden" for="review_title">제목:</label>
+                                    <input class="form-control form-control-sm" id="review_title" name="review_title" type="text" placeholder="제목을 적으세요*" required>
                                 </div>
 
                                 <!-- 리뷰 -->
                                 <div class="col-12 form-group">
-                                    <label class="visually-hidden" for="reviewText">리뷰:</label>
-                                    <textarea class="form-control form-control-sm" id="reviewText" rows="5" placeholder="솔직한 리뷰를 부탁드립니다*" required></textarea>
+                                    <label class="visually-hidden" for="review_content">리뷰:</label>
+                                    <textarea class="form-control form-control-sm" id="review_content" name="review_content" rows="5" placeholder="솔직한 리뷰를 부탁드립니다*" required></textarea>
                                 </div>
 
                                  <div class="col-12 text-center">
                                 <!-- Button -->
-                                <button class="btn btn-outline-dark" type="submit">리뷰등록</button>
+                                <button class="btn btn-outline-dark" id="register_btn" type="submit">리뷰등록</button>
                             </div>
                         </div>
                     </form>
@@ -986,7 +820,7 @@
                                             <!-- (1) 작성자. 작성일자 시작 -->
                                             <span class="fs-xs text-muted">
                                             작성자: ${obj.cust_id}
-                                            작성일자: ${obj.review_rdata}
+                                            작성일자: <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${obj.review_rdata}"/>
                                             </span>
                                         </div>
                                         <!-- 작성자. 작성일자 끝 -->
@@ -1059,7 +893,7 @@
     </div>
 </section>
 
-<!-- FEATURES -->
+<!-- FEATURES : 배송등 설명하는 란-->
 <section class="bg-light py-9">
     <div class="container">
         <div class="row">
@@ -1170,198 +1004,5 @@
         </div>
     </div>
 </section>
-<%--
-<!-- FOOTER -->
-<footer class="bg-dark bg-cover " style="background-image: url(./assets/img/patterns/pattern-2.svg)">
-    <div class="py-12 border-bottom border-gray-700">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-10 col-lg-8 col-xl-6">
-
-                    <!-- Heading -->
-                    <h5 class="mb-7 text-center text-white">Want style Ideas and Treats?</h5>
-
-                    <!-- Form -->
-                    <form class="mb-11">
-                        <div class="row gx-5 align-items-start">
-                            <div class="col">
-                                <input type="email" class="form-control form-control-gray-700 form-control-lg" placeholder="Enter Email *">
-                            </div>
-                            <div class="col-auto">
-                                <button type="submit" class="btn btn-gray-500 btn-lg">Subscribe</button>
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-3">
-
-                    <!-- Heading -->
-                    <h4 class="mb-6 text-white">Shopper.</h4>
-
-                    <!-- Social -->
-                    <ul class="list-unstyled list-inline mb-7 mb-md-0">
-                        <li class="list-inline-item">
-                            <a href="#!" class="text-gray-350">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!" class="text-gray-350">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!" class="text-gray-350">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!" class="text-gray-350">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!" class="text-gray-350">
-                                <i class="fab fa-medium"></i>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="col-6 col-sm">
-
-                    <!-- Heading -->
-                    <h6 class="heading-xxs mb-4 text-white">
-                        Support
-                    </h6>
-
-                    <!-- Links -->
-                    <ul class="list-unstyled mb-7 mb-sm-0">
-                        <li>
-                            <a class="text-gray-300" href="./contact-us.html">Contact Us</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="./faq.html">FAQs</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" data-bs-toggle="modal" href="#modalSizeChart">Size Guide</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="./shipping-and-returns.html">Shipping & Returns</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="col-6 col-sm">
-
-                    <!-- Heading -->
-                    <h6 class="heading-xxs mb-4 text-white">
-                        Shop
-                    </h6>
-
-                    <!-- Links -->
-                    <ul class="list-unstyled mb-7 mb-sm-0">
-                        <li>
-                            <a class="text-gray-300" href="./shop.html">Men's Shopping</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="./shop.html">Women's Shopping</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="./shop.html">Kids' Shopping</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="./shop.html">Discounts</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="col-6 col-sm">
-
-                    <!-- Heading -->
-                    <h6 class="heading-xxs mb-4 text-white">
-                        Company
-                    </h6>
-
-                    <!-- Links -->
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <a class="text-gray-300" href="./about.html">Our Story</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="#!">Careers</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="#!">Terms & Conditions</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="#!">Privacy & Cookie policy</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="col-6 col-sm">
-
-                    <!-- Heading -->
-                    <h6 class="heading-xxs mb-4 text-white">
-                        Contact
-                    </h6>
-
-                    <!-- Links -->
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <a class="text-gray-300" href="#!">1-202-555-0105</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="#!">1-202-555-0106</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-300" href="#!">help@shopper.com</a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="py-6">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-
-                    <!-- Copyright -->
-                    <p class="mb-3 mb-md-0 fs-xxs text-muted">
-                        © 2019 All rights reserved. Designed by Unvab.
-                    </p>
-
-                </div>
-                <div class="col-auto">
-
-                    <!-- Payment methods -->
-                    <img class="footer-payment" src="./assets/img/payment/mastercard.svg" alt="...">
-                    <img class="footer-payment" src="./assets/img/payment/visa.svg" alt="...">
-                    <img class="footer-payment" src="./assets/img/payment/amex.svg" alt="...">
-                    <img class="footer-payment" src="./assets/img/payment/paypal.svg" alt="...">
-                    <img class="footer-payment" src="./assets/img/payment/maestro.svg" alt="...">
-                    <img class="footer-payment" src="./assets/img/payment/klarna.svg" alt="...">
-
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>--%>
-
-<!-- JAVASCRIPT -->
-<!-- Map (replace the API key to enable) -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnKt8_N4-FKOnhI_pSaDL7g_g-XI1-R9E"></script>
-
-<!-- Vendor JS -->
-<script src="./assets/js/vendor.bundle.js"></script>
-
-<!-- Theme JS -->
-<script src="./assets/js/theme.bundle.js"></script>
 
 </body>

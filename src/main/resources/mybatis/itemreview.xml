@@ -25,7 +25,7 @@
     </select>
 
     <insert id="insert" parameterType="itemreview">
-        INSERT INTO QNA (QNA_ID, CUST_ID, POST_TYPE, SUBSITEM_ID, QNA_TITLE, QNA_CONTENTS, QNA_WDATE, QNA_UDATE, QNA_IMAGE1, QNA_IMAGE2)
-               VALUES(QNA_SEQ.NEXTVAL,#{cust_id}, #{post_type}, #{subsitem_id}, #{qna_title}, #{qna_contents},SYSDATE,SYSDATE,#{qna_image1},#{qna_image2})
+        INSERT INTO ITEM_REVIEW (review_id, cust_id, item_id, review_title, review_content,review_rdata,review_score, review_img)
+               VALUES(ITEM_REVIEW_SEQ.NEXTVAL,#{cust_id}, #{item_id}, #{review_title}, #{review_content},SYSDATE,#{review_score},null)
     </insert>
 </mapper>

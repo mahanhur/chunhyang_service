@@ -8,6 +8,7 @@ import com.chflower.service.BipumService;
 import com.chflower.service.BipumimgService;
 import com.chflower.service.CustService;
 import com.chflower.service.ItemReviewService;
+import com.chflower.util.FileUploadUtil;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,38 +78,22 @@ public class BipumController {
         model.addAttribute("reviewlist",reviewlist);
         model.addAttribute("itemReview",itemReview);
 
+        /* ▼리뷰등록을 위해서 item_id를 모델에 넣어서 detail.jsp화면에 던져서 form에 넣어 둔다 */
+        model.addAttribute("item_id", item_id);
         model.addAttribute("detail", bipum);
         model.addAttribute("img", bipumimg);
         model.addAttribute("bipumlist", bipumlist);
         model.addAttribute("center", dir+"detail");
         return "index";
     }
-//
-//
-//
-//    @RequestMapping("allpage")
-//    public String allpage(@RequestParam(required = false, defaultValue = "1") int pageNo, Model model) throws Exception {
-//        PageInfo<Item> p;
-//        try {
-//            p = new PageInfo<>(itemService.getPage(pageNo), 5); // 5:하단 네비게이션 개수
-//        } catch (Exception e) {
-//            throw new Exception("시스템장애:ERORR002");
-//        }
-//        model.addAttribute("target", "item");
-//        model.addAttribute("cpage", p);
-//        model.addAttribute("left", dir + "left");
-//        model.addAttribute("center", dir + "allpage");
-//        return "index";
-//    }
-//
-//    @RequestMapping("get")
-//    public String get(Model model, Integer id) throws Exception {
-//        Item item = null;
-//        item = itemService.get(id);
-//        model.addAttribute("gitem", item);
-//
-//        model.addAttribute("left", dir + "left");
-//        model.addAttribute("center", dir + "get");
-//        return "index";
-//    }
+    @RequestMapping("/register_reviewimpl")
+    public String registerreviewimpl(ItemReview bipumreview, Integer item_id,String cust_id) throws Exception {
+        bipumreview.setCust_id(cust_id);
+        bipumreview.setItem_id(item_id);
+        log.info(bipumreview.toString());
+        log.info("cust_id={}", cust_id);
+        log.info("item_id={}", item_id);
+        itemReviewService.register(bipumreview);
+        return "redirect:/bipum/detail?item_id="+bipumreview.getItem_id();
+    }
 }

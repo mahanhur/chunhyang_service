@@ -14,7 +14,7 @@ import java.util.List;
 public class ItemReview {
     private int review_id;
     private String cust_id;
-    private int item_id;
+    private Integer item_id;
     private String review_title;
     private String review_content;
     private Date review_rdata;
