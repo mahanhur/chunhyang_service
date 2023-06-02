@@ -93,7 +93,11 @@
                 <label class="form-label" for="post_type">
                   문의내용 *
                 </label>
-                <input class="form-control form-control-sm" id="post_type" type="text" name="post_type">
+                <select class="form-select" id="post_type" name="post_type">
+                  <option id="opt" vlaue="">문의종류</option>
+                  <option value="1">구독 문의</option>
+                  <option value="2">상품 문의</option>
+                </select>
               </div>
             </div>
 
@@ -101,9 +105,19 @@
               <!-- 상품번호 -->
               <div class="form-group">
                 <label class="form-label" for="subsitem_id">
-                  문의상품(번호)
+                  구독상품 종류
                 </label>
-                <input class="form-control form-control-sm" id="subsitem_id" type="text" name="subsitem_id" >
+                <select class="form-select" id="subsitem_id" name="subsitem_id">
+                  <option id="opt2" vlaue="">구독상품 종류</option>
+                  <option value=100>6개월 Basic</option>
+                  <option value=101>6개월 Premium</option>
+                  <option value=102>6개월 Signature</option>
+                  <option value=103>12개월 Premium</option>
+                  <option value=104>12개월 Signature</option>
+                  <option value=105>12개월 Basic</option>
+                  <option value=106>3회권</option>
+                  <option value=107>7회권</option>
+                </select>
               </div>
             </div>
 
