@@ -7,6 +7,7 @@
 <script>
   let checkout = {
     init: function() {
+      // 카카오페이
       $('#kakaopay').click( function() {
         $.ajax({
           url:'/subs/kakaopay',
@@ -21,28 +22,79 @@
           }
         });
       })
+
+      // 네이버페이
       var oPay = Naver.Pay.create({
-        "mode" : "production", // development or production
+        "mode" : "development", // development or production
         "clientId": "u86j4ripEt8LRfPGzQ8", // clientId
         "chainId": "TDZSUHBoVGRFS2l" // chainId
       });
       $('#naverpay').click( function() {
 
           oPay.open({
-            "merchantUserKey": "가맹점 사용자 식별키",
-            "merchantPayKey": "가맹점 주문 번호",
+            "merchantUserKey": "partner-userkey",
+            "merchantPayKey": "partner-orderkey",
             "productName": "상품명",
             "totalPayAmount": "1000",
             "taxScopeAmount": "1000",
             "taxExScopeAmount": "0",
-            "returnUrl": "사용자 결제 완료 후 결제 결과를 받을 URL"
+            "returnUrl": "사용자 결제 완료 후 결제 결과를 받을 URL",
+            "openType":"popup"
           });
         });
+      // kg이니시스
+      $('#pay_btn').click( function() {
+        const IMP = window.IMP; // 생략 가능
+        IMP.init("imp66442787"); // 예: imp00000000a
+
+        IMP.request_pay({
+          pg: "inicis",
+          pay_method: "card",
+          merchant_uid : 'merchant_'+new Date().getTime(),
+          name : '결제테스트',
+          amount : 100,
+          buyer_email : 'allowbasmh@gmail.com',
+          buyer_name : '구매자',
+          buyer_tel : '010-1234-5678',
+          buyer_addr : '서울특별시 강남구 삼성동',
+          buyer_postcode : '123-456'
+        }, function (rsp) { // callback
+          if (rsp.success) {
+            var msg = '아임포트 결제가 완료되었습니다.';
+            alert(msg);
+            location.href = "/cust"
+          } else {
+            var msg = '결제에 실패하였습니다.';
+            msg += '에러내용 : ' + rsp.error_msg;
+            alert(msg);
+          }
+        });
+        });
+
+      $('#selectbox').on("change", function() {
+        $('#addr1').show();
+        $('#addr2').show();
+        let selectval = $("#selectbox").val();
+        $.ajax({
+          url:'/subs/checkout/addrimpl',
+          method:'post',
+          data: {addr_id : selectval},
+          success: function(data) {
+            $('#addr1').html(data.def_addr1);
+            $('#addr2').html(data.def_addr2);
+          },
+          error: function(error) {
+            alert(error);
+        }
+        });
+      })
     }
   };
 
   $(function() {
     checkout.init();
+    $('#addr1').hide();
+    $('#addr2').hide();
   });
 </script>
 
@@ -67,7 +119,7 @@
 
         <!-- Form -->
         <form>
-
+<%-------------------------고객기본정보------------------------------------%>
           <!-- Heading -->
           <h6 class="mb-7">고객 기본정보</h6>
 
@@ -114,73 +166,79 @@
 
             </div>
           </div>
+<%----------------------고객기본정보 end---------------------------------------%>
 
+<%-------------------------배송방법관련------------------------------------%>
           <!-- Heading -->
-          <h6 class="mb-7">결제수단</h6>
+          <h6 class="mb-7">배송방법</h6>
 
-          <!-- List group -->
-          <div class="list-group list-group-sm mb-7">
-            <div class="list-group-item">
+          <!-- Billing details -->
+            <!-- List group -->
+            <div class="list-group list-group-sm mb-7">
 
-              <!-- Radio -->
-              <div class="form-check custom-radio">
-
-                <!-- Input -->
-                <input class="form-check-input" id="checkoutPaymentCard" name="payment" type="radio" data-collapse="show" data-target="#checkoutPaymentCardCollapse">
-
-                <!-- Label -->
-                <label class="form-check-label fs-sm text-body text-nowrap" for="checkoutPaymentCard">
-                  간편결제
-                </label>
-
-              </div>
-
-            </div>
-            <div class="list-group-item collapse py-0" id="checkoutPaymentCardCollapse">
-
-              <!-- Form -->
-              <div class="row gx-5 py-5">
-                <div class="col-3">
-                  <div class="form-group mb-4">
-                    <button type="button" class="btn btn-outline-warning" id="kakaopay">KakaoPay</button>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="form-group mb-4">
-                    <button type="button" class="btn btn-outline-success" id="naverpay">NaverPay</button>
-                  </div>
+              <div class="list-group-item">
+                <!-- Radio -->
+                <div class="form-check custom-radio">
+                  <!-- Input -->
+                  <input class="form-check-input" name="delmethod1" id="delmethod1" type="radio" checked>
+                  <!-- Label -->
+                  <label class="form-check-label fs-sm text-body text-nowrap" for="delmethod1">
+                    택배배송
+                  </label>
                 </div>
               </div>
 
-            </div>
-            <div class="list-group-item">
-
-              <!-- Radio -->
-              <div class="form-check custom-radio">
-
-                <!-- Input -->
-                <input class="form-check-input" id="checkoutPaymentPaypal" name="payment" type="radio" data-collapse="hide" data-target="#checkoutPaymentCardCollapse">
-
-                <!-- Label -->
-                <label class="form-check-label fs-sm text-body text-nowrap" for="checkoutPaymentPaypal">
-                  카드결제
-                </label>
-
+              <div class="list-group-item">
+                <!-- Radio -->
+                <div class="form-check custom-radio">
+                  <!-- Input -->
+                  <input class="form-check-input" name="delmethod2" id="delmethod2" type="radio" disabled>
+                  <!-- Label -->
+                  <label class="form-check-label fs-sm text-body text-nowrap" for="delmethod2">
+                    퀵배송
+                  </label>
+                </div>
+                  <div style="font-size: small"> (퀵배송을 원하시는 경우 결제 후 마이페이지에서 1:1문의 부탁드립니다.)</div>
               </div>
 
             </div>
-          </div>
 
-          <!-- Notes -->
-          <textarea class="form-control form-control-sm mb-9 mb-md-0 fs-xs" rows="5" placeholder="Order Notes (optional)"></textarea>
+<%----------------------배송방법관련 end---------------------------------------%>
+
+
+<%-------------------------배송지 관련------------------------------------%>
+          <!-- Heading -->
+          <h6 class="mb-7">배송지 정보</h6>
+
+          <!-- Billing details -->
+            <!-- List group -->
+            <div class="list-group list-group-sm mb-7">
+
+              <select class="form-select" id="selectbox">
+                <option selected>원하시는 배송지를 선택해주시기 바랍니다.</option>
+                <c:forEach items="${addrlist}" var="obj" varStatus="status">
+                  <option value="${obj.addr_id}">${obj.addr_name}</option>
+                </c:forEach>
+              </select>
+              <ul class="list-group list-group-sm">
+                <li class="list-group-item" id="addr1">주소1</li>
+                <li class="list-group-item" id="addr2">주소2</li>
+              </ul>
+            </div>
+
+            <p class="mb-7 fs-xs text-gray-500">
+              배송지 정보는 결제 후 '마이페이지'에서 배송회차별로 변경/관리 하실 수 있습니다.
+            </p>
+
+<%----------------------배송지 관련 end---------------------------------------%>
 
         </form>
-
       </div>
+<%----------------------right items---------------------------------------%>
       <div class="col-12 col-md-5 col-lg-4 offset-lg-1">
 
         <!-- Heading -->
-        <h6 class="mb-7">Order Items (3)</h6>
+        <h6 class="mb-7">주문/결제 정보</h6>
 
         <!-- Divider -->
         <hr class="my-7">
@@ -193,7 +251,7 @@
 
                 <!-- Image -->
                 <a href="product.html">
-                  <img src="assets/img/products/product-6.jpg" alt="..." class="img-fluid">
+                  <img src="/uimg/${subsitem.subsitem_img}" alt="..." class="img-fluid">
                 </a>
 
               </div>
@@ -201,40 +259,13 @@
 
                 <!-- Title -->
                 <p class="mb-4 fs-sm fw-bold">
-                  <a class="text-body" href="product.html">Cotton floral print Dress</a> <br>
-                  <span class="text-muted">$40.00</span>
+                  <a class="text-body" href="/subs/detail?subsitem_id=${subsitem.subsitem_id}">${subsitem.subsitem_name}</a> <br>
+                  <span class="text-muted">${subsitem.subsitem_price}</span>
                 </p>
 
                 <!-- Text -->
                 <div class="fs-sm text-muted">
-                  Size: M <br>
-                  Color: Red
-                </div>
-
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <div class="row align-items-center">
-              <div class="col-4">
-
-                <!-- Image -->
-                <a href="product.html">
-                  <img src="assets/img/products/product-10.jpg" alt="..." class="img-fluid">
-                </a>
-
-              </div>
-              <div class="col">
-
-                <!-- Title -->
-                <p class="mb-4 fs-sm fw-bold">
-                  <a class="text-body" href="product.html">Suede cross body Bag</a> <br>
-                  <span class="text-muted">$49.00</span>
-                </p>
-
-                <!-- Text -->
-                <div class="fs-sm text-muted">
-                  Color: Brown
+                  ${subsitem.subsitem_content}
                 </div>
 
               </div>
@@ -242,21 +273,19 @@
           </li>
         </ul>
 
+<%--        gray box--%>
         <!-- Card -->
         <div class="card mb-9 bg-light">
           <div class="card-body">
             <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
               <li class="list-group-item d-flex">
-                <span>Subtotal</span> <span class="ms-auto fs-sm">$89.00</span>
+                <span>주문금액</span> <span class="ms-auto fs-sm">${subsitem.subsitem_price}</span>
               </li>
               <li class="list-group-item d-flex">
-                <span>Tax</span> <span class="ms-auto fs-sm">$00.00</span>
-              </li>
-              <li class="list-group-item d-flex">
-                <span>Shipping</span> <span class="ms-auto fs-sm">$8.00</span>
+                <span>사용포인트</span> <button>포인트조회</button><span class="ms-auto fs-sm">0</span>
               </li>
               <li class="list-group-item d-flex fs-lg fw-bold">
-                <span>Total</span> <span class="ms-auto">$97.00</span>
+                <span>결제금액</span> <span class="ms-auto">${subsitem.subsitem_price}</span>
               </li>
             </ul>
           </div>
@@ -264,15 +293,19 @@
 
         <!-- Disclaimer -->
         <p class="mb-7 fs-xs text-gray-500">
-          Your personal data will be used to process your order, support
-          your experience throughout this website, and for other purposes
-          described in our privacy policy.
+          이용약관 및 개인정보 처리방침에 대해 확인하였으며 결제에 동의합니다.
         </p>
 
         <!-- Button -->
-        <button class="btn w-100 btn-dark">
-          Place Order
-        </button>
+        <button class="btn w-100 btn-dark" id="pay_btn">결제</button><br/><br/>
+        <ul class="list-group list-group-sm nav">
+          <li class="list-group-item">간편결제</li>
+          <li class="list-group-item"><button type="button" class="btn w-100 btn-outline-warning" id="kakaopay">KakaoPay</button></li>
+          <li class="list-group-item"><button type="button" class="btn w-100 btn-outline-success" id="naverpay">NaverPay</button></li>
+        </ul>
+
+
+
 
       </div>
     </div>
