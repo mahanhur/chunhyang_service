@@ -68,6 +68,9 @@ public class SubsController {
             List<Addr> addrlist;
             addrlist = addrService.getaddr(cust_id);
             model.addAttribute("addrlist",addrlist);
+
+            Subsitem subsitem = subsitemService.get(subsitem_id);
+            model.addAttribute("subsitem", subsitem);
         } else {
             return "redirect:/cust/login";
         }

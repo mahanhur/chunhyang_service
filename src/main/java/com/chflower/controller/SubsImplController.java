@@ -1,6 +1,10 @@
 package com.chflower.controller;
 
 
+import com.chflower.dto.Addr;
+import com.chflower.service.AddrService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,9 +14,13 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+@Slf4j
 @RestController
 @RequestMapping("/subs")
 public class SubsImplController {
+
+    @Autowired
+    AddrService addrService;
 
     @RequestMapping("/kakaopay")
     public String kakaopay(Model model) {
@@ -47,8 +55,15 @@ public class SubsImplController {
         } catch (IOException e) {
             throw new RuntimeException("HttpURLConnection 에러입니다");
         }
-
-//        return "index";
     }
 
+    @RequestMapping("/checkout/addrimpl")
+    public Addr addrimpl(Integer addr_id) {
+        try {
+            Addr addr = addrService.get(addr_id);
+            return addr;
+        } catch (Exception e) {
+            throw new RuntimeException("addrimpl 에러입니다");
+        }
+    }
 }
