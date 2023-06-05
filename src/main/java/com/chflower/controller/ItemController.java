@@ -139,19 +139,4 @@ public class ItemController {
         return "index";
     }
 
-//    @RequestMapping("allcart")
-//    public String allcart(Model model, String id) throws Exception {
-//        List<Cart> list = null;
-//        try {
-//            list = cartService.getMyCart(id);
-//        } catch (Exception e) {
-//            throw new Exception("시스템장애:ERORR002");
-//        }
-//
-//        model.addAttribute("allcart", list);
-//        model.addAttribute("center", "cart");
-//        return "index";
-//    }
-
-
 }
