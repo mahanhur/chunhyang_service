@@ -672,7 +672,7 @@
 
   <!-- Buttons -->
   <div class="offcanvas-body">
-    <a class="btn w-100 btn-dark" href="./checkout.jsp">Continue to Checkout</a>
+    <a class="btn w-100 btn-dark" href="./checkout_original.jsp">Continue to Checkout</a>
     <a class="btn w-100 btn-outline-dark mt-2" href="./shopping-cart.jsp">View Cart</a>
   </div>
 
@@ -950,7 +950,7 @@
                   <a class="list-styled-link" href="./shopping-cart.jsp">Shopping Cart</a>
                 </li>
                 <li class="list-styled-item">
-                  <a class="list-styled-link" href="./checkout.jsp">Checkout</a>
+                  <a class="list-styled-link" href="./checkout_original.jsp">Checkout</a>
                 </li>
                 <li class="list-styled-item">
                   <a class="list-styled-link" href="./order-completed.jsp">Order Completed</a>
@@ -1709,7 +1709,7 @@
                         <a class="list-styled-link" href="./shopping-cart.jsp">Shopping Cart</a>
                       </li>
                       <li class="list-styled-item">
-                        <a class="list-styled-link" href="./checkout.jsp">Checkout</a>
+                        <a class="list-styled-link" href="./checkout_original.jsp">Checkout</a>
                       </li>
                       <li class="list-styled-item">
                         <a class="list-styled-link" href="./order-completed.jsp">Order Completed</a>
@@ -1880,7 +1880,7 @@
                         <a class="list-styled-link" href="./shopping-cart.jsp">Shopping Cart</a>
                       </li>
                       <li class="list-styled-item">
-                        <a class="list-styled-link" href="./checkout.jsp">Checkout</a>
+                        <a class="list-styled-link" href="./checkout_original.jsp">Checkout</a>
                       </li>
                       <li class="list-styled-item">
                         <a class="list-styled-link" href="./order-completed.jsp">Order Completed</a>
