@@ -35,7 +35,36 @@
         register_review.init();
     })
 </script>
-
+<script>
+    let item_get = {
+        init: function () {
+            $('.cart_btn').click(function () {
+                let cust_id = "${logincust.cust_id}";
+                let item_id = "${detail.item_id}"
+                // $(this).data('itemid');
+                let cnt = parseInt($('#inputcnt').val());
+                $.ajax({
+                    url: '/cart/addcart',
+                    type: 'post',
+                    data: {cust_id: cust_id, item_id: item_id, cnt: cnt},
+                    success: function () {
+                        if(cust_id != '') {
+                            location.href="/cart/all?cust_id="+cust_id;
+                        } else {
+                            location.href="/cust/login"
+                        }
+                    },
+                    error:()=>{
+                        alert("ajax에러")
+                    }
+                });
+            });
+        }
+    };
+    $(function () {
+        item_get.init();
+    });
+</script>
 <body>
 
 <!-- 현재 보고있는 PRODUCT -->
@@ -139,28 +168,17 @@
                         </div>
                         <!-- 수량, 카트, 찜 입력 Form 시작-->
                         <form>
-                            <div class="form-group">
-                                <!-- Size chart -->
-                                <p class="mb-8">
-                                    <img src="/assets/img/icons/icon-ruler.svg" alt="..." class="img-fluid">
-                                    <a class="text-reset text-decoration-underline ms-3" data-bs-toggle="modal" href="#modalSizeChart">기본 안내사항 넣을까?</a>
-                                </p>
-                                <div class="row gx-5 mb-7">
-                                    <div class="col-12 col-lg-auto">
-                                        <!-- Quantity -->
-                                        <select class="form-select mb-2">
-                                            <option value="1" selected>1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12 col-lg">
-                                        <!-- 장바구니 담기 -->
-                                        <button type="submit" class="btn w-100 btn-dark mb-2">
-                                            장바구니에 담기 <i class="fe fe-shopping-cart ms-2"></i>
-                                        </button>
+                            <div class="row gx-5 mb-7">
+                                <div class="col-12 col-lg-auto">
+                                    <!-- Quantity -->
+                                    <input type="number" id="inputcnt" class="form-control form-control-sm" value="${cnt}"/>
+                                </div>
+                                <div class="col-12 col-lg">
+                                    <!-- Submit -->
+                                    <button type="button" class="btn w-60 btn-dark mb-2 cart_btn"
+                                            data-itemid="${obj.item_id}">
+                                        장바구니 추가 <i class="fe fe-shopping-cart ms-2"></i>
+                                    </button>
                                     </div>
                                     <div class="col-12 col-lg-auto">
                                         <!-- 찜하기 -->
@@ -388,7 +406,7 @@
             <div class="col-12">
 
                 <!-- Heading -->
-                <h4 class="mb-10 text-center">MD 강력추천 상품!!</h4>
+                <h4 class="mb-10 text-center">춘향! 강력추천 상품!!</h4>
 
                 <!-- Items -->
                 <div class="row">
@@ -402,15 +420,13 @@
 
                             <!-- Badge -->
                             <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">
-                                MD강력 추천!
+                                Sale
                             </div>
 
                             <!-- Image -->
-
                             <div class="card-img">
-
                                 <!-- Image -->
-                                <a class="card-img" href="product.html">
+                                <a  href="/bipum/detail?item_id=${recommandlist.item_id}">
                                     <img class="card-img-top card-img-back" src="/uimg/${recommandlist.item_img}" alt="...">
                                 </a>
 
@@ -421,12 +437,12 @@
                                       <i class="fe fe-eye"></i>
                                     </button>
                                   </span>
-                                                <span class="card-action">
+                                  <span class="card-action">
                                     <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
                                       <i class="fe fe-shopping-cart"></i>
                                     </button>
                                   </span>
-                                                <span class="card-action">
+                                  <span class="card-action">
                                     <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
                                       <i class="fe fe-heart"></i>
                                     </button>
@@ -439,19 +455,17 @@
                             <div class="card-body px-0">
 
                                 <!-- Category -->
-                                <div class="fs-xs">
-                                        ${recommandlist.item_content}
+                                <div class="fs-bold">
+                                    <h6>${recommandlist.item_name}</h6>
                                 </div>
 
                                 <!-- Title -->
-                                <div class="fw-bold">
-                                    <a class="text-body" href="product.html">
-                                        ${recommandlist.item_name}
-                                    </a>
+                                <div class="fw-xs">
+                                    ${recommandlist.item_content}
                                 </div>
                                 <!-- Price -->
                                 <div class="fw-bold text-muted">
-                                        ${recommandlist.item_price}
+                                    ${recommandlist.item_price}
                                 </div>
 
                             </div>

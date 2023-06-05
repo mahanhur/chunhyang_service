@@ -3,7 +3,6 @@ package com.chflower.controller;
 import com.chflower.dto.Cart;
 import com.chflower.dto.Cust;
 import com.chflower.dto.Item;
-import com.chflower.dto.Itemimg;
 import com.chflower.service.CartService;
 import com.chflower.service.ItemService;
 import com.chflower.service.ItemimgService;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -84,28 +82,17 @@ public class CartController {
         }
         return "redirect:/";
     }
-
-    @RequestMapping("/detail")
-    public String detail(Model model, Integer item_id, Item item, Itemimg itemimg) throws Exception {
-
-        item = itemService.get(item_id);
-        List<Itemimg> list= new ArrayList<>();
-        list = itemimgService.get();
-//        log.info("---------------------"+list);
-
-        List<Itemimg> ilist = new ArrayList<>();
-       for (Itemimg obj : list) {
-            if (obj.getItem_id() == item_id) {
-                ilist.add(obj);
-            }
+    @RequestMapping("/updatecart")
+    public String updatecart(Model model, Cart cart, int cart_id, int cnt, HttpSession session) throws Exception {
+        log.info("=============================" + cart_id, cnt);
+        log.info("=========================================="+ cart);
+//        cart.setCnt(cnt);
+        cartService.modify(cart);
+        if (session != null) {
+            Cust cust = (Cust) session.getAttribute("logincust");
+            return "redirect:/cart/all?cust_id=" + cust.getCust_id();
         }
-//        log.info("=================="+ilist);
-
-        model.addAttribute("detail", item);
-        model.addAttribute("img", itemimg);
-        model.addAttribute("ilist", ilist);
-        model.addAttribute("center", dir+"detail");
-        return "index";
+        return "redirect:/";
     }
 
 
@@ -125,44 +112,5 @@ public class CartController {
         return "index";
     }
 
-    @RequestMapping("get")
-    public String get(Model model, Integer id) throws Exception {
-        Item item = null;
-        item = itemService.get(id);
-        model.addAttribute("gitem", item);
 
-        model.addAttribute("left", dir + "left");
-        model.addAttribute("center", dir + "get");
-        return "index";
-    }
-
-//    @RequestMapping("allcart")
-//    public String allcart(Model model, String id) throws Exception {
-//        List<Cart> list = null;
-//        try {
-//            list = cartService.getMyCart(id);
-//        } catch (Exception e) {
-//            throw new Exception("시스템장애:ERORR002");
-//        }
-//
-//        model.addAttribute("allcart", list);
-//        model.addAttribute("center", "cart");
-//        return "index";
-//    }
-
-//    @RequestMapping("/addcart")
-//    public String addcart(Model model, Cart cart) throws Exception {
-//        cartService.register(cart);
-//        return "redirect:/item/allcart?id=" + cart.getCust_id();
-//    }
-//
-//    @RequestMapping("/delcart")
-//    public String delcart(Model model, Integer id, HttpSession session) throws Exception {
-//        cartService.remove(id);
-//        if (session != null) {
-//            Cust cust = (Cust) session.getAttribute("logincust");
-//            return "redirect:/item/allcart?id=" + cust.getId();
-//        }
-//        return "redirect:/";
-//    }
 }

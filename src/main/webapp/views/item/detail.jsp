@@ -32,6 +32,30 @@
         item_get.init();
     });
 </script>
+<script>
+    let register_review = {
+        init:function (){
+            $('#register_btn').click(function (){
+                var checkTitle = $('#review_title').val();
+                var checkContents = $('#review_content').val();
+                if (checkTitle == '' || checkContents == ''){
+                    return;
+                };
+                register_review.send();
+            });
+        },
+        send:function(){
+            $('#review_form').attr({
+                method:'post',
+                action:'/bipum/register_reviewimpl',
+                enctype:'multipart/form-data'
+            });
+            $('#review_form').submit();
+        }
+    };
+    $(function (){
+        register_review.init();
+    })
 </script>
 <!doctype html>
 <html lang="en">
@@ -1606,7 +1630,7 @@
                             <div class="col-auto">
 
                                 <!-- Rating -->
-                                <div class="rating fs-xs text-dark" data-value="4">
+                                <div class="rating fs-xs text-dark" data-value="${itemReview.avgscore}">
                                     <div class="rating-item">
                                         <i class="fas fa-star"></i>
                                     </div>
@@ -1625,7 +1649,7 @@
                                 </div>
 
                                 <a class="fs-sm text-reset ms-2" href="#reviews">
-                                    Reviews (6)
+                                    리뷰보기 (${itemReview.cnt})
                                 </a>
 
                             </div>
@@ -1690,11 +1714,11 @@
                                 <div class="row gx-5 mb-7">
                                     <div class="col-12 col-lg-auto">
                                         <!-- Quantity -->
-                                        <input type="number" id="inputcnt" class="form-input mb-2" value="${cnt}"/>
+                                        <input type="number" id="inputcnt" class="form-control form-control-sm" value="${cnt}"/>
                                     </div>
                                     <div class="col-12 col-lg">
                                         <!-- Submit -->
-                                        <button type="button" class="btn w-100 btn-dark mb-2 cart_btn"
+                                        <button type="button" class="btn w-60 btn-dark mb-2 cart_btn"
                                                 data-itemid="${obj.item_id}">
                                             장바구니 추가 <i class="fe fe-shopping-cart ms-2"></i>
                                         </button>
@@ -1708,30 +1732,25 @@
 
                                     </div>
                                 </div>
-
-                                <!-- Text -->
-                                <p>
-                                    <span class="text-gray-500">Is your size/color sold out?</span>
-                                    <a class="text-reset text-decoration-underline" data-bs-toggle="modal" href="#modalWaitList">Join the Wait List!</a>
-                                </p>
-
-                                <!-- Share -->
-                                <p class="mb-0">
-                                    <span class="me-4">Share:</span>
-                                    <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                    <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                    <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                        <i class="fab fa-pinterest-p"></i>
-                                    </a>
-                                </p>
-
-                            </div>
-                        </form>
-
+                            <!-- 담당자에게 연락하기 -->
+                            <p>
+                                <span class="text-gray-500">원하시는 상품이 품절인가요??</span>
+                                <a class="text-reset text-decoration-underline" data-bs-toggle="modal" href="#modalWaitList">담당자에게 연락 주세요!</a>
+                            </p>
+                            <!-- 공유하기 -->
+                            <p class="mb-0">
+                                <span class="me-4">공유하기:</span>
+                                <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                            </p>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -1920,283 +1939,101 @@
     </div>
 </section>
 
-<!-- PRODUCTS -->
+<!-- 추천 PRODUCTS -->
 <section class="pt-11">
     <div class="container">
         <div class="row">
             <div class="col-12">
 
                 <!-- Heading -->
-                <h4 class="mb-10 text-center">You might also like</h4>
+                <h4 class="mb-10 text-center">춘향! 강력추천 상품!!</h4>
 
                 <!-- Items -->
                 <div class="row">
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
 
-                        <!-- Card -->
-                        <div class="card mb-7">
+                    <%--첫번째 추천 아이템시작--%>
+                    <c:forEach var="recommandlist" items="${recommandlist}">
 
-                            <!-- Badge -->
-                            <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">
-                                New
-                            </div>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                            <!-- Card -->
+                            <div class="card mb-7">
 
-                            <!-- Image -->
-                            <div class="card-img">
+                                <!-- Badge -->
+                                <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">
+                                    Sale
+                                </div>
 
                                 <!-- Image -->
-                                <a class="card-img-hover" href="product.html">
-                                    <img class="card-img-top card-img-back" src="assets/img/products/product-120.jpg" alt="...">
-                                    <img class="card-img-top card-img-front" src="assets/img/products/product-5.jpg" alt="...">
-                                </a>
-
-                                <!-- Actions -->
-                                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                                    <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                                    <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                                </div>
-
-                            </div>
-
-                            <!-- Body -->
-                            <div class="card-body px-0">
-
-                                <!-- Category -->
-                                <div class="fs-xs">
-                                    <a class="text-muted" href="shop.html">Shoes</a>
-                                </div>
-
-                                <!-- Title -->
-                                <div class="fw-bold">
-                                    <a class="text-body" href="product.html">
-                                        Leather mid-heel Sandals
+                                <div class="card-img">
+                                    <!-- Image -->
+                                    <a  href="/bipum/detail?item_id=${recommandlist.item_id}">
+                                        <img class="card-img-top card-img-back" src="/uimg/${recommandlist.item_img}" alt="...">
                                     </a>
+
+                                    <!-- Actions -->
+                                    <div class="card-actions">
+                                  <span class="card-action">
+                                    <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                                      <i class="fe fe-eye"></i>
+                                    </button>
+                                  </span>
+                                        <span class="card-action">
+                                    <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                                      <i class="fe fe-shopping-cart"></i>
+                                    </button>
+                                  </span>
+                                        <span class="card-action">
+                                    <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                                      <i class="fe fe-heart"></i>
+                                    </button>
+                                  </span>
+                                    </div>
+
                                 </div>
 
-                                <!-- Price -->
-                                <div class="fw-bold text-muted">
-                                    $129.00
+                                <!-- Body -->
+                                <div class="card-body px-0">
+
+                                    <!-- Category -->
+                                    <div class="fs-bold">
+                                        <h6>${recommandlist.item_name}</h6>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <div class="fw-xs">
+                                            ${recommandlist.item_content}
+                                    </div>
+                                    <!-- Price -->
+                                    <div class="fw-bold text-muted">
+                                            ${recommandlist.item_price}
+                                    </div>
+
                                 </div>
 
                             </div>
 
                         </div>
+                    </c:forEach>
 
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-
-                        <!-- Card -->
-                        <div class="card mb-7">
-
-                            <!-- Image -->
-                            <div class="card-img">
-
-                                <!-- Image -->
-                                <a class="card-img-hover" href="product.html">
-                                    <img class="card-img-top card-img-back" src="assets/img/products/product-121.jpg" alt="...">
-                                    <img class="card-img-top card-img-front" src="assets/img/products/product-6.jpg" alt="...">
-                                </a>
-
-                                <!-- Actions -->
-                                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                                    <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                                    <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                                </div>
-
-                            </div>
-
-                            <!-- Body -->
-                            <div class="card-body px-0">
-
-                                <!-- Category -->
-                                <div class="fs-xs">
-                                    <a class="text-muted" href="shop.html">Dresses</a>
-                                </div>
-
-                                <!-- Title -->
-                                <div class="fw-bold">
-                                    <a class="text-body" href="product.html">
-                                        Cotton floral print Dress
-                                    </a>
-                                </div>
-
-                                <!-- Price -->
-                                <div class="fw-bold text-muted">
-                                    $40.00
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-
-                        <!-- Card -->
-                        <div class="card mb-7">
-
-                            <!-- Badge -->
-                            <div class="badge bg-dark card-badge card-badge-start text-uppercase">
-                                Sale
-                            </div>
-
-                            <!-- Image -->
-                            <div class="card-img">
-
-                                <!-- Image -->
-                                <a class="card-img-hover" href="product.html">
-                                    <img class="card-img-top card-img-back" src="assets/img/products/product-122.jpg" alt="...">
-                                    <img class="card-img-top card-img-front" src="assets/img/products/product-7.jpg" alt="...">
-                                </a>
-
-                                <!-- Actions -->
-                                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                                    <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                                    <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                                </div>
-
-                            </div>
-
-                            <!-- Body -->
-                            <div class="card-body px-0">
-
-                                <!-- Category -->
-                                <div class="fs-xs">
-                                    <a class="text-muted" href="shop.html">Shoes</a>
-                                </div>
-
-                                <!-- Title -->
-                                <div class="fw-bold">
-                                    <a class="text-body" href="product.html">
-                                        Leather Sneakers
-                                    </a>
-                                </div>
-
-                                <!-- Price -->
-                                <div class="fw-bold">
-                                    <span class="fs-xs text-gray-350 text-decoration-line-through">$85.00</span>
-                                    <span class="text-primary">$85.00</span>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 d-md-none d-lg-block">
-
-                        <!-- Card -->
-                        <div class="card mb-7">
-
-                            <!-- Image -->
-                            <div class="card-img">
-
-                                <!-- Image -->
-                                <a href="#!">
-                                    <img class="card-img-top card-img-front" src="assets/img/products/product-8.jpg" alt="...">
-                                </a>
-
-                                <!-- Actions -->
-                                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                                    <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                                    <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                                </div>
-
-                            </div>
-
-                            <!-- Body -->
-                            <div class="card-body px-0">
-
-                                <!-- Category -->
-                                <div class="fs-xs">
-                                    <a class="text-muted" href="shop.html">Tops</a>
-                                </div>
-
-                                <!-- Title -->
-                                <div class="fw-bold">
-                                    <a class="text-body" href="product.html">
-                                        Cropped cotton Top
-                                    </a>
-                                </div>
-
-                                <!-- Price -->
-                                <div class="fw-bold text-muted">
-                                    $29.00
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
                 </div>
 
             </div>
         </div>
+
+    </div>
+    </div>
     </div>
 </section>
 
 <!-- REVIEWS -->
+<!-- REVIEWS : 리뷰쓰기 다른사람 리뷰 보기-->
 <section class="pt-9 pb-11" id="reviews">
     <div class="container">
         <div class="row">
             <div class="col-12">
 
                 <!-- Heading -->
-                <h4 class="mb-10 text-center">Customer Reviews</h4>
-
+                <h4 class="mb-10 text-center">리뷰(${itemReview.cnt})</h4>
                 <!-- Header -->
                 <div class="row align-items-center">
                     <div class="col-12 col-md-auto">
@@ -2206,13 +2043,13 @@
 
                             <!-- Toggle -->
                             <a class="dropdown-toggle text-reset" data-bs-toggle="dropdown" href="#">
-                                <strong>Sort by: Newest</strong>
+                                <strong>정렬 기준</strong>
                             </a>
 
                             <!-- Menu -->
                             <div class="dropdown-menu mt-3">
-                                <a class="dropdown-item" href="#!">Newest</a>
-                                <a class="dropdown-item" href="#!">Oldest</a>
+                                <a class="dropdown-item" href="#!">최신 리뷰 순</a>
+                                <a class="dropdown-item" href="#!">오래된 리뷰 순</a>
                             </div>
 
                         </div>
@@ -2221,7 +2058,7 @@
                     <div class="col-12 col-md text-md-center">
 
                         <!-- Rating -->
-                        <div class="rating text-dark h6 mb-4 mb-md-0" data-value="4">
+                        <div class="rating text-dark h6 mb-4 mb-md-0" data-value=${itemReview.avgscore}>
                             <div class="rating-item">
                                 <i class="fas fa-star"></i>
                             </div>
@@ -2240,41 +2077,38 @@
                         </div>
 
                         <!-- Count -->
-                        <strong class="fs-sm ms-2">Reviews (3)</strong>
+                        <strong class="fs-sm ms-2">평균별점: ${itemReview.avgscore}점</strong>
 
                     </div>
                     <div class="col-12 col-md-auto">
 
-                        <!-- Button -->
+                        <!-- 리뷰 출력 Button -->
                         <a class="btn btn-sm btn-dark" data-bs-toggle="collapse" href="#reviewForm">
-                            Write Review
+                            리뷰 쓰기
                         </a>
-
                     </div>
                 </div>
 
-                <!-- New Review -->
-                <div class="collapse" id="reviewForm">
-
+                <!-- 리뷰작성하기 시작-->
+                <div class="collapse"  id="reviewForm">
                     <!-- Divider -->
                     <hr class="my-8">
-
                     <!-- Form -->
-                    <form>
+                    <form id="review_form"  name="review_form">
+                        <input type="hidden"  id="cust_id"  name="cust_id" value="${logincust.cust_id}">
+                        <input type="hidden"  id="item_id"  name="item_id" value="${item_id}">
                         <div class="row">
                             <div class="col-12 mb-6 text-center">
 
                                 <!-- Text -->
                                 <p class="mb-1 fs-xs">
-                                    Score:
+                                    별점 주기:
                                 </p>
 
                                 <!-- Rating form -->
                                 <div class="rating-form">
-
                                     <!-- Input -->
-                                    <input class="rating-input" type="range" min="1" max="5" value="5">
-
+                                    <input class="rating-input" id="review_score"  name="review_score" type="range" min="1" max="5" value="5">
                                     <!-- Rating -->
                                     <div class="rating h5 text-dark" data-value="5">
                                         <div class="rating-item">
@@ -2297,277 +2131,41 @@
                                 </div>
 
                             </div>
-                            <div class="col-12 col-md-6">
-
-                                <!-- Name -->
-                                <div class="form-group">
-                                    <label class="visually-hidden" for="reviewName">Your Name:</label>
-                                    <input class="form-control form-control-sm" id="reviewName" type="text" placeholder="Your Name *" required>
-                                </div>
-
+                            <!-- 제목 -->
+                            <div class="col-12 form-group">
+                                <label class="visually-hidden" for="review_title">제목:</label>
+                                <input class="form-control form-control-sm" id="review_title" name="review_title" type="text" placeholder="제목을 적으세요*" required>
                             </div>
-                            <div class="col-12 col-md-6">
 
-                                <!-- Email -->
-                                <div class="form-group">
-                                    <label class="visually-hidden" for="reviewEmail">Your Email:</label>
-                                    <input class="form-control form-control-sm" id="reviewEmail" type="email" placeholder="Your Email *" required>
-                                </div>
-
+                            <!-- 리뷰 -->
+                            <div class="col-12 form-group">
+                                <label class="visually-hidden" for="review_content">리뷰:</label>
+                                <textarea class="form-control form-control-sm" id="review_content" name="review_content" rows="5" placeholder="솔직한 리뷰를 부탁드립니다*" required></textarea>
                             </div>
-                            <div class="col-12">
 
-                                <!-- Name -->
-                                <div class="form-group">
-                                    <label class="visually-hidden" for="reviewTitle">Review Title:</label>
-                                    <input class="form-control form-control-sm" id="reviewTitle" type="text" placeholder="Review Title *" required>
-                                </div>
-
-                            </div>
-                            <div class="col-12">
-
-                                <!-- Name -->
-                                <div class="form-group">
-                                    <label class="visually-hidden" for="reviewText">Review:</label>
-                                    <textarea class="form-control form-control-sm" id="reviewText" rows="5" placeholder="Review *" required></textarea>
-                                </div>
-
-                            </div>
                             <div class="col-12 text-center">
-
                                 <!-- Button -->
-                                <button class="btn btn-outline-dark" type="submit">
-                                    Post Review
-                                </button>
-
+                                <button class="btn btn-outline-dark" id="register_btn" type="submit">리뷰등록</button>
                             </div>
                         </div>
                     </form>
-
                 </div>
+                <!-- 리뷰작성하기 끝-->
 
-                <!-- Reviews -->
+                <!-- 다른고객이 등록한 리뷰 시작-->
                 <div class="mt-8">
-
-                    <!-- Review -->
-                    <div class="review">
-                        <div class="review-body">
-                            <div class="row">
-                                <div class="col-12 col-md-auto">
-
-                                    <!-- Avatar -->
-                                    <div class="avatar avatar-xxl mb-6 mb-md-0">
-                        <span class="avatar-title rounded-circle">
-                          <i class="fa fa-user"></i>
-                        </span>
-                                    </div>
-
-                                </div>
-                                <div class="col-12 col-md">
-
-                                    <!-- Header -->
-                                    <div class="row mb-6">
-                                        <div class="col-12">
-
-                                            <!-- Rating -->
-                                            <div class="rating fs-sm text-dark" data-value="5">
-                                                <div class="rating-item">
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <div class="rating-item">
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <div class="rating-item">
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <div class="rating-item">
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <div class="rating-item">
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-12">
-
-                                            <!-- Time -->
-                                            <span class="fs-xs text-muted">
-                            Logan Edwards, <time datetime="2019-07-25">25 Jul 2019</time>
-                          </span>
-
-                                        </div>
-                                    </div>
-
-                                    <!-- Title -->
-                                    <p class="mb-2 fs-lg fw-bold">
-                                        So cute!
-                                    </p>
-
-                                    <!-- Text -->
-                                    <p class="text-gray-500">
-                                        Justo ut diam erat hendrerit. Morbi porttitor, per eu. Sodales curabitur diam sociis. Taciti lobortis nascetur. Ante laoreet odio hendrerit.
-                                        Dictumst curabitur nascetur lectus potenti dis sollicitudin habitant quis vestibulum.
-                                    </p>
-
-                                    <!-- Footer -->
-                                    <div class="row align-items-center">
-                                        <div class="col-auto d-none d-lg-block">
-
-                                            <!-- Text -->
-                                            <p class="mb-0 fs-sm">Was this review helpful?</p>
-
-                                        </div>
-                                        <div class="col-auto me-auto">
-
-                                            <!-- Rate -->
-                                            <div class="rate">
-                                                <a class="rate-item" data-toggle="vote" data-count="3" href="#" role="button">
-                                                    <i class="fe fe-thumbs-up"></i>
-                                                </a>
-                                                <a class="rate-item" data-toggle="vote" data-count="0" href="#" role="button">
-                                                    <i class="fe fe-thumbs-down"></i>
-                                                </a>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-auto d-none d-lg-block">
-
-                                            <!-- Text -->
-                                            <p class="mb-0 fs-sm">Comments (0)</p>
-
-                                        </div>
-                                        <div class="col-auto">
-
-                                            <!-- Button -->
-                                            <a class="btn btn-xs btn-outline-border" href="#!">
-                                                Comment
-                                            </a>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Review -->
-                    <div class="review">
-
-                        <!-- Body -->
-                        <div class="review-body">
-                            <div class="row">
-                                <div class="col-12 col-md-auto">
-
-                                    <!-- Avatar -->
-                                    <div class="avatar avatar-xxl mb-6 mb-md-0">
-                        <span class="avatar-title rounded-circle">
-                          <i class="fa fa-user"></i>
-                        </span>
-                                    </div>
-
-                                </div>
-                                <div class="col-12 col-md">
-
-                                    <!-- Header -->
-                                    <div class="row mb-6">
-                                        <div class="col-12">
-
-                                            <!-- Rating -->
-                                            <div class="rating fs-sm text-dark" data-value="3">
-                                                <div class="rating-item">
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <div class="rating-item">
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <div class="rating-item">
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <div class="rating-item">
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <div class="rating-item">
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-12">
-
-                                            <!-- Time -->
-                                            <span class="fs-xs text-muted">
-                            Sophie Casey, <time datetime="2019-07-07">07 Jul 2019</time>
-                          </span>
-
-                                        </div>
-                                    </div>
-
-                                    <!-- Title -->
-                                    <p class="mb-2 fs-lg fw-bold">
-                                        Cute, but too small
-                                    </p>
-
-                                    <!-- Text -->
-                                    <p class="text-gray-500">
-                                        Shall good midst can't. Have fill own his multiply the divided. Thing great. Of heaven whose signs.
-                                    </p>
-
-                                    <!-- Footer -->
-                                    <div class="row align-items-center">
-                                        <div class="col-auto d-none d-lg-block">
-
-                                            <!-- Text -->
-                                            <p class="mb-0 fs-sm">Was this review helpful?</p>
-
-                                        </div>
-                                        <div class="col-auto me-auto">
-
-                                            <!-- Rate -->
-                                            <div class="rate">
-                                                <a class="rate-item" data-toggle="vote" data-count="2" href="#" role="button">
-                                                    <i class="fe fe-thumbs-up"></i>
-                                                </a>
-                                                <a class="rate-item" data-toggle="vote" data-count="1" href="#" role="button">
-                                                    <i class="fe fe-thumbs-down"></i>
-                                                </a>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-auto d-none d-lg-block">
-
-                                            <!-- Text -->
-                                            <p class="mb-0 fs-sm">Comments (1)</p>
-
-                                        </div>
-                                        <div class="col-auto">
-
-                                            <!-- Button -->
-                                            <a class="btn btn-xs btn-outline-border" href="#!">
-                                                Comment
-                                            </a>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Child review -->
-                        <div class="review review-child">
+                    <c:forEach var="obj" items="${reviewlist}">
+                        <!-- Review -->
+                        <div class="review">
                             <div class="review-body">
-
-                                <!-- Content -->
                                 <div class="row">
                                     <div class="col-12 col-md-auto">
 
                                         <!-- Avatar -->
                                         <div class="avatar avatar-xxl mb-6 mb-md-0">
-                          <span class="avatar-title rounded-circle">
-                            <i class="fa fa-user"></i>
-                          </span>
+                                        <span class="avatar-title rounded-circle">
+                                          <i class="fa fa-user"></i>
+                                        </span>
                                         </div>
 
                                     </div>
@@ -2576,9 +2174,8 @@
                                         <!-- Header -->
                                         <div class="row mb-6">
                                             <div class="col-12">
-
-                                                <!-- Rating -->
-                                                <div class="rating fs-sm text-dark" data-value="4">
+                                                <!-- 별점 시작 -->
+                                                <div class="rating fs-sm text-dark" data-value=${obj.review_score}>
                                                     <div class="rating-item">
                                                         <i class="fas fa-star"></i>
                                                     </div>
@@ -2595,41 +2192,37 @@
                                                         <i class="fas fa-star"></i>
                                                     </div>
                                                 </div>
-
+                                                <!-- 별점 끝-->
                                             </div>
                                             <div class="col-12">
 
-                                                <!-- Time -->
+                                                <!-- (1) 작성자. 작성일자 시작 -->
                                                 <span class="fs-xs text-muted">
-                              William Stokes, <time datetime="2019-07-14">14 Jul 2019</time>
-                            </span>
-
+                                            작성자: ${obj.cust_id}
+                                            작성일자: <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${obj.review_rdata}"/>
+                                            </span>
                                             </div>
+                                            <!-- 작성자. 작성일자 끝 -->
                                         </div>
+                                        <!-- (2) 리뷰 제목 -->
+                                        <p class="mb-2 fs-lg fw-bold">${obj.review_title}</p>
+                                        <!-- (3) 리뷰 본문 -->
+                                        <p class="text-gray-500">${obj.review_content}</p>
 
-                                        <!-- Title -->
-                                        <p class="mb-2 fs-lg fw-bold">
-                                            Very good
-                                        </p>
-
-                                        <!-- Text -->
-                                        <p class="text-gray-500">
-                                            Made face lights yielding forth created for image behold blessed seas.
-                                        </p>
 
                                         <!-- Footer -->
                                         <div class="row align-items-center">
                                             <div class="col-auto d-none d-lg-block">
 
                                                 <!-- Text -->
-                                                <p class="mb-0 fs-sm">Was this review helpful?</p>
+                                                <p class="mb-0 fs-sm">리뷰가 도움이 되었나요?</p>
 
                                             </div>
                                             <div class="col-auto me-auto">
 
                                                 <!-- Rate -->
                                                 <div class="rate">
-                                                    <a class="rate-item" data-toggle="vote" data-count="7" href="#" role="button">
+                                                    <a class="rate-item" data-toggle="vote" data-count="3" href="#" role="button">
                                                         <i class="fe fe-thumbs-up"></i>
                                                     </a>
                                                     <a class="rate-item" data-toggle="vote" data-count="0" href="#" role="button">
@@ -2638,61 +2231,17 @@
                                                 </div>
 
                                             </div>
-                                            <div class="col-auto d-none d-lg-block">
 
-                                                <!-- Text -->
-                                                <p class="mb-0 fs-sm">Comments (0)</p>
-
-                                            </div>
-                                            <div class="col-auto">
-
-                                                <!-- Button -->
-                                                <a class="btn btn-xs btn-outline-border" href="#!">
-                                                    Comment
-                                                </a>
-
-                                            </div>
                                         </div>
 
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-
-                    </div>
-
+                    </c:forEach>
                 </div>
+                <!-- 다른고객이 등록한 리뷰 끝-->
 
-                <!-- Pagination -->
-                <nav class="d-flex justify-content-center mt-9">
-                    <ul class="pagination pagination-sm text-gray-400">
-                        <li class="page-item">
-                            <a class="page-link page-link-arrow" href="#">
-                                <i class="fa fa-caret-left"></i>
-                            </a>
-                        </li>
-                        <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link page-link-arrow" href="#">
-                                <i class="fa fa-caret-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- FEATURES -->
 <section class="bg-light py-9">
