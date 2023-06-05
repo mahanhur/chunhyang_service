@@ -43,10 +43,16 @@ public class AjaxImplController {
     }
 
     @RequestMapping("/getcartcount")
-    public Object getcartcount(String cust_id) throws Exception {
-        log.info("zzzzzzzzzzz"+cust_id);
-        int result = cartservice.countMyCart(cust_id);
-        return result;
+    public Object getcartcount(HttpSession session) throws Exception {
+        Cust cust = (Cust) session.getAttribute("logincust");
+        if(cust != null) {
+            String cust_id = cust.getCust_id();
+            int result = cartservice.countMyCart(cust_id);
+            return result;
+        } else {
+            return "0";
+        }
+
     }
 
 }

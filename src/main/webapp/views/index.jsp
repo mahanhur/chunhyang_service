@@ -3,6 +3,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
+
+
 <!doctype html>
 <html lang="ko">
 <head>
@@ -45,6 +47,18 @@
     }
   </style>
 
+<script>
+  $(function () {
+    $("#cartcount").attr("data-cart-items", 0);
+    $.ajax({
+      url:'/getcartcount',
+      method:'post',
+      success: function(result) {
+        $("#cartcount").attr("data-cart-items", result);
+      }
+    });
+  })
+</script>
 </head>
 
 <!-- -------------------------------------------------------------------------------- -->
@@ -2123,9 +2137,9 @@
         <li class="nav-item ms-lg-n4">
           <a class="nav-link" href="/cart/all?cust_id=${logincust.cust_id}">
             <%--          모달로 할꺼면..... data-bs-toggle="offcanvas" href="#modalShoppingCart"--%>
-            <span data-cart-items="2">
+            <span id="cartcount" data-cart-items="0">
                   <i class="fe fe-shopping-cart"></i>
-                </span>
+            </span>
           </a>
         </li>
       </ul>
