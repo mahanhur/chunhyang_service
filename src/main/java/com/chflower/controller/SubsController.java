@@ -1,20 +1,22 @@
 package com.chflower.controller;
 
-import com.chflower.dto.Item;
-import com.chflower.dto.Itemimg;
+import com.chflower.dto.Addr;
+import com.chflower.dto.Cust;
 import com.chflower.dto.Subsitem;
-import com.chflower.service.ItemService;
-import com.chflower.service.ItemimgService;
+import com.chflower.service.AddrService;
 import com.chflower.service.SubsitemService;
-import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
+import javax.servlet.http.HttpSession;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -24,6 +26,8 @@ public class SubsController {
 
     @Autowired
     SubsitemService subsitemService;
+    @Autowired
+    AddrService addrService;
     String dir = "subs/";
 
     @RequestMapping("/subscribe")
@@ -57,8 +61,21 @@ public class SubsController {
         return "index";
     }
     @RequestMapping("/checkout")
-    public String checkout(Model model){
-        model.addAttribute("center","checkout1");
+    public String checkout(Model model, HttpSession session, Integer subsitem_id, String date) throws Exception {
+        Cust cust = (Cust) session.getAttribute("logincust");
+        if(cust != null) {
+            String cust_id = cust.getCust_id();
+            List<Addr> addrlist;
+            addrlist = addrService.getaddr(cust_id);
+            model.addAttribute("addrlist",addrlist);
+        } else {
+            return "redirect:/cust/login";
+        }
+
+
+        model.addAttribute("subsitem_id",subsitem_id);
+        model.addAttribute("date",date);
+        model.addAttribute("center","checkout");
         return "index";
     }
 

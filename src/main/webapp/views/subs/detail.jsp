@@ -75,6 +75,13 @@
           $('.checkbox1').attr('checked', 'checked');
         }
       });
+      $('#checkout_btn').click(function(){
+        $('#detail_form').attr({
+          action:'/subs/checkout',
+          method:'post'
+        });
+        $('#detail_form').submit();
+      })
     </c:otherwise>
   </c:choose>
 
@@ -149,7 +156,7 @@
                   </div>
 
                   <!-- Form -->
-                  <form class="mb-9">
+                  <form class="mb-9" id="detail_form">
                     <div class="form-group">
 
                       <!-- Label -->
@@ -255,12 +262,13 @@
                                   </div>
                                   <div class="form-check form-check-inline">
                                     <input class="form-check-input checkbox1" type="checkbox" value="option1">
-                                    <input type="text" class="datepicker datepicker1 form-control form-control-underline" name="datepicker" placeholder="최초 수령일 선택"/>
+                                    <input type="text" class="datepicker datepicker1 form-control form-control-underline" name="date" placeholder="최초 수령일 선택"/>
                                   </div>
                                 </div>
                               </div>
                           </c:otherwise>
                         </c:choose>
+
 
 
 
@@ -295,7 +303,8 @@
 
 
                           <!-- Submit -->
-                          <button type="submit" class="btn w-100 btn-dark mb-2">
+                          <input type="hidden" name="subsitem_id" value="${obj.subsitem_id}"/>
+                          <button type="button" class="btn w-100 btn-dark mb-2" id="checkout_btn">
                             구독 신청 <i class="fe fe-shopping-cart ms-2"></i>
                           </button>
 
