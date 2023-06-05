@@ -87,7 +87,14 @@
             alert(error);
         }
         });
-      })
+      });
+
+      $('#usepoint').change(function() {
+        let use_point = $('#usepoint').val();
+        let finalPrice = ${subsitem.subsitem_price} - use_point;
+        $('#finalprice').html(finalPrice);
+      });
+
     }
   };
 
@@ -282,10 +289,14 @@
                 <span>주문금액</span> <span class="ms-auto fs-sm">${subsitem.subsitem_price}</span>
               </li>
               <li class="list-group-item d-flex">
-                <span>사용포인트</span> <button>포인트조회</button><span class="ms-auto fs-sm">0</span>
+                <div>
+                  <span>사용포인트</span><br/>
+                  <span style="font-size: 12px;">(보유 포인트 : <span id="getpoint">${point}</span>)</span>
+                </div>
+                <input class="ms-auto fs-sm " id="usepoint"/>
               </li>
               <li class="list-group-item d-flex fs-lg fw-bold">
-                <span>결제금액</span> <span class="ms-auto">${subsitem.subsitem_price}</span>
+                <span>결제금액</span> <span class="ms-auto" id="finalprice">${subsitem.subsitem_price}</span>
               </li>
             </ul>
           </div>
