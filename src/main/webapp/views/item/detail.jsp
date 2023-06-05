@@ -57,6 +57,26 @@
         register_review.init();
     })
 </script>
+
+<script>
+
+    let itemdetail = {
+        init: () => {
+            $('#checkout_btn').click(function(){
+                $('#detail_form').attr({
+                    action:'/item/checkout',
+                    method:'post'
+                });
+                $('#detail_form').submit();
+            })
+        }
+    }
+
+    $(function () {
+        itemdetail.init();
+    });
+</script>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -1624,7 +1644,7 @@
                             <div class="col">
 
                                 <!-- Preheading -->
-                                <a class="text-muted" href="shop.html">Sneakers</a>
+                                <a class="text-muted" href="#">Flower</a>
 
                             </div>
                             <div class="col-auto">
@@ -1710,11 +1730,11 @@
 <%--                                    <img src="assets/img/icons/icon-ruler.svg" alt="..." class="img-fluid"> <a class="text-reset text-decoration-underline ms-3" data-bs-toggle="modal" href="#modalSizeChart">Size chart</a>--%>
 <%--                                </p>--%>
                         <!-- Form -->
-                        <form>
+                        <form id="detail_form">
                                 <div class="row gx-5 mb-7">
                                     <div class="col-12 col-lg-auto">
                                         <!-- Quantity -->
-                                        <input type="number" id="inputcnt" class="form-control form-control-sm" value="${cnt}"/>
+                                        <input type="number" id="inputcnt" class="form-control form-control-sm" name="inputcnt" value=${cnt}/>
                                     </div>
                                     <div class="col-12 col-lg">
                                         <!-- Submit -->
@@ -1722,16 +1742,18 @@
                                                 data-itemid="${obj.item_id}">
                                             장바구니 추가 <i class="fe fe-shopping-cart ms-2"></i>
                                         </button>
-                                    </div>
-                                    <div class="col-12 col-lg-auto">
-
-                                        <!-- Wishlist -->
-                                        <button class="btn btn-outline-dark w-100 mb-2" data-toggle="button">
-                                            Wishlist <i class="fe fe-heart ms-2"></i>
+                                        <input type="hidden" name="item_id" value="${obj.item_id}"/>
+                                        <button type="button" class="btn w-120 btn-dark mb-2" id="checkout_btn">
+                                            바로주문 하기 <i class="fe fe-shopping-cart ms-2"></i>
                                         </button>
 
+                                        <!-- Wishlist -->
+                                        <button class="btn btn-outline-dark w-60 mb-2" data-toggle="button">
+                                            찜하기 <i class="fe fe-heart ms-2"></i>
+                                        </button>
                                     </div>
                                 </div>
+                        </form>
                             <!-- 담당자에게 연락하기 -->
                             <p>
                                 <span class="text-gray-500">원하시는 상품이 품절인가요??</span>
@@ -1750,7 +1772,7 @@
                                     <i class="fab fa-pinterest-p"></i>
                                 </a>
                             </p>
-                    </form>
+
                     </div>
                 </div>
             </div>

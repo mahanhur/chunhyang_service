@@ -1,8 +1,10 @@
 package com.chflower.controller;
 
+import com.chflower.dto.Addr;
 import com.chflower.dto.Cart;
 import com.chflower.dto.Cust;
 import com.chflower.dto.Item;
+import com.chflower.service.AddrService;
 import com.chflower.service.CartService;
 import com.chflower.service.ItemService;
 import com.chflower.service.ItemimgService;
@@ -27,6 +29,8 @@ public class CartController {
     ItemimgService itemimgService;
     @Autowired
     CartService cartService;
+    @Autowired
+    AddrService addrService;
 
 
     String dir = "cart/";
@@ -94,7 +98,21 @@ public class CartController {
         }
         return "redirect:/";
     }
+    @RequestMapping("/checkout")
+    public String checkout(Model model, HttpSession session) throws Exception {
+        Cust cust = (Cust) session.getAttribute("logincust");
+        if(cust != null) {
+            String cust_id = cust.getCust_id();
+            List<Addr> addrlist;
+            addrlist = addrService.getaddr(cust_id);
+            model.addAttribute("addrlist",addrlist);
 
+        } else {
+            return "redirect:/cust/login";
+        }
+        model.addAttribute("center",dir+"checkout");
+        return "index";
+    }
 
 
     @RequestMapping("allpage")
