@@ -1,7 +1,9 @@
 package com.chflower.controller;
 
 import com.chflower.dto.Cust;
+import com.chflower.service.CartService;
 import com.chflower.service.CustService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,12 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+@Slf4j
 @RestController
 public class AjaxImplController {
 
     @Autowired
     CustService custservice;
+    @Autowired
+    CartService cartservice;
 
     @RequestMapping("/checkid")
     public Object checkid(String cust_id) throws Exception {
@@ -37,4 +41,12 @@ public class AjaxImplController {
         String formattedDate = dateFormat.format(date);
         return formattedDate;
     }
+
+    @RequestMapping("/getcartcount")
+    public Object getcartcount(String cust_id) throws Exception {
+        log.info("zzzzzzzzzzz"+cust_id);
+        int result = cartservice.countMyCart(cust_id);
+        return result;
+    }
+
 }

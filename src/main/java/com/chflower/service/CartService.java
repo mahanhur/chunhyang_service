@@ -43,5 +43,8 @@ public class CartService implements CHService<Integer, Cart> {
     public List<Cart> getMyCart(String cid) throws Exception {
         return mapper.getmycart(cid);
     }
+    public int countMyCart(String cust_id) throws Exception {
+        return mapper.countmycart(cust_id);
+    }
 
 }

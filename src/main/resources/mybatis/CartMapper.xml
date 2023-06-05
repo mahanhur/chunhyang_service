@@ -21,6 +21,10 @@
           AND C.ITEM_ID = I.ID
           AND C.ID = #{id}
     </select>
+    <select id="countmycart" parameterType="String" resultType="int">
+        select count(*) from cart
+        where cust_id=#{cust_id}
+    </select>
     <select id="getmycart" parameterType="String" resultType="cart">
         select ca.cart_id, ca.cust_id, ca.item_id, ca.cnt, ca.item_rdate, cu.cust_name, i.item_img, i.item_name, i.item_price, i.flower_color, i.flower_type, i.flower_size
         from cart ca, cust cu, item i
