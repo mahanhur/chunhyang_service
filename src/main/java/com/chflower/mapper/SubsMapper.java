@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface SubsMapper extends CHMapper<Integer, Subs> {
-
+    public Integer getlast();
 }
