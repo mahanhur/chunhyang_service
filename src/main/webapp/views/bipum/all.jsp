@@ -1522,9 +1522,9 @@
 
         <!-- Categories -->
         <nav class="nav nav-overflow mb-6 mb-md-0">
-          <a class="nav-link active" data-bs-toggle="tab" href="#">전체</a>
-          <a class="nav-link" data-bs-toggle="tab" href="#">화병</a>
-          <a class="nav-link" data-bs-toggle="tab" href="#">비품</a>
+          <a class="nav-link" href="/bipum/all">전체</a>
+          <a class="nav-link" href="/bipum/hwabyung">화병</a>
+          <a class="nav-link" href="/bipum/bipum">비품</a>
         </nav>
 
       </div>

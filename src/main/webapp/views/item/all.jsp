@@ -1536,36 +1536,36 @@
 
         <!-- Categories -->
         <nav class="nav nav-overflow mb-6 mb-md-0">
-          <a class="nav-link active" data-bs-toggle="tab" href="#">전체</a>
+          <a class="nav-link" href="/item/all">전체</a>
           <!-- Toggle -->
-          <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown" href="#">꽃다발</a>
+          <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown">꽃다발</a>
           <!-- Menu -->
-            <form class="dropdown-menu">
-              <div class="card">
-                <div class="card-body">
-                  <!-- Form group -->
-                  <div class="form-group-overflow">
-                    <div class="form-check form-check-text mb-3">
-                      <input class="form-check-input" id="Default" name="sort" type="radio" value="전체">
-                      <label class="form-check-label" for="sortOne">전체</label>
-                    </div>
-                    <div class="form-check form-check-text mb-3">
-                      <input class="form-check-input" id="Newest" name="sort" type="radio" value="사랑">
-                      <label class="form-check-label" for="sortTwo">사랑</label>
-                    </div>
-                    <div class="form-check form-check-text mb-3">
-                      <input class="form-check-input" id="Most Popular" name="sort" type="radio" value="응원">
-                      <label class="form-check-label" for="sortThree">응원</label>
-                    </div>
-                    <div class="form-check form-check-text mb-3">
-                      <input class="form-check-input" id="Default Price" name="sort" type="radio" value="감사">
-                      <label class="form-check-label" for="sortFour">감사</label>
-                    </div>
+          <form class="dropdown-menu">
+            <div class="card">
+              <div class="card-body">
+                <!-- Form group -->
+                <div class="form-group-overflow">
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="Default" name="sort" type="radio" value="전체">
+                    <a class="form-check-label" for="sortOne" href="/item/bunch">전체</a>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="Newest" name="sort" type="radio" value="사랑">
+                    <a class="form-check-label" for="sortTwo" href="/item/love">사랑</a>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="Most Popular" name="sort" type="radio" value="응원">
+                    <a class="form-check-label" for="sortThree" href="/item/cheer">응원</a>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="Default Price" name="sort" type="radio" value="감사">
+                    <a class="form-check-label" for="sortFour"href="/item/thanks">감사</a>
                   </div>
                 </div>
               </div>
-            </form>
-          <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown" href="#">꽃</a>
+            </div>
+          </form>
+          <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown" href="/item/flower">꽃</a>
           <!-- Menu -->
           <form class="dropdown-menu">
             <div class="card">
@@ -1574,19 +1574,19 @@
                 <div class="form-group-overflow">
                   <div class="form-check form-check-text mb-3">
                     <input class="form-check-input" name="sort" type="radio" value="전체">
-                    <label class="form-check-label" for="sortOne">전체</label>
+                    <a class="form-check-label" for="sortOne" href="/item/flower">전체</a>
                   </div>
                   <div class="form-check form-check-text mb-3">
                     <input class="form-check-input"  name="sort" type="radio" value="장미">
-                    <label class="form-check-label" for="sortTwo">장미</label>
+                    <a class="form-check-label" for="sortTwo" href="/item/rose">장미</a>
                   </div>
                   <div class="form-check form-check-text mb-3">
                     <input class="form-check-input"  name="sort" type="radio" value="수국">
-                    <label class="form-check-label" for="sortThree">수국</label>
+                    <a class="form-check-label" for="sortThree" href="/item/hydrangea">수국</a>
                   </div>
                   <div class="form-check form-check-text mb-3">
                     <input class="form-check-input"  name="sort" type="radio" value="프리지아">
-                    <label class="form-check-label" for="sortFour">프리지아</label>
+                    <a class="form-check-label" for="sortFour" href="/item/freesia">프리지아</a>
                   </div>
                 </div>
               </div>

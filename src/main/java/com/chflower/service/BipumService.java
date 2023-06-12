@@ -4,7 +4,6 @@ import com.chflower.dto.Bipum;
 import com.chflower.dto.Item;
 import com.chflower.frame.CHService;
 import com.chflower.mapper.BipumMapper;
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +48,13 @@ public class BipumService implements CHService<Integer, Bipum> {
     @Override
     public List<Bipum> get() throws Exception {
         return mapper.selectall();
+    }
+
+    public List<Item> getCate(Double cate) throws Exception {
+        return mapper.getcate(cate);
+    }
+    public List<Item> getType(String type) throws Exception {
+        return mapper.gettype(type);
     }
 
     public List<Bipum> get(int pageNo) throws Exception {

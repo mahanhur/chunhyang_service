@@ -1,10 +1,10 @@
 package com.chflower.service;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
 import com.chflower.dto.Item;
 import com.chflower.frame.CHService;
 import com.chflower.mapper.ItemMapper;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,7 +49,12 @@ public class ItemService implements CHService<Integer, Item> {
     public List<Item> get() throws Exception {
         return mapper.selectall();
     }
-
+    public List<Item> getCate(Double cate) throws Exception {
+        return mapper.getcate(cate);
+    }
+    public List<Item> getType(String type) throws Exception {
+        return mapper.gettype(type);
+    }
 
     public Page<Item> getPage(int pageNo) throws Exception {
         PageHelper.startPage(pageNo, 3); // 3: 한화면에 출력되는 개수

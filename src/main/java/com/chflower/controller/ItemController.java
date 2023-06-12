@@ -108,22 +108,96 @@ public class ItemController {
         return "redirect:/bipum/detail?item_id="+bipumreview.getItem_id();
     }
     @RequestMapping("/checkout")
-    public String checkout(Model model, HttpSession session, Integer item_id, int inputcnt) throws Exception {
-        log.info(String.valueOf("========================="+inputcnt));
+    public String checkout(Model model, HttpSession session, Integer item_id, Integer cnt) throws Exception {
+        log.info(String.valueOf("========================="+cnt));
+        log.info(String.valueOf("========================="+item_id));
+
         Cust cust = (Cust) session.getAttribute("logincust");
         if(cust != null) {
             String cust_id = cust.getCust_id();
             List<Addr> addrlist;
             addrlist = addrService.getaddr(cust_id);
             model.addAttribute("addrlist",addrlist);
-            Item item = itemService.get(item_id);
-            model.addAttribute("item", item);
+//            Item item = itemService.get(item_id);
+//            log.info(String.valueOf("*************************"+item));
+//            model.addAttribute("item", item);
         } else {
             return "redirect:/cust/login";
         }
-        model.addAttribute("inputcnt", inputcnt);
+        model.addAttribute("inputcnt", cnt);
         model.addAttribute("item_id",item_id);
         model.addAttribute("center",dir+"checkout");
+        return "index";
+    }
+    @RequestMapping("/bunch")
+    public String bunch(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getCate(100.0);
+        log.info(list.toString());
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+    @RequestMapping("/flower")
+    public String flower(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getCate(200.0);
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+
+    @RequestMapping("/love")
+    public String love(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getType("사랑");
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+
+    @RequestMapping("/cheer")
+    public String cheer(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getType("응원");
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+
+    @RequestMapping("/thanks")
+    public String thanks(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getType("감사");
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+
+    @RequestMapping("/rose")
+    public String rose(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getType("장미");
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+
+    @RequestMapping("/hydrangea")
+    public String hydrangea(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getType("수국");
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+
+    @RequestMapping("/freesia")
+    public String freesia(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getType("프리지아");
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
         return "index";
     }
 
@@ -139,17 +213,6 @@ public class ItemController {
         model.addAttribute("cpage", p);
         model.addAttribute("left", dir + "left");
         model.addAttribute("center", dir + "allpage");
-        return "index";
-    }
-
-    @RequestMapping("get")
-    public String get(Model model, Integer id) throws Exception {
-        Item item = null;
-        item = itemService.get(id);
-        model.addAttribute("gitem", item);
-
-        model.addAttribute("left", dir + "left");
-        model.addAttribute("center", dir + "get");
         return "index";
     }
 
