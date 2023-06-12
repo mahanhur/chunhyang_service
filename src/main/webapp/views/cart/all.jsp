@@ -1669,7 +1669,7 @@
             </div>
 
             <!-- Button -->
-            <a class="btn w-100 btn-dark mb-2" href="checkout.html">주문하기</a>
+            <a class="btn w-100 btn-dark mb-2" href="/cart/checkout?total=${total}">주문하기</a>
 
             <!-- Link -->
             <a class="btn btn-link btn-sm px-0 text-body" href="/item/all">

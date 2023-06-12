@@ -30,6 +30,25 @@
         GROUP BY a.ITEM_ID, a.CATEGORY_ID, a.ITEM_IMG, a.ITEM_NAME, a.ITEM_CNT, a.ITEM_PRICE, a.ITEM_CONTENT, a.ITEM_RDATE, a.FLOWER_COLOR, a.FLOWER_TYPE, a.FLOWER_SIZE, a.MAIN_IMG
     </select>
 
+    <select id="getcate" parameterType="Double" resultType="bipum">
+        SELECT a.ITEM_ID, a.CATEGORY_ID, a.ITEM_IMG, a.ITEM_NAME, a.ITEM_CNT, a.ITEM_PRICE, a.ITEM_CONTENT, a.ITEM_RDATE, a.FLOWER_COLOR, a.FLOWER_TYPE, a.FLOWER_SIZE, a.MAIN_IMG,
+               COUNT(b.REVIEW_ID) as cnt, NVL(ROUND(AVG(b.REVIEW_SCORE),0),0) as avgscore
+        FROM item a left outer join item_review b
+                                    ON a.item_id = b.item_id
+        where a.category_id in (#{category_id})
+        GROUP BY a.ITEM_ID, a.CATEGORY_ID, a.ITEM_IMG, a.ITEM_NAME, a.ITEM_CNT, a.ITEM_PRICE, a.ITEM_CONTENT, a.ITEM_RDATE, a.FLOWER_COLOR, a.FLOWER_TYPE, a.FLOWER_SIZE, a.MAIN_IMG
+
+    </select>
+
+    <select id="gettype" parameterType="String" resultType="bipum">
+        SELECT a.ITEM_ID, a.CATEGORY_ID, a.ITEM_IMG, a.ITEM_NAME, a.ITEM_CNT, a.ITEM_PRICE, a.ITEM_CONTENT, a.ITEM_RDATE, a.FLOWER_COLOR, a.FLOWER_TYPE, a.FLOWER_SIZE, a.MAIN_IMG,
+               COUNT(b.REVIEW_ID) as cnt, NVL(ROUND(AVG(b.REVIEW_SCORE),0),0) as avgscore
+        FROM item a left outer join item_review b
+                                    ON a.item_id = b.item_id
+        where a.flower_type in (#{flower_type})
+        GROUP BY a.ITEM_ID, a.CATEGORY_ID, a.ITEM_IMG, a.ITEM_NAME, a.ITEM_CNT, a.ITEM_PRICE, a.ITEM_CONTENT, a.ITEM_RDATE, a.FLOWER_COLOR, a.FLOWER_TYPE, a.FLOWER_SIZE, a.MAIN_IMG
+    </select>
+
     <insert id="insert" parameterType="bipum">
         INSERT INTO ITEM
         (ITEM_ID, CATEGORY_ID, ITEM_IMG, ITEM_NAME, ITEM_CNT, ITEM_PRICE, ITEM_CONTENT, ITEM_RDATE, FLOWER_COLOR, FLOWER_TYPE, FLOWER_SIZE, MAIN_IMG)

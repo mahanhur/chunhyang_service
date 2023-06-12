@@ -97,4 +97,21 @@ public class BipumController {
         itemReviewService.register(bipumreview);
         return "redirect:/bipum/detail?item_id="+bipumreview.getItem_id();
     }
+    @RequestMapping("/hwabyung")
+    public String hwabyung(Model model) throws Exception {
+        List<Item> list = null;
+        list = bipumService.getCate(300.0);
+        log.info(list.toString());
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+    @RequestMapping("/bipum")
+    public String bipum(Model model) throws Exception {
+        List<Item> list = null;
+        list = bipumService.getCate(400.0);
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
 }

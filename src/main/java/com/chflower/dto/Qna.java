@@ -22,6 +22,9 @@ public class Qna {
     private String qna_image1;
     private String qna_image2;
 
+    private String answer_id;
+    private String answer_contents;
+
     private MultipartFile img1;
     private MultipartFile img2;
     }

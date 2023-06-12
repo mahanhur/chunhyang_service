@@ -1,13 +1,7 @@
 package com.chflower.controller;
 
-import com.chflower.dto.Item;
-import com.chflower.dto.ItemReview;
-import com.chflower.dto.Itemimg;
-import com.chflower.dto.RecommandItem;
-import com.chflower.service.ItemReviewService;
-import com.chflower.service.ItemService;
-import com.chflower.service.ItemimgService;
-import com.chflower.service.RecommandItemService;
+import com.chflower.dto.*;
+import com.chflower.service.*;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +26,8 @@ public class ItemController {
     ItemReviewService itemReviewService;
     @Autowired
     RecommandItemService recommandItemService;
-
+    @Autowired
+    AddrService addrService;
 
 //    @Autowired
 //    CartService cartService;
@@ -111,7 +107,99 @@ public class ItemController {
         itemReviewService.register(bipumreview);
         return "redirect:/bipum/detail?item_id="+bipumreview.getItem_id();
     }
+    @RequestMapping("/checkout")
+    public String checkout(Model model, HttpSession session, Integer item_id, Integer cnt) throws Exception {
+        log.info(String.valueOf("========================="+cnt));
+        log.info(String.valueOf("========================="+item_id));
 
+        Cust cust = (Cust) session.getAttribute("logincust");
+        if(cust != null) {
+            String cust_id = cust.getCust_id();
+            List<Addr> addrlist;
+            addrlist = addrService.getaddr(cust_id);
+            model.addAttribute("addrlist",addrlist);
+//            Item item = itemService.get(item_id);
+//            log.info(String.valueOf("*************************"+item));
+//            model.addAttribute("item", item);
+        } else {
+            return "redirect:/cust/login";
+        }
+        model.addAttribute("inputcnt", cnt);
+        model.addAttribute("item_id",item_id);
+        model.addAttribute("center",dir+"checkout");
+        return "index";
+    }
+    @RequestMapping("/bunch")
+    public String bunch(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getCate(100.0);
+        log.info(list.toString());
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+    @RequestMapping("/flower")
+    public String flower(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getCate(200.0);
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+
+    @RequestMapping("/love")
+    public String love(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getType("사랑");
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+
+    @RequestMapping("/cheer")
+    public String cheer(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getType("응원");
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+
+    @RequestMapping("/thanks")
+    public String thanks(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getType("감사");
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+
+    @RequestMapping("/rose")
+    public String rose(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getType("장미");
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+
+    @RequestMapping("/hydrangea")
+    public String hydrangea(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getType("수국");
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+
+    @RequestMapping("/freesia")
+    public String freesia(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.getType("프리지아");
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
 
     @RequestMapping("allpage")
     public String allpage(@RequestParam(required = false, defaultValue = "1") int pageNo, Model model) throws Exception {
@@ -125,17 +213,6 @@ public class ItemController {
         model.addAttribute("cpage", p);
         model.addAttribute("left", dir + "left");
         model.addAttribute("center", dir + "allpage");
-        return "index";
-    }
-
-    @RequestMapping("get")
-    public String get(Model model, Integer id) throws Exception {
-        Item item = null;
-        item = itemService.get(id);
-        model.addAttribute("gitem", item);
-
-        model.addAttribute("left", dir + "left");
-        model.addAttribute("center", dir + "get");
         return "index";
     }
 
