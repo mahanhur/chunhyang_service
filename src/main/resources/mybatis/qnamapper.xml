@@ -5,17 +5,31 @@
 <mapper namespace="com.chflower.mapper.QnaMapper">
 
     <select id="getQna" parameterType="String" resultType="qna">
-        SELECT *
-        FROM qna
+        SELECT q.QNA_ID, q.CUST_ID, q.POST_TYPE, q.SUBSITEM_ID, q.QNA_TITLE, q.QNA_CONTENTS,
+               q.QNA_WDATE, q.QNA_UDATE, q.QNA_IMAGE1, q.QNA_IMAGE2,a.ANSWER_ID,a.ANSWER_CONTENTS
+        FROM qna q LEFT OUTER JOIN answer a
+        ON q.QNA_ID= a.QNA_ID
         WHERE cust_id=#{cust_id}
         order by QNA_ID desc
     </select>
 
-    <select id="selectall" resultType="qna">
-        SELECT * FROM qna
+<!--    <select id="selectall" resultType="qna">-->
+<!--        SELECT q.QNA_ID, q.CUST_ID, q.POST_TYPE, q.SUBSITEM_ID, q.QNA_TITLE, q.QNA_CONTENTS,-->
+<!--               q.QNA_WDATE, q.QNA_UDATE, q.QNA_IMAGE1, q.QNA_IMAGE2,a.ANSWER_ID,a.ANSWER_CONTENTS-->
+<!--        FROM qna q LEFT OUTER JOIN answer a-->
+<!--        ON q.QNA_ID= a.QNA_ID-->
+<!--    </select>-->
+
+    <select id="select" parameterType="String" resultType="qna">
+        SELECT q.QNA_ID, q.CUST_ID, q.POST_TYPE, q.SUBSITEM_ID, q.QNA_TITLE, q.QNA_CONTENTS,
+               q.QNA_WDATE, q.QNA_UDATE, q.QNA_IMAGE1, q.QNA_IMAGE2,a.ANSWER_ID,a.ANSWER_CONTENTS
+        FROM qna q LEFT OUTER JOIN answer a
+        ON q.QNA_ID= a.QNA_ID
+        WHERE q.QNA_ID=#{qna_id}
     </select>
+
     <insert id="insert" parameterType="qna">
         INSERT INTO QNA (QNA_ID, CUST_ID, POST_TYPE, SUBSITEM_ID, QNA_TITLE, QNA_CONTENTS, QNA_WDATE, QNA_UDATE, QNA_IMAGE1, QNA_IMAGE2)
-               VALUES(QNA_SEQ.NEXTVAL,#{cust_id}, #{post_type}, null, #{qna_title}, #{qna_contents},SYSDATE,SYSDATE,#{qna_image1},#{qna_image2})
+               VALUES(QNA_SEQ.NEXTVAL,#{cust_id}, #{post_type}, #{subsitem_id}, #{qna_title}, #{qna_contents},SYSDATE,SYSDATE,#{qna_image1},#{qna_image2})
     </insert>
 </mapper>

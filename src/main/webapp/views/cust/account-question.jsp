@@ -108,7 +108,7 @@
                   구독상품 종류
                 </label>
                 <select class="form-select" id="subsitem_id" name="subsitem_id">
-                  <option id="opt2" vlaue="">구독상품 종류</option>
+                  <option id="opt2" value=999 selected>=== 구독상품 종류 선택 ===</option>
                   <option value=100>6개월 Basic</option>
                   <option value=101>6개월 Premium</option>
                   <option value=102>6개월 Signature</option>
@@ -137,8 +137,7 @@
                 <label class="form-label" for="qna_contents">
                   문의내용 *
                 </label>
-                <textarea class="form-control" id="qna_contents" type="text" name="qna_contents">
-                </textarea>
+                <textarea class="form-control" id="qna_contents" type="text" name="qna_contents"></textarea>
               </div>
             </div>
 
@@ -146,7 +145,7 @@
               <!-- 파일1 -->
               <div class="form-group">
                 <label class="form-label" for="img1">
-                  사진1 *
+                  사진1
                 </label>
                 <input class="form-control form-control-sm" id="img1" type="file" name="img1">
               </div>
@@ -156,7 +155,7 @@
               <!-- 파일2 -->
               <div class="form-group">
                 <label class="form-label" for="img2">
-                  사진1 *
+                  사진1
                 </label>
                 <input class="form-control form-control-sm" id="img2" type="file" name="img2">
               </div>
