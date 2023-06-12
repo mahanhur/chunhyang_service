@@ -1,13 +1,7 @@
 package com.chflower.controller;
 
-import com.chflower.dto.Item;
-import com.chflower.dto.ItemReview;
-import com.chflower.dto.Itemimg;
-import com.chflower.dto.RecommandItem;
-import com.chflower.service.ItemReviewService;
-import com.chflower.service.ItemService;
-import com.chflower.service.ItemimgService;
-import com.chflower.service.RecommandItemService;
+import com.chflower.dto.*;
+import com.chflower.service.*;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +26,8 @@ public class ItemController {
     ItemReviewService itemReviewService;
     @Autowired
     RecommandItemService recommandItemService;
-
+    @Autowired
+    AddrService addrService;
 
 //    @Autowired
 //    CartService cartService;
@@ -111,7 +107,25 @@ public class ItemController {
         itemReviewService.register(bipumreview);
         return "redirect:/bipum/detail?item_id="+bipumreview.getItem_id();
     }
-
+    @RequestMapping("/checkout")
+    public String checkout(Model model, HttpSession session, Integer item_id, int inputcnt) throws Exception {
+        log.info(String.valueOf("========================="+inputcnt));
+        Cust cust = (Cust) session.getAttribute("logincust");
+        if(cust != null) {
+            String cust_id = cust.getCust_id();
+            List<Addr> addrlist;
+            addrlist = addrService.getaddr(cust_id);
+            model.addAttribute("addrlist",addrlist);
+            Item item = itemService.get(item_id);
+            model.addAttribute("item", item);
+        } else {
+            return "redirect:/cust/login";
+        }
+        model.addAttribute("inputcnt", inputcnt);
+        model.addAttribute("item_id",item_id);
+        model.addAttribute("center",dir+"checkout");
+        return "index";
+    }
 
     @RequestMapping("allpage")
     public String allpage(@RequestParam(required = false, defaultValue = "1") int pageNo, Model model) throws Exception {

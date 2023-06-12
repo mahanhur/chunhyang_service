@@ -4,6 +4,7 @@ import com.chflower.dto.Addr;
 import com.chflower.dto.Cust;
 import com.chflower.dto.Subsitem;
 import com.chflower.service.AddrService;
+import com.chflower.service.PointService;
 import com.chflower.service.SubsitemService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/subs")
 public class SubsController {
-
+    @Autowired
+    PointService pointService;
     @Autowired
     SubsitemService subsitemService;
     @Autowired
@@ -71,6 +73,10 @@ public class SubsController {
 
             Subsitem subsitem = subsitemService.get(subsitem_id);
             model.addAttribute("subsitem", subsitem);
+
+            Integer point = pointService.presentpoint(cust_id);
+            model.addAttribute("point", point);
+
         } else {
             return "redirect:/cust/login";
         }
