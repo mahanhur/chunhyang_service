@@ -42,6 +42,14 @@ public class QnaController {
         model.addAttribute("center",dir+"account-qna");
         return "index";
     }
+    @RequestMapping("/account-qnadetail")
+    public String qnadetail(Model model,String qna_id) throws Exception{
+        Qna qna = null;
+        qna = qnaService.get(qna_id);
+        model.addAttribute("gqna",qna);
+        model.addAttribute("center",dir+"account-qnadetail");
+        return "index";
+    }
     @RequestMapping("/account-question")
     public String account_question(Model model) throws Exception{
         model.addAttribute("center",dir+"account-question");
