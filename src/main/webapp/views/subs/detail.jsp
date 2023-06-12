@@ -75,6 +75,8 @@
           $('.checkbox1').attr('checked', 'checked');
         }
       });
+    </c:otherwise>
+  </c:choose>
       $('#checkout_btn').click(function(){
         $('#detail_form').attr({
           action:'/subs/checkout',
@@ -82,8 +84,6 @@
         });
         $('#detail_form').submit();
       })
-    </c:otherwise>
-  </c:choose>
 
     }
   }
@@ -262,7 +262,7 @@
                                   </div>
                                   <div class="form-check form-check-inline">
                                     <input class="form-check-input checkbox1" type="checkbox" value="option1">
-                                    <input type="text" class="datepicker datepicker1 form-control form-control-underline" name="date" placeholder="최초 수령일 선택"/>
+                                    <input type="text" class="datepicker datepicker1 form-control form-control-underline" name="date" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="최초 수령일 선택"/>
                                   </div>
                                 </div>
                               </div>

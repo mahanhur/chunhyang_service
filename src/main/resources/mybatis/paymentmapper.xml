@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chflower.mapper.PaymentMapper">
+
+    <select id="select" parameterType="int" resultType="payment">
+        SELECT * FROM paymentinfo WHERE pay_id=#{pay_id}
+    </select>
+    <select id="selectall" resultType="payment">
+        SELECT * FROM payment
+    </select>
+    <insert id="insert" parameterType="payment">
+    </insert>
+    <insert id="subsinsert" parameterType="payment">
+        INSERT INTO payment VALUES (payment_seq.NEXTVAL, null, #{subs_id}, #{pay_opt}, #{pay_state})
+    </insert>
+    <insert id="iteminsert" parameterType="payment">
+        INSERT INTO payment VALUES (payment_seq.NEXTVAL, #{order_id}, null, #{pay_opt}, #{pay_state})
+    </insert>
+    <update id="update" parameterType="payment">
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE FROM payment WHERE pay_id=#{pay_id}
+    </delete>
+
+</mapper>

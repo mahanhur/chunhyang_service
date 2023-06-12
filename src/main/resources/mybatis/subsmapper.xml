@@ -10,7 +10,11 @@
     <select id="selectall" resultType="subs">
         SELECT * FROM subsinfo
     </select>
+    <select id="getlast" resultType="int">
+        SELECT MAX(subs_id) from subsinfo
+    </select>
     <insert id="insert" parameterType="subs">
+        INSERT INTO subsinfo VALUES (subsinfo_seq.NEXTVAL, #{cust_id}, #{subsitem_id}, #{subs_amount}, #{minus_point}, #{subs_pay_amount}, SYSDATE)
     </insert>
     <update id="update" parameterType="subs">
     </update>
