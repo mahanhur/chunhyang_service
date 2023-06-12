@@ -278,14 +278,19 @@
         <div class="card mb-9 bg-light">
           <div class="card-body">
             <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
+              <c:forEach var="obj" items="${clist}">
+                <c:set var="total" value="${total +(obj.cnt * obj.item_price)}"/>
+                <c:set var="point" value="1000"/>
+                <c:set var="payment" value="${total - point}"/>
+              </c:forEach>
               <li class="list-group-item d-flex">
-                <span>주문금액</span> <span class="ms-auto fs-sm">${subsitem.subsitem_price}</span>
+                <span>주문금액</span> <span class="ms-auto fs-sm">${total}</span>
               </li>
               <li class="list-group-item d-flex">
                 <span>사용포인트</span> <button>포인트조회</button><span class="ms-auto fs-sm">0</span>
               </li>
               <li class="list-group-item d-flex fs-lg fw-bold">
-                <span>결제금액</span> <span class="ms-auto">${subsitem.subsitem_price}</span>
+                <span>결제금액</span> <span class="ms-auto">${payment}</span>
               </li>
             </ul>
           </div>
