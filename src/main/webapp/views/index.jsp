@@ -58,11 +58,61 @@
       }
     });
   })
+
 </script>
 </head>
 
 <!-- -------------------------------------------------------------------------------- -->
 <body>
+<%--===============================================오늘의 꽃 시작==========================================--%>
+<div class="modal fade" id="todayflower" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+
+      <!-- Close -->
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <i class="fe fe-x" aria-hidden="true"></i>
+      </button>
+
+      <!-- Content -->
+      <div class="row gx-0">
+        <div class="col-12 col-lg-5">
+          <!-- Image -->
+          <img class="img-fluid" src="${todayFlower.imgUrl1}" alt="오늘의 꽃 이미지 출력 에러">
+          <img class="img-fluid" src="${todayFlower.imgUrl2}" alt="오늘의 꽃 이미지 출력 에러">
+        </div>
+        <div class="col-12 col-lg-7 d-flex flex-column px-md-8">
+
+          <!-- Body -->
+          <div class="modal-body my-auto py-10">
+            <!-- Heading -->
+            <h4>오늘의 꽃: ${todayFlower.flowerName}</h4>
+            <!-- Text -->
+            <p class="mb-7 fs-lg">
+              꽃   말: ${todayFlower.flowerMeaning}
+            </p>
+            <hr>
+            <H8>${todayFlower.fContent}</H8>
+            <hr>
+            <H8>${todayFlower.fMonthDay}</H8>
+            <br>
+          </div>
+          <!-- Footer -->
+          <div class="modal-footer pt-0">
+            <!-- 더이상보지 않기 체크박스!!기능구현은 안했음.. -->
+            <div class="form-check">
+              <input class="form-check-input" id="modalCheckbox" type="checkbox">
+              <label class="form-check-label fs-xs" for="modalCheckbox">
+                더이상 보지않기
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%--===============================================오늘의 꽃 끝==========================================--%>
 
 <!-- MODALS -->
 <div> <!-- modal 숨기기위한 div. 꼭 삭제해주기 -->

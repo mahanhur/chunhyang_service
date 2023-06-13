@@ -1,15 +1,25 @@
 package com.chflower.controller;
 
+import com.chflower.util.TodayFlowerUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+
 @Controller
 public class MainController {
     @RequestMapping("/")
-    public String main(){
+    public String main(Model model) throws Exception {
+        LocalDate SeoulNow = LocalDate.now(ZoneId.of("Asia/Seoul"));
+        int dayOfYear = SeoulNow.getDayOfYear()+1;
+        String date = Integer.toString(dayOfYear);
+        Object result = TodayFlowerUtil.todayFlower(date);
+        model.addAttribute("todayFlower", result);
+
         return "index";
     }
 
@@ -50,5 +60,6 @@ public class MainController {
         model.addAttribute("center","faq");
         return "index";
     }
+
 
 }
