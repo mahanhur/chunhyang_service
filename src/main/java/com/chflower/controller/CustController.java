@@ -60,8 +60,8 @@ public class CustController {
             throw new Exception("가입오류");
         }
         model.addAttribute("rcust", cust);
-        model.addAttribute("center",dir+"login");
-        return "index";
+//        model.addAttribute("center",dir+"login");
+        return "redirect:/";
     }
     @RequestMapping("/login")  //마이페이지 첫화면
     public String login(Model model,String redirectURL){
