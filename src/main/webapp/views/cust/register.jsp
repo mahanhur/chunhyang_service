@@ -20,6 +20,24 @@
         }
       });
 
+      // Enter 키 이벤트 처리
+      $('input').keypress(function(event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          var inputs = $('input');
+          var currentInput = $(this);
+          var currentIndex = inputs.index(currentInput);
+          var nextIndex = currentIndex + 1;
+
+          if (nextIndex < inputs.length) {
+            var nextInput = inputs[nextIndex];
+            nextInput.focus();
+          } else {
+            register_form.send();
+          }
+        }
+      });
+
       //id 4자리 이상. 중복체크
       $('#cust_id').keyup(function (){
         var txt_id = $(this).val();
@@ -35,14 +53,17 @@
             if(result == 0){
               $('#check_id').html('사용가능한 ID입니다.');
               $('#check_id').css('color','rgb(0, 0, 255)');
-              $('#cust_pwd').focus();
+              // $('#cust_pwd').focus();
             }else{
               $('#check_id').html('이미 사용중인 ID입니다.');
               $('#check_id').css('color','rgb(255, 0, 0)');
-
             }
           }
         });
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          $('#cust_pwd').focus();
+        }
       });
 
       // ID 입력 필드에 영어가 들어오면 무조건 소문자로 변환
