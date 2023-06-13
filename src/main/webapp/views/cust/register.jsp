@@ -224,6 +224,11 @@
               <!-- Button -->
               <div class="form-group">
                 <button id="register_btn" type="button" class="btn btn-dark">회원가입</button>
+
+                <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=ec3548a0503c6cbca894ccff296796d3&redirect_uri=http://localhost/cust/kakao/callback">
+                  <img id="kakao_register_btn" src="/uimg/kakao_register_btn.png" style="margin:0px 20px;height: 56px"/>
+                </a>
+
               </div>
             </div>
           </div>
