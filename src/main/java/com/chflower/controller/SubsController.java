@@ -69,7 +69,9 @@ public class SubsController {
         return "index";
     }
     @RequestMapping("/checkout")
-    public String checkout(Model model, HttpSession session, Integer subsitem_id, @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) throws Exception {
+    public String checkout(Model model, HttpSession session, Integer subsitem_id, @DateTimeFormat(pattern = "yyyy-MM-dd") Date date, @DateTimeFormat(pattern = "yyyy-MM-dd") Date date1, @DateTimeFormat(pattern = "yyyy-MM-dd") Date date2, @DateTimeFormat(pattern = "yyyy-MM-dd") Date date3, @DateTimeFormat(pattern = "yyyy-MM-dd") Date date4, @DateTimeFormat(pattern = "yyyy-MM-dd") Date date5, @DateTimeFormat(pattern = "yyyy-MM-dd") Date date6, @DateTimeFormat(pattern = "yyyy-MM-dd") Date date7) throws Exception {
+        Subsdate subsdate = new Subsdate(date1, date2, date3);
+        Subsdate subsdate7 = new Subsdate(date1, date2, date3, date4, date5, date6, date7);
         Cust cust = (Cust) session.getAttribute("logincust");
         if(cust != null) {
             String cust_id = cust.getCust_id();
@@ -90,12 +92,14 @@ public class SubsController {
 
         model.addAttribute("subsitem_id",subsitem_id);
         model.addAttribute("date",date);
+        model.addAttribute("subsdate",subsdate);
+        model.addAttribute("subsdate7",subsdate7);
         model.addAttribute("center","checkout");
         return "index";
     }
 
     @RequestMapping("/success")
-    public String success(Model model,HttpSession session,int subsitem_id,int subs_amount, int minus_point, int subs_pay_amount, int addr_id, @DateTimeFormat(pattern = "yyyy-MM-dd") Date duedate) throws Exception {
+    public String success(Model model,HttpSession session,int subsitem_id,int subs_amount, int minus_point, int subs_pay_amount, int addr_id, @DateTimeFormat(pattern = "yyyy-MM-dd") Date duedate, @DateTimeFormat(pattern = "yyyy-MM-dd") Date duedate1, @DateTimeFormat(pattern = "yyyy-MM-dd") Date duedate2, @DateTimeFormat(pattern = "yyyy-MM-dd") Date duedate3, @DateTimeFormat(pattern = "yyyy-MM-dd") Date duedate4, @DateTimeFormat(pattern = "yyyy-MM-dd") Date duedate5, @DateTimeFormat(pattern = "yyyy-MM-dd") Date duedate6, @DateTimeFormat(pattern = "yyyy-MM-dd") Date duedate7) throws Exception {
         Cust cust = (Cust) session.getAttribute("logincust");
         String cust_id = cust.getCust_id();
         String cust_name = cust.getCust_name();
@@ -114,28 +118,60 @@ public class SubsController {
             Payment payment = new Payment(subs_id, 1,1);
             paymentService.subsinsert(payment);
             //point 적재
-//            if(minus_point != 0) {
+            if(minus_point != 0) {
                 Point point = new Point(cust_id, minus_point);
                 pointService.minuspoint(point);
-//            }
+            }
             //subsdetail 적재
-//            if(date.equals(null)) {
             String receiver = cust_name;
             String reciver_phone = phone;
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(duedate);
+            if(duedate1 == null) {
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(duedate);
+                for (int i = 0; i < subsitem_cnt; i++) {
+                    Subsdetail subsdetail = new Subsdetail(subs_id, cust_id, receiver, reciver_phone, rec_add1, rec_add2, "", cal.getTime());
+                    subsdetailService.register(subsdetail);
+                    cal.add(Calendar.DATE, 14);
+                }
+            } else if(duedate==null && duedate4 == null){
+                Subsdetail[] subsdetails = new Subsdetail[3];
+                Date[] duedates = new Date[3];
+                duedates[0] = duedate1;
+                duedates[1] = duedate2;
+                duedates[2] = duedate3;
 
-            for (int i = 0; i < subsitem_cnt; i++) {
-                Subsdetail subsdetail = new Subsdetail(subs_id, cust_id, receiver, reciver_phone, rec_add1, rec_add2, "", cal.getTime());
-                subsdetailService.register(subsdetail);
-                cal.add(Calendar.DATE, 14);
+                for (int i = 0; i < subsdetails.length; i++) {
+                    subsdetails[i] = new Subsdetail(subs_id, cust_id, receiver, reciver_phone, rec_add1, rec_add2, "", duedates[i]);
+                    subsdetailService.register(subsdetails[i]);
+                }
+            } else {
+                Subsdetail[] subsdetails = new Subsdetail[7];
+                Date[] duedates = new Date[7];
+                duedates[0] = duedate1;
+                duedates[1] = duedate2;
+                duedates[2] = duedate3;
+                duedates[3] = duedate4;
+                duedates[4] = duedate5;
+                duedates[5] = duedate6;
+                duedates[6] = duedate7;
+
+                for (int i = 0; i < subsdetails.length; i++) {
+                    subsdetails[i] = new Subsdetail(subs_id, cust_id, receiver, reciver_phone, rec_add1, rec_add2, "", duedates[i]);
+                    subsdetailService.register(subsdetails[i]);
+                }
             }
-//            }
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("success시  register 오류입니다.");
         }
         model.addAttribute("center",dir+"success");
+        return "index";
+    }
+
+    @RequestMapping("/fail")
+    public String fail(Model model, String msg){
+        model.addAttribute("msg", msg);
+        model.addAttribute("center",dir+"fail");
         return "index";
     }
 }

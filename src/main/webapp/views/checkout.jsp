@@ -92,22 +92,27 @@
           buyer_addr : '서울특별시 영등포구 여의도동',
           buyer_postcode : '03752'
         }, function (rsp) { // callback
+          let addr_selected = $('.addr_selected option:selected').val();
           if (rsp.success) {
             var msg = '결제가 완료되었습니다.';
             alert(msg);
-            addr1 = $('#addr1').html();
-            addr2 = $('#addr2').html();
-            location.href = "/subs/success?subsitem_id=${subsitem.subsitem_id}&subs_amount=${subsitem.subsitem_price}&minus_point="+use_point+"&subs_pay_amount="+finalprice+"&addr_id="+addr_selected+"&duedate=<fmt:formatDate  value="${date}" pattern="yyyy-MM-dd" />"
+            <%--location.href = "/subs/success?subsitem_id=${subsitem.subsitem_id}&subs_amount=${subsitem.subsitem_price}&minus_point="+use_point+"&subs_pay_amount="+finalprice+"&addr_id="+addr_selected+"&duedate=<fmt:formatDate  value="${date}" pattern="yyyy-MM-dd" />"--%>
           } else {
-            var msg = '결제에 실패하였습니다.';
-            msg += '에러내용 : ' + rsp.error_msg;
+            let msg = rsp.error_msg;
             alert(msg);
-            addr1 = $('#addr1').html();
-            addr2 = $('#addr2').html();
-            let addr_selected = $('.addr_selected option:selected').val();
-            alert(addr_selected);
-            alert("${date}");
+            // location.href = "/subs/fail?msg="+msg;
+            // 테스트용
+            <c:choose>
+            <c:when test="${subsitem.subsitem_id == 106}">
+            location.href = "/subs/success?subsitem_id=${subsitem.subsitem_id}&subs_amount=${subsitem.subsitem_price}&minus_point="+use_point+"&subs_pay_amount="+finalprice+"&addr_id="+addr_selected+"&duedate1=<fmt:formatDate  value="${subsdate.date1}" pattern="yyyy-MM-dd" />&duedate2=<fmt:formatDate  value="${subsdate.date2}" pattern="yyyy-MM-dd" />&duedate3=<fmt:formatDate  value="${subsdate.date3}" pattern="yyyy-MM-dd" />"
+            </c:when>
+            <c:when test="${subsitem.subsitem_id == 107}">
+            location.href = "/subs/success?subsitem_id=${subsitem.subsitem_id}&subs_amount=${subsitem.subsitem_price}&minus_point="+use_point+"&subs_pay_amount="+finalprice+"&addr_id="+addr_selected+"&duedate1=<fmt:formatDate  value="${subsdate7.date1}" pattern="yyyy-MM-dd" />&duedate2=<fmt:formatDate  value="${subsdate7.date2}" pattern="yyyy-MM-dd" />&duedate3=<fmt:formatDate  value="${subsdate7.date3}" pattern="yyyy-MM-dd" />&duedate4=<fmt:formatDate  value="${subsdate7.date4}" pattern="yyyy-MM-dd" />&duedate5=<fmt:formatDate  value="${subsdate7.date5}" pattern="yyyy-MM-dd" />&duedate6=<fmt:formatDate  value="${subsdate7.date6}" pattern="yyyy-MM-dd" />&duedate7=<fmt:formatDate  value="${subsdate7.date7}" pattern="yyyy-MM-dd" />"
+            </c:when>
+            <c:otherwise>
             location.href = "/subs/success?subsitem_id=${subsitem.subsitem_id}&subs_amount=${subsitem.subsitem_price}&minus_point="+use_point+"&subs_pay_amount="+finalprice+"&addr_id="+addr_selected+"&duedate=<fmt:formatDate  value="${date}" pattern="yyyy-MM-dd" />"
+            </c:otherwise>
+            </c:choose>
           }
         });
       });
@@ -238,10 +243,10 @@
             <!-- List group -->
             <div class="list-group list-group-sm mb-7">
 
-              <select class="form-select addrselect" id="selectbox">
+              <select class="form-select addr_selected" id="selectbox">
                 <option selected>원하시는 배송지를 선택해주시기 바랍니다.</option>
                 <c:forEach items="${addrlist}" var="obj" varStatus="status">
-                  <option value="${obj.addr_id}" class="addr_selected">${obj.addr_name}</option>
+                  <option value="${obj.addr_id}">${obj.addr_name}</option>
                 </c:forEach>
               </select>
               <ul class="list-group list-group-sm">
