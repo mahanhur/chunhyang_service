@@ -14,8 +14,7 @@ class QnaInsertTest {
     QnaService service;
     @Test
     void contextLoads() {
-        Qna qna = new Qna(3,"id11","1",1,"ㅎㅎ","ㅎㅎ",null,
-                null,"1.jpg","1.jpg",null,null);
+        Qna qna = new Qna();
         try {
             service.register(qna);
             log.info("등록 정상");
