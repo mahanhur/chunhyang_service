@@ -18,4 +18,9 @@ public class Point {
     private int minus_point;
     private int point;
     private Date point_rdate;
+
+    public Point(String cust_id, int minus_point) {
+        this.cust_id = cust_id;
+        this.minus_point = minus_point;
+    }
 }

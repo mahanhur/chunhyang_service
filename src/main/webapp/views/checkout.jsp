@@ -5,8 +5,40 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
 <script>
+  let use_point = 0;
+  let finalprice;
+  let addr1;
+  let addr2;
   let checkout = {
     init: function() {
+
+      $('#selectbox').on("change", function() {
+        $('#addr1').show();
+        $('#addr2').show();
+        let selectval = $("#selectbox").val();
+        $.ajax({
+          url:'/subs/checkout/addrimpl',
+          method:'post',
+          data: {addr_id : selectval},
+          success: function(data) {
+            $('#addr1').html(data.def_addr1);
+            $('#addr2').html(data.def_addr2);
+          },
+          error: function(error) {
+            alert(error);
+        }
+        });
+      });
+
+      $('#usepoint').change(function() {
+        use_point = $('#usepoint').val();
+        let finalPrice = ${subsitem.subsitem_price} - use_point;
+        $('#finalprice').html(finalPrice);
+      });
+
+      this.payment();
+    },
+    payment: function() {
       // 카카오페이
       $('#kakaopay').click( function() {
         $.ajax({
@@ -31,77 +63,67 @@
       });
       $('#naverpay').click( function() {
 
-          oPay.open({
-            "merchantUserKey": "partner-userkey",
-            "merchantPayKey": "partner-orderkey",
-            "productName": "상품명",
-            "totalPayAmount": "1000",
-            "taxScopeAmount": "1000",
-            "taxExScopeAmount": "0",
-            "returnUrl": "사용자 결제 완료 후 결제 결과를 받을 URL",
-            "openType":"popup"
-          });
+        oPay.open({
+          "merchantUserKey": "partner-userkey",
+          "merchantPayKey": "partner-orderkey",
+          "productName": "상품명",
+          "totalPayAmount": "1000",
+          "taxScopeAmount": "1000",
+          "taxExScopeAmount": "0",
+          "returnUrl": "사용자 결제 완료 후 결제 결과를 받을 URL",
+          "openType":"popup"
         });
+      });
       // kg이니시스
       $('#pay_btn').click( function() {
         const IMP = window.IMP; // 생략 가능
         IMP.init("imp66442787"); // 예: imp00000000a
-
+        finalprice = $('#finalprice').html();
         IMP.request_pay({
           pg: "inicis",
           pay_method: "card",
           merchant_uid : 'merchant_'+new Date().getTime(),
-          name : '결제테스트',
-          amount : 100,
-          buyer_email : 'allowbasmh@gmail.com',
-          buyer_name : '구매자',
-          buyer_tel : '010-1234-5678',
-          buyer_addr : '서울특별시 강남구 삼성동',
-          buyer_postcode : '123-456'
+          name : '춘향전 ${subsitem.subsitem_name}',
+          amount : finalprice,
+          buyer_email : '${logincust.email}',
+          buyer_name : '${logincust.cust_name}',
+          <c:set var="TextValue" value="${logincust.phone}"/>
+          buyer_tel : '${fn:substring(TextValue,0,3)}-${fn:substring(TextValue,3,7)}-${fn:substring(TextValue,7,11)}',
+          buyer_addr : '서울특별시 영등포구 여의도동',
+          buyer_postcode : '03752'
         }, function (rsp) { // callback
+          let addr_selected = $('.addr_selected option:selected').val();
           if (rsp.success) {
-            var msg = '아임포트 결제가 완료되었습니다.';
+            var msg = '결제가 완료되었습니다.';
             alert(msg);
-            location.href = "/cust"
+            <%--location.href = "/subs/success?subsitem_id=${subsitem.subsitem_id}&subs_amount=${subsitem.subsitem_price}&minus_point="+use_point+"&subs_pay_amount="+finalprice+"&addr_id="+addr_selected+"&duedate=<fmt:formatDate  value="${date}" pattern="yyyy-MM-dd" />"--%>
           } else {
-            var msg = '결제에 실패하였습니다.';
-            msg += '에러내용 : ' + rsp.error_msg;
+            let msg = rsp.error_msg;
             alert(msg);
+            // location.href = "/subs/fail?msg="+msg;
+            // 테스트용
+            <c:choose>
+            <c:when test="${subsitem.subsitem_id == 106}">
+            location.href = "/subs/success?subsitem_id=${subsitem.subsitem_id}&subs_amount=${subsitem.subsitem_price}&minus_point="+use_point+"&subs_pay_amount="+finalprice+"&addr_id="+addr_selected+"&duedate1=<fmt:formatDate  value="${subsdate.date1}" pattern="yyyy-MM-dd" />&duedate2=<fmt:formatDate  value="${subsdate.date2}" pattern="yyyy-MM-dd" />&duedate3=<fmt:formatDate  value="${subsdate.date3}" pattern="yyyy-MM-dd" />"
+            </c:when>
+            <c:when test="${subsitem.subsitem_id == 107}">
+            location.href = "/subs/success?subsitem_id=${subsitem.subsitem_id}&subs_amount=${subsitem.subsitem_price}&minus_point="+use_point+"&subs_pay_amount="+finalprice+"&addr_id="+addr_selected+"&duedate1=<fmt:formatDate  value="${subsdate7.date1}" pattern="yyyy-MM-dd" />&duedate2=<fmt:formatDate  value="${subsdate7.date2}" pattern="yyyy-MM-dd" />&duedate3=<fmt:formatDate  value="${subsdate7.date3}" pattern="yyyy-MM-dd" />&duedate4=<fmt:formatDate  value="${subsdate7.date4}" pattern="yyyy-MM-dd" />&duedate5=<fmt:formatDate  value="${subsdate7.date5}" pattern="yyyy-MM-dd" />&duedate6=<fmt:formatDate  value="${subsdate7.date6}" pattern="yyyy-MM-dd" />&duedate7=<fmt:formatDate  value="${subsdate7.date7}" pattern="yyyy-MM-dd" />"
+            </c:when>
+            <c:otherwise>
+            location.href = "/subs/success?subsitem_id=${subsitem.subsitem_id}&subs_amount=${subsitem.subsitem_price}&minus_point="+use_point+"&subs_pay_amount="+finalprice+"&addr_id="+addr_selected+"&duedate=<fmt:formatDate  value="${date}" pattern="yyyy-MM-dd" />"
+            </c:otherwise>
+            </c:choose>
           }
         });
-        });
-
-      $('#selectbox').on("change", function() {
-        $('#addr1').show();
-        $('#addr2').show();
-        let selectval = $("#selectbox").val();
-        $.ajax({
-          url:'/subs/checkout/addrimpl',
-          method:'post',
-          data: {addr_id : selectval},
-          success: function(data) {
-            $('#addr1').html(data.def_addr1);
-            $('#addr2').html(data.def_addr2);
-          },
-          error: function(error) {
-            alert(error);
-        }
-        });
-      });
-
-      $('#usepoint').change(function() {
-        let use_point = $('#usepoint').val();
-        let finalPrice = ${subsitem.subsitem_price} - use_point;
-        $('#finalprice').html(finalPrice);
       });
 
     }
   };
 
   $(function() {
-    checkout.init();
     $('#addr1').hide();
     $('#addr2').hide();
+    checkout.init();
   });
 </script>
 
@@ -221,7 +243,7 @@
             <!-- List group -->
             <div class="list-group list-group-sm mb-7">
 
-              <select class="form-select" id="selectbox">
+              <select class="form-select addr_selected" id="selectbox">
                 <option selected>원하시는 배송지를 선택해주시기 바랍니다.</option>
                 <c:forEach items="${addrlist}" var="obj" varStatus="status">
                   <option value="${obj.addr_id}">${obj.addr_name}</option>
@@ -311,8 +333,10 @@
         <button class="btn w-100 btn-dark" id="pay_btn">결제</button><br/><br/>
         <ul class="list-group list-group-sm nav">
           <li class="list-group-item">간편결제</li>
-          <li class="list-group-item"><button type="button" class="btn w-100 btn-outline-warning" id="kakaopay">KakaoPay</button></li>
-          <li class="list-group-item"><button type="button" class="btn w-100 btn-outline-success" id="naverpay">NaverPay</button></li>
+          <li class="list-group-item">
+            <button type="button" class="btn w-45 btn-outline-warning" id="kakaopay">KakaoPay</button>
+            <button type="button" class="btn w-45 btn-outline-success" id="naverpay">NaverPay</button>
+          </li>
         </ul>
 
 

@@ -99,10 +99,17 @@ public class CartController {
         return "redirect:/";
     }
     @RequestMapping("/checkout")
-    public String checkout(Model model, HttpSession session) throws Exception {
+    public String checkout(Model model, HttpSession session, String cust_id) throws Exception {
+        List<Cart> list = null;
+        try {
+            list = cartService.getMyCart(cust_id);
+        } catch (Exception e) {
+            throw new Exception("시스템장애:ERORR002");
+        }
+        model.addAttribute("clist", list);
+
         Cust cust = (Cust) session.getAttribute("logincust");
         if(cust != null) {
-            String cust_id = cust.getCust_id();
             List<Addr> addrlist;
             addrlist = addrService.getaddr(cust_id);
             model.addAttribute("addrlist",addrlist);

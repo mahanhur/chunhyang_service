@@ -31,7 +31,7 @@ public class SubsImplController {
             con.setRequestProperty("Authorization", "KakaoAK 65f4264d0c03946cfc2347a4b3514bd4");// 외부에서 요청한 프로퍼티를 심어주는 역할
             con.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");// 외부에서 요청한 프로퍼티를 심어주는 역할
             con.setDoOutput(true); // output은 전달할 값(파라미터), input은 받아올 값(결과값) 디폴트가 true이므로 따로 선언 x
-            String params = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=초코파이&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=https://localhost/success&fail_url=https://localhost/fail&cancel_url=https://localhost/cancel";
+            String params = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=초코파이&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=http://localhost/success&fail_url=http://localhost/fail&cancel_url=http://localhost/cancel";
 
             OutputStream outputStream = con.getOutputStream(); // 실제로 전달하는(주는) 객체, 바이트 형식으로 전환하여 전달해야만 한다
             DataOutputStream doutputStream = new DataOutputStream(outputStream); // 전달객체 중 데이터를 전달하는 객체(dops로 ops를 전달한다), 연결선에 태워서 준비 중
