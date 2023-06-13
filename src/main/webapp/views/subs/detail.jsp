@@ -16,58 +16,22 @@
     init: () => {
   <c:choose>
     <c:when test="${obj.subsitem_id == 106}">
-        $('#datepicker1').datepicker({
+      for (let i = 1; i <= 3; i++) {
+        $('.datepicker' + i).datepicker({
           onSelect: function() {
-            $('.checkbox1').attr('checked', 'checked');
+            $('.checkbox' + i).prop('checked', true);
           }
         });
-        $('#datepicker2').datepicker({
-          onSelect: function() {
-            $('.checkbox2').attr('checked', 'checked');
-          }
-        });
-        $('#datepicker3').datepicker({
-          onSelect: function() {
-            $('.checkbox3').attr('checked', 'checked');
-          }
-        });
+      }
     </c:when>
     <c:when test="${obj.subsitem_id == 107}">
-      $('.datepicker1').datepicker({
-        onSelect: function() {
-          $('.checkbox1').attr('checked', 'checked');
-        }
-      });
-      $('.datepicker2').datepicker({
-        onSelect: function() {
-          $('.checkbox2').attr('checked', 'checked');
-        }
-      });
-      $('.datepicker3').datepicker({
-        onSelect: function() {
-          $('.checkbox3').attr('checked', 'checked');
-        }
-      });
-      $('.datepicker4').datepicker({
-        onSelect: function() {
-          $('.checkbox4').attr('checked', 'checked');
-        }
-      });
-      $('.datepicker5').datepicker({
-        onSelect: function() {
-          $('.checkbox5').attr('checked', 'checked');
-        }
-      });
-      $('.datepicker6').datepicker({
-        onSelect: function() {
-          $('.checkbox6').attr('checked', 'checked');
-        }
-      });
-      $('.datepicker7').datepicker({
-        onSelect: function() {
-          $('.checkbox7').attr('checked', 'checked');
-        }
-      });
+      for (let i = 1; i <= 7; i++) {
+        $('.datepicker' + i).datepicker({
+          onSelect: function() {
+            $('.checkbox' + i).prop('checked', true);
+          }
+        });
+      }
     </c:when>
     <c:otherwise>
       $('.datepicker1').datepicker({
@@ -184,15 +148,15 @@
                                   </div>
                                   <div class="form-check form-check-inline">
                                     <input class="form-check-input checkbox1" id="checkbox1" type="checkbox" value="option1">
-                                    <input type="text" class="datepicker datepicker1 form-control form-control-underline" id="datepicker1" name="datepicker" placeholder="1회 수령일 선택"/>
+                                    <input type="text" class="datepicker datepicker1 form-control form-control-underline" name="date1" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="1회 수령일 선택"/>
                                   </div>
                                   <div class="form-check form-check-inline">
                                     <input class="form-check-input checkbox2" id="checkbox2" type="checkbox" value="option1">
-                                    <input type="text" class="datepicker datepicker2 form-control form-control-underline" id="datepicker2" name="datepicker" placeholder="2회 수령일 선택"/>
+                                    <input type="text" class="datepicker datepicker2 form-control form-control-underline" name="date2" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="2회 수령일 선택"/>
                                   </div>
                                   <div class="form-check form-check-inline">
                                     <input class="form-check-input checkbox3" id="checkbox3" type="checkbox" value="option1">
-                                    <input type="text" class="datepicker datepicker3 form-control form-control-underline" id="datepicker3" name="datepicker" placeholder="3회 수령일 선택"/>
+                                    <input type="text" class="datepicker datepicker3 form-control form-control-underline" name="date3" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="3회 수령일 선택"/>
                                   </div>
                                   <br/>
                                   <br/>
@@ -213,31 +177,31 @@
                                     </div>
                                     <div class="form-check form-check-inline">
                                       <input class="form-check-input checkbox1" type="checkbox" value="option1">
-                                      <input type="text" class="datepicker datepicker1 form-control form-control-underline" name="datepicker" placeholder="1회 수령일 선택"/>
+                                      <input type="text" class="datepicker datepicker1 form-control form-control-underline" name="date1" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="1회 수령일 선택"/>
                                     </div>
                                     <div class="form-check form-check-inline">
                                       <input class="form-check-input checkbox2" type="checkbox" value="option1">
-                                      <input type="text" class="datepicker datepicker2 form-control form-control-underline" name="datepicker" placeholder="2회 수령일 선택"/>
+                                      <input type="text" class="datepicker datepicker2 form-control form-control-underline" name="date2" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="2회 수령일 선택"/>
                                     </div>
                                     <div class="form-check form-check-inline">
                                       <input class="form-check-input checkbox3" type="checkbox" value="option1">
-                                      <input type="text" class="datepicker datepicker3 form-control form-control-underline" name="datepicker" placeholder="3회 수령일 선택"/>
+                                      <input type="text" class="datepicker datepicker3 form-control form-control-underline" name="date3" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="3회 수령일 선택"/>
                                     </div>
                                     <div class="form-check form-check-inline">
                                       <input class="form-check-input checkbox4" type="checkbox" value="option1">
-                                      <input type="text" class="datepicker datepicker4 form-control form-control-underline" name="datepicker" placeholder="4회 수령일 선택"/>
+                                      <input type="text" class="datepicker datepicker4 form-control form-control-underline" name="date4" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="4회 수령일 선택"/>
                                     </div>
                                     <div class="form-check form-check-inline">
                                       <input class="form-check-input checkbox5" type="checkbox" value="option1">
-                                      <input type="text" class="datepicker datepicker5 form-control form-control-underline" name="datepicker" placeholder="5회 수령일 선택"/>
+                                      <input type="text" class="datepicker datepicker5 form-control form-control-underline" name="date5" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="5회 수령일 선택"/>
                                     </div>
                                     <div class="form-check form-check-inline">
                                       <input class="form-check-input checkbox6" type="checkbox" value="option1">
-                                      <input type="text" class="datepicker datepicker6 form-control form-control-underline" name="datepicker" placeholder="6회 수령일 선택"/>
+                                      <input type="text" class="datepicker datepicker6 form-control form-control-underline" name="date6" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="6회 수령일 선택"/>
                                     </div>
                                     <div class="form-check form-check-inline">
                                       <input class="form-check-input checkbox7" type="checkbox" value="option1">
-                                      <input type="text" class="datepicker datepicker7 form-control form-control-underline" name="datepicker" placeholder="7회 수령일 선택"/>
+                                      <input type="text" class="datepicker datepicker7 form-control form-control-underline" name="date7" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="7회 수령일 선택"/>
                                     </div>
                                     <br/>
                                     <br/>
