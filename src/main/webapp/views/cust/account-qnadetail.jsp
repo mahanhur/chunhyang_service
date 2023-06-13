@@ -67,7 +67,7 @@
                   </div>
 
                   <!-- 채팅상담 -->
-                  <a href="#" class="alert-link"><div class="alert alert-danger">
+                  <a data-bs-toggle="modal" data-bs-target="#callcenter"><div class="alert alert-danger">
                     <strong> 답변이 만족스럽지 못하신가요? ☞ 1:1채팅상담 하기</strong>
                   </div></a>
                   <div class="col-12 col-lg-auto">
@@ -82,3 +82,4 @@
     </div>
   </div>
 </div>
+
