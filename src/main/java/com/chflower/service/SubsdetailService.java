@@ -39,11 +39,20 @@ public class SubsdetailService implements CHService<Integer, Subsdetail> {
         return mapper.selectall();
     }
 
-    public void dateupdate(Subsdetail subdetail) {
-        mapper.dateupdate(subdetail);
+    public void dateupdate(Subsdetail subsdetail) {
+        mapper.dateupdate(subsdetail);
     }
-    public List<Subsdetail> get2(Integer subsdetail_id) throws Exception {
-        return mapper.get2(subsdetail_id);
+    public void custupdate(Subsdetail subsdetail) {
+        mapper.custupdate(subsdetail);
+    }
+    public List<Subsdetail> get2(Integer subs_id) throws Exception {
+        return mapper.get2(subs_id);
+    }
+    public Subsdetail get3(Integer subsdetail_id) throws Exception {
+        return mapper.get3(subsdetail_id);
+    }
+    public Integer getlast() {
+        return mapper.getlast();
     }
 
 }

@@ -42,4 +42,7 @@ public class SubsService implements CHService<Integer, Subs> {
     public Integer getlast() {
         return mapper.getlast();
     }
+    public List<Subs> selectcust(String cust_id) {
+        return mapper.selectcust(cust_id);
+    }
 }

@@ -10,6 +10,9 @@
     <select id="selectall" resultType="subs">
         SELECT * FROM subsinfo
     </select>
+    <select id="selectcust" parameterType="String" resultType="subs">
+        SELECT * FROM subsinfo WHERE cust_id=#{cust_id}
+    </select>
     <select id="getlast" resultType="int">
         SELECT MAX(subs_id) from subsinfo
     </select>
