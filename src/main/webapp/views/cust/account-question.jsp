@@ -2,6 +2,26 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var postTypeSelect = document.getElementById("post_type"); // post_type select 요소 가져오기
+    var aSelect = document.getElementById("subsitem_id"); // a select 요소 가져오기
+
+    // post_type select 요소 변경 시 이벤트 처리
+    postTypeSelect.addEventListener("change", function() {
+      if (postTypeSelect.value === "1") { // "구독 문의" 옵션 선택 시
+        aSelect.disabled = false; // subsitem_id select 요소 활성화
+      } else {
+        aSelect.disabled = true; // subsitem_id select 요소 비활성화
+      }
+    });
+    // 초기 상태 설정
+    if (postTypeSelect.value === "1") { // 초기 상태에서 "구독 문의" 옵션이 선택되어 있다면
+      aSelect.disabled = false; // a select 요소 활성화
+    } else {
+      aSelect.disabled = true; // a select 요소 비활성화
+    }
+  });
+
   let addquestion = {
     init:function(){
       $('#question_btn').click(function(){
@@ -94,7 +114,7 @@
                   문의내용 *
                 </label>
                 <select class="form-select" id="post_type" name="post_type">
-                  <option id="opt" vlaue="">문의종류</option>
+                  <option id="opt" value="">문의종류</option>
                   <option value="1">구독 문의</option>
                   <option value="2">상품 문의</option>
                 </select>
