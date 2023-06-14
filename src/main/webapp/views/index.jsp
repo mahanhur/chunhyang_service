@@ -2178,7 +2178,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link">꽃사전</a>
+          <a class="nav-link" href="/flowerdictionary/all">꽃사전</a>
         </li>
 
         <!-- ------------------------------------------------------------------- -->
