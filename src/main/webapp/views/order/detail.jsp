@@ -106,7 +106,7 @@
           <div class="card-footer">
 
             <!-- Heading -->
-            <h6 class="mb-7">주문상품 (3)</h6>
+            <h6 class="mb-7">주문상품</h6>
 
             <!-- Divider -->
             <hr class="my-5">
