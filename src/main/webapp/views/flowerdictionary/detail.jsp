@@ -7,6 +7,37 @@
 <script src="./assets/js/vendor.bundle.js"></script>
 <script src="./assets/js/theme.bundle.js"></script>
 
+<script>
+Kakao.init('c91de3a9ba7f48da3cb562c2fc973026');
+Kakao.Share.createDefaultButton({
+container: '#kakaotalk-sharing-btn',
+objectType: 'commerce',
+content: {
+title: '${flower.flowerName}',
+imageUrl:
+    'https://kukka.kr/static/kukkart_new/img/contents/subscribe_intro/lineup_003.png',
+link: {
+// [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
+webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
+},
+},
+commerce: {
+productName: '${flower.flowerName}',
+regularPrice: '${flower.flowerName}'
+},
+buttons: [
+{
+title: '자세히보기',
+link: {
+mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
+webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
+},
+}
+],
+});
+</script>
+
 <body>
     <div class="container">
 
@@ -88,6 +119,10 @@
                             </a>
                             <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
                                 <i class="fab fa-pinterest-p"></i>
+                            </a>
+                            <a id="kakaotalk-sharing-btn" href="javascript:">
+                                <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+                                     alt="카카오톡 공유 보내기 버튼" style="width:8%;"/>
                             </a>
                         </p>
                     </div>
