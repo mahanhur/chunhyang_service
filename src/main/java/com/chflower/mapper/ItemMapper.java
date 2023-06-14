@@ -12,6 +12,7 @@ import java.util.List;
 @Mapper
 public interface ItemMapper extends CHMapper<Integer, Item> {
     Page<Item> getpage() throws Exception;
+    public Item select(Integer item_id);
     public List<Item> getcate(Double cate);
     public List<Item> gettype(String type);
 }

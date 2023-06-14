@@ -57,7 +57,6 @@ public class CartController {
         log.info("+++++++++++++++++++++"+list);
 
         model.addAttribute("clist", list);
-    //    model.addAttribute("left", dir + "left");
         model.addAttribute("center", dir + "all");
         return "index";
     }
@@ -106,6 +105,7 @@ public class CartController {
         } catch (Exception e) {
             throw new Exception("시스템장애:ERORR002");
         }
+        log.info(list.toString());
         model.addAttribute("clist", list);
 
         Cust cust = (Cust) session.getAttribute("logincust");
