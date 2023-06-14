@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chflower.mapper.OrderMapper">
+    <select id="getmyorder" parameterType="String" resultType="order">
+        SELECT * FROM item_order WHERE cust_id=#{cust_id}
+    </select>
+    <select id="getorderdetail" parameterType="int" resultType="orderdetail">
+        SELECT o.order_id, o.cust_id, o.order_date, o.order_amount, o.user_point, o.pay_amount,
+               d.orderdetail_id, d.item_id, d.order_cnt, i.item_img, i.item_name
+        FROM item_order o
+                 JOIN orderdetail d ON o.order_id = d.order_id
+                 JOIN item i ON d.item_id = i.item_id
+        WHERE o.order_id = #{order_id}
+    </select>
+    <select id="select" parameterType="int" resultType="order">
+        SELECT * FROM item_order WHERE order_id=#{order_id}
+    </select>
+    <select id="selectall" resultType="order">
+        SELECT * FROM item_order
+    </select>
+    <select id="getlast" resultType="int">
+        SELECT MAX(order_id) from item_order
+    </select>
+    <insert id="insert" parameterType="order">
+        INSERT INTO item_order VALUES (order_seq.NEXTVAL, #{cust_id}, #{order_amount}, #{minus_point}, #{pay_amount}, SYSDATE)
+    </insert>
+    <update id="update" parameterType="order">
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE FROM item_order WHERE order_id=#{order_id}
+    </delete>
+
+</mapper>

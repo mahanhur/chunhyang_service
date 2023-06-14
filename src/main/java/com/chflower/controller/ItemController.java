@@ -29,9 +29,6 @@ public class ItemController {
     @Autowired
     AddrService addrService;
 
-//    @Autowired
-//    CartService cartService;
-
 
     String dir = "item/";
 
@@ -108,27 +105,33 @@ public class ItemController {
         return "redirect:/bipum/detail?item_id="+bipumreview.getItem_id();
     }
     @RequestMapping("/checkout")
-    public String checkout(Model model, HttpSession session, Integer item_id, Integer cnt) throws Exception {
-        log.info(String.valueOf("========================="+cnt));
-        log.info(String.valueOf("========================="+item_id));
+    public String checkout(Model model, HttpSession session, Integer item_id, String cust_id, Integer cnt) throws Exception {
+        log.info("========================="+item_id+cust_id+cnt);
 
         Cust cust = (Cust) session.getAttribute("logincust");
         if(cust != null) {
-            String cust_id = cust.getCust_id();
             List<Addr> addrlist;
             addrlist = addrService.getaddr(cust_id);
             model.addAttribute("addrlist",addrlist);
-//            Item item = itemService.get(item_id);
-//            log.info(String.valueOf("*************************"+item));
-//            model.addAttribute("item", item);
+
+            Item item = itemService.get(item_id);
+            model.addAttribute("item", item);
+
+            log.info("=========================" +item.toString());
+
+//            Integer point = pointService.presentpoint(cust_id);
+//            model.addAttribute("point", point);
+
         } else {
             return "redirect:/cust/login";
         }
-        model.addAttribute("inputcnt", cnt);
-        model.addAttribute("item_id",item_id);
+
+        model.addAttribute("inputcnt",cnt);
         model.addAttribute("center",dir+"checkout");
         return "index";
     }
+
+
     @RequestMapping("/bunch")
     public String bunch(Model model) throws Exception {
         List<Item> list = null;

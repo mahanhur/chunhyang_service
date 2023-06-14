@@ -2293,7 +2293,7 @@
                   <div class="card-body">
                     <ul class="list-styled fs-sm">
                       <li class="list-styled-item">
-                        <a class="list-styled-link" href="/cust/account-orders">My account</a>
+                        <a class="list-styled-link" href="/order/all?cust_id=${logincust.cust_id}">My account</a>
                       </li>
                       <li class="list-styled-item">
                         <a class="list-styled-link" href="/cust/logout">로그아웃</a>
