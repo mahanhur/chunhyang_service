@@ -1654,7 +1654,7 @@
                   </span>
                   </li>
                   <li class="list-group-item d-flex">
-                    <span>포인트 사용금액</span> <span class="ms-auto fs-sm">$00.00</span>
+                    <span>포인트 사용금액</span> <span class="ms-auto fs-sm"> <fmt:formatNumber value="0" pattern="###,###원"/></span>
                   </li>
                   <li class="list-group-item d-flex fs-lg fw-bold">
                     <span>총 결제금액</span> <span class="ms-auto fs-sm">
