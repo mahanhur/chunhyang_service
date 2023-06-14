@@ -41,7 +41,7 @@ public class PaymentService implements CHService<Integer, Payment> {
     public void subsinsert(Payment payment) {
         mapper.subsinsert(payment);
     }
-    public void iteminsert(Payment payment) {
-        mapper.iteminsert(payment);
+    public Payment selectsubsid(Integer subs_id) {
+        return mapper.selectsubsid(subs_id);
     }
 }

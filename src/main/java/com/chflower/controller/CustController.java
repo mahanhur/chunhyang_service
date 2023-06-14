@@ -10,12 +10,15 @@ import com.chflower.service.CustService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.chflower.dto.*;
+import com.chflower.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +28,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,6 +41,14 @@ public class CustController {
     CustService custservice;
     @Autowired
     AddrService addrservice;
+    @Autowired
+    SubsService subsService;
+    @Autowired
+    SubsitemService subsitemService;
+    @Autowired
+    SubsdetailService subsdetailService;
+    @Autowired
+    DelinfoService delinfoService;
     @Autowired
     CustMapper custMapper;
     @Autowired
@@ -216,14 +229,62 @@ public class CustController {
         return "index";
     }
     @RequestMapping("/account-subsinfo")
-    public String account_subsinfo(Model model){
+    public String account_subsinfo(Model model, HttpSession session) throws Exception {
+        //subsinfo 테이블 조회
+        Cust cust = (Cust) session.getAttribute("logincust");
+        String cust_id = cust.getCust_id();
+        List<Subs> slist = subsService.selectcust(cust_id);
+        model.addAttribute("slist",slist);
+
+        //subsitem 테이블 조회
+        List<Subsitem> ilist = subsitemService.get();
+        model.addAttribute("ilist",ilist);
+
         model.addAttribute("center",dir+"account-subsinfo");
         return "index";
     }
     @RequestMapping("/account-subsdetail")
-    public String account_subsdetail(Model model){
+    public String account_subsdetail(Model model,HttpSession session) throws Exception {
+        //subsinfo 테이블 조회
+        Cust cust = (Cust) session.getAttribute("logincust");
+        String cust_id = cust.getCust_id();
+        List<Subs> slist = subsService.selectcust(cust_id);
+        model.addAttribute("slist",slist);
+
+        //subsitem 테이블 조회
+        List<Subsitem> ilist = subsitemService.get();
+        model.addAttribute("ilist",ilist);
+
+        //subsdetail 테이블 조회
+        List<List<Subsdetail>> dlist = new ArrayList<>();
+        for (int i = 0; i < slist.size(); i++) {
+            int subs_id = slist.get(i).getSubs_id();
+            List<Subsdetail> sublist = subsdetailService.get2(subs_id);
+            dlist.add(sublist);
+        }
+        model.addAttribute("dlist", dlist);
+
+        //delinfo 테이블 조회
+        List<Delinfo> dellist = delinfoService.get();
+        model.addAttribute("dellist", dellist);
+
         model.addAttribute("center",dir+"account-subsdetail");
         return "index";
+    }
+    @RequestMapping("/delmodify")
+    public String delmodify(Model model, Integer subsdetail_id) throws Exception {
+        Subsdetail subsdetail = subsdetailService.get3(subsdetail_id);
+        model.addAttribute("obj", subsdetail);
+
+        model.addAttribute("center",dir+"delmodify");
+        return "index";
+    }
+    @RequestMapping("/delmodifyimpl")
+    public String delmodifyimpl(Model model, Integer subsdetail_id, String receiver, String receiver_phone, String rec_add1, String rec_add2, String subs_memo, @DateTimeFormat(pattern = "yyyy-MM-dd") Date subs_duedate) throws Exception {
+        Subsdetail subsdetail = new Subsdetail(subsdetail_id, receiver, receiver_phone, rec_add1, rec_add2, subs_memo, subs_duedate);
+        subsdetailService.custupdate(subsdetail);
+
+        return "redirect:/cust/delmodify?subsdetail_id="+subsdetail_id;
     }
     @RequestMapping("/personalinfo")
     public String personalinfo(Model model, String cust_id) throws Exception {

@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<script>
+</script>
 
 
 <!-- BREADCRUMB -->
@@ -42,219 +46,129 @@
         <jsp:include page="/views/cust/leftnav.jsp"/>
 
       </div>
+
+
+
       <div class="col-12 col-md-9 col-lg-8 offset-lg-1">
+        <c:forEach items="${slist}" var="obj" varStatus="status">
+          <c:forEach items="${ilist}" var="iobj">
+            <c:if test="${iobj.subsitem_id == obj.subsitem_id}">
 
-        <!-- Order -->
-        <div class="card card-lg mb-5 border">
-          <div class="card-body pb-0">
+          <!-- Order -->
+          <div class="card card-lg mb-5 border">
+            <div class="card-body pb-0">
 
-            <!-- Info -->
-            <div class="card card-sm">
-              <div class="card-body bg-light">
-                <div class="row">
-                  <div class="col-12">
+              <!-- Info -->
+              <div class="card card-sm">
+                <div class="card-body bg-light">
+                  <div class="row">
+                    <div class="col-6 col-lg-3">
 
-                    <!-- Heading -->
-                    <h6 class="heading-xxxs text-muted">춘향이가 전달드리는 Notice !</h6>
+                      <!-- Heading -->
+                      <h6 class="heading-xxxs text-muted">구독번호 :</h6>
 
-                    <!-- Text -->
-                    <p class="mb-lg-0 fs-sm fw-bold">
-                      고객님이 신청하신 구독 상품의 배송일정과 세부 정보를 수정하실 수 있습니다.
-                    </p>
+                      <!-- Text -->
+                      <p class="mb-lg-0 fs-sm fw-bold psubs_id">
+                          ${obj.subs_id}
+                      </p>
+
+                    </div>
+                    <div class="col-6 col-lg-3">
+
+                      <!-- Heading -->
+                      <h6 class="heading-xxxs text-muted">구독 신청일 :</h6>
+
+                      <!-- Text -->
+                      <p class="mb-lg-0 fs-sm fw-bold">
+                        <time datetime="2019-10-01">
+                            ${obj.subs_rdate}
+                        </time>
+                      </p>
+
+                    </div>
+                    <div class="col-6 col-lg-3">
+
+                      <!-- Heading -->
+                      <h6 class="heading-xxxs text-muted">사용포인트 :</h6>
+
+                      <!-- Text -->
+                      <p class="mb-0 fs-sm fw-bold">
+                        <fmt:formatNumber value="${obj.minus_point}" pattern="#,### pt"/>
+                      </p>
+
+                    </div>
+                    <div class="col-6 col-lg-3">
+
+                      <!-- Heading -->
+                      <h6 class="heading-xxxs text-muted">결제금액 :</h6>
+
+                      <!-- Text -->
+                      <p class="mb-0 fs-sm fw-bold">
+                        <fmt:formatNumber value="${obj.subs_pay_amount}" pattern="#,###원"/>
+                      </p>
+
+                    </div>
+                  </div>
                 </div>
               </div>
+
             </div>
-          </div>
+            <div class="card-footer">
 
-<%--            내용시작--%>
-          <div class="card-footer">
+              <!-- Heading -->
+              <h6 class="mb-7">구독 건별 세부정보</h6>
+              <h6 class="heading-xxs text-muted">ㅇ 수정 버튼 클릭 시 건별 배달일자 및 배달정보를 수정하실 수 있습니다.</h6>
 
-            <!-- Heading -->
-            <h6 class="mb-7">Order List</h6>
-
-            <!-- Divider -->
-            <hr class="my-5">
-
-            <!-- List group -->
-            <ul class="list-group list-group-lg list-group-flush-y list-group-flush-x">
-              <li class="list-group-item">
-                <div class="row align-items-center">
-                  <div class="col-4 col-md-3 col-xl-2">
-
-                    <!-- 구독상품Image -->
-                    <a href="product.html"><img src="/assets/img/products/product-6.jpg" alt="..." class="img-fluid"></a>
-
-                  </div>
-                  <div class="col">
-
-                    <!-- Title -->
-                    <p class="mb-4 fs-sm fw-bold">
-                      <a class="text-body" href="product.html">Cotton floral print Dress x 1</a> <br>
-                      <span class="text-muted">$40.00</span>
-                    </p>
-
-                    <!-- Text -->
-                    <div class="fs-sm text-muted">
-                      Size: M <br>
-                      Color: Red
-                    </div>
-
-                  </div>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="row align-items-center">
-                  <div class="col-4 col-md-3 col-xl-2">
-
-                    <!-- Image -->
-                    <a href="product.html"><img src="/assets/img/products/product-10.jpg" alt="..." class="img-fluid"></a>
-
-                  </div>
-                  <div class="col">
-
-                    <!-- Title -->
-                    <p class="mb-4 fs-sm fw-bold">
-                      <a class="text-body" href="product.html">Suede cross body Bag x 1</a> <br>
-                      <span class="text-muted">$49.00</span>
-                    </p>
-
-                    <!-- Text -->
-                    <div class="fs-sm text-muted">
-                      Color: Brown
-                    </div>
-
-                  </div>
-                </div>
-              </li>
-
-              <li class="list-group-item">
-                <div class="row align-items-center">
-                  <div class="col-4 col-md-3 col-xl-2">
-
-                    <!-- Image -->
-                    <a href="product.html"><img src="/assets/img/products/product-48.jpg" alt="..." class="img-fluid"></a>
-
-                  </div>
-                  <div class="col">
-
-                    <!-- Title -->
-                    <p class="mb-4 fs-sm fw-bold">
-                      <a class="text-body" href="product.html">Sweatshirt with Pocket</a> <br>
-                      <span class="text-muted">$39.00</span>
-                    </p>
-
-                    <!-- Text -->
-                    <div class="fs-sm text-muted">
-                      Size: L <br>
-                      Color: Pink
-                    </div>
-
-                  </div>
-                </div>
-              </li>
-            </ul>
-
-          </div>
-        </div>
-
-        <!-- Total -->
-        <div class="card card-lg mb-5 border">
-          <div class="card-body">
-
-            <!-- Heading -->
-            <h6 class="mb-7">Order Total</h6>
-
-            <!-- List group -->
-            <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
-              <li class="list-group-item d-flex">
-                <span>Subtotal</span>
-                <span class="ms-auto">$128.00</span>
-              </li>
-              <li class="list-group-item d-flex">
-                <span>Tax</span>
-                <span class="ms-auto">$0.00</span>
-              </li>
-              <li class="list-group-item d-flex">
-                <span>Shipping</span>
-                <span class="ms-auto">$8.00</span>
-              </li>
-              <li class="list-group-item d-flex fs-lg fw-bold">
-                <span>Total</span>
-                <span class="ms-auto">$136.00</span>
-              </li>
-            </ul>
-
-          </div>
-        </div>
-
-        <!-- Details -->
-        <div class="card card-lg border">
-          <div class="card-body">
-
-            <!-- Heading -->
-            <h6 class="mb-7">Billing & Shipping Details</h6>
-
-            <!-- Content -->
-            <div class="row">
-              <div class="col-12 col-md-4">
-
-                <!-- Heading -->
-                <p class="mb-4 fw-bold">
-                  Billing Address:
-                </p>
-
-                <p class="mb-7 mb-md-0 text-gray-500">
-                  Daniel Robinson, <br>
-                  3997 Raccoon Run, <br>
-                  Kingston, 45644, <br>
-                  United States, <br>
-                  6146389574
-                </p>
-
-              </div>
-              <div class="col-12 col-md-4">
-
-                <!-- Heading -->
-                <p class="mb-4 fw-bold">
-                  Shipping Address:
-                </p>
-
-                <p class="mb-7 mb-md-0 text-gray-500">
-                  Daniel Robinson, <br>
-                  3997 Raccoon Run, <br>
-                  Kingston, 45644, <br>
-                  United States, <br>
-                  6146389574
-                </p>
-
-              </div>
-              <div class="col-12 col-md-4">
-
-                <!-- Heading -->
-                <p class="mb-4 fw-bold">
-                  Shipping Method:
-                </p>
-
-                <p class="mb-7 text-gray-500">
-                  Standart Shipping <br>
-                  (5 - 7 days)
-                </p>
-
-                <!-- Heading -->
-                <p class="mb-4 fw-bold">
-                  Payment Method:
-                </p>
-
-                <p class="mb-0 text-gray-500">
-                  Debit Mastercard
-                </p>
-
-              </div>
+              <!-- Divider -->
+              <hr class="my-5">
+              <form class="modify_form">
+              <table class="table table-bordered table-lg">
+                <colgroup>
+                  <col width="18%" />
+                  <col width="15%" />
+                  <col width="23%" />
+                  <col width="25%" />
+                  <col width="20%" />
+                </colgroup>
+                <thead>
+                <tr>
+                  <th>상품명</th>
+                  <th>No</th>
+                  <th>배송상태</th>
+                  <th>배송일</th>
+                  <th>수정</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${dlist}" var="subsdetailList">
+                <c:forEach items="${subsdetailList}" var="dobj">
+                  <c:if test="${obj.subs_id == dobj.subs_id}">
+                    <c:forEach items="${dellist}" var="delobj">
+                      <c:if test="${dobj.subsdetail_id == delobj.subsdetail_id}">
+                    <tr>
+                      <td>${iobj.subsitem_name}</td>
+                      <td class="subsdetail_idtd">${dobj.subsdetail_id}</td>
+                      <td>${delobj.del_state}</td>
+                      <td><fmt:formatDate  value="${dobj.subs_duedate}" pattern="yyyy-MM-dd" /></td>
+                      <td>
+                        <a href="/cust/delmodify?subsdetail_id=${dobj.subsdetail_id}" class="btn btn-outline-dark modify_btn">수정</a>
+                      </td>
+                    </tr>
+                      </c:if>
+                    </c:forEach>
+                  </c:if>
+                </c:forEach>
+                </c:forEach>
+                </tbody>
+              </table>
+              </form>
             </div>
 
           </div>
-        </div>
-
+          <br/>
+          </c:if>
+          </c:forEach>
+        </c:forEach>
       </div>
     </div>
   </div>

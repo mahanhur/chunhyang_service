@@ -19,11 +19,8 @@
     <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/personalinfo?cust_id=${logincust.cust_id}">
       나의 정보 수정
     </a>
-    <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/account-address">
-      Addresses
-    </a>
-    <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/account-payment">
-      Payment Methods
+    <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/addr">
+      주소지 관리
     </a>
     <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/account-qna?cust_id=${logincust.cust_id}">
       1:1 문의

@@ -36,4 +36,14 @@ public class Subsdetail {
         this.subsdetail_id = subsdetail_id;
         this.subs_duedate = subs_duedate;
     }
+
+    public Subsdetail(int subsdetail_id, String receiver, String receiver_phone, String rec_add1, String rec_add2, String subs_memo, Date subs_duedate) {
+        this.subsdetail_id = subsdetail_id;
+        this.receiver = receiver;
+        this.receiver_phone = receiver_phone;
+        this.rec_add1 = rec_add1;
+        this.rec_add2 = rec_add2;
+        this.subs_memo = subs_memo;
+        this.subs_duedate = subs_duedate;
+    }
 }

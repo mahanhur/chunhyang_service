@@ -11,7 +11,11 @@ import java.util.List;
 @Mapper
 public interface SubsdetailMapper extends CHMapper<Integer, Subsdetail> {
     public void dateupdate(Subsdetail subsdetail);
-    public List<Subsdetail> get2(Integer subsdetail_id) ;
+    public void custupdate(Subsdetail subsdetail);
+    public List<Subsdetail> get2(Integer subs_id) ;
+    public Subsdetail get3(Integer subsdetail_id) ;
+
+    public Integer getlast();
 
 
 }
