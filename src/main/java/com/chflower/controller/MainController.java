@@ -1,15 +1,35 @@
 package com.chflower.controller;
 
+import com.chflower.util.TodayFlowerUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
+import java.time.ZoneId;
+
 @Controller
 public class MainController {
+    @Value("${adminserver}")
+    String adminserver;
+
     @RequestMapping("/")
-    public String main(){
+    public String main(Model model, HttpSession session) throws Exception {
+        LocalDate SeoulNow = LocalDate.now(ZoneId.of("Asia/Seoul"));
+        int dayOfYear = SeoulNow.getDayOfYear()+1;
+        String date = Integer.toString(dayOfYear);
+        Object result = TodayFlowerUtil.todayFlower(date);
+        model.addAttribute("todayFlower", result);
+
+        if (session.getAttribute("logincust")==null) {
+            return "redirect:/cust/login";
+        }
+        model.addAttribute("adminserver",adminserver);
+
         return "index";
     }
 

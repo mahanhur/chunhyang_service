@@ -32,6 +32,37 @@
         item_get.init();
     });
 </script>
+
+<script>
+    let item_checkout = {
+        init: () => {
+            $('.checkout_btn').click(function(){
+                let cust_id = "${logincust.cust_id}";
+                let item_id = "${detail.item_id}"
+                let cnt = parseInt($('#inputcnt').val());
+
+                $.ajax({
+                    url: '/item/checkout',
+                    type: 'post',
+                    data: {cust_id: cust_id, item_id: item_id, cnt: cnt},
+                    success: function () {
+                        if(cust_id != '') {
+                            location.href="/item/checkout?cust_id="+cust_id;
+                        } else {
+                            location.href="/cust/login"
+                        }
+                    },
+                    error:()=>{
+                        alert("ajax에러")
+                    }
+                });
+            });
+        }
+    };
+    $(function () {
+        item_checkout.init();
+    });
+</script>
 <script>
     let register_review = {
         init:function (){
@@ -56,25 +87,6 @@
     $(function (){
         register_review.init();
     })
-</script>
-
-<script>
-
-    let itemdetail = {
-        init: () => {
-            $('#checkout_btn').click(function(){
-                $('#detail_form').attr({
-                    action:'/item/checkout',
-                    method:'post'
-                });
-                $('#detail_form').submit();
-            })
-        }
-    }
-
-    $(function () {
-        itemdetail.init();
-    });
 </script>
 
 <!doctype html>
@@ -1743,7 +1755,7 @@
                                             장바구니 추가 <i class="fe fe-shopping-cart ms-2"></i>
                                         </button>
                                         <input type="hidden" name="item_id" value="${obj.item_id}"/>
-                                        <button type="button" class="btn w-120 btn-dark mb-2" id="checkout_btn">
+                                        <button type="button" class="btn w-120 btn-dark mb-2 checkout_btn">
                                             바로주문 하기 <i class="fe fe-shopping-cart ms-2"></i>
                                         </button>
 

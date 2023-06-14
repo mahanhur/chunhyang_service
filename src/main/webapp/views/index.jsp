@@ -3,8 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
-
-
 <!doctype html>
 <html lang="ko">
 <head>
@@ -20,13 +18,15 @@
   <%--iamport--%>
   <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 
+  <%--web socket--%>
+  <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+  <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+
 <%--  <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">--%>
 
 <%--  <style>--%>
 <%--    body {font-family: 'SUIT Variable', sans-serif;}--%>
 <%--  </style>--%>
-
-
 
   <!-- -------------------------------------------------------------------------------- -->
   <!-- Favicon -->
@@ -45,6 +45,13 @@
         padding: 8px 10px;
       }
     }
+
+    #to {
+      /*width: 200px;*/
+      height: 200px;
+      border: 2px solid gray;
+      overflow: auto;
+    }
   </style>
 
 <script>
@@ -58,11 +65,163 @@
       }
     });
   })
+
+</script>
+
+
+<script>
+<%--1:1채팅 상담 자바스크립트--%>
+  let callcenter = {
+    id:null,
+    stompClient:null,
+    init:function(){
+      this.id = $('#adm_id').text();
+      $("#connect").click(function() {
+        callcenter.connect();
+      });
+      $("#disconnect").click(function() {
+        callcenter.disconnect();
+      });
+      $("#sendto").click(function() {
+        callcenter.sendTo();
+      });
+    },
+    connect:function(){
+      var sid = this.id;
+      var socket = new SockJS('${adminserver}/ws');
+      this.stompClient = Stomp.over(socket);
+
+      this.stompClient.connect({}, function(frame) {
+        callcenter.setConnected(true);
+        console.log('Connected: ' + frame);
+
+        this.subscribe('/send/to/'+sid, function(msg) {
+          $("#to").prepend(
+                  "<h4>" + JSON.parse(msg.body).sendid +":"+
+                  JSON.parse(msg.body).content1
+                  + "</h4>");
+        });
+      });
+    },
+    disconnect:function(){
+      if (this.stompClient !== null) {
+        this.stompClient.disconnect();
+      }
+      callcenter.setConnected(false);
+      console.log("Disconnected");
+    },
+    setConnected:function(connected){
+      if (connected) {
+        $("#status").text("Connected");
+      } else {
+        $("#status").text("Disconnected");
+      }
+    },
+
+    sendTo:function(){
+      var msg = JSON.stringify({
+        'sendid' : this.id,
+        'receiveid' : $('#target').val(),
+        'content1' : $('#totext').val()
+      });
+      this.stompClient.send('/receiveto', {}, msg);
+    }
+  };
+  $(function(){
+    callcenter.init();
+  })
+
 </script>
 </head>
 
 <!-- -------------------------------------------------------------------------------- -->
 <body>
+<%--===============================================1:1채팅 모달 시작==========================================--%>
+<div class="modal fade" id="callcenter" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+
+      <!-- Close -->
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <i class="fe fe-x" aria-hidden="true"></i>
+      </button>
+
+      <!-- Content -->
+      <div class="row gx-0">
+        <div class="col-12 col-lg-6">
+          <img src="/assets/img/callcenter.jpg" style="width: 400px" alt="채팅상담 이미지 출력 에러">
+        </div>
+        <div class="col-12 col-lg-6" style="padding: 0px">
+          <!-- Body -->
+          <div class="modal-body my-auto py-3">
+            <h4 style="text-align: center">채팅 상담</h4>
+            <h1 id="adm_id" hidden>${logincust.cust_id}</h1>
+            <hr>
+            <H8 id="status">Status</H8>
+            <button id="connect">Connect</button>
+            <button id="disconnect">Disconnect</button>
+
+            <input type="text" id="target" value="유성진" hidden> <%--상담센터직원 이름 정해서 넣기--%>
+            <input type="text" id="totext" style="margin-top: 10px"><button id="sendto">전송</button>
+
+            <div id="to" col-lg-7 style="margin-top: 10px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%--===============================================1:1채팅 모달 끝==========================================--%>
+
+<%--===============================================오늘의 꽃 시작==========================================--%>
+<div class="modal fade" id="todayflower" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+
+      <!-- Close -->
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <i class="fe fe-x" aria-hidden="true"></i>
+      </button>
+
+      <!-- Content -->
+      <div class="row gx-0">
+        <div class="col-12 col-lg-5">
+          <!-- Image -->
+          <img class="img-fluid" src="${todayFlower.imgUrl1}" alt="오늘의 꽃 이미지 출력 에러">
+          <img class="img-fluid" src="${todayFlower.imgUrl2}" alt="오늘의 꽃 이미지 출력 에러">
+        </div>
+        <div class="col-12 col-lg-7 d-flex flex-column px-md-8">
+
+          <!-- Body -->
+          <div class="modal-body my-auto py-10">
+            <!-- Heading -->
+            <h4>오늘의 꽃: ${todayFlower.flowerName}</h4>
+            <!-- Text -->
+            <p class="mb-7 fs-lg">
+              꽃   말: ${todayFlower.flowerMeaning}
+            </p>
+            <hr>
+            <H8>${todayFlower.fContent}</H8>
+            <hr>
+            <H8>${todayFlower.fMonthDay}</H8>
+            <br>
+          </div>
+          <!-- Footer -->
+          <div class="modal-footer pt-0">
+            <!-- 더이상보지 않기 체크박스!!기능구현은 안했음.. -->
+            <div class="form-check">
+              <input class="form-check-input" id="modalCheckbox" type="checkbox">
+              <label class="form-check-label fs-xs" for="modalCheckbox">
+                더이상 보지않기
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%--===============================================오늘의 꽃 끝==========================================--%>
 
 <!-- MODALS -->
 <div> <!-- modal 숨기기위한 div. 꼭 삭제해주기 -->
@@ -2075,11 +2234,16 @@
       <!-- Nav -->
       <ul class="navbar-nav flex-row">
         <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="modal" data-bs-target="#callcenter">
+            <i class="fe fe-message-square"></i>
+          </a>
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link" data-bs-toggle="offcanvas" href="#modalSearch">
             <i class="fe fe-search"></i>
           </a>
         </li>
-
 
         <li class="nav-item ms-lg-n4 dropdown">
           <c:choose>
