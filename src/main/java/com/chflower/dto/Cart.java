@@ -13,7 +13,7 @@ import java.util.Date;
 public class Cart {
     private int cart_id;
     private String cust_id;
-    private double item_id;
+    private int item_id;
     private int cnt;
     private Date item_rdate;
 
@@ -25,7 +25,7 @@ public class Cart {
     private String flower_type;
     private String flower_size;
 
-    public Cart(int cart_id, String cust_id, double item_id, int cnt, Date item_rdate) {
+    public Cart(int cart_id, String cust_id, int item_id, int cnt, Date item_rdate) {
         this.cart_id = cart_id;
         this.cust_id = cust_id;
         this.item_id = item_id;

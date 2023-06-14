@@ -29,7 +29,9 @@
         VALUES (item_order_seq.NEXTVAL, #{cust_id}, SYSDATE, #{order_amount}, #{minus_point}, #{pay_amount}, #{order_name}, #{order_phone}, #{od_addr1}, #{od_addr2})
     </insert>
     <insert id="insertdetail" parameterType="orderdetail">
-        INSERT INTO orderdetail VALUES (orderdetail_seq.NEXTVAL, #{order_id}, #{item_id}, #{order_cnt})
+        INSERT INTO orderdetail
+            (orderdetail_id, order_id, item_id, order_cnt)
+        VALUES (orderdetail_seq.NEXTVAL, #{order_id}, #{item_id}, #{order_cnt})
     </insert>
     <update id="update" parameterType="order">
     </update>

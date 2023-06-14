@@ -12,4 +12,6 @@ import java.util.List;
 public interface CartMapper extends CHMapper<Integer, Cart> {
     public List<Cart> getmycart(String cid);
     public int countmycart(String cust_id);
+
+    public void delmycart(String cust_id);
 }

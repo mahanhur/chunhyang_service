@@ -83,7 +83,7 @@
           pg: "inicis",
           pay_method: "card",
           merchant_uid : 'merchant_'+new Date().getTime(),
-          name : '춘향전 ${subsitem.subsitem_name}',
+          name : '춘향전 ${item.item_name}',
           amount : finalprice,
           buyer_email : '${logincust.email}',
           buyer_name : '${logincust.cust_name}',
