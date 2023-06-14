@@ -19,15 +19,15 @@ public class MainController {
 
     @RequestMapping("/")
     public String main(Model model, HttpSession session) throws Exception {
-        LocalDate SeoulNow = LocalDate.now(ZoneId.of("Asia/Seoul"));
-        int dayOfYear = SeoulNow.getDayOfYear()+1;
-        String date = Integer.toString(dayOfYear);
-        Object result = TodayFlowerUtil.todayFlower(date);
-        model.addAttribute("todayFlower", result);
-
-        if (session.getAttribute("logincust")==null) {
-            return "redirect:/cust/login";
-        }
+//        LocalDate SeoulNow = LocalDate.now(ZoneId.of("Asia/Seoul"));
+//        int dayOfYear = SeoulNow.getDayOfYear()+1;
+//        String date = Integer.toString(dayOfYear);
+//        Object result = TodayFlowerUtil.todayFlower(date);
+//        model.addAttribute("todayFlower", result);
+//
+//        if (session.getAttribute("logincust")==null) {
+//            return "redirect:/cust/login";
+//        }
         model.addAttribute("adminserver",adminserver);
 
         return "index";

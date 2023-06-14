@@ -41,6 +41,9 @@ public class PointService implements CHService<String, Point> {
     public void minuspoint(Point point) {
         mapper.minuspoint(point);
     }
+    public List<Point> selectcust(String cust_id) {
+        return mapper.selectcust(cust_id);
+    }
     public Integer presentpoint(String cust_id) {
         return mapper.presentpoint(cust_id);
     }

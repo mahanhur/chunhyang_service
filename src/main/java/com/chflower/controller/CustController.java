@@ -52,6 +52,8 @@ public class CustController {
     @Autowired
     CustMapper custMapper;
     @Autowired
+    PointService pointService;
+    @Autowired
     private BCryptPasswordEncoder encoder;
 
     String dir = "cust/";
@@ -313,6 +315,19 @@ public class CustController {
         return "redirect:/cust/personalinfo?cust_id="+cust.getCust_id();
     }
 
+    @RequestMapping("/point")
+    public String point(Model model, HttpSession session){
+        Cust cust = (Cust) session.getAttribute("logincust");
+        String cust_id = cust.getCust_id();
+        try {
+            List<Point> plist = pointService.selectcust(cust_id);
+            model.addAttribute("plist", plist);
+        } catch (Exception e) {
+            throw new RuntimeException("mypage point조회 오류입니다.");
+        }
+        model.addAttribute("center",dir+"point");
+        return "index";
+    }
     @RequestMapping("/addr")
     public String addr(Model model, HttpSession session){
         Cust cust = (Cust) session.getAttribute("logincust");

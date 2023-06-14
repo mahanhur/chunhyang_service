@@ -50,6 +50,9 @@
 
 
       <div class="col-12 col-md-9 col-lg-8 offset-lg-1">
+        <c:if test="${empty slist}">
+          <jsp:include page="/views/noinformation.jsp"/>
+        </c:if>
         <c:forEach items="${slist}" var="obj" varStatus="status">
           <c:forEach items="${ilist}" var="iobj">
             <c:if test="${iobj.subsitem_id == obj.subsitem_id}">
