@@ -1649,7 +1649,7 @@
               <div class="card-body">
                 <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
                   <li class="list-group-item d-flex">
-                    <span>총 주문금액</span> <span class="ms-auto fs-sm">
+                    <span>총 주문금액</span> <span id="totalprice" class="ms-auto fs-sm">
                     <fmt:formatNumber value="${total}" pattern="###,###원"/>
                   </span>
                   </li>
@@ -1669,7 +1669,7 @@
             </div>
 
             <!-- Button -->
-            <a class="btn w-100 btn-dark mb-2" href="/cart/checkout?cust_id=${logincust.cust_id}">주문하기</a>
+            <a class="btn w-100 btn-dark mb-2" href="/cart/checkout?cust_id=${logincust.cust_id}&total=${total}">주문하기</a>
 
             <!-- Link -->
             <a class="btn btn-link btn-sm px-0 text-body" href="/item/all">

@@ -17,7 +17,7 @@
         $('#addr2').show();
         let selectval = $("#selectbox").val();
         $.ajax({
-          url:'/order/checkout/addrimpl',
+          url:'/subs/checkout/addrimpl',
           method:'post',
           data: {addr_id : selectval},
           success: function(data) {
@@ -32,7 +32,7 @@
 
       $('#usepoint').change(function() {
         use_point = $('#usepoint').val();
-        let finalPrice = ${item.item_price} - use_point;
+        let finalPrice = ${totalprice} - use_point;
         $('#finalprice').html(finalPrice);
       });
 
@@ -42,7 +42,7 @@
       // 카카오페이
       $('#kakaopay').click( function() {
         $.ajax({
-          url:'/order/kakaopay',
+          url:'/subs/kakaopay',
           dataType:'json',
           success: function(data) {
             let box = data.next_redirect_pc_url;
@@ -83,7 +83,7 @@
           pg: "inicis",
           pay_method: "card",
           merchant_uid : 'merchant_'+new Date().getTime(),
-          name : '춘향전 ${item.item_name}',
+          name : '춘향전 ${item.item_name} 외',
           amount : finalprice,
           buyer_email : '${logincust.email}',
           buyer_name : '${logincust.cust_name}',
@@ -92,22 +92,17 @@
           buyer_addr : '서울특별시 영등포구 여의도동',
           buyer_postcode : '03752'
         }, function (rsp) { // callback
+          let addr_selected = $('.addr_selected option:selected').val();
           if (rsp.success) {
             var msg = '결제가 완료되었습니다.';
             alert(msg);
-            addr1 = $('#addr1').html();
-            addr2 = $('#addr2').html();
-            location.href = "/order/success?item_id=${item.item_id}&order_amount=${item.item_price}&minus_point="+use_point+"&pay_amount="+finalprice+"&addr_id="+addr_selected+"&duedate=<fmt:formatDate  value="${date}" pattern="yyyy-MM-dd" />"
+            location.href = "/order/success_cart?order_amount=${totalprice}&minus_point="+use_point+"&pay_amount="+finalprice+"&addr_id="+addr_selected+""
           } else {
-            var msg = '결제에 실패하였습니다.';
-            msg += '에러내용 : ' + rsp.error_msg;
+            let msg = rsp.error_msg;
             alert(msg);
-            addr1 = $('#addr1').html();
-            addr2 = $('#addr2').html();
-            let addr_selected = $('.addr_selected option:selected').val();
-            alert(addr_selected);
-            alert("${date}");
-            location.href = "/order/success?item_id=${item.item_id}&order_amount=${item.item_price}&minus_point="+use_point+"&pay_amount="+finalprice+"&addr_id="+addr_selected+"&duedate=<fmt:formatDate  value="${date}" pattern="yyyy-MM-dd" />"
+            // location.href = "/subs/fail?msg="+msg;
+            // 테스트용
+            location.href = "/order/success_cart?order_amount=${totalprice}&minus_point="+use_point+"&pay_amount="+finalprice+"&addr_id="+addr_selected+""
           }
         });
       });
@@ -305,8 +300,6 @@ height: 80px;
             <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
               <c:forEach var="obj" items="${clist}">
                 <c:set var="total" value="${total +(obj.cnt * obj.item_price)}"/>
-                <c:set var="point" value="${point}"/>
-                <c:set var="payment" value="${total - point}"/>
               </c:forEach>
               <li class="list-group-item d-flex">
                 <span>주문금액</span> <span class="ms-auto fs-sm">${total}</span>
@@ -319,7 +312,7 @@ height: 80px;
                 <input class="ms-auto fs-sm " id="usepoint"/>
               </li>
               <li class="list-group-item d-flex fs-lg fw-bold">
-                <span>결제금액</span> <span class="ms-auto">${payment}</span>
+                <span>결제금액</span> <span id="finalprice" class="ms-auto">${total}</span>
               </li>
             </ul>
           </div>

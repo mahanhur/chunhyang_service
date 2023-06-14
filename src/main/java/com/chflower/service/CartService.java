@@ -46,5 +46,7 @@ public class CartService implements CHService<Integer, Cart> {
     public int countMyCart(String cust_id) throws Exception {
         return mapper.countmycart(cust_id);
     }
-
+    public void delMycart(String cust_id) throws Exception {
+        mapper.delmycart(cust_id);
+    }
 }
