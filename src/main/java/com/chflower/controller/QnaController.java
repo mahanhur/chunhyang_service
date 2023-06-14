@@ -29,6 +29,8 @@ public class QnaController {
     CustService custservice;
     @Autowired
     private BCryptPasswordEncoder encoder;
+    @Value("${adminserver}")
+    String adminserver;
 
     String dir = "cust/";
 
@@ -43,9 +45,14 @@ public class QnaController {
         return "index";
     }
     @RequestMapping("/account-qnadetail")
-    public String qnadetail(Model model,String qna_id) throws Exception{
+    public String qnadetail(Model model,String qna_id, HttpSession session) throws Exception{
         Qna qna = null;
         qna = qnaService.get(qna_id);
+
+        if (session.getAttribute("logincust")==null) {
+            return "redirect:/cust/login";
+        }
+        model.addAttribute("adminserver",adminserver);
         model.addAttribute("gqna",qna);
         model.addAttribute("center",dir+"account-qnadetail");
         return "index";
