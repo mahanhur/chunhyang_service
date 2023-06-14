@@ -7,8 +7,7 @@
         init: function () {
             $('.cart_btn').click(function () {
                 let cust_id = "${logincust.cust_id}";
-                let item_id = "${detail.item_id}"
-                // $(this).data('itemid');
+                let item_id = ${detail.item_id};
                 let cnt = parseInt($('#inputcnt').val());
                 $.ajax({
                     url: '/cart/addcart',
@@ -32,31 +31,17 @@
         item_get.init();
     });
 </script>
-
 <script>
     let item_checkout = {
         init: () => {
             $('.checkout_btn').click(function(){
-                let cust_id = "${logincust.cust_id}";
-                let item_id = "${detail.item_id}"
-                let cnt = parseInt($('#inputcnt').val());
-
-                $.ajax({
-                    url: '/item/checkout',
-                    type: 'post',
-                    data: {cust_id: cust_id, item_id: item_id, cnt: cnt},
-                    success: function () {
-                        if(cust_id != '') {
-                            location.href="/item/checkout?cust_id="+cust_id;
-                        } else {
-                            location.href="/cust/login"
-                        }
-                    },
-                    error:()=>{
-                        alert("ajax에러")
-                    }
+                $('#detail_form').attr({
+                    action:'/item/checkout',
+                    method:'post'
                 });
-            });
+                $('#detail_form').submit();
+            })
+
         }
     };
     $(function () {
@@ -1746,17 +1731,18 @@
                                 <div class="row gx-5 mb-7">
                                     <div class="col-12 col-lg-auto">
                                         <!-- Quantity -->
-                                        <input type="number" id="inputcnt" class="form-control form-control-sm" name="inputcnt" value=${cnt}/>
+                                        <input type="number" id="inputcnt" class="form-control form-control-sm" name="cnt" value=${cnt}/>
                                     </div>
                                     <div class="col-12 col-lg">
                                         <!-- Submit -->
                                         <button type="button" class="btn w-60 btn-dark mb-2 cart_btn"
-                                                data-itemid="${obj.item_id}">
+                                                data-itemid="${detail.item_id}">
                                             장바구니 추가 <i class="fe fe-shopping-cart ms-2"></i>
                                         </button>
-                                        <input type="hidden" name="item_id" value="${obj.item_id}"/>
-                                        <button type="button" class="btn w-120 btn-dark mb-2 checkout_btn">
-                                            바로주문 하기 <i class="fe fe-shopping-cart ms-2"></i>
+                                        <input type="hidden" name="item_id" value="${detail.item_id}"/>
+                                        <input type="hidden" name="cust_id" value="${logincust.cust_id}"/>
+                                        <button type="submit" class="btn w-120 btn-dark mb-2 checkout_btn"/>
+                                            바로주문 하기 <i class="fe fe-shopping-bag ms-2"></i>
                                         </button>
 
                                         <!-- Wishlist -->

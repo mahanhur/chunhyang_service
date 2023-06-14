@@ -68,17 +68,29 @@
 
 </script>
 
-
 <script>
 <%--1:1채팅 상담 자바스크립트--%>
   let callcenter = {
     id:null,
     stompClient:null,
     init:function(){
-      this.id = $('#adm_id').text();
-      $("#connect").click(function() {
-        callcenter.connect();
+      $('#sendto').attr('disabled',true); //전송버튼 default값 사용불가 설정
+
+      //입력창에 내용 입력시 전송버튼 활성화
+      $('#totext').change( () => {
+        let to = $("#totext").val();
+         if(to != ""){
+            $('#sendto').attr('disabled',false);
+          };
       });
+/*      //전송버튼 클릭시 다시 비활성화(같은 내용으로 도배하지 못하도록 방지를 위해만듬)
+      $('#sendto').click( () => {
+          $('#sendto').attr('disabled',true);
+      });*/
+
+      this.id = $('#adm_id').text();
+       callcenter.connect();
+
       $("#disconnect").click(function() {
         callcenter.disconnect();
       });
@@ -97,9 +109,9 @@
 
         this.subscribe('/send/to/'+sid, function(msg) {
           $("#to").prepend(
-                  "<h4>" + JSON.parse(msg.body).sendid +":"+
+                  "<h6>" + JSON.parse(msg.body).sendid +":"+
                   JSON.parse(msg.body).content1
-                  + "</h4>");
+                  + "</h6>");
         });
       });
     },
@@ -112,9 +124,9 @@
     },
     setConnected:function(connected){
       if (connected) {
-        $("#status").text("Connected");
+        $("#status").text("연결중");
       } else {
-        $("#status").text("Disconnected");
+        $("#status").text("연결끊김");
       }
     },
 
@@ -157,14 +169,16 @@
             <h4 style="text-align: center">채팅 상담</h4>
             <h1 id="adm_id" hidden>${logincust.cust_id}</h1>
             <hr>
-            <H8 id="status">Status</H8>
-            <button id="connect">Connect</button>
-            <button id="disconnect">Disconnect</button>
+            <H8 id="status">대기중</H8>
+            <div hidden>
+              <button id="connect">연결중</button>
+              <button id="disconnect">연결끊김</button>
+            </div>
 
             <input type="text" id="target" value="유성진" hidden> <%--상담센터직원 이름 정해서 넣기--%>
-            <input type="text" id="totext" style="margin-top: 10px"><button id="sendto">전송</button>
-
-            <div id="to" col-lg-7 style="margin-top: 10px"></div>
+            <input type="text" id="totext" style="margin-top: 10px; height: 55px">
+            <button class="btn btn-outline-dark" id="sendto" >전송</button>
+            <div id="to" col-lg-7 style="margin-top: 10px;"></div>
           </div>
         </div>
       </div>
@@ -2164,7 +2178,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link">꽃사전</a>
+          <a class="nav-link" href="/flowerdictionary/all">꽃사전</a>
         </li>
 
         <!-- ------------------------------------------------------------------- -->
@@ -2279,7 +2293,7 @@
                   <div class="card-body">
                     <ul class="list-styled fs-sm">
                       <li class="list-styled-item">
-                        <a class="list-styled-link" href="/cust/account-orders">My account</a>
+                        <a class="list-styled-link" href="/cust/account-orders?cust_id=${logincust.cust_id}">My account</a>
                       </li>
                       <li class="list-styled-item">
                         <a class="list-styled-link" href="/cust/logout">로그아웃</a>
