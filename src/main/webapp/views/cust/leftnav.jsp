@@ -3,8 +3,8 @@
 
 <nav class="mb-10 mb-md-0">
   <div class="list-group list-group-sm list-group-strong list-group-flush-x">
-    <a class="list-group-item list-group-item-action dropend-toggle active" href="/cust/account-orders?cust_id=${logincust.cust_id}">
-      Orders
+    <a class="list-group-item list-group-item-action dropend-toggle active" href="/order/all?cust_id=${logincust.cust_id}">
+      주문 정보
     </a>
     <a class="list-group-item list-group-item-action dropend-toggle" href="/cust/account-subsinfo?cust_id=${logincust.cust_id}">
       구독 정보
