@@ -28,6 +28,8 @@ public class ItemController {
     RecommandItemService recommandItemService;
     @Autowired
     AddrService addrService;
+    @Autowired
+    PointService pointService;
 
 
     String dir = "item/";
@@ -119,8 +121,11 @@ public class ItemController {
 
             log.info("=========================" +item.toString());
 
-//            Integer point = pointService.presentpoint(cust_id);
-//            model.addAttribute("point", point);
+            Integer point = pointService.presentpoint(cust_id);
+            model.addAttribute("point", point);
+
+            int total = item.getItem_price() * cnt;
+            model.addAttribute("totalprice",total);
 
         } else {
             return "redirect:/cust/login";

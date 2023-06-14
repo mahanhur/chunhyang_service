@@ -31,4 +31,10 @@ public class Orderdetail {
         this.item_id = item_id;
         this.order_cnt = order_cnt;
     }
+
+    public Orderdetail(int order_id, int item_id, int order_cnt) {
+        this.order_id = order_id;
+        this.item_id = item_id;
+        this.order_cnt = order_cnt;
+    }
 }

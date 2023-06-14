@@ -243,7 +243,7 @@ height: 80px;
             <!-- List group -->
             <div class="list-group list-group-sm mb-7">
 
-              <select class="form-select" id="selectbox">
+              <select class="form-select addr_selected" id="selectbox">
                 <option selected>원하시는 배송지를 선택해주시기 바랍니다.</option>
                 <c:forEach items="${addrlist}" var="obj" varStatus="status">
                   <option value="${obj.addr_id}">${obj.addr_name}</option>
@@ -305,14 +305,18 @@ height: 80px;
             <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
               <c:forEach var="obj" items="${clist}">
                 <c:set var="total" value="${total +(obj.cnt * obj.item_price)}"/>
-                <c:set var="point" value="1000"/>
+                <c:set var="point" value="${point}"/>
                 <c:set var="payment" value="${total - point}"/>
               </c:forEach>
               <li class="list-group-item d-flex">
                 <span>주문금액</span> <span class="ms-auto fs-sm">${total}</span>
               </li>
               <li class="list-group-item d-flex">
-                <span>사용포인트</span> <button>포인트조회</button><span class="ms-auto fs-sm">0</span>
+                <div>
+                  <span>사용포인트</span><br/>
+                  <span style="font-size: 12px;">(보유 포인트 : <span id="getpoint">${point}</span>)</span>
+                </div>
+                <input class="ms-auto fs-sm " id="usepoint"/>
               </li>
               <li class="list-group-item d-flex fs-lg fw-bold">
                 <span>결제금액</span> <span class="ms-auto">${payment}</span>

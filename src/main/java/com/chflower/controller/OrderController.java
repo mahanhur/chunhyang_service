@@ -81,13 +81,18 @@ public class OrderController {
 
 
     @RequestMapping("/success")
-    public String success(Model model,HttpSession session, int item_id, int order_amount, int minus_point, int pay_amount, int addr_id) throws Exception {
+    public String success(Model model,HttpSession session, int item_id, int order_amount, int minus_point, int pay_amount, int order_cnt, int addr_id) throws Exception {
+        log.info("======================="+item_id+order_amount+minus_point+pay_amount+order_cnt);
         Cust cust = (Cust) session.getAttribute("logincust");
         String cust_id = cust.getCust_id();
         String order_name = cust.getCust_name();
         String order_phone = cust.getPhone();
 
-        Order order = new Order();
+        Addr addr = addrService.get(addr_id);
+        String od_addr1 = addr.getDef_addr1();
+        String od_addr2 = addr.getDef_addr2();
+
+            Order order = new Order(cust_id, order_amount, minus_point, pay_amount, order_name, order_phone, od_addr1, od_addr2);
             //order 적재
             orderService.register(order);
             int order_id = orderService.getlast();
@@ -101,8 +106,8 @@ public class OrderController {
                 pointService.minuspoint(point);
             }
             //orderdetail 적재
-
-
+            Orderdetail orderdetail = new Orderdetail(order_id, item_id, order_cnt);
+            orderService.register(orderdetail);
 
         model.addAttribute("center",dir+"success");
         return "index";
