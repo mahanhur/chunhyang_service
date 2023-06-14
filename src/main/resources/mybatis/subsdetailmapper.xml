@@ -10,15 +10,21 @@
     <select id="get2" parameterType="int" resultType="subsdetail">
         SELECT * FROM subsdetail WHERE subs_id=#{subs_id}
     </select>
+    <select id="get3" parameterType="int" resultType="subsdetail">
+        SELECT * FROM subsdetail WHERE subsdetail_id=#{subsdetail_id}
+    </select>
     <select id="selectall" resultType="subsdetail">
         SELECT * FROM subsdetail
+    </select>
+    <select id="getlast" resultType="int">
+        SELECT MAX(subsdetail_id) from subsdetail
     </select>
     <insert id="insert" parameterType="subsdetail">
         INSERT INTO subsdetail VALUES(subsdetail_seq.nextval, #{subs_id}, #{cust_id}, #{receiver}, #{receiver_phone}, #{rec_add1}, #{rec_add2}, #{subs_memo}, #{subs_duedate})
     </insert>
     <update id="custupdate" parameterType="subsdetail">
         UPDATE subsdetail
-        SET receiver=#{receiver},receiver_phone=#{receiver_phone},rec_add1=#{rec_add1},rec_add2=#{rec_add2}, subs_memo=#{subs_memo}
+        SET receiver=#{receiver},receiver_phone=#{receiver_phone},rec_add1=#{rec_add1},rec_add2=#{rec_add2}, subs_memo=#{subs_memo}, subs_duedate=#{subs_duedate}
         WHERE subsdetail_id = #{subsdetail_id}
     </update>
     <update id="dateupdate" parameterType="subsdetail">

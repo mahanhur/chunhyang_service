@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chflower.mapper.DelinfoMapper">
+
+    <select id="subsselect" parameterType="int" resultType="delinfo">
+        select del_id, subsdetail_id, order_id, invoice_id, del_startdate, del_findate,
+               case when del_state = 1 then '배송대기'
+                    when del_state = 2 then '배송중'
+                    when del_state = 3 then '배송완료'
+                    else '기타' end as del_state,
+               case when del_com = 1 then 'CJ대한통운'
+                    when del_com = 2 then '한진택배'
+                    when del_com = 3 then '우체국택배'
+                    when del_com = 4 then '기타'
+                    else '' end as del_com
+        from delinfo
+        where subsdetail_id=#{subsdetail_id}
+    </select>
+    <select id="count" resultType="delinfo">
+    </select>
+    <select id="selectall" resultType="delinfo">
+        select del_id, subsdetail_id, order_id, invoice_id, del_startdate, del_findate,
+               case when del_state = 1 then '배송대기'
+                    when del_state = 2 then '배송중'
+                    when del_state = 3 then '배송완료'
+                    else '기타' end as del_state,
+               case when del_com = 1 then 'CJ대한통운'
+                    when del_com = 2 then '한진택배'
+                    when del_com = 3 then '우체국택배'
+                    when del_com = 4 then '기타'
+                    else '' end as del_com
+        from delinfo
+    </select>
+    <insert id="insert" parameterType="delinfo">
+        INSERT INTO delinfo VALUES(delinfo_seq.NEXTVAL, #{subsdetail_id}, null, 1, null, null, null, null)
+    </insert>
+    <update id="update" parameterType="delinfo">
+    </update>
+    <delete id="delete" parameterType="int">
+    </delete>
+
+</mapper>

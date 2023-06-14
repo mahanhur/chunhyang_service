@@ -1,6 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<script>
+  let subsinfo = {
+    init: function() {
+      this.click();
+    },
+    click: function() {
+      $('.modala').click(function() {
+        let subs_id = $(this).data('subsid'); // data-subsid 속성 값 가져오기
+        $.ajax({
+          url: '/cust/paymentimpl',
+          method: 'post',
+          data: {
+            subs_id: subs_id
+          },
+          success: function(data) {
+            $('.modalp1').html(data.pay_id);
+            switch (data.pay_opt) {
+              case 1 :
+                $('.modalp2').html("신용/체크카드");
+                break;
+              case 2 :
+                $('.modalp2').html("페이 간편결제");
+                break;
+              case 3 :
+                $('.modalp2').html("무통장입금");
+                break;
+            }
+            switch (data.pay_state) {
+              case 1 :
+                $('.modalp3').html("결제완료");
+                break;
+              case 2 :
+                $('.modalp3').html("미결제");
+                break;
+              case 3 :
+                $('.modalp3').html("환불");
+                break;
+            }
+          }
+        });
+      })
+    }
+  };
+
+  $(function() {
+    subsinfo.init();
+  });
+</script>
 
 
 <!-- BREADCRUMB -->
@@ -42,7 +92,11 @@
         <jsp:include page="/views/cust/leftnav.jsp"/>
 
       </div>
+
+
+
       <div class="col-12 col-md-9 col-lg-8 offset-lg-1">
+      <c:forEach items="${slist}" var="obj" varStatus="status">
 
         <!-- Order -->
         <div class="card card-lg mb-5 border">
@@ -55,23 +109,23 @@
                   <div class="col-6 col-lg-3">
 
                     <!-- Heading -->
-                    <h6 class="heading-xxxs text-muted">Order No:</h6>
+                    <h6 class="heading-xxxs text-muted">구독번호 :</h6>
 
                     <!-- Text -->
-                    <p class="mb-lg-0 fs-sm fw-bold">
-                      여기가 subsinfo
+                    <p class="mb-lg-0 fs-sm fw-bold psubs_id">
+                      ${obj.subs_id}
                     </p>
 
                   </div>
                   <div class="col-6 col-lg-3">
 
                     <!-- Heading -->
-                    <h6 class="heading-xxxs text-muted">Shipped date:</h6>
+                    <h6 class="heading-xxxs text-muted">구독 신청일 :</h6>
 
                     <!-- Text -->
                     <p class="mb-lg-0 fs-sm fw-bold">
                       <time datetime="2019-10-01">
-                        01 Oct, 2019
+                        ${obj.subs_rdate}
                       </time>
                     </p>
 
@@ -79,22 +133,22 @@
                   <div class="col-6 col-lg-3">
 
                     <!-- Heading -->
-                    <h6 class="heading-xxxs text-muted">Status:</h6>
+                    <h6 class="heading-xxxs text-muted">사용포인트 :</h6>
 
                     <!-- Text -->
                     <p class="mb-0 fs-sm fw-bold">
-                      Awating Delivery
+                      <fmt:formatNumber value="${obj.minus_point}" pattern="#,### pt"/>
                     </p>
 
                   </div>
                   <div class="col-6 col-lg-3">
 
                     <!-- Heading -->
-                    <h6 class="heading-xxxs text-muted">Order Amount:</h6>
+                    <h6 class="heading-xxxs text-muted">결제금액 :</h6>
 
                     <!-- Text -->
                     <p class="mb-0 fs-sm fw-bold">
-                      $259.00
+                        <fmt:formatNumber value="${obj.subs_pay_amount}" pattern="#,###원"/>
                     </p>
 
                   </div>
@@ -106,11 +160,13 @@
           <div class="card-footer">
 
             <!-- Heading -->
-            <h6 class="mb-7">Order Items (3)</h6>
+            <h6 class="mb-7">구독 신청상품</h6>
 
             <!-- Divider -->
             <hr class="my-5">
 
+            <c:forEach items="${ilist}" var="iobj">
+              <c:if test="${iobj.subsitem_id == obj.subsitem_id}">
             <!-- List group -->
             <ul class="list-group list-group-lg list-group-flush-y list-group-flush-x">
               <li class="list-group-item">
@@ -118,179 +174,88 @@
                   <div class="col-4 col-md-3 col-xl-2">
 
                     <!-- Image -->
-                    <a href="product.html"><img src="assets/img/products/product-6.jpg" alt="..." class="img-fluid"></a>
+                    <a href="/subs/detail?subsitem_id=${iobj.subsitem_id}"><img src="/uimg/${iobj.subsitem_img}" alt="..." class="img-fluid"></a>
 
                   </div>
                   <div class="col">
 
                     <!-- Title -->
                     <p class="mb-4 fs-sm fw-bold">
-                      <a class="text-body" href="product.html">Cotton floral print Dress x 1</a> <br>
-                      <span class="text-muted">$40.00</span>
+                      <a class="text-body" href="/subs/detail?subsitem_id=${iobj.subsitem_id}">${iobj.subsitem_name}</a> <br>
+                      <span class="text-muted"><fmt:formatNumber value="${iobj.subsitem_price}" pattern="#,###원"/></span>
                     </p>
 
                     <!-- Text -->
                     <div class="fs-sm text-muted">
-                      Size: M <br>
-                      Color: Red
-                    </div>
-
-                  </div>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="row align-items-center">
-                  <div class="col-4 col-md-3 col-xl-2">
-
-                    <!-- Image -->
-                    <a href="product.html"><img src="assets/img/products/product-10.jpg" alt="..." class="img-fluid"></a>
-
-                  </div>
-                  <div class="col">
-
-                    <!-- Title -->
-                    <p class="mb-4 fs-sm fw-bold">
-                      <a class="text-body" href="product.html">Suede cross body Bag x 1</a> <br>
-                      <span class="text-muted">$49.00</span>
-                    </p>
-
-                    <!-- Text -->
-                    <div class="fs-sm text-muted">
-                      Color: Brown
-                    </div>
-
-                  </div>
-                </div>
-              </li>
-
-              <li class="list-group-item">
-                <div class="row align-items-center">
-                  <div class="col-4 col-md-3 col-xl-2">
-
-                    <!-- Image -->
-                    <a href="product.html"><img src="assets/img/products/product-48.jpg" alt="..." class="img-fluid"></a>
-
-                  </div>
-                  <div class="col">
-
-                    <!-- Title -->
-                    <p class="mb-4 fs-sm fw-bold">
-                      <a class="text-body" href="product.html">Sweatshirt with Pocket</a> <br>
-                      <span class="text-muted">$39.00</span>
-                    </p>
-
-                    <!-- Text -->
-                    <div class="fs-sm text-muted">
-                      Size: L <br>
-                      Color: Pink
+                        ${iobj.subsitem_content}
                     </div>
 
                   </div>
                 </div>
               </li>
             </ul>
+                <hr/>
+          <a href="#" class="btn btn-sm w-30 btn-outline-dark">배송정보상세</a>
+                <a href="#paymentmodal_${obj.subs_id}" class="btn btn-sm w-30 btn-outline-dark modala" data-bs-toggle="modal" data-subsid="${obj.subs_id}">결제정보상세</a>
+
+
+
+                <!-- 결제정보상세 modal-->
+                <div class="modal fade" id="paymentmodal_${obj.subs_id}" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+
+                      <!-- Close -->
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fe fe-x" aria-hidden="true"></i>
+                      </button>
+
+                      <!-- Content -->
+                      <div class="row gx-0">
+                        <div class="col-12 col-lg-5">
+
+                          <!-- Image -->
+                          <img class="img-fluid" src="/uimg/${iobj.subsitem_img}" alt="...">
+
+                        </div>
+                        <div class="col-12 col-lg-7 d-flex flex-column px-md-8">
+
+                          <!-- Body -->
+                          <div class="modal-body my-auto py-10" style="font-size:75%;">
+
+                            <!-- Heading -->
+                            <h4>결제정보 상세</h4>
+
+                            <!-- Text -->
+                            결제번호:<p class="mb-7 fs-lg modalp1">
+                            </p>
+                            결제일:<p class="mb-7 fs-lg">
+                              ${obj.subs_rdate}
+                            </p>
+                            결제수단:<p class="mb-7 fs-lg modalp2">
+                            </p>
+                            결제상태:<p class="mb-7 fs-lg modalp3">
+                            </p>
+                          </div>
+
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+<%--                modal end--%>
+
+              </c:if>
+            </c:forEach>
 
           </div>
+
         </div>
+        <br/>
 
-        <!-- Total -->
-        <div class="card card-lg mb-5 border">
-          <div class="card-body">
-
-            <!-- Heading -->
-            <h6 class="mb-7">Order Total</h6>
-
-            <!-- List group -->
-            <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
-              <li class="list-group-item d-flex">
-                <span>Subtotal</span>
-                <span class="ms-auto">$128.00</span>
-              </li>
-              <li class="list-group-item d-flex">
-                <span>Tax</span>
-                <span class="ms-auto">$0.00</span>
-              </li>
-              <li class="list-group-item d-flex">
-                <span>Shipping</span>
-                <span class="ms-auto">$8.00</span>
-              </li>
-              <li class="list-group-item d-flex fs-lg fw-bold">
-                <span>Total</span>
-                <span class="ms-auto">$136.00</span>
-              </li>
-            </ul>
-
-          </div>
-        </div>
-
-        <!-- Details -->
-        <div class="card card-lg border">
-          <div class="card-body">
-
-            <!-- Heading -->
-            <h6 class="mb-7">Billing & Shipping Details</h6>
-
-            <!-- Content -->
-            <div class="row">
-              <div class="col-12 col-md-4">
-
-                <!-- Heading -->
-                <p class="mb-4 fw-bold">
-                  Billing Address:
-                </p>
-
-                <p class="mb-7 mb-md-0 text-gray-500">
-                  Daniel Robinson, <br>
-                  3997 Raccoon Run, <br>
-                  Kingston, 45644, <br>
-                  United States, <br>
-                  6146389574
-                </p>
-
-              </div>
-              <div class="col-12 col-md-4">
-
-                <!-- Heading -->
-                <p class="mb-4 fw-bold">
-                  Shipping Address:
-                </p>
-
-                <p class="mb-7 mb-md-0 text-gray-500">
-                  Daniel Robinson, <br>
-                  3997 Raccoon Run, <br>
-                  Kingston, 45644, <br>
-                  United States, <br>
-                  6146389574
-                </p>
-
-              </div>
-              <div class="col-12 col-md-4">
-
-                <!-- Heading -->
-                <p class="mb-4 fw-bold">
-                  Shipping Method:
-                </p>
-
-                <p class="mb-7 text-gray-500">
-                  Standart Shipping <br>
-                  (5 - 7 days)
-                </p>
-
-                <!-- Heading -->
-                <p class="mb-4 fw-bold">
-                  Payment Method:
-                </p>
-
-                <p class="mb-0 text-gray-500">
-                  Debit Mastercard
-                </p>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+      </c:forEach>
       </div>
     </div>
   </div>

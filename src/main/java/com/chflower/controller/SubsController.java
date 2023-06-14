@@ -36,6 +36,8 @@ public class SubsController {
     PaymentService paymentService;
     @Autowired
     SubsdetailService subsdetailService;
+    @Autowired
+    DelinfoService delinfoService;
     String dir = "subs/";
 
     @RequestMapping("/subscribe")
@@ -131,6 +133,11 @@ public class SubsController {
                 for (int i = 0; i < subsitem_cnt; i++) {
                     Subsdetail subsdetail = new Subsdetail(subs_id, cust_id, receiver, reciver_phone, rec_add1, rec_add2, "", cal.getTime());
                     subsdetailService.register(subsdetail);
+                    //delinfo 적재
+                    int subsdetail_id = subsdetailService.getlast();
+                    Delinfo delinfo = new Delinfo(subsdetail_id);
+                    delinfoService.register(delinfo);
+                    //+14일
                     cal.add(Calendar.DATE, 14);
                 }
             } else if(duedate==null && duedate4 == null){
@@ -143,6 +150,10 @@ public class SubsController {
                 for (int i = 0; i < subsdetails.length; i++) {
                     subsdetails[i] = new Subsdetail(subs_id, cust_id, receiver, reciver_phone, rec_add1, rec_add2, "", duedates[i]);
                     subsdetailService.register(subsdetails[i]);
+                    //delinfo 적재
+                    int subsdetail_id = subsdetailService.getlast();
+                    Delinfo delinfo = new Delinfo(subsdetail_id);
+                    delinfoService.register(delinfo);
                 }
             } else {
                 Subsdetail[] subsdetails = new Subsdetail[7];
@@ -158,6 +169,10 @@ public class SubsController {
                 for (int i = 0; i < subsdetails.length; i++) {
                     subsdetails[i] = new Subsdetail(subs_id, cust_id, receiver, reciver_phone, rec_add1, rec_add2, "", duedates[i]);
                     subsdetailService.register(subsdetails[i]);
+                    //delinfo 적재
+                    int subsdetail_id = subsdetailService.getlast();
+                    Delinfo delinfo = new Delinfo(subsdetail_id);
+                    delinfoService.register(delinfo);
                 }
             }
         } catch (Exception e) {
