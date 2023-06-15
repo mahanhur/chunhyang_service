@@ -27,7 +27,19 @@
     today_form.init();
   })
 </script>
-
+<script>
+  /*팝업창*/
+  let weather = {
+    init:function (){
+      let popOption = "width =1000px"
+      let openurl = '/weather/weather'
+      window.open(openurl,'pop',popOption)
+    }
+  }
+  $(function (){
+    weather.init();
+  })
+</script>
 
 <!-- center  -->
 
