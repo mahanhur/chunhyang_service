@@ -381,342 +381,12 @@
         <li class="nav-item dropdown">
           <!-- Toggle -->
           <a class="nav-link"  href="/item/all">꽃선물</a>
-          <%--위에서 href 연결하려고 일단빼놈 data-bs-toggle="dropdown"--%>
-          <!-- Menu -->
-          <div class="dropdown-menu" style="min-width: 650px;">
-            <div class="card card-lg">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-
-                    <!-- Heading -->
-                    <div class="mb-5 fw-bold">Shop</div>
-
-                    <!-- Links -->
-                    <ul class="list-styled mb-7 fs-sm">
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./shop.jsp">Default</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./shop-topbar.jsp">Topbar</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./shop-collapse.jsp">Collapse</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./shop-simple.jsp">Simple</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./shop-masonry.jsp">Masonry</a>
-                      </li>
-                    </ul>
-
-                    <!-- Heading -->
-                    <div class="mb-5 fw-bold">Product</div>
-
-                    <!-- Links -->
-                    <ul class="list-styled fs-sm">
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./product.jsp">Default</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./product-images-left.jsp">Images Left</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./product-image-grid.jsp">Image Grid</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./product-image-slider.jsp">Image Slider</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./product-images-stacked.jsp">Images Stacked</a>
-                      </li>
-                    </ul>
-
-                  </div>
-                  <div class="col">
-
-                    <!-- Heading -->
-                    <div class="mb-5 fw-bold">Support</div>
-
-                    <!-- Links -->
-                    <ul class="list-styled mb-7 fs-sm">
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./shopping-cart.jsp">Shopping Cart</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./checkout_original.jsp">Checkout</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./order-completed.jsp">Order Completed</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./shipping-and-returns.jsp">Shipping & Returns</a>
-                      </li>
-                    </ul>
-
-                    <!-- Heading -->
-                    <div class="mb-5 fw-bold">Account</div>
-
-                    <!-- Links -->
-                    <ul class="list-styled fs-sm">
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="/cust/account-order.jsp">Order</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="/cust/account-orders.jsp">Orders</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./account-wishlist.jsp">Wishlist</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./account-personal-info.jsp">Personal Info</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./account-address.jsp">Addresses</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./account-address-edit.jsp">Addresses: New</a>
-                      </li>
-                    </ul>
-
-                  </div>
-                  <div class="col">
-
-                    <!-- Links -->
-                    <ul class="list-styled mb-7 fs-sm">
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./account-payment.jsp">Payment</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./account-payment-edit.jsp">Payment: New</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./account-payment-choose.jsp">Payment: Choose</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./auth.jsp">Auth</a>
-                      </li>
-                    </ul>
-
-                    <!-- Heading -->
-                    <div class="mb-5 fw-bold">Modals</div>
-
-                    <!-- Links -->
-                    <ul class="list-styled fs-sm">
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" data-bs-toggle="modal" href="#modalNewsletterHorizontal">
-                          Newsletter: Horizontal
-                        </a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" data-bs-toggle="modal" href="#modalNewsletterVertical">
-                          Newsletter: Vertical
-                        </a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" data-bs-toggle="modal" href="#modalProduct">
-                          Product
-                        </a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" data-bs-toggle="offcanvas" href="#modalSearch">
-                          Search
-                        </a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" data-bs-toggle="offcanvas" href="#modalShoppingCart">
-                          Shopping Cart
-                        </a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" data-bs-toggle="modal" href="#modalSizeChart">
-                          Size Chart
-                        </a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" data-bs-toggle="modal" href="#modalWaitList">
-                          Wait List
-                        </a>
-                      </li>
-                    </ul>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </li>
 
         <!-- ------------------------------------------------------------------- -->
         <li class="nav-item dropdown">
           <!-- Toggle -->
           <a class="nav-link"  href="/bipum/all">화병/비품</a>
-          <%--위에서 href 연결하려고 일단빼놈 data-bs-toggle="dropdown"--%>
-          <!-- Menu -->
-          <div class="dropdown-menu" style="min-width: 650px;">
-            <div class="card card-lg">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-
-                    <!-- Heading -->
-                    <div class="mb-5 fw-bold">Shop</div>
-
-                    <!-- Links -->
-                    <ul class="list-styled mb-7 fs-sm">
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./shop.jsp">Default</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./shop-topbar.jsp">Topbar</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./shop-collapse.jsp">Collapse</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./shop-simple.jsp">Simple</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./shop-masonry.jsp">Masonry</a>
-                      </li>
-                    </ul>
-
-                    <!-- Heading -->
-                    <div class="mb-5 fw-bold">Product</div>
-
-                    <!-- Links -->
-                    <ul class="list-styled fs-sm">
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./product.jsp">Default</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./product-images-left.jsp">Images Left</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./product-image-grid.jsp">Image Grid</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./product-image-slider.jsp">Image Slider</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./product-images-stacked.jsp">Images Stacked</a>
-                      </li>
-                    </ul>
-
-                  </div>
-                  <div class="col">
-
-                    <!-- Heading -->
-                    <div class="mb-5 fw-bold">Support</div>
-
-                    <!-- Links -->
-                    <ul class="list-styled mb-7 fs-sm">
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./shopping-cart.jsp">Shopping Cart</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./checkout_original.jsp">Checkout</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./order-completed.jsp">Order Completed</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./shipping-and-returns.jsp">Shipping & Returns</a>
-                      </li>
-                    </ul>
-
-                    <!-- Heading -->
-                    <div class="mb-5 fw-bold">Account</div>
-
-                    <!-- Links -->
-                    <ul class="list-styled fs-sm">
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="/cust/account-order.jsp">Order</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="/cust/account-orders.jsp">Orders</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./account-wishlist.jsp">Wishlist</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./account-personal-info.jsp">Personal Info</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./account-address.jsp">Addresses</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./account-address-edit.jsp">Addresses: New</a>
-                      </li>
-                    </ul>
-
-                  </div>
-                  <div class="col">
-
-                    <!-- Links -->
-                    <ul class="list-styled mb-7 fs-sm">
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./account-payment.jsp">Payment</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./account-payment-edit.jsp">Payment: New</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./account-payment-choose.jsp">Payment: Choose</a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" href="./auth.jsp">Auth</a>
-                      </li>
-                    </ul>
-
-                    <!-- Heading -->
-                    <div class="mb-5 fw-bold">Modals</div>
-
-                    <!-- Links -->
-                    <ul class="list-styled fs-sm">
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" data-bs-toggle="modal" href="#modalNewsletterHorizontal">
-                          Newsletter: Horizontal
-                        </a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" data-bs-toggle="modal" href="#modalNewsletterVertical">
-                          Newsletter: Vertical
-                        </a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" data-bs-toggle="modal" href="#modalProduct">
-                          Product
-                        </a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" data-bs-toggle="offcanvas" href="#modalSearch">
-                          Search
-                        </a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" data-bs-toggle="offcanvas" href="#modalShoppingCart">
-                          Shopping Cart
-                        </a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" data-bs-toggle="modal" href="#modalSizeChart">
-                          Size Chart
-                        </a>
-                      </li>
-                      <li class="list-styled-item">
-                        <a class="list-styled-link" data-bs-toggle="modal" href="#modalWaitList">
-                          Wait List
-                        </a>
-                      </li>
-                    </ul>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </li>
 
         <!-- ------------------------------------------------------------------- -->
@@ -724,6 +394,7 @@
           <a class="nav-link" href="/flower-class">플라워클래스</a>
         </li>
 
+        <!-- ------------------------------------------------------------------- -->
         <li class="nav-item">
           <a class="nav-link" href="/flowerdictionary/all">꽃사전</a>
         </li>
@@ -739,19 +410,19 @@
               <div class="card-body">
                 <ul class="list-styled fs-sm">
                   <li class="list-styled-item">
-                    <a class="list-styled-link" href="/about">소개 About</a>
-                  </li>
-                  <li class="list-styled-item">
-                    <a class="list-styled-link" href="/contact-us">Contact Us</a>
-                  </li>
-                  <li class="list-styled-item">
-                    <a class="list-styled-link" href="./store-locator.jsp">Store Locator</a>
+                    <a class="list-styled-link" href="/about">소개</a>
                   </li>
                   <li class="list-styled-item">
                     <a class="list-styled-link" href="/faq">FAQ</a>
                   </li>
                   <li class="list-styled-item">
+                    <a class="list-styled-link" href="/contact-us">Contact Us</a>
+                  </li>
+                  <li class="list-styled-item">
                     <a class="list-styled-link" href="/coming-soon">Coming Soon</a>
+                  </li>
+                  <li class="list-styled-item">
+                    <a class="list-styled-link" href="./store-locator.jsp">Store Locator</a>
                   </li>
                   <li class="list-styled-item">
                     <a class="list-styled-link" href="./404.jsp">404</a>
@@ -761,35 +432,7 @@
             </div>
           </div>
         </li>
-
         <!-- ------------------------------------------------------------------- -->
-<%--        <li class="nav-item dropdown">--%>
-<%--          <!-- Toggle -->--%>
-<%--          <a class="nav-link" data-bs-toggle="dropdown" href="#">Blog</a>--%>
-
-<%--          <!-- Menu -->--%>
-<%--          <div class="dropdown-menu">--%>
-<%--            <div class="card card-lg">--%>
-<%--              <div class="card-body">--%>
-<%--                <ul class="list-styled fs-sm">--%>
-<%--                  <li class="list-styled-item">--%>
-<%--                    <a class="list-styled-link" href="./blog.jsp">Blog</a>--%>
-<%--                  </li>--%>
-<%--                  <li class="list-styled-item">--%>
-<%--                    <a class="list-styled-link" href="./blog-post.jsp">Blog Post</a>--%>
-<%--                  </li>--%>
-<%--                </ul>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-<%--          </div>--%>
-<%--        </li>--%>
-
-
-<%--        <li class="nav-item">--%>
-<%--          <a class="nav-link" href="docs/getting-started.jsp">Docs</a>--%>
-<%--        </li>--%>
-        <!-- ------------------------------------------------------------------- -->
-
       </ul>
 
       <!-- Nav -->
@@ -915,7 +558,7 @@
         <div class="col-12 col-md-3">
 
           <!-- Heading -->
-          <h4 class="mb-6 text-white">Shopper.</h4>
+          <h4 class="mb-6 text-white">춘향전</h4>
 
           <!-- Social -->
           <ul class="list-unstyled list-inline mb-7 mb-md-0">
@@ -947,30 +590,7 @@
           </ul>
 
         </div>
-        <div class="col-6 col-sm">
 
-          <!-- Heading -->
-          <h6 class="heading-xxs mb-4 text-white">
-            Support
-          </h6>
-
-          <!-- Links -->
-          <ul class="list-unstyled mb-7 mb-sm-0">
-            <li>
-              <a class="text-gray-300" href="/contact-us">Contact Us</a>
-            </li>
-            <li>
-              <a class="text-gray-300" href="/faq">FAQs</a>
-            </li>
-            <li>
-              <a class="text-gray-300" data-bs-toggle="modal" href="#modalSizeChart">Size Guide</a>
-            </li>
-            <li>
-              <a class="text-gray-300" href="./shipping-and-returns.jsp">Shipping & Returns</a>
-            </li>
-          </ul>
-
-        </div>
         <div class="col-6 col-sm">
 
           <!-- Heading -->
@@ -981,22 +601,18 @@
           <!-- Links -->
           <ul class="list-unstyled mb-7 mb-sm-0">
             <li>
-              <a class="text-gray-300" href="./shop.jsp">Men's Shopping</a>
+              <a class="text-gray-300"  href="/subs/subscribe">정기구독</a>
             </li>
             <li>
-              <a class="text-gray-300" href="./shop.jsp">Women's Shopping</a>
+              <a class="text-gray-300"  href="/item/all">꽃선물</a>
             </li>
             <li>
-              <a class="text-gray-300" href="./shop.jsp">Kids' Shopping</a>
-            </li>
-            <li>
-              <a class="text-gray-300" href="./shop.jsp">Discounts</a>
+              <a class="text-gray-300"  href="/bipum/all">화병/비품</a>
             </li>
           </ul>
 
         </div>
         <div class="col-6 col-sm">
-
           <!-- Heading -->
           <h6 class="heading-xxs mb-4 text-white">
             Company
@@ -1005,22 +621,21 @@
           <!-- Links -->
           <ul class="list-unstyled mb-0">
             <li>
-              <a class="text-gray-300" href="/about">Our Story</a>
+              <a class="text-gray-300" href="/about">소개</a>
             </li>
             <li>
-              <a class="text-gray-300" href="#!">Careers</a>
+              <a class="text-gray-300" href="/faq">FAQ</a>
             </li>
             <li>
-              <a class="text-gray-300" href="#!">Terms & Conditions</a>
+              <a class="text-gray-300" href="/contact-us">Contact Us</a>
             </li>
             <li>
-              <a class="text-gray-300" href="#!">Privacy & Cookie policy</a>
+              <a class="text-gray-300" href="./store-locator.jsp">Store Locator</a>
             </li>
           </ul>
-
         </div>
-        <div class="col-6 col-sm">
 
+        <div class="col-6 col-sm">
           <!-- Heading -->
           <h6 class="heading-xxs mb-4 text-white">
             Contact
@@ -1029,7 +644,7 @@
           <!-- Links -->
           <ul class="list-unstyled mb-0">
             <li>
-              <a class="text-gray-300" href="#!">1-202-555-0105</a>
+              <a class="text-gray-300" href="#!">1-201-577-1577</a>
             </li>
             <li>
               <a class="text-gray-300" href="#!">1-202-555-0106</a>
@@ -1038,8 +653,8 @@
               <a class="text-gray-300" href="#!">help@shopper.com</a>
             </li>
           </ul>
-
         </div>
+
       </div>
     </div>
   </div>
