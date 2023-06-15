@@ -65,6 +65,11 @@ public class MainController {
         model.addAttribute("center","contact-us");
         return "index";
     }
+    @RequestMapping("/coming-soon")
+    public String coming_soon(Model model){
+        model.addAttribute("center","coming-soon");
+        return "index";
+    }
     @RequestMapping("/faq")
     public String faq(Model model){
         model.addAttribute("center","faq");
