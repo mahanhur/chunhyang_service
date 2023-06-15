@@ -36,6 +36,12 @@ public class MainController {
         model.addAttribute("center","about");
         return "index";
     }
+    @RequestMapping("/flower-class")
+    public String flower_class(Model model){
+        model.addAttribute("center","flower-class");
+        return "index";
+    }
+
     @RequestMapping("/account-address")  // home > My account > addresses
     public String account_address(Model model){
         model.addAttribute("center","account-address");

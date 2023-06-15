@@ -721,7 +721,7 @@
 
         <!-- ------------------------------------------------------------------- -->
         <li class="nav-item">
-          <a class="nav-link">플라워클래스</a>
+          <a class="nav-link" href="/flower-class">플라워클래스</a>
         </li>
 
         <li class="nav-item">
