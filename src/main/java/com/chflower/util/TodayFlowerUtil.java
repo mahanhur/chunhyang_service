@@ -20,7 +20,7 @@ public class TodayFlowerUtil {
     @RequestMapping("/test")
     public static Object todayFlower(String date) throws Exception {
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1390804/NihhsTodayFlowerInfo01/selectTodayFlowerView01");
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=pjrhqznAcan%2BfGEt6ZOzTLTu1UTfsBUzGvSxse5KrCwMQTu7N55A6ii6XBaMEP3HsdUSZfZ1B9jhOOgjYVsVHQ%3D%3D");
+        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=GzLKpZnRfILovTiCAh98dUSv8nzd9RCO86WuGrZVWLxuJQ0H%2Fyr47Xe5dqBSiBYqwrbGyYeouVulAc7BHHf7ZA%3D%3D");
         urlBuilder.append("&" + URLEncoder.encode("dataNo", "UTF-8") + "=" + URLEncoder.encode(date, "UTF-8"));
         URL url = new URL(urlBuilder.toString());
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -58,10 +58,10 @@ public class TodayFlowerUtil {
             String imgUrl1 = root.getElementsByTagName("imgUrl1").item(0).getTextContent();
             String imgUrl2 = root.getElementsByTagName("imgUrl2").item(0).getTextContent();
             String imgUrl3 = root.getElementsByTagName("imgUrl3").item(0).getTextContent();
-
-            // 추출한 정보 출력 또는 활용
-            System.out.println("꽃 이름: " + flowerName);
-            System.out.println("꽃 의미: " + flowerMeaning);
+            String dataNo = root.getElementsByTagName("dataNo").item(0).getTextContent();
+            String fUse = root.getElementsByTagName("fUse").item(0).getTextContent();
+            String fGrow = root.getElementsByTagName("fGrow").item(0).getTextContent();
+            String fType = root.getElementsByTagName("fType").item(0).getTextContent();
 
             // 필요한 정보를 적절한 형식으로 가공하여 반환
             JSONObject result = new JSONObject();
@@ -72,6 +72,10 @@ public class TodayFlowerUtil {
             result.put("imgUrl1", imgUrl1);
             result.put("imgUrl2", imgUrl2);
             result.put("imgUrl3", imgUrl3);
+            result.put("dataNo", dataNo);
+            result.put("fUse", fUse);
+            result.put("fGrow", fGrow);
+            result.put("fType", fType);
             return result;
     }
 }

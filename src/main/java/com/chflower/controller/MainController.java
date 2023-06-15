@@ -1,8 +1,6 @@
 package com.chflower.controller;
 
 import com.chflower.util.TodayFlowerUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -18,16 +16,16 @@ public class MainController {
     String adminserver;
 
     @RequestMapping("/")
-    public String main(Model model, HttpSession session) throws Exception {
+    public String main(Model model) throws Exception {
         LocalDate SeoulNow = LocalDate.now(ZoneId.of("Asia/Seoul"));
         int dayOfYear = SeoulNow.getDayOfYear()+1;
         String date = Integer.toString(dayOfYear);
         Object result = TodayFlowerUtil.todayFlower(date);
         model.addAttribute("todayFlower", result);
 
-        if (session.getAttribute("logincust")==null) {
-            return "redirect:/cust/login";
-        }
+//        if (session.getAttribute("logincust")==null) {
+//            return "redirect:/cust/login";
+//        }
         model.addAttribute("adminserver",adminserver);
 
         return "index";

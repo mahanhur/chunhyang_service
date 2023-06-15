@@ -19,14 +19,22 @@
           </div>
 
           <div class="col-12 col-lg-6 col-xl-7 py-9 px-md-9">
-            <div class="mb-7">
-                <span class="h5">질문제목</span></br>
-                ${gqna.qna_title}
-            </div>
-            <div class="mb-7">
-              <span class="h5">질문내용</span></br>
-              ${gqna.qna_contents}
-            </div>
+                <div class="mb-7">
+                    <span class="h5">질문제목</span></br>
+                    ${gqna.qna_title}
+                </div>
+                <div class="mb-7">
+                  <span class="h5">질문내용</span></br>
+                  ${gqna.qna_contents}
+                </div>
+              <div class="col-12 col-lg-6 col-xl-7">
+                <a href="#" data-bigpicture='{ "imgSrc": "/uimg/${gqna.qna_image1}"}'>
+                  <img src="/uimg/${gqna.qna_image1}" alt="..." width="50px">
+                </a>
+                <a href="#" data-bigpicture='{ "imgSrc": "/uimg/${gqna.qna_image2}"}'>
+                  <img src="/uimg/${gqna.qna_image2}" width="50px">
+                </a>
+              </div>
             <hr>
             <br>
             <div class="mb-7">

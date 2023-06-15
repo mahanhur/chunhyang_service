@@ -70,5 +70,9 @@
         FROM CART
         WHERE CART_ID = #{cart_id}
     </delete>
-
+    <delete id="delmycart" parameterType="String">
+        DELETE
+        FROM CART
+        WHERE CUST_ID = #{cust_id}
+    </delete>
 </mapper>

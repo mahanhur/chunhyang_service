@@ -98,7 +98,7 @@ public class CartController {
         return "redirect:/";
     }
     @RequestMapping("/checkout")
-    public String checkout(Model model, HttpSession session, String cust_id) throws Exception {
+    public String checkout(Model model, HttpSession session, String cust_id, int total) throws Exception {
         List<Cart> list = null;
         try {
             list = cartService.getMyCart(cust_id);
@@ -107,6 +107,7 @@ public class CartController {
         }
         log.info(list.toString());
         model.addAttribute("clist", list);
+        model.addAttribute("totalprice",total);
 
         Cust cust = (Cust) session.getAttribute("logincust");
         if(cust != null) {

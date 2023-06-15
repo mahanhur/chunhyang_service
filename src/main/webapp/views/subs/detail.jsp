@@ -2,6 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"
+        integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>
+
 
 <link rel="stylesheet" href="/assets/css/datepick.css" />
 <style>
@@ -68,8 +71,38 @@
       yearSuffix: '년'
     });
 
+    Kakao.init('c91de3a9ba7f48da3cb562c2fc973026');
+    Kakao.Share.createDefaultButton({
+      container: '#kakaotalk-sharing-btn',
+      objectType: 'commerce',
+      content: {
+        title: '${obj.subsitem_content}',
+        imageUrl:
+                'https://kukka.kr/static/kukkart_new/img/contents/subscribe_intro/lineup_003.png',
+        link: {
+          // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+          mobileWebUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${obj.subsitem_id}',
+          webUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${obj.subsitem_id}',
+        },
+      },
+      commerce: {
+        productName: '${obj.subsitem_name}',
+        regularPrice: ${obj.subsitem_price}
+      },
+      buttons: [
+        {
+          title: '자세히보기',
+          link: {
+            mobileWebUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${obj.subsitem_id}',
+            webUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${obj.subsitem_id}',
+          },
+        }
+      ],
+    });
 
   });
+
+
 </script>
 
 
@@ -127,6 +160,19 @@
                       <p class="mb-5">
                         <strong id="colorCaption">${obj.subsitem_content}</strong>
                       </p>
+<%--                      카카오공유하기--%>
+                      <a id="kakaotalk-sharing-btn" href="javascript:">
+                        <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+                             alt="카카오톡 공유 보내기 버튼" style="width:8%;"/>
+                      </a>
+                      <a id="facebook-sharing-btn" href="javascript:">
+                        <img src="/uimg/facebook.png"
+                             alt="페이스북 공유 보내기 버튼" style="width:10%;"/>
+                      </a>
+                      <a id="twitter-sharing-btn" href="javascript:">
+                        <img src="/uimg/twitter.png"
+                             alt="트위터 공유 보내기 버튼" style="width:8%;"/>
+                      </a>
                       <hr/>
                     </div>
 
@@ -285,12 +331,12 @@
                     <div class="list-group-item">
 
                       <!-- Toggle -->
-                      <a class="d-block dropdown-toggle text-body" data-bs-toggle="collapse" href="#productCollapseDetails">
+                      <a class="d-block dropdown-toggle text-body" data-bs-toggle="collapse" href="#productCollapsecheck">
                         <strong>확인 부탁드려요!</strong>
                       </a>
 
                       <!-- Collapse -->
-                      <div class="collapse" id="productCollapseDetails" data-bs-parent="#productCollapseParent">
+                      <div class="collapse" id="productCollapsecheck" data-bs-parent="#productCollapseParent">
                         <div class="pt-5 fs-sm text-gray-500">
 
                           <!-- Text -->
@@ -310,117 +356,49 @@
                       </div>
 
                     </div>
-                    <div class="list-group-item">
 
+                    <div class="list-group-item">
                       <!-- Toggle -->
-                      <a class="d-block dropdown-toggle text-body" data-bs-toggle="collapse" href="#productCollapseSize">
-                        <strong>Size & Fit</strong>
+                      <a class="d-block dropdown-toggle text-body" data-bs-toggle="collapse" href="#productCollapsedelmethod">
+                        <strong>배송방법 안내</strong>
                       </a>
 
                       <!-- Collapse -->
-                      <div class="collapse" id="productCollapseSize" data-bs-parent="#productCollapseParent">
+                      <div class="collapse" id="productCollapsedelmethod" data-bs-parent="#productCollapseParent">
                         <div class="pt-5 fs-sm">
-
-                          <!-- Heading -->
-                          <p class="text--body">
-                            <strong>Fitting information:</strong>
-                          </p>
-
-                          <!-- List -->
-                          <ul>
-                            <li>
-                              Upon seas hath every years have whose subdue creeping
-                              they're it were.
-                            </li>
-                            <li>
-                              Make great day bearing.
-                            </li>
-                            <li>
-                              For the moveth is days don't said days.
-                            </li>
-                          </ul>
-
-                          <!-- Heading -->
-                          <p class="text-body">
-                            <strong>Model measurements:</strong>
-                          </p>
-
-                          <!-- List -->
-                          <ul class="list-unstyled">
-                            <li>Height: 1.80 m</li>
-                            <li>Bust/Chest: 89 cm</li>
-                            <li>Hips: 91 cm</li>
-                            <li>Waist: 65 cm</li>
-                            <li>Model size: M</li>
-                          </ul>
-
-                          <!-- Size chart -->
-                          <p class="mb-0">
-                            <img src="assets/img/icons/icon-ruler.svg" alt="..." class="img-fluid"> <a class="text-reset text-decoration-underline ms-3" data-bs-toggle="modal" href="#modalSizeChart">Size chart</a>
-                          </p>
-
+                          <img src="/uimg/배송방법.jpg" style="width:78%;">
                         </div>
                       </div>
-
                     </div>
-                    <div class="list-group-item">
 
+                    <div class="list-group-item">
                       <!-- Toggle -->
-                      <a class="d-block dropdown-toggle text-body" data-bs-toggle="collapse" href="#productCollapseShipping">
-                        <strong>Shipping & Returns</strong>
+                      <a class="d-block dropdown-toggle text-body" data-bs-toggle="collapse" href="#productCollapseimport">
+                        <strong>원산지</strong>
                       </a>
 
                       <!-- Collapse -->
-                      <div class="collapse" id="productCollapseShipping" data-bs-parent="#productCollapseParent">
-                        <div class="pt-5 fs-sm text-gray-500">
-
-                          <!-- Table -->
-                          <div class="table-responsive">
-                            <table class="table table-bordered table-sm table-hover">
-                              <thead>
-                                <tr>
-                                  <th>Shipping Options</th>
-                                  <th>Delivery Time</th>
-                                  <th>Price</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>Standard Shipping</td>
-                                  <td>Delivery in 5 - 7 working days</td>
-                                  <td>$8.00</td>
-                                </tr>
-                                <tr>
-                                  <td>Express Shipping</td>
-                                  <td>Delivery in 3 - 5 working days</td>
-                                  <td>$12.00</td>
-                                </tr>
-                                <tr>
-                                  <td>1 - 2 day Shipping</td>
-                                  <td>Delivery in 1 - 2 working days</td>
-                                  <td>$12.00</td>
-                                </tr>
-                                <tr>
-                                  <td>Free Shipping</td>
-                                  <td>
-                                    Living won't the He one every subdue meat replenish
-                                    face was you morning firmament darkness.
-                                  </td>
-                                  <td>$0.00</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-
-                          <!-- Caption -->
-                          <p class="mb-0 text-gray-500">
-                            May, life blessed night so creature likeness their, for. <a class="text-body text-decoration-underline" href="#!">Find out more</a>
-                          </p>
-
+                      <div class="collapse" id="productCollapseimport" data-bs-parent="#productCollapseParent">
+                        <div class="pt-5 fs-sm">
+                          <img src="/uimg/원산지.jpg" style="width:78%;">
                         </div>
                       </div>
-
                     </div>
+
+                    <div class="list-group-item">
+                      <!-- Toggle -->
+                      <a class="d-block dropdown-toggle text-body" data-bs-toggle="collapse" href="#productCollapsecenter">
+                        <strong>고객센터 안내</strong>
+                      </a>
+
+                      <!-- Collapse -->
+                      <div class="collapse" id="productCollapsecenter" data-bs-parent="#productCollapseParent">
+                        <div class="pt-5 fs-sm">
+                          <img src="/uimg/고객센터안내.jpg" style="width:78%;">
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
 
                 </div>

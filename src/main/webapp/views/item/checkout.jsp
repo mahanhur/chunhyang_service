@@ -17,7 +17,7 @@
         $('#addr2').show();
         let selectval = $("#selectbox").val();
         $.ajax({
-          url:'/order/checkout/addrimpl',
+          url:'/subs/checkout/addrimpl',
           method:'post',
           data: {addr_id : selectval},
           success: function(data) {
@@ -32,7 +32,7 @@
 
       $('#usepoint').change(function() {
         use_point = $('#usepoint').val();
-        let finalPrice = ${item.item_price} - use_point;
+        let finalPrice = ${totalprice} - use_point;
         $('#finalprice').html(finalPrice);
       });
 
@@ -42,7 +42,7 @@
       // 카카오페이
       $('#kakaopay').click( function() {
         $.ajax({
-          url:'/order/kakaopay',
+          url:'/subs/kakaopay',
           dataType:'json',
           success: function(data) {
             let box = data.next_redirect_pc_url;
@@ -92,22 +92,17 @@
           buyer_addr : '서울특별시 영등포구 여의도동',
           buyer_postcode : '03752'
         }, function (rsp) { // callback
+          let addr_selected = $('.addr_selected option:selected').val();
           if (rsp.success) {
             var msg = '결제가 완료되었습니다.';
             alert(msg);
-            addr1 = $('#addr1').html();
-            addr2 = $('#addr2').html();
-            location.href = "/order/success?item_id=${item.item_id}&order_amount=${item.item_price}&minus_point="+use_point+"&pay_amount="+finalprice+"&addr_id="+addr_selected+"&duedate=<fmt:formatDate  value="${date}" pattern="yyyy-MM-dd" />"
+            location.href = "/order/success?item_id=${item.item_id}&order_amount=${totalprice}&minus_point="+use_point+"&pay_amount="+finalprice+"&addr_id="+addr_selected+"&order_cnt=${inputcnt}"
           } else {
-            var msg = '결제에 실패하였습니다.';
-            msg += '에러내용 : ' + rsp.error_msg;
+            let msg = rsp.error_msg;
             alert(msg);
-            addr1 = $('#addr1').html();
-            addr2 = $('#addr2').html();
-            let addr_selected = $('.addr_selected option:selected').val();
-            alert(addr_selected);
-            alert("${date}");
-            location.href = "/order/success?item_id=${item.item_id}&order_amount=${item.item_price}&minus_point="+use_point+"&pay_amount="+finalprice+"&addr_id="+addr_selected+"&duedate=<fmt:formatDate  value="${date}" pattern="yyyy-MM-dd" />"
+            // location.href = "/subs/fail?msg="+msg;
+            // 테스트용
+            location.href = location.href = "/order/success?item_id=${item.item_id}&order_amount=${totalprice}&minus_point="+use_point+"&pay_amount="+finalprice+"&addr_id="+addr_selected+"&order_cnt=${inputcnt}"
           }
         });
       });
@@ -236,7 +231,7 @@
             <!-- List group -->
             <div class="list-group list-group-sm mb-7">
 
-              <select class="form-select" id="selectbox">
+              <select class="form-select addr_selected" id="selectbox">
                 <option selected>원하시는 배송지를 선택해주시기 바랍니다.</option>
                 <c:forEach items="${addrlist}" var="obj" varStatus="status">
                   <option value="${obj.addr_id}">${obj.addr_name}</option>
@@ -246,6 +241,7 @@
                 <li class="list-group-item" id="addr1">주소1</li>
                 <li class="list-group-item" id="addr2">주소2</li>
               </ul>
+              <a href="#addrmodal" class="btn btn-sm w-30 btn-outline-dark" data-bs-toggle="modal">주소 추가</a>
             </div>
 
             <p class="mb-7 fs-xs text-gray-500">
@@ -302,10 +298,8 @@
           <div class="card-body">
             <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
               <c:set var="total" value="${total +(inputcnt * item.item_price)}"/>
-              <c:set var="point" value="1000"/>
-              <c:set var="payment" value="${total - point}"/>
               <li class="list-group-item d-flex">
-                <span>주문금액</span> <span class="ms-auto fs-sm">${total}</span>
+                <span>주문금액</span> <span id="totalprice" class="ms-auto fs-sm">${total}</span>
               </li>
               <li class="list-group-item d-flex">
                 <div>
@@ -315,7 +309,7 @@
                 <input class="ms-auto fs-sm " id="usepoint"/>
               </li>
               <li class="list-group-item d-flex fs-lg fw-bold">
-                <span>결제금액</span> <span class="ms-auto" id="finalprice">${payment}</span>
+                <span>결제금액</span> <span class="ms-auto" id="finalprice">${total}</span>
               </li>
             </ul>
           </div>
@@ -341,3 +335,69 @@
     </div>
   </div>
 </section>
+
+
+<!-- addr Modal -->
+<div class="modal fade" id="addrmodal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+
+      <!-- Close -->
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <i class="fe fe-x" aria-hidden="true"></i>
+      </button>
+
+      <!-- Content -->
+      <div class="row gx-0">
+        <div class="col-12 d-flex flex-column px-md-8">
+
+          <!-- Body -->
+          <div class="modal-body my-auto py-10">
+
+            <h6 class="mb-7">
+              주소 추가하기
+            </h6>
+
+            <form id="addr_form">
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label class="form-label" for="addr_name">주소지 이름 *</label>
+                    <input class="form-control" id="addr_name" type="text" name="addr_name" placeholder="주소지 이름을 입력해주세요" required>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <input class="form-control btn-outline-secondary" type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label class="form-label" for="addr_name">기본 주소 *</label>
+                    <input class="form-control" id="sample4_roadAddress" name="def_addr1" type="text" placeholder="기본 주소를 입력해주세요">
+                    <span id="guide" style="color:#999;display:none"></span>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="addr_name">상세 주소 *</label>
+                    <input class="form-control" id="sample4_detailAddress" name="def_addr2" type="text" placeholder="상세 주소를 입력해주세요">
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- Button -->
+              <button class="btn btn-dark" type="button" id="addradd_btn">
+                주소 추가
+              </button>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!-- addr Modal END-->
