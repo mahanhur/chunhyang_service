@@ -89,4 +89,10 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/pic")
+    public String pic(Model model) {
+        model.addAttribute("center", "pic");
+        return "index";
+    }
+
 }

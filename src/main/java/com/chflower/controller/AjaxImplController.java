@@ -3,11 +3,14 @@ package com.chflower.controller;
 import com.chflower.dto.Cust;
 import com.chflower.service.CartService;
 import com.chflower.service.CustService;
+import com.chflower.util.FileUploadUtil;
 import com.chflower.util.WeatherUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
@@ -23,6 +26,9 @@ public class AjaxImplController {
     CustService custservice;
     @Autowired
     CartService cartservice;
+
+    @Value("${uploadimgdir}")
+    String imgdir;
 
     @RequestMapping("/checkid")
     public Object checkid(String cust_id) throws Exception {
@@ -74,5 +80,12 @@ public class AjaxImplController {
         log.info(date);
 
         return  WeatherUtil.getWeather3("108",date);
+    }
+
+    @RequestMapping("/saveimg")
+    public String saveimg(MultipartFile file){
+        String filename = file.getOriginalFilename();
+        FileUploadUtil.saveFile(file, imgdir);
+        return filename;
     }
 }
