@@ -2,6 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnKt8_N4-FKOnhI_pSaDL7g_g-XI1-R9E"></script>
+<script src="./assets/js/vendor.bundle.js"></script>
+<script src="./assets/js/theme.bundle.js"></script>
+
 <style>
     #map01 > #map{
         width:1000px;
@@ -103,9 +107,8 @@
 
                     // 다시 선에 좌표 배열을 설정하여 클릭 위치까지 선을 그리도록 설정합니다
                     clickLine.setPath(path);
-
                     var distance = Math.round(clickLine.getLength());
-                    displayCircleDot(clickPosition, distance);
+                    // displayCircleDot(clickPosition, distance);
                 }
             });
 
@@ -161,7 +164,6 @@
 
                         var distance = Math.round(clickLine.getLength()), // 선의 총 거리를 계산합니다
                             content = getTimeHTML(distance); // 커스텀오버레이에 추가될 내용입니다
-
                         // 그려진 선의 거리정보를 지도에 표시합니다
                         showDistance(content, path[path.length-1]);
                     } else {
@@ -194,15 +196,16 @@
                     marker.setMap(null);
                     marker = null;
                 }
-
                 for(let i=0; i<=path.length; i+=1){
                     setTimeout(() =>{
                         addMarker(path[i])
                         delMarker(i-1)
-                        console.log(path)
+                        console.log(path[i-1])
+                        console.log(path.length)
                         }
                         ,i*500)
                     }
+
             });
 //================================================================================================================
             // 클릭으로 그려진 선을 지도에서 제거하는 함수입니다
@@ -346,9 +349,13 @@
 <body>
 <header class="py-14 jarallax" data-jarallax data-speed=".8" style="background-image: url(/assets/img/quick.gif);">
 </header>
-<div class="col-sm-8 text-left" style="margin:20px" >
-    <div class="container" id="map01" style="align-content: center">
-        <div id="map"></div>
+<section class="py-12">
+    <div class="container">
+        <div class="col-sm-8 text-left" style="margin:20px" >
+            <div class="container" id="map01" style="align-content: center">
+                <div id="map"></div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 </body>
