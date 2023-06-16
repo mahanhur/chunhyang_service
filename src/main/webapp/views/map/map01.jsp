@@ -90,7 +90,7 @@
 
 <div class="col-sm-8 text-left">
     <div class="container" id="map01" style="align-content: center">
-        <h3>퀵배송!</h3>
+        <h3>[만드는 중입니다. 너무힘들다]퀵배송!</h3>
         <div id="map"></div>
     </div>
 </div>

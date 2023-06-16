@@ -52,6 +52,50 @@
       border: 2px solid gray;
       overflow: auto;
     }
+    #scroll-btn {
+       font-family: 'Nanum Gothic', sans-serif;
+       opacity: 0;
+       width: 70px;
+       height: 70px;
+       color: dimgray;
+       background-color: white;
+       position: fixed;
+       bottom: 13%;
+       right: 3%;
+       border: 2px solid black;
+       font: bold 13px monospace;
+       transition: opacity 2s, transform 2s;
+     }
+    #scroll-btn.show {
+      opacity: 1;
+      transition: opacity 5s, transform 5s;
+    }
+    #scroll-btn2 {
+      font-family: 'Nanum Gothic', sans-serif;
+      opacity: 0;
+      width: 70px;
+      height: 70px;
+      color: dimgray;
+      background-color: white;
+      position: fixed;
+      bottom: 5%;
+      right: 3%;
+      border: 2px solid black;
+      font: bold 10px monospace;
+      transition: opacity 2s, transform 2s;
+    }
+    #scroll-btn2.show {
+      opacity: 1;
+      transition: opacity 5s, transform 5s;
+    }
+    #scroll-btn:hover {
+      color: white;
+      background-color: #222222;
+    }
+    #scroll-btn2:hover {
+      color: white;
+      background-color: #222222;
+    }
   </style>
 
 <script>
@@ -143,6 +187,31 @@
     callcenter.init();
   })
 
+</script>
+<script>
+  let chatbtn = {
+    init:function(){
+      const scrollBtn = document.createElement("button");
+      scrollBtn.innerHTML = "나와어울리는꽃?";
+      scrollBtn.setAttribute("id", "scroll-btn");
+      document.body.appendChild(scrollBtn);
+      scrollBtn.classList.add("show");
+      scrollBtn.addEventListener("click", function(){
+        location.href='/pic';
+      });
+      const scrollBtn2 = document.createElement("button");
+      scrollBtn2.innerHTML = "급할땐 퀵!!";
+      scrollBtn2.setAttribute("id", "scroll-btn2");
+      document.body.appendChild(scrollBtn2);
+      scrollBtn2.classList.add("show");
+      scrollBtn2.addEventListener("click", function(){
+        location.href='/map/map01';
+      });
+    }
+  };
+  $(function(){
+    chatbtn.init();
+  });
 </script>
 </head>
 
