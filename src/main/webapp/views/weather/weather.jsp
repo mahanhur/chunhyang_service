@@ -17,11 +17,6 @@
 </style>
 
 <script>
-    const button = document.querySelector('#btn');
-    button.addEventListener('click', () => {
-        console.log(button);
-    });
-
     let weather = {
         init:function (){
             $.ajax({
@@ -61,15 +56,6 @@
             </div>
         </div>
     </div>
-    <button class="button" id="btn" type="button">현재 날씨는?</button>
-    <dl>
-        <dt>기온</dt>
-        <dd class="temperature"></dd>
-        <dt>위치</dt>
-        <dd class="place"></dd>
-        <dt>설명</dt>
-        <dd class="description"></dd>
-    </dl>
 </body>
 
 
