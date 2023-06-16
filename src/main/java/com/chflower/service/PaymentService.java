@@ -48,4 +48,9 @@ public class PaymentService implements CHService<Integer, Payment> {
     public void iteminsert(Payment payment) {
         mapper.iteminsert(payment);
     }
+
+    public Payment selectorderid(Integer order_id) {
+        return mapper.selectorderid(order_id);
+    }
+
 }
