@@ -72,10 +72,7 @@
                 <div class="col-12 col-md-6">
                     <!-- 왼쪽 상단 Card 시작-->
                     <div class="card">
-                        <!-- Badge -->
-                        <div class="badge bg-success card-badge text-uppercase">
-                            ${yourlower.fMonthDay}
-                        </div>
+
                         <!-- 큰 이미지 시작 -->
                         <div class="mb-4" data-flickity='{"draggable": false, "fade": true}' id="productSlider">
 
@@ -130,6 +127,7 @@
                     <!-- 아이템 이름 -->
                     <h3 class="mb-2">꽃이름 [${yourlower.flowerName}]</h3></br>
                     <h5 class="mb-2">꽃말 <${yourlower.flowerMeaning}></h5>
+                    <!-- Badge -->
                     <hr>
                     <!-- 가격 및 재고 -->
                     <div class="mb-7">
