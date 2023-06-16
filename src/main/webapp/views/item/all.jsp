@@ -1503,13 +1503,18 @@
 </div>
 
 <!-- HEADER -->
-<header class="py-13 jarallax" data-jarallax data-speed=".8" style="background-image: url(/uimg/shopmainimage.jpg);">
+<header class="py-13 jarallax" data-jarallax data-speed=".8" style="background-image: url(/uimg/shopmainimage.jpg);height: 400px">
   <div class="container">
     <div class="row">
       <div class="col-12">
 
         <!-- Heading -->
-        <h3 class="text-center text-white">Women's Clothing</h3>
+        <h3 class="text-center text-white mb-8">일상의 행복을 만드는 확실한 방법</h3>
+        <h6 class="text-center text-white">따사로운 햇살을 닮은 꽃선물</h6>
+        <h6 class="text-center text-white mb-6">
+          <span style="color: yellow">#</span>사랑&nbsp;
+          <span style="color: yellow">#</span>응원&nbsp;
+          <span style="color: yellow">#</span>감사</h6>
 
         <!-- Breadcrumb -->
         <ol class="breadcrumb justify-content-center mb-0 text-center text-white fs-xs">
@@ -1517,7 +1522,7 @@
             <a class="text-reset" href="#">Home</a>
           </li>
           <li class="breadcrumb-item active">
-            Women's Clothing
+            item
           </li>
         </ol>
 
