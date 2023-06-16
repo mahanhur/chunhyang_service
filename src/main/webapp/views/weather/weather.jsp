@@ -17,6 +17,10 @@
 </style>
 
 <script>
+    const button = document.querySelector('#btn');
+    button.addEventListener('click', () => {
+        console.log(button);
+    });
 
     let weather = {
         init:function (){
@@ -44,10 +48,7 @@
     });
 </script>
 <script>
-    const button = document.querySelector('.button');
-    button.addEventListener('click', () => {
-        console.log(button);
-    });
+
 </script>
 <!-- CONTENT -->
 <body>
@@ -60,7 +61,7 @@
             </div>
         </div>
     </div>
-    <button class="button" type="button">현재 날씨는?</button>
+    <button class="button" id="btn" type="button">현재 날씨는?</button>
     <dl>
         <dt>기온</dt>
         <dd class="temperature"></dd>
@@ -69,7 +70,6 @@
         <dt>설명</dt>
         <dd class="description"></dd>
     </dl>
-    <script src="weather.js"></script>
 </body>
 
 
