@@ -1,6 +1,7 @@
 package com.chflower.controller;
 
 import com.chflower.util.TodayFlowerUtil;
+import com.chflower.util.WeatherUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -80,5 +81,18 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/weather/weather")
+    public String pop(Model model) throws Exception {
+        String result = WeatherUtil.getWeather1("109");
+        model.addAttribute("weatherinfo",result);
+        model.addAttribute("center","weather/weather");
+        return "index";
+    }
+
+    @RequestMapping("/pic")
+    public String pic(Model model) {
+        model.addAttribute("center", "pic");
+        return "index";
+    }
 
 }

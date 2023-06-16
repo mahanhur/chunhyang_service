@@ -11,7 +11,7 @@
 <!-- 3) Theme JS -->
 <script src="./assets/js/theme.bundle.js"></script>
 <script>
-    let register_review = {
+let register_review = {
         init:function (){
             $('#register_btn').click(function (){
                 var checkTitle = $('#review_title').val();

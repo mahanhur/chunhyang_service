@@ -3,13 +3,20 @@ package com.chflower.controller;
 import com.chflower.dto.Cust;
 import com.chflower.service.CartService;
 import com.chflower.service.CustService;
+import com.chflower.util.FileUploadUtil;
+import com.chflower.util.WeatherUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 @Slf4j
 @RestController
@@ -19,6 +26,9 @@ public class AjaxImplController {
     CustService custservice;
     @Autowired
     CartService cartservice;
+
+    @Value("${uploadimgdir}")
+    String imgdir;
 
     @RequestMapping("/checkid")
     public Object checkid(String cust_id) throws Exception {
@@ -54,5 +64,28 @@ public class AjaxImplController {
         }
 
     }
+    @RequestMapping("/weather2")
+    public Object weather2() throws Exception {
+        LocalDate SeoulNow = LocalDate.now(ZoneId.of("Asia/Seoul"));
 
+        // 포맷 정의
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
+        // 포맷 적용
+        String yearMonth = SeoulNow.format(formatter);
+
+        int dayOfMonth = SeoulNow.getDayOfMonth(); // 일(월 기준)
+        int day = dayOfMonth -1;
+
+        String date = yearMonth + day;
+        log.info(date);
+
+        return  WeatherUtil.getWeather3("108",date);
+    }
+
+    @RequestMapping("/saveimg")
+    public String saveimg(MultipartFile file){
+        String filename = file.getOriginalFilename();
+        FileUploadUtil.saveFile(file, imgdir);
+        return filename;
+    }
 }

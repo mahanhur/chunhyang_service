@@ -46,22 +46,12 @@
       }
     }
 
-    /* 회색네비바 숨김처리 */
-    @media (max-width:1199.98px) {
-      .navbar-topbar,
-      .navbar-expand-xl {
-        display: none;
-      }
-    }
-
-
-      #to {
+    #to {
       /*width: 200px;*/
       height: 200px;
       border: 2px solid gray;
       overflow: auto;
     }
-
   </style>
 
 <script>
@@ -271,7 +261,7 @@
         <li class="nav-item dropdown">
 
           <!-- Toggle -->
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" style="padding: 0;">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
             <img class="mb-1 me-1" src="/assets/img/flags/usa.svg" alt="..." /> United States
           </a>
 
@@ -292,7 +282,7 @@
         <li class="nav-item dropdown">
 
           <!-- Toggle -->
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" style="padding: 0;">USD</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">USD</a>
 
           <!-- Menu -->
           <div class="dropdown-menu min-w-0">
@@ -304,7 +294,7 @@
         <li class="nav-item dropdown">
 
           <!-- Toggle -->
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" style="padding: 0;">English</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">English</a>
 
           <!-- Menu -->
           <div class="dropdown-menu min-w-0">
@@ -318,35 +308,35 @@
       <!-- Nav -->
       <ul class="nav navbar-nav me-8">
         <li class="nav-item">
-          <a class="nav-link" href="./shipping-and-returns.jsp" style="padding-top: 0;padding-bottom: 0">Shipping</a>
+          <a class="nav-link" href="./shipping-and-returns.jsp">Shipping</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/faq" style="padding-top: 0;padding-bottom: 0">FAQ</a>
+          <a class="nav-link" href="/faq">FAQ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/contact-us" style="padding-top: 0;padding-bottom: 0">Contact</a>
+          <a class="nav-link" href="/contact-us">Contact</a>
         </li>
       </ul>
 
       <!-- Nav -->
       <ul class="nav navbar-nav flex-row">
         <li class="nav-item">
-          <a class="nav-link text-gray-350" href="#!" style="padding-top: 0;padding-bottom: 0">
+          <a class="nav-link text-gray-350" href="#!">
             <i class="fab fa-facebook-f"></i>
           </a>
         </li>
         <li class="nav-item ms-xl-n4">
-          <a class="nav-link text-gray-350" href="#!" style="padding-top: 0;padding-bottom: 0">
+          <a class="nav-link text-gray-350" href="#!">
             <i class="fab fa-twitter"></i>
           </a>
         </li>
         <li class="nav-item ms-xl-n4">
-          <a class="nav-link text-gray-350" href="#!" style="padding-top: 0;padding-bottom: 0">
+          <a class="nav-link text-gray-350" href="#!">
             <i class="fab fa-instagram"></i>
           </a>
         </li>
         <li class="nav-item ms-xl-n4">
-          <a class="nav-link text-gray-350" href="#!" style="padding-top: 0;padding-bottom: 0">
+          <a class="nav-link text-gray-350" href="#!">
             <i class="fab fa-medium"></i>
           </a>
         </li>
@@ -360,12 +350,12 @@
 <!-- -------------------------------------------------------------------------------- -->
 <!-- 흰색 상단네비 고정바 -->
 <!-- NAVBAR -->
-<nav class="sticky-nav navbar navbar-expand-lg navbar-light bg-white" style="position: sticky;top: 0px;background-color: white;z-index: 2;padding: 0">
+<nav class="sticky-nav navbar navbar-expand-lg navbar-light bg-white" style="position: sticky;top: 0px;background-color: white;z-index: 2">
   <div class="container">
 
     <!-- Brand -->
     <a class="navbar-brand" href="/">
-      <img src="/uimg/logo_txt.png" class="main-logo" style="height: 50px;margin: 10px">
+      <img src="/uimg/logo_txt.png" class="main-logo" style="height: 80px;">
     </a>
 
     <!-- Toggler -->
