@@ -27,1364 +27,573 @@
     today_form.init();
   })
 </script>
-<script>
-  /*팝업창*/
-  let weather = {
-    init:function (){
-      let popOption = "width =1000px"
-      let openurl = '/weather/weather'
-      window.open(openurl,'pop',popOption)
+
+<style>
+  @media (max-width: 1030px) {
+    .mainpage-recommend {
+      width: 50%;
+      height: 50%;
     }
   }
-  $(function (){
-    weather.init();
+  @media (max-width: 575.98px) {
+    .mainpage-recommend {
+      width: 50%;
+      height: 50%;
+    }
+  }
+</style>
+
+<%-- --------------------스크롤 이동-------------------- --%>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<style>
+  html {
+    /*overflow: hidden;*/
+  }
+
+  html, body {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+
+
+  #section3,
+  #section5 {
+    background-color: black;
+  }
+
+</style>
+<script>
+  var mHtml = $("html");
+  var page = 1;
+  mHtml.animate({scrollTop : 0},10);
+</script>
+<script>
+  $(window).on("wheel", function(e) {
+    if(mHtml.is(":animated")) return;
+    if(e.originalEvent.deltaY > 0) {
+      if(page == 4) return;
+      page++;
+    } else if(e.originalEvent.deltaY < 0) {
+      if(page == 1) return;
+      page--;
+    }
+    var posTop =(page-1) * $(window).height();
+    mHtml.animate({scrollTop : posTop});
   })
 </script>
+<%-- -------------------------------------------------- --%>
 
 <!-- center  -->
 
-<!-- PROMO ( 검은배너 ) -->
-<div class="py-3 bg-dark bg-pattern mb-4" style="position:sticky;z-index: 1">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
+<%--section1---------------------------------------------- --%>
+<div class="section" id="section1">
+  <div id = "section1_detail">
 
-        <!-- Text -->
-        <div class="text-center text-white">
+    <!-- PROMO ( 검은배너 ) -->
+    <div class="py-3 bg-dark bg-pattern" style="position:sticky;z-index: 1;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+
+            <!-- Text -->
+            <div class="text-center text-white">
               <span class="heading-xxs letter-spacing-xl">
                 🌸🌸[<span id="server_time"></span>] 오늘의 꽃은 <span style="text-decoration: underline white; cursor: pointer">
                   <a data-bs-toggle="modal" data-bs-target="#todayflower">${todayFlower.flowerName}</a>
                   </span> 입니다 🌸🌸
               </span>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- SLIDER -->
+    <section>
+      <div data-flickity='{"prevNextButtons": true, "fade": true, "autoPlay": 2000}'>
+        <!-- slide1 -->
+        <div class="w-100 bg-cover" style="background-image: url(/uimg/maintop1.jpg);">
+          <div class="container d-flex flex-column">
+            <div class="row justify-content-center align-items-center pt-15 pb-12" style="min-height:90vh!important">
+              <div class="col-12 col-md-7 col-lg-5 text-center text-black">
+
+                <!-- Heading -->
+                <h1 class="display-4 mb-10">
+                  Better Things In a Better Way
+                </h1>
+                <!-- Links -->
+                <a type="button" class="btn btn-outline-dark" href="/subs/subscribe" style="opacity: 70%;margin:10px">정기구독</a>
+                <a type="button" class="btn btn-outline-dark" href="/item/all" style="opacity: 70%;margin:10px">꽃선물</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- slide2 -->
+        <div class="w-100 bg-cover" style="background-image: url(/uimg/maintop2.jpg);">
+          <div class="container d-flex flex-column">
+            <div class="row justify-content-center align-items-center pt-15 pb-12" style="min-height:90vh!important">
+              <div class="col-12 col-md-7 col-lg-7 text-center text-black">
+
+                <!-- Heading -->
+                <h6>
+                  VASE EDITION
+                </h6>
+                <h1 class="display-4">
+                  PLEATS EDITION
+                </h1>
+                <h1 class="display-6 mb-5">
+                  화병&라그라스 패키지 오픈
+                </h1>
+                <h9 class="mb-13">
+                  꽃이 있어도 꽃이 없어도 공간에 무드를 더할거에요
+                </h9> <br/>
+
+                <!-- Button -->
+                <a class="btn btn-dark mt-10" href="/subscribe">
+                  Shop Now <i class="fe fe-arrow-right ms-2"></i>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- slide3 -->
+        <div class="w-100 bg-cover" style="background-image: url(/uimg/maintop3.jpg);">
+          <div class="container d-flex flex-column">
+            <div class="row justify-content-center align-items-center pt-15 pb-12" style="min-height:90vh!important">
+              <div class="col-12 col-md-7 col-lg-7 text-center text-black">
+
+                <!-- Heading -->
+                <h1 class="display-4">
+                  생기발랄한 마가렛
+                </h1>
+                <h9 class="mb-13">
+                  빈티지한 포인트를 주고싶다면 <br/>
+                  데이지의 한 종류, 마가렛을 만나보세요
+                </h9> <br/>
+
+                <!-- Button -->
+                <a class="btn btn-dark mt-10" href="/subscribe">
+                  Shop Now <i class="fe fe-arrow-right ms-2"></i>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 </div>
+<%--section1 end------------------------------------------ --%>
 
+<%--section2---------------------------------------------- --%>
+<div class="section" id="section2">
+  <div id = "section2_detail">
 
-<!-- center - maintop -->
-<section class="mt-n12" data-jarallax data-speed=".8" style="background-image: url(/uimg/maintop.jpg);z-index: 0">
-  <div class="container d-flex flex-column">
-    <div class="row justify-content-center align-items-center min-vh-100 pt-15 pb-12">
-      <div class="col-12 col-md-7 col-lg-5 text-center text-black">
+    <!-- Start 정기구독 -->
+    <div class="product-section" style="height:calc(100vh - 70px);padding:50px;margin-top: 20px">
+      <div>
+        <div class="row">
 
-        <!-- Heading -->
-        <h1 class="display-4 mb-10">
-          Better Things In a Better Way
-        </h1>
-        <!-- Links -->
-        <button type="button" class="btn btn-outline-dark" href="/subscribe" style="opacity: 70%;margin:10px">정기구독</button>
-        <button type="button" class="btn btn-outline-dark" href="/item/all" style="opacity: 70%;margin:10px">꽃선물</button>
+          <div class="mainpage-recommend" style="width:220px;margin-right:20px">
+            <h2 style="width: 200px;margin-top: 50px">정기구독</h2>
+            <p style="width: 200px;">100만명이 선택한 꽃 구독.<br/>이제 시작하세요</p>
+            <a type="button" class="btn btn-outline-dark" href="/subs/all" style="width: 190px;padding:10px">구독상품 전체보기</a>
+          </div>
 
+          <!-- 추천 구독상품 -->
+          <c:forEach var="recommandlist" items="${recommandlist}">
+            <div class="col-lg-3 mainpage-recommend">
+
+              <!-- Card -->
+              <div class="card mb-7">
+                <!-- Badge -->
+                <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">Sale</div>
+                <!-- Image -->
+                <div class="card-img">
+                  <!-- img태그-->
+                  <a  href="/subs/detail?subs_id=${recommandlist.item_id}">
+                    <img class="card-img-top card-img-back" src="/uimg/${recommandlist.item_img}" alt="...">
+                  </a>
+                  <!-- Actions -->
+                  <div class="card-actions">
+                    <span class="card-action">
+                      <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                        <i class="fe fe-eye"></i>
+                      </button>
+                    </span>
+                    <span class="card-action">
+                      <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                        <i class="fe fe-shopping-cart"></i>
+                      </button>
+                    </span>
+                    <span class="card-action">
+                      <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                        <i class="fe fe-heart"></i>
+                      </button>
+                    </span>
+                  </div><!-- Actions end -->
+                </div> <!-- Image end -->
+                <!-- Body -->
+                <div class="card-body px-0">
+                  <!-- Category -->
+                  <div class="fs-bold">
+                    <h6>${recommandlist.item_name}</h6>
+                  </div>
+                  <!-- Title -->
+                  <div class="fw-xs">
+                      ${recommandlist.item_content}
+                  </div>
+                  <!-- Price -->
+                  <div class="fw-bold text-muted">
+                      ${recommandlist.item_price}
+                  </div>
+                </div> <!-- Body end-->
+              </div> <!-- Card end-->
+
+            </div>
+          </c:forEach> <!-- 추천 구독상품 End -->
+
+        </div>
       </div>
-    </div>
+    </div> <!-- 꽃선물 End -->
+
   </div>
-</section>
+</div>
+<%--section2 end------------------------------------------ --%>
 
+<%--&lt;%&ndash;section3---------------------------------------------- &ndash;%&gt;--%>
+<%--<div class="section" id="section3">--%>
+<%--  <div id = "section3_detail">--%>
 
-<%--<section>--%>
-<%--  <div class="owl-carousel owl-single home-slider">--%>
-<%--    <div class="item">--%>
-<%--      <div class="untree_co-hero" style="background-image: url('/uimg/hero-slider-1-min.jpg');">--%>
-<%--        <div class="container">--%>
-<%--          <div class="row align-items-center">--%>
-<%--            <div class="col-lg-6">--%>
+<%--    <!-- Start 꽃선물 -->--%>
+<%--    <div class="product-section" style="height:calc(100vh - 70px)">--%>
+<%--      <div>--%>
+<%--        <div class="row">--%>
 
-<%--              <h1 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">'Blooming Today'</br>꽃다발 출시(선착순)</h1>--%>
-<%--              <div class="mb-5 text-white desc mx-auto" data-aos="fade-up" data-aos-delay="200">--%>
-<%--              </div>--%>
+<%--          <div class="mainpage-recommend" style="width:220px;margin-right:20px">--%>
+<%--            <h2 style="width: 200px;margin-top: 50px">꽃선물</h2>--%>
+<%--            <p style="width: 200px;">꽃 선물은 춘향의 전문 플로리스트에게 맡기세요</p>--%>
+<%--            <a type="button" class="btn btn-outline-dark" href="/item/all" style="width: 190px;padding:10px">꽃선물 전체보기</a>--%>
+<%--          </div>--%>
 
-<%--              <p class="mb-0" data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-outline-black">Explore now</a></p>--%>
+<%--          <!-- 추천 꽃선물 -->--%>
+<%--          <c:forEach var="recommandlist" items="${recommandlist}">--%>
+<%--            <div class="col-lg-3 mainpage-recommend">--%>
+
+<%--              <!-- Card -->--%>
+<%--              <div class="card mb-7">--%>
+<%--                <!-- Badge -->--%>
+<%--                <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">Sale</div>--%>
+<%--                <!-- Image -->--%>
+<%--                <div class="card-img">--%>
+<%--                  <!-- img태그-->--%>
+<%--                  <a  href="/subs/detail?item_id=${recommandlist.item_id}">--%>
+<%--                    <img class="card-img-top card-img-back" src="/uimg/${recommandlist.item_img}" alt="...">--%>
+<%--                  </a>--%>
+<%--                  <!-- Actions -->--%>
+<%--                  <div class="card-actions">--%>
+<%--                    <span class="card-action">--%>
+<%--                      <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">--%>
+<%--                        <i class="fe fe-eye"></i>--%>
+<%--                      </button>--%>
+<%--                    </span>--%>
+<%--                    <span class="card-action">--%>
+<%--                      <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">--%>
+<%--                        <i class="fe fe-shopping-cart"></i>--%>
+<%--                      </button>--%>
+<%--                    </span>--%>
+<%--                    <span class="card-action">--%>
+<%--                      <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">--%>
+<%--                        <i class="fe fe-heart"></i>--%>
+<%--                      </button>--%>
+<%--                    </span>--%>
+<%--                  </div><!-- Actions end -->--%>
+<%--                </div> <!-- Image end -->--%>
+<%--                <!-- Body -->--%>
+<%--                <div class="card-body px-0">--%>
+<%--                  <!-- Category -->--%>
+<%--                  <div class="fs-bold">--%>
+<%--                    <h6>${recommandlist.item_name}</h6>--%>
+<%--                  </div>--%>
+<%--                  <!-- Title -->--%>
+<%--                  <div class="fw-xs">--%>
+<%--                      ${recommandlist.item_content}--%>
+<%--                  </div>--%>
+<%--                  <!-- Price -->--%>
+<%--                  <div class="fw-bold text-muted">--%>
+<%--                      ${recommandlist.item_price}--%>
+<%--                  </div>--%>
+<%--                </div> <!-- Body end-->--%>
+<%--              </div> <!-- Card end-->--%>
 
 <%--            </div>--%>
-<%--          </div>--%>
+<%--          </c:forEach> <!-- 추천 꽃선물 End -->--%>
+
 <%--        </div>--%>
-<%--      </div> <!-- /.untree_co-hero -->--%>
-<%--    </div>--%>
+<%--      </div>--%>
+<%--    </div> <!-- 꽃선물 End -->--%>
 
 <%--  </div>--%>
-<%--</section>--%>
+<%--</div>--%>
+<%--&lt;%&ndash;section3 end------------------------------------------ &ndash;%&gt;--%>
+
+<%--&lt;%&ndash;section4&ndash;%&gt;--%>
+<%--<div class="section" id="section4">--%>
+<%--  <div id = "section4_detail">--%>
+
+<%--    <!-- Start 비품 -->--%>
+<%--    <div class="product-section" style="height: calc(100vh - 70px);padding: 50px;margin-top: 30px">--%>
+<%--      <div>--%>
+<%--        <div class="row">--%>
+
+<%--          <div class="mainpage-recommend" style="width:220px;margin-right:20px">--%>
+<%--            <h2 style="width: 200px;margin-top: 50px">화병/비품</h2>--%>
+<%--            <p style="width: 200px;">꽃이 있어도, 꽃이 없어도</p>--%>
+<%--            <a type="button" class="btn btn-outline-dark" href="/item/all" style="width: 190px;padding:10px">화병/비품 전체보기</a>--%>
+<%--          </div>--%>
+
+<%--          <!-- 추천 비품 -->--%>
+<%--          <c:forEach var="recommandlist" items="${recommandlist}">--%>
+<%--            <div class="col-lg-3 mainpage-recommend">--%>
+
+<%--              <!-- Card -->--%>
+<%--              <div class="card mb-7">--%>
+<%--                <!-- Badge -->--%>
+<%--                <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">Sale</div>--%>
+<%--                <!-- Image -->--%>
+<%--                <div class="card-img">--%>
+<%--                  <!-- img태그-->--%>
+<%--                  <a  href="/subs/detail?item_id=${recommandlist.item_id}">--%>
+<%--                    <img class="card-img-top card-img-back" src="/uimg/${recommandlist.item_img}" alt="...">--%>
+<%--                  </a>--%>
+<%--                  <!-- Actions -->--%>
+<%--                  <div class="card-actions">--%>
+<%--                    <span class="card-action">--%>
+<%--                      <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">--%>
+<%--                        <i class="fe fe-eye"></i>--%>
+<%--                      </button>--%>
+<%--                    </span>--%>
+<%--                    <span class="card-action">--%>
+<%--                      <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">--%>
+<%--                        <i class="fe fe-shopping-cart"></i>--%>
+<%--                      </button>--%>
+<%--                    </span>--%>
+<%--                    <span class="card-action">--%>
+<%--                      <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">--%>
+<%--                        <i class="fe fe-heart"></i>--%>
+<%--                      </button>--%>
+<%--                    </span>--%>
+<%--                  </div><!-- Actions end -->--%>
+<%--                </div> <!-- Image end -->--%>
+<%--                <!-- Body -->--%>
+<%--                <div class="card-body px-0">--%>
+<%--                  <!-- Category -->--%>
+<%--                  <div class="fs-bold">--%>
+<%--                    <h6>${recommandlist.item_name}</h6>--%>
+<%--                  </div>--%>
+<%--                  <!-- Title -->--%>
+<%--                  <div class="fw-xs">--%>
+<%--                      ${recommandlist.item_content}--%>
+<%--                  </div>--%>
+<%--                  <!-- Price -->--%>
+<%--                  <div class="fw-bold text-muted">--%>
+<%--                      ${recommandlist.item_price}--%>
+<%--                  </div>--%>
+<%--                </div> <!-- Body end-->--%>
+<%--              </div> <!-- Card end-->--%>
+
+<%--            </div>--%>
+<%--          </c:forEach> <!-- 추천 비품 End -->--%>
+
+<%--        </div>--%>
+<%--      </div>--%>
+<%--    </div> <!-- 비품 End -->--%>
+
+<%--  </div>--%>
+<%--</div>--%>
+
+<%--&lt;%&ndash;section4 end------------------------------------------ &ndash;%&gt;--%>
+
+<%--&lt;%&ndash;section5---------------------------------------------- &ndash;%&gt;--%>
+<%--<div class="section" id="section5">--%>
+<%--  <div id = "section5_detail">--%>
+<%--    <!-- BRANDS -->--%>
+<%--    <section class="py-12 bg-light">--%>
+<%--      <div class="container">--%>
+<%--        <div class="row">--%>
+<%--          <div class="col-12 text-center">--%>
+
+<%--            <!-- Heading -->--%>
+<%--            <h2 class="mb-3">@shopper</h2>--%>
+
+<%--            <!-- Subheading -->--%>
+<%--            <p class="mb-10 fs-lg text-gray-500">--%>
+<%--              Appear, dry there darkness they're seas, dry waters.--%>
+<%--            </p>--%>
+
+<%--          </div>--%>
+<%--        </div>--%>
+<%--        <div class="row mx-n1 mb-10">--%>
+<%--          <div class="col-6 col-sm-4 col-md px-1">--%>
 
-<!-- FEATURES (사진 밑 문구4개) -->
-<section class="pt-7">
-  <div class="container">
-    <div class="row pb-7 border-bottom">
-      <div class="col-12 col-md-6 col-lg-3">
+<%--            <!-- Card -->--%>
+<%--            <div class="card mb-2">--%>
 
-        <!-- Item -->
-        <div class="d-flex mb-6 mb-lg-0">
+<%--              <!-- Image -->--%>
+<%--              <img src="assets/img/products/product-16.jpg" alt="..." class="card-img">--%>
 
-          <!-- Icon -->
-          <i class="fe fe-truck fs-lg text-primary"></i>
+<%--              <!-- Overlay -->--%>
+<%--              <a class="card-img-overlay card-img-overlay-hover align-items-center bg-dark-40" href="blog-post.jsp">--%>
+<%--                <p class="my-0 fs-xxs text-center text-white">--%>
+<%--                  <i class="fe fe-heart me-2"></i> 248 <i class="fe fe-message-square me-2 ms-3"></i> 7--%>
+<%--                </p>--%>
+<%--              </a>--%>
 
-          <!-- Body -->
-          <div class="ms-6">
+<%--            </div>--%>
 
-            <!-- Heading -->
-            <h6 class="heading-xxs mb-1">
-              Free shipping
-            </h6>
+<%--          </div>--%>
+<%--          <div class="col-6 col-sm-4 col-md px-1">--%>
 
-            <!-- Text -->
-            <p class="mb-0 fs-sm text-muted">
-              From all orders over $100
-            </p>
+<%--            <!-- Card -->--%>
+<%--            <div class="card mb-2">--%>
 
-          </div>
+<%--              <!-- Image -->--%>
+<%--              <img src="assets/img/products/product-17.jpg" alt="..." class="card-img">--%>
 
-        </div>
+<%--              <!-- Overlay -->--%>
+<%--              <a class="card-img-overlay card-img-overlay-hover align-items-center bg-dark-40" href="blog-post.jsp">--%>
+<%--                <p class="my-0 fs-xxs text-center text-white">--%>
+<%--                  <i class="fe fe-heart me-2"></i> 248 <i class="fe fe-message-square me-2 ms-3"></i> 7--%>
+<%--                </p>--%>
+<%--              </a>--%>
 
-      </div>
-      <div class="col-12 col-md-6 col-lg-3">
+<%--            </div>--%>
 
-        <!-- Item -->
-        <div class="d-flex mb-6 mb-lg-0">
+<%--          </div>--%>
+<%--          <div class="col-6 col-sm-4 col-md px-1">--%>
 
-          <!-- Icon -->
-          <i class="fe fe-repeat fs-lg text-primary"></i>
+<%--            <!-- Card -->--%>
+<%--            <div class="card mb-2">--%>
 
-          <!-- Body -->
-          <div class="ms-6">
+<%--              <!-- Image -->--%>
+<%--              <img src="assets/img/products/product-18.jpg" alt="..." class="card-img">--%>
 
-            <!-- Heading -->
-            <h6 class="mb-1 heading-xxs">
-              Free returns
-            </h6>
+<%--              <!-- Overlay -->--%>
+<%--              <a class="card-img-overlay card-img-overlay-hover align-items-center bg-dark-40" href="blog-post.jsp">--%>
+<%--                <p class="my-0 fs-xxs text-center text-white">--%>
+<%--                  <i class="fe fe-heart me-2"></i> 248 <i class="fe fe-message-square me-2 ms-3"></i> 7--%>
+<%--                </p>--%>
+<%--              </a>--%>
 
-            <!-- Text -->
-            <p class="mb-0 fs-sm text-muted">
-              Return money within 30 days
-            </p>
+<%--            </div>--%>
 
-          </div>
+<%--          </div>--%>
+<%--          <div class="col-6 col-sm-4 col-md px-1">--%>
 
-        </div>
+<%--            <!-- Card -->--%>
+<%--            <div class="card mb-2">--%>
 
-      </div>
-      <div class="col-12 col-md-6 col-lg-3">
+<%--              <!-- Image -->--%>
+<%--              <img src="assets/img/products/product-19.jpg" alt="..." class="card-img">--%>
 
-        <!-- Item -->
-        <div class="d-flex mb-6 mb-md-0">
+<%--              <!-- Overlay -->--%>
+<%--              <a class="card-img-overlay card-img-overlay-hover align-items-center bg-dark-40" href="blog-post.jsp">--%>
+<%--                <p class="my-0 fs-xxs text-center text-white">--%>
+<%--                  <i class="fe fe-heart me-2"></i> 248 <i class="fe fe-message-square me-2 ms-3"></i> 7--%>
+<%--                </p>--%>
+<%--              </a>--%>
 
-          <!-- Icon -->
-          <i class="fe fe-lock fs-lg text-primary"></i>
+<%--            </div>--%>
 
-          <!-- Body -->
-          <div class="ms-6">
+<%--          </div>--%>
+<%--          <div class="col-6 col-sm-4 col-md px-1">--%>
 
-            <!-- Heading -->
-            <h6 class="mb-1 heading-xxs">
-              Secure shopping
-            </h6>
+<%--            <!-- Card -->--%>
+<%--            <div class="card">--%>
 
-            <!-- Text -->
-            <p class="mb-0 fs-sm text-muted">
-              You're in safe hands
-            </p>
+<%--              <!-- Image -->--%>
+<%--              <img src="assets/img/products/product-20.jpg" alt="..." class="card-img">--%>
 
-          </div>
+<%--              <!-- Overlay -->--%>
+<%--              <a class="card-img-overlay card-img-overlay-hover align-items-center bg-dark-40" href="blog-post.jsp">--%>
+<%--                <p class="my-0 fs-xxs text-center text-white">--%>
+<%--                  <i class="fe fe-heart me-2"></i> 248 <i class="fe fe-message-square me-2 ms-3"></i> 7--%>
+<%--                </p>--%>
+<%--              </a>--%>
 
-        </div>
+<%--            </div>--%>
 
-      </div>
-      <div class="col-12 col-md-6 col-lg-3">
+<%--          </div>--%>
+<%--          <div class="col-6 col-sm-4 col-md px-1">--%>
 
-        <!-- Item -->
-        <div class="d-flex">
+<%--            <!-- Card -->--%>
+<%--            <div class="card">--%>
 
-          <!-- Icon -->
-          <i class="fe fe-tag fs-lg text-primary"></i>
+<%--              <!-- Image -->--%>
+<%--              <img src="assets/img/products/product-21.jpg" alt="..." class="card-img">--%>
 
-          <!-- Body -->
-          <div class="ms-6">
+<%--              <!-- Overlay -->--%>
+<%--              <a class="card-img-overlay card-img-overlay-hover align-items-center bg-dark-40" href="blog-post.jsp">--%>
+<%--                <p class="my-0 fs-xxs text-center text-white">--%>
+<%--                  <i class="fe fe-heart me-2"></i> 248 <i class="fe fe-message-square me-2 ms-3"></i> 7--%>
+<%--                </p>--%>
+<%--              </a>--%>
 
-            <!-- Heading -->
-            <h6 class="mb-1 heading-xxs">
-              Over 10,000 Styles
-            </h6>
+<%--            </div>--%>
 
-            <!-- Text -->
-            <p class="mb-0 fs-sm text-muted">
-              We have everything you need
-            </p>
+<%--          </div>--%>
+<%--        </div>--%>
+<%--        <div class="row">--%>
+<%--          <div class="col-4 col-sm-3 col-md text-center">--%>
 
-          </div>
+<%--            <!-- Brand -->--%>
+<%--            <img src="assets/img/brands/gray-350/mango.svg" alt="..." class="img-fluid mb-7 mb-md-0">--%>
 
-        </div>
+<%--          </div>--%>
+<%--          <div class="col-4 col-sm-3 col-md text-center">--%>
 
-      </div>
-    </div>
-  </div>
-</section>
+<%--            <!-- Brand -->--%>
+<%--            <img src="assets/img/brands/gray-350/zara.svg" alt="..." class="img-fluid mb-7 mb-md-0">--%>
 
-<!-- BEST PICKS -->
-<section class="pt-12">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-10 col-lg-8 col-xl-6 text-center">
+<%--          </div>--%>
+<%--          <div class="col-4 col-sm-3 col-md text-center">--%>
 
-        <!-- Preheading -->
-        <h6 class="heading-xxs mb-3 text-gray-400">
-          New Collection
-        </h6>
+<%--            <!-- Brand -->--%>
+<%--            <img src="assets/img/brands/gray-350/reebok.svg" alt="..." class="img-fluid mb-7 mb-md-0">--%>
 
-        <!-- Heading -->
-        <h2 class="mb-4">Best Picks 2019</h2>
+<%--          </div>--%>
+<%--          <div class="col-4 col-sm-3 col-md text-center">--%>
 
-        <!-- Subheading -->
-        <p class="mb-10 text-gray-500">
-          Appear, dry there darkness they're seas, dry waters thing fly midst. Beast, above fly brought Very green.
-        </p>
+<%--            <!-- Brand -->--%>
+<%--            <img src="assets/img/brands/gray-350/asos.svg" alt="..." class="img-fluid mb-7 mb-md-0">--%>
 
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-md-5 col-lg-4 d-flex flex-column">
+<%--          </div>--%>
+<%--          <div class="col-4 col-sm-3 col-md text-center">--%>
 
-        <!-- Card -->
-        <div class="card mb-7 text-white" style="min-height: 400px; background-image: url(assets/img/products/product-1.jpg)">
+<%--            <!-- Brand -->--%>
+<%--            <img src="assets/img/brands/gray-350/stradivarius.svg" alt="..." class="img-fluid mb-6 mb-sm-0">--%>
 
-          <!-- Background -->
-          <div class="card-bg">
-            <div class="card-bg-img bg-cover" style="background-image: url(assets/img/products/product-1.jpg);"></div>
-          </div>
+<%--          </div>--%>
+<%--          <div class="col-4 col-sm-3 col-md text-center">--%>
 
-          <!-- Body -->
-          <div class="card-body my-auto text-center">
+<%--            <!-- Brand -->--%>
+<%--            <img src="assets/img/brands/gray-350/adidas.svg" alt="..." class="img-fluid mb-6 mb-sm-0">--%>
 
-            <!-- Heading -->
-            <h4 class="mb-0">Bags Collection</h4>
+<%--          </div>--%>
+<%--          <div class="col-4 col-sm-3 col-md text-center">--%>
 
-            <!-- Link -->
-            <a class="btn btn-link stretched-link text-reset" href="shop.jsp">
-              Shop Now <i class="fe fe-arrow-right ms-2"></i>
-            </a>
+<%--            <!-- Brand -->--%>
+<%--            <img src="assets/img/brands/gray-350/bershka.svg" alt="..." class="img-fluid">--%>
 
-          </div>
-
-        </div>
-
-      </div>
-      <div class="col-12 col-md-7 col-lg-8 d-flex flex-column">
-
-        <!-- Card -->
-        <div class="card mb-7 text-body" style="min-height: 400px;">
-
-          <!-- Background -->
-          <div class="card-bg">
-            <div class="card-bg-img bg-cover" style="background-image: url(assets/img/products/product-2.jpg);"></div>
-          </div>
-
-          <!-- Body -->
-          <div class="card-body my-auto px-md-10 text-center text-md-start">
-
-            <!-- Circle -->
-            <div class="card-circle card-circle-lg card-circle-end">
-              <strong>save</strong>
-              <span class="fs-4 fw-bold">30%</span>
-            </div>
-
-            <!-- Heading -->
-            <h4 class="mb-0">Printed men’s Shirts</h4>
-
-            <!-- Link -->
-            <a class="btn btn-link stretched-link px-0 text-reset" href="shop.jsp">
-              Shop Now <i class="fe fe-arrow-right ms-2"></i>
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-      <div class="col-12 col-md-7 col-lg-8 d-flex flex-column">
-
-        <!-- Card -->
-        <div class="card mb-7 mb-md-0 text-body" style="min-height: 400px;">
-
-          <!-- Background -->
-          <div class="card-bg">
-            <div class="card-bg-img bg-cover" style="background-image: url(assets/img/products/product-3.jpg);"></div>
-          </div>
-
-          <!-- Body -->
-          <div class="card-body my-auto px-md-10 text-center text-md-start">
-
-            <!-- Heading -->
-            <h4 class="mb-0">Basic women’s Dresses</h4>
-
-            <!-- Link -->
-            <a class="btn btn-link stretched-link px-0 text-reset" href="shop.jsp">
-              Shop Now <i class="fe fe-arrow-right ms-2"></i>
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-      <div class="col-12 col-md-5 col-lg-4 d-flex flex-column">
-
-        <!-- Card -->
-        <div class="card text-white" style="min-height: 400px;">
-
-          <!-- Background -->
-          <div class="card-bg">
-            <div class="card-bg-img bg-cover" style="background-image: url(assets/img/products/product-4.jpg);"></div>
-          </div>
-
-          <!-- Body -->
-          <div class="card-body my-auto text-center">
-
-            <!-- Heading -->
-            <h4 class="mb-0">Sweatshirts</h4>
-
-            <!-- Link -->
-            <a class="btn btn-link stretched-link text-reset" href="shop.jsp">
-              Shop Now <i class="fe fe-arrow-right ms-2"></i>
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TOP SELLERS -->
-<section class="py-12">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-10 col-lg-8 col-xl-6">
-
-        <!-- Heading -->
-        <h2 class="mb-4 text-center">Top month Sellers</h2>
-
-        <!-- Nav -->
-        <div class="nav justify-content-center mb-10">
-          <a class="nav-link active" href="#topSellersTab" data-bs-toggle="tab">Women</a>
-          <a class="nav-link" href="#topSellersTab" data-bs-toggle="tab">Men</a>
-          <a class="nav-link" href="#topSellersTab" data-bs-toggle="tab">Kids</a>
-        </div>
-
-      </div>
-    </div>
-    <div class="tab-content">
-      <div class="tab-pane fade show active" id="topSellersTab">
-        <div class="row">
-          <div class="col-6 col-md-4 col-lg-3">
-
-            <!-- Card -->
-            <div class="card mb-7">
-
-              <!-- Badge -->
-              <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">
-                New
-              </div>
-
-              <!-- Image -->
-              <div class="card-img">
-
-                <!-- Image -->
-                <a class="card-img-hover" href="product.jsp">
-                  <img class="card-img-top card-img-back" src="assets/img/products/product-120.jpg" alt="...">
-                  <img class="card-img-top card-img-front" src="assets/img/products/product-5.jpg" alt="...">
-                </a>
-
-                <!-- Actions -->
-                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                </div>
-
-              </div>
-
-              <!-- Body -->
-              <div class="card-body px-0">
-
-                <!-- Category -->
-                <div class="fs-xs">
-                  <a class="text-muted" href="shop.jsp">Shoes</a>
-                </div>
-
-                <!-- Title -->
-                <div class="fw-bold">
-                  <a class="text-body" href="product.jsp">
-                    Leather mid-heel Sandals
-                  </a>
-                </div>
-
-                <!-- Price -->
-                <div class="fw-bold text-muted">
-                  $129.00
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-
-            <!-- Card -->
-            <div class="card mb-7">
-
-              <!-- Image -->
-              <div class="card-img">
-
-                <!-- Image -->
-                <a class="card-img-hover" href="product.jsp">
-                  <img class="card-img-top card-img-back" src="assets/img/products/product-121.jpg" alt="...">
-                  <img class="card-img-top card-img-front" src="assets/img/products/product-6.jpg" alt="...">
-                </a>
-
-                <!-- Actions -->
-                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                </div>
-
-              </div>
-
-              <!-- Body -->
-              <div class="card-body px-0">
-
-                <!-- Category -->
-                <div class="fs-xs">
-                  <a class="text-muted" href="shop.jsp">Dresses</a>
-                </div>
-
-                <!-- Title -->
-                <div class="fw-bold">
-                  <a class="text-body" href="product.jsp">
-                    Cotton floral print Dress
-                  </a>
-                </div>
-
-                <!-- Price -->
-                <div class="fw-bold text-muted">
-                  $40.00
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-
-            <!-- Card -->
-            <div class="card mb-7">
-
-              <!-- Badge -->
-              <div class="badge bg-dark card-badge card-badge-start text-uppercase">
-                Sale
-              </div>
-
-              <!-- Image -->
-              <div class="card-img">
-
-                <!-- Image -->
-                <a class="card-img-hover" href="product.jsp">
-                  <img class="card-img-top card-img-back" src="assets/img/products/product-122.jpg" alt="...">
-                  <img class="card-img-top card-img-front" src="assets/img/products/product-7.jpg" alt="...">
-                </a>
-
-                <!-- Actions -->
-                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                </div>
-
-              </div>
-
-              <!-- Body -->
-              <div class="card-body px-0">
-
-                <!-- Category -->
-                <div class="fs-xs">
-                  <a class="text-muted" href="shop.jsp">Shoes</a>
-                </div>
-
-                <!-- Title -->
-                <div class="fw-bold">
-                  <a class="text-body" href="product.jsp">
-                    Leather Sneakers
-                  </a>
-                </div>
-
-                <!-- Price -->
-                <div class="fw-bold">
-                  <span class="fs-xs text-gray-350 text-decoration-line-through">$85.00</span>
-                  <span class="text-primary">$85.00</span>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-
-            <!-- Card -->
-            <div class="card mb-7">
-
-              <!-- Image -->
-              <div class="card-img">
-
-                <!-- Image -->
-                <a href="#!">
-                  <img class="card-img-top card-img-front" src="assets/img/products/product-8.jpg" alt="...">
-                </a>
-
-                <!-- Actions -->
-                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                </div>
-
-              </div>
-
-              <!-- Body -->
-              <div class="card-body px-0">
-
-                <!-- Category -->
-                <div class="fs-xs">
-                  <a class="text-muted" href="shop.jsp">Tops</a>
-                </div>
-
-                <!-- Title -->
-                <div class="fw-bold">
-                  <a class="text-body" href="product.jsp">
-                    Cropped cotton Top
-                  </a>
-                </div>
-
-                <!-- Price -->
-                <div class="fw-bold text-muted">
-                  $29.00
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-
-            <!-- Card -->
-            <div class="card mb-7">
-
-              <!-- Image -->
-              <div class="card-img">
-
-                <!-- Image -->
-                <a href="#!">
-                  <img class="card-img-top card-img-front" src="assets/img/products/product-9.jpg" alt="...">
-                </a>
-
-                <!-- Actions -->
-                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                </div>
-
-              </div>
-
-              <!-- Body -->
-              <div class="card-body px-0">
-
-                <!-- Category -->
-                <div class="fs-xs">
-                  <a class="text-muted" href="shop.jsp">Dresses</a>
-                </div>
-
-                <!-- Title -->
-                <div class="fw-bold">
-                  <a class="text-body" href="product.jsp">
-                    Floral print midi Dress
-                  </a>
-                </div>
-
-                <!-- Price -->
-                <div class="fw-bold text-muted">
-                  $50.00
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-
-            <!-- Card -->
-            <div class="card mb-7">
-
-              <!-- Badge -->
-              <div class="badge bg-dark card-badge card-badge-start text-uppercase">
-                Sale
-              </div>
-
-              <!-- Image -->
-              <div class="card-img">
-
-                <!-- Image -->
-                <a class="card-img-hover" href="product.jsp">
-                  <img class="card-img-top card-img-back" src="assets/img/products/product-123.jpg" alt="...">
-                  <img class="card-img-top card-img-front" src="assets/img/products/product-10.jpg" alt="...">
-                </a>
-
-                <!-- Actions -->
-                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                </div>
-
-              </div>
-
-              <!-- Body -->
-              <div class="card-body px-0">
-
-                <!-- Category -->
-                <div class="fs-xs">
-                  <a class="text-muted" href="shop.jsp">Bags</a>
-                </div>
-
-                <!-- Title -->
-                <div class="fw-bold">
-                  <a class="text-body" href="product.jsp">
-                    Suede cross body Bag
-                  </a>
-                </div>
-
-                <!-- Price -->
-                <div class="fw-bold">
-                  <span class="fs-xs text-gray-350 text-decoration-line-through">$79.00</span>
-                  <span class="text-primary">$49.00</span>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-
-            <!-- Card -->
-            <div class="card mb-7">
-
-              <!-- Image -->
-              <div class="card-img">
-
-                <!-- Image -->
-                <a class="card-img-hover" href="product.jsp">
-                  <img class="card-img-top card-img-back" src="assets/img/products/product-124.jpg" alt="...">
-                  <img class="card-img-top card-img-front" src="assets/img/products/product-11.jpg" alt="...">
-                </a>
-
-                <!-- Actions -->
-                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                </div>
-
-              </div>
-
-              <!-- Body -->
-              <div class="card-body px-0">
-
-                <!-- Category -->
-                <div class="fs-xs">
-                  <a class="text-muted" href="shop.jsp">Skirts</a>
-                </div>
-
-                <!-- Title -->
-                <div class="fw-bold">
-                  <a class="text-body" href="product.jsp">
-                    Printed A-line Skirt
-                  </a>
-                </div>
-
-                <!-- Price -->
-                <div class="fw-bold text-muted">
-                  $79.00
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-
-            <!-- Card -->
-            <div class="card mb-7">
-
-              <!-- Badge -->
-              <div class="badge bg-white text-body card-badge card-badge text-uppercase">
-                New
-              </div>
-
-              <!-- Image -->
-              <div class="card-img">
-
-                <!-- Image -->
-                <a href="#!">
-                  <img class="card-img-top card-img-front" src="assets/img/products/product-12.jpg" alt="...">
-                </a>
-
-                <!-- Actions -->
-                <div class="card-actions">
-                      <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                          <i class="fe fe-eye"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-shopping-cart"></i>
-                        </button>
-                      </span>
-                  <span class="card-action">
-                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                          <i class="fe fe-heart"></i>
-                        </button>
-                      </span>
-                </div>
-
-              </div>
-
-              <!-- Body -->
-              <div class="card-body px-0">
-
-                <!-- Category -->
-                <div class="fs-xs">
-                  <a class="text-muted" href="shop.jsp">Shoes</a>
-                </div>
-
-                <!-- Title -->
-                <div class="fw-bold">
-                  <a class="text-body" href="product.jsp">
-                    Heel strappy Sandals
-                  </a>
-                </div>
-
-                <!-- Price -->
-                <div class="fw-bold text-muted">
-                  $90.00
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-
-        <!-- Link  -->
-        <div class="mt-7 text-center">
-          <a class="link-underline" href="#!">Discover more</a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COUNTDOWN -->
-<section class="py-13 bg-cover" style="background-image: url(assets/img/covers/cover-4.jpg)">
-  <div class="container">
-    <div class="row justify-content-end">
-      <div class="col-12 col-md-8 col-lg-6">
-
-        <!-- Heading -->
-        <h3 class="mb-7">
-          Get -50% from <br />Summer Collection
-        </h3>
-
-        <!-- Counter -->
-        <div class="d-flex mb-9" data-countdown data-date="Dec 31, 2025 00:00:00">
-          <div class="text-center">
-            <div class="fs-1 fw-bolder text-primary" data-days>00</div>
-            <div class="heading-xxs text-muted">Days</div>
-          </div>
-          <div class="px-1 px-md-4">
-            <div class="fs-2 fw-bolder text-primary">:</div>
-          </div>
-          <div class="text-center">
-            <div class="fs-1 fw-bolder text-primary" data-hours>00</div>
-            <div class="heading-xxs text-muted">Hours</div>
-          </div>
-          <div class="px-1 px-md-4">
-            <div class="fs-2 fw-bolder text-primary">:</div>
-          </div>
-          <div class="text-center">
-            <div class="fs-1 fw-bolder text-primary" data-minutes>00</div>
-            <div class="heading-xxs text-muted">Minutes</div>
-          </div>
-          <div class="px-1 px-md-4">
-            <div class="fs-2 fw-bolder text-primary">:</div>
-          </div>
-          <div class="text-center">
-            <div class="fs-1 fw-bolder text-primary" data-seconds>00</div>
-            <div class="heading-xxs text-muted">Seconds</div>
-          </div>
-        </div>
-
-        <!-- Button -->
-        <a class="btn btn-dark" href="shop.jsp">
-          Shop Now <i class="fe fe-arrow-right ms-2"></i>
-        </a>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="py-12">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-10 col-lg-8 col-xl-6 text-center">
-
-        <!-- Preheading -->
-        <h6 class="heading-xxs mb-3 text-gray-400">
-          What buyers say
-        </h6>
-
-        <!-- Heading -->
-        <h2 class="mb-10">Latest buyers Reviews</h2>
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-
-        <!-- Slider -->
-        <div data-flickity='{"pageDots": true}'>
-          <div class="col-12 col-sm-8 col-md-6 col-lg-4 px-4">
-
-            <!-- Card -->
-            <div class="card-lg card border">
-              <div class="card-body">
-
-                <!-- Header -->
-                <div class="row align-items-center mb-6">
-                  <div class="col-4">
-
-                    <!-- Image -->
-                    <img src="assets/img/products/product-13.jpg" alt="..." class="img-fluid">
-
-                  </div>
-                  <div class="col-8 ms-n2">
-
-                    <!-- Preheading -->
-                    <a class="fs-xs text-muted" href="shop.jsp">
-                      Shoes
-                    </a>
-
-                    <!-- Heading -->
-                    <a class="d-block fw-bold text-body" href="product.jsp">
-                      Low top Sneakers
-                    </a>
-
-                    <!-- Rating -->
-                    <div class="rating fs-xxs text-warning" data-value="3">
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
-                <!-- Blockquote -->
-                <blockquote class="mb-0">
-                  <p class="text-muted">
-                    From creepeth said moved given divide make multiply of him shall itself also above second doesn't unto created saying land herb sea midst night wherein.
-                  </p>
-                  <footer class="fs-xs text-muted">
-                    Logan Edwards, <time datetime="2019-06-01">01 Jun 2019</time>
-                  </footer>
-                </blockquote>
-
-              </div>
-            </div>
-
-          </div>
-          <div class="col-12 col-sm-8 col-md-6 col-lg-4 px-4">
-
-            <!-- Card -->
-            <div class="card-lg card border">
-              <div class="card-body">
-
-                <!-- Header -->
-                <div class="row align-items-center mb-6">
-                  <div class="col-4">
-
-                    <!-- Image -->
-                    <img src="assets/img/products/product-14.jpg" alt="..." class="img-fluid">
-
-                  </div>
-                  <div class="col-8 ms-n2">
-
-                    <!-- Preheading -->
-                    <a class="fs-xs text-muted" href="shop.jsp">
-                      Dresses
-                    </a>
-
-                    <!-- Heading -->
-                    <a class="d-block fw-bold text-body" href="product.jsp">
-                      Cotton print Dress
-                    </a>
-
-                    <!-- Rating -->
-                    <div class="rating fs-xxs text-warning" data-value="5">
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
-                <!-- Blockquote -->
-                <blockquote class="mb-0">
-                  <p class="text-muted">
-                    God every fill great replenish darkness unto. Very open. Likeness their that light. Given under image to. Subdue of shall cattle day fish form saw spirit and given stars, us you whales may, land, saw fill unto.
-                  </p>
-                  <footer class="fs-xs text-muted">
-                    Jane Jefferson, <time datetime="2019-05-29">29 May 2019</time>
-                  </footer>
-                </blockquote>
-
-              </div>
-            </div>
-
-          </div>
-          <div class="col-12 col-sm-8 col-md-6 col-lg-4 px-4">
-
-            <!-- Card -->
-            <div class="card-lg card border">
-              <div class="card-body">
-
-                <!-- Header -->
-                <div class="row align-items-center mb-6">
-                  <div class="col-4">
-
-                    <!-- Image -->
-                    <img src="assets/img/products/product-15.jpg" alt="..." class="img-fluid">
-
-                  </div>
-                  <div class="col-8 ms-n2">
-
-                    <!-- Preheading -->
-                    <a class="fs-xs text-muted" href="shop.jsp">
-                      T-shirts
-                    </a>
-
-                    <!-- Heading -->
-                    <a class="d-block fw-bold text-body" href="product.jsp">
-                      Oversized print T-shirt
-                    </a>
-
-                    <!-- Rating -->
-                    <div class="rating fs-xxs text-warning" data-value="4">
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
-                <!-- Blockquote -->
-                <blockquote class="mb-0">
-                  <p class="text-muted">
-                    Fill his waters wherein signs likeness waters. Second light gathered appear sixth fourth, seasons behold creeping female.
-                  </p>
-                  <footer class="fs-xs text-muted">
-                    Darrell Baker, <time datetime="2019-05-18">18 May 2019</time>
-                  </footer>
-                </blockquote>
-
-              </div>
-            </div>
-
-          </div>
-          <div class="col-12 col-sm-8 col-md-6 col-lg-4 px-4">
-
-            <!-- Card -->
-            <div class="card-lg card border">
-              <div class="card-body">
-
-                <!-- Header -->
-                <div class="row align-items-center mb-6">
-                  <div class="col-4">
-
-                    <!-- Image -->
-                    <img src="assets/img/products/product-10.jpg" alt="..." class="img-fluid">
-
-                  </div>
-                  <div class="col-8 ms-n2">
-
-                    <!-- Preheading -->
-                    <a class="fs-xs text-muted" href="shop.jsp">
-                      Bags & Accessories
-                    </a>
-
-                    <!-- Heading -->
-                    <a class="d-block fw-bold text-body" href="product.jsp">
-                      Suede cross body Bag
-                    </a>
-
-                    <!-- Rating -->
-                    <div class="rating fs-xxs text-warning" data-value="4">
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <div class="rating-item">
-                        <i class="fas fa-star"></i>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
-                <!-- Blockquote -->
-                <blockquote class="mb-0">
-                  <p class="text-muted">
-                    God every fill great replenish darkness unto. Very open. Likeness their that light. Given under image to. Subdue of shall cattle day fish form saw spirit and given stars.
-                  </p>
-                  <footer class="fs-xs text-muted">
-                    Pavel Doe, <time datetime="2019-05-29">29 May 2019</time>
-                  </footer>
-                </blockquote>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BRANDS -->
-<section class="py-12 bg-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-
-        <!-- Heading -->
-        <h2 class="mb-3">@shopper</h2>
-
-        <!-- Subheading -->
-        <p class="mb-10 fs-lg text-gray-500">
-          Appear, dry there darkness they're seas, dry waters.
-        </p>
-
-      </div>
-    </div>
-    <div class="row mx-n1 mb-10">
-      <div class="col-6 col-sm-4 col-md px-1">
-
-        <!-- Card -->
-        <div class="card mb-2">
-
-          <!-- Image -->
-          <img src="assets/img/products/product-16.jpg" alt="..." class="card-img">
-
-          <!-- Overlay -->
-          <a class="card-img-overlay card-img-overlay-hover align-items-center bg-dark-40" href="blog-post.jsp">
-            <p class="my-0 fs-xxs text-center text-white">
-              <i class="fe fe-heart me-2"></i> 248 <i class="fe fe-message-square me-2 ms-3"></i> 7
-            </p>
-          </a>
-
-        </div>
-
-      </div>
-      <div class="col-6 col-sm-4 col-md px-1">
-
-        <!-- Card -->
-        <div class="card mb-2">
-
-          <!-- Image -->
-          <img src="assets/img/products/product-17.jpg" alt="..." class="card-img">
-
-          <!-- Overlay -->
-          <a class="card-img-overlay card-img-overlay-hover align-items-center bg-dark-40" href="blog-post.jsp">
-            <p class="my-0 fs-xxs text-center text-white">
-              <i class="fe fe-heart me-2"></i> 248 <i class="fe fe-message-square me-2 ms-3"></i> 7
-            </p>
-          </a>
-
-        </div>
-
-      </div>
-      <div class="col-6 col-sm-4 col-md px-1">
-
-        <!-- Card -->
-        <div class="card mb-2">
-
-          <!-- Image -->
-          <img src="assets/img/products/product-18.jpg" alt="..." class="card-img">
-
-          <!-- Overlay -->
-          <a class="card-img-overlay card-img-overlay-hover align-items-center bg-dark-40" href="blog-post.jsp">
-            <p class="my-0 fs-xxs text-center text-white">
-              <i class="fe fe-heart me-2"></i> 248 <i class="fe fe-message-square me-2 ms-3"></i> 7
-            </p>
-          </a>
-
-        </div>
-
-      </div>
-      <div class="col-6 col-sm-4 col-md px-1">
-
-        <!-- Card -->
-        <div class="card mb-2">
-
-          <!-- Image -->
-          <img src="assets/img/products/product-19.jpg" alt="..." class="card-img">
-
-          <!-- Overlay -->
-          <a class="card-img-overlay card-img-overlay-hover align-items-center bg-dark-40" href="blog-post.jsp">
-            <p class="my-0 fs-xxs text-center text-white">
-              <i class="fe fe-heart me-2"></i> 248 <i class="fe fe-message-square me-2 ms-3"></i> 7
-            </p>
-          </a>
-
-        </div>
-
-      </div>
-      <div class="col-6 col-sm-4 col-md px-1">
-
-        <!-- Card -->
-        <div class="card">
-
-          <!-- Image -->
-          <img src="assets/img/products/product-20.jpg" alt="..." class="card-img">
-
-          <!-- Overlay -->
-          <a class="card-img-overlay card-img-overlay-hover align-items-center bg-dark-40" href="blog-post.jsp">
-            <p class="my-0 fs-xxs text-center text-white">
-              <i class="fe fe-heart me-2"></i> 248 <i class="fe fe-message-square me-2 ms-3"></i> 7
-            </p>
-          </a>
-
-        </div>
-
-      </div>
-      <div class="col-6 col-sm-4 col-md px-1">
-
-        <!-- Card -->
-        <div class="card">
-
-          <!-- Image -->
-          <img src="assets/img/products/product-21.jpg" alt="..." class="card-img">
-
-          <!-- Overlay -->
-          <a class="card-img-overlay card-img-overlay-hover align-items-center bg-dark-40" href="blog-post.jsp">
-            <p class="my-0 fs-xxs text-center text-white">
-              <i class="fe fe-heart me-2"></i> 248 <i class="fe fe-message-square me-2 ms-3"></i> 7
-            </p>
-          </a>
-
-        </div>
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-4 col-sm-3 col-md text-center">
-
-        <!-- Brand -->
-        <img src="assets/img/brands/gray-350/mango.svg" alt="..." class="img-fluid mb-7 mb-md-0">
-
-      </div>
-      <div class="col-4 col-sm-3 col-md text-center">
-
-        <!-- Brand -->
-        <img src="assets/img/brands/gray-350/zara.svg" alt="..." class="img-fluid mb-7 mb-md-0">
-
-      </div>
-      <div class="col-4 col-sm-3 col-md text-center">
-
-        <!-- Brand -->
-        <img src="assets/img/brands/gray-350/reebok.svg" alt="..." class="img-fluid mb-7 mb-md-0">
-
-      </div>
-      <div class="col-4 col-sm-3 col-md text-center">
-
-        <!-- Brand -->
-        <img src="assets/img/brands/gray-350/asos.svg" alt="..." class="img-fluid mb-7 mb-md-0">
-
-      </div>
-      <div class="col-4 col-sm-3 col-md text-center">
-
-        <!-- Brand -->
-        <img src="assets/img/brands/gray-350/stradivarius.svg" alt="..." class="img-fluid mb-6 mb-sm-0">
-
-      </div>
-      <div class="col-4 col-sm-3 col-md text-center">
-
-        <!-- Brand -->
-        <img src="assets/img/brands/gray-350/adidas.svg" alt="..." class="img-fluid mb-6 mb-sm-0">
-
-      </div>
-      <div class="col-4 col-sm-3 col-md text-center">
-
-        <!-- Brand -->
-        <img src="assets/img/brands/gray-350/bershka.svg" alt="..." class="img-fluid">
-
-      </div>
-    </div>
-  </div>
-</section>
+<%--          </div>--%>
+<%--        </div>--%>
+<%--      </div>--%>
+<%--    </section>--%>
+<%--  </div>--%>
+<%--</div>   &lt;%&ndash;section5 end&ndash;%&gt;--%>

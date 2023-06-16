@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 
@@ -206,19 +207,15 @@
             <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
               <li class="list-group-item d-flex">
                 <span>주문금액</span>
-                <span class="ms-auto">${order.order_amount}</span>
+                <span class="ms-auto"><fmt:formatNumber value="${order.order_amount}" pattern="###,###원"/></span>
               </li>
               <li class="list-group-item d-flex">
-                <span>Tax</span>
-                <span class="ms-auto">$0.00</span>
-              </li>
-              <li class="list-group-item d-flex">
-                <span>Shipping</span>
-                <span class="ms-auto">$8.00</span>
+                <span>사용포인트</span>
+                <span class="ms-auto"><fmt:formatNumber value="${order.minus_point}" pattern="###,###원"/></span>
               </li>
               <li class="list-group-item d-flex fs-lg fw-bold">
                 <span>결제금액</span>
-                <span class="ms-auto">${order.pay_amount}</span>
+                <span class="ms-auto"><fmt:formatNumber value="${order.pay_amount}" pattern="###,###원"/></span>
               </li>
             </ul>
 

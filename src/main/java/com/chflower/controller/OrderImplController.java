@@ -2,7 +2,9 @@ package com.chflower.controller;
 
 
 import com.chflower.dto.Addr;
+import com.chflower.dto.Payment;
 import com.chflower.service.AddrService;
+import com.chflower.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -21,6 +23,10 @@ public class OrderImplController {
 
     @Autowired
     AddrService addrService;
+
+    @Autowired
+    PaymentService paymentService;
+
 
     @RequestMapping("/kakaopay")
     public String kakaopay(Model model) {
@@ -65,5 +71,13 @@ public class OrderImplController {
         } catch (Exception e) {
             throw new RuntimeException("addrimpl 에러입니다");
         }
+    }
+
+    @RequestMapping("/paymentimpl")
+    public Object paymentimpl(Integer order_id) {
+        log.info("=========================="+String.valueOf(order_id));
+        Payment payment;
+        payment = paymentService.selectorderid(order_id);
+        return payment;
     }
 }

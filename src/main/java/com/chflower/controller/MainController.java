@@ -1,7 +1,11 @@
 package com.chflower.controller;
 
+import com.chflower.dto.RecommandItem;
+import com.chflower.service.RecommandItemService;
 import com.chflower.util.TodayFlowerUtil;
 import com.chflower.util.WeatherUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -10,11 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.List;
 
+@Slf4j
 @Controller
 public class MainController {
     @Value("${adminserver}")
     String adminserver;
+
+    @Autowired
+    RecommandItemService recommandItemService;
 
     @RequestMapping("/")
     public String main(Model model) throws Exception {
@@ -24,10 +34,16 @@ public class MainController {
         Object result = TodayFlowerUtil.todayFlower(date);
         model.addAttribute("todayFlower", result);
 
+        List<RecommandItem> recommandItemList= new ArrayList<>();
+        recommandItemList = recommandItemService.get();
+        log.info("recommandItemList={}", recommandItemList);
+
+        model.addAttribute("recommandlist", recommandItemList);
 //        if (session.getAttribute("logincust")==null) {
 //            return "redirect:/cust/login";
 //        }
-        model.addAttribute("adminserver",adminserver);
+        List<RecommandItem> selectedItems = recommandItemList.subList(0, 3);
+        model.addAttribute("recommandlist", selectedItems);
 
         return "index";
     }
