@@ -17,7 +17,6 @@
 </style>
 
 <script>
-
     let weather = {
         init:function (){
             $.ajax({
@@ -42,6 +41,9 @@
     $(function (){
         weather.init();
     });
+</script>
+<script>
+
 </script>
 <!-- CONTENT -->
 <body>

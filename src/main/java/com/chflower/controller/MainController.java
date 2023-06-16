@@ -104,6 +104,11 @@ public class MainController {
         model.addAttribute("center","weather/weather");
         return "index";
     }
+    @RequestMapping("/weather/w")
+    public String w(Model model) throws Exception {
+        model.addAttribute("center","weather/w");
+        return "index";
+    }
 
     @RequestMapping("/pic")
     public String pic(Model model) {
