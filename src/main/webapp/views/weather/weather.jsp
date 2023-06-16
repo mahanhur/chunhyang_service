@@ -43,6 +43,12 @@
         weather.init();
     });
 </script>
+<script>
+    const button = document.querySelector('.button');
+    button.addEventListener('click', () => {
+        console.log(button);
+    });
+</script>
 <!-- CONTENT -->
 <body>
     <div>
@@ -54,6 +60,16 @@
             </div>
         </div>
     </div>
+    <button class="button" type="button">현재 날씨는?</button>
+    <dl>
+        <dt>기온</dt>
+        <dd class="temperature"></dd>
+        <dt>위치</dt>
+        <dd class="place"></dd>
+        <dt>설명</dt>
+        <dd class="description"></dd>
+    </dl>
+    <script src="weather.js"></script>
 </body>
 
 
