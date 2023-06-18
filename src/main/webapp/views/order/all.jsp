@@ -1,7 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<script>
+  let subsinfo = {
+    init: function() {
+      this.click();
+    },
+    click: function() {
+      $('.modala').click(function() {
+        let order_id = $(this).data('orderid'); // data-subsid 속성 값 가져오기
+        console.log(order_id);
+        $.ajax({
+          url: '/order/paymentimpl',
+          method: 'post',
+          data: {
+            order_id: order_id
+          },
+          success: function(data) {
+            $('.modalp1').html(data.pay_id);
+            switch (data.pay_opt) {
+              case 1 :
+                $('.modalp2').html("신용/체크카드");
+                break;
+              case 2 :
+                $('.modalp2').html("페이 간편결제");
+                break;
+              case 3 :
+                $('.modalp2').html("무통장입금");
+                break;
+            }
+            switch (data.pay_state) {
+              case 1 :
+                $('.modalp3').html("결제완료");
+                break;
+              case 2 :
+                $('.modalp3').html("미결제");
+                break;
+              case 3 :
+                $('.modalp3').html("환불");
+                break;
+            }
+          }
+        });
+      })
+    }
+  };
 
+  $(function() {
+    subsinfo.init();
+  });
+</script>
 <!-- BREADCRUMB -->
 <nav class="py-5">
   <div class="container">
@@ -83,8 +132,8 @@
                     <!-- Text -->
                     <p class="mb-0 fs-sm fw-bold">
                       결제완료
+                      <a href="#paymentmodal_${obj.order_id}" class="btn btn-outline-border btn-xxs modala" data-bs-toggle="modal" data-orderid=${obj.order_id}>상세</a>
                     </p>
-
                   </div>
                   <div class="col-6 col-lg-3">
 
@@ -93,8 +142,8 @@
 
                     <!-- Text -->
                     <p class="mb-0 fs-sm fw-bold">
-                      ${obj.pay_amount}
-                    </p>
+                      <fmt:formatNumber value="${obj.pay_amount}" pattern="###,###원"/>
+                     </p>
 
                   </div>
                 </div>
@@ -144,7 +193,7 @@
 
                     <!-- Orderdetail Button -->
                     <a class="btn btn-sm w-100 btn-outline-dark" href="/order/detail?order_id=${obj.order_id}">
-                      Order Details
+                      주문상세
                     </a>
 
                   </div>
@@ -152,7 +201,7 @@
 
                     <!-- Button -->
                     <a class="btn btn-sm w-100 btn-outline-dark" href="#!">
-                      Track order
+                      배송상태
                     </a>
 
                   </div>
@@ -162,6 +211,53 @@
             </div>
           </div>
         </div>
+          <!-- 결제정보상세 modal-->
+          <div class="modal fade" id="paymentmodal_${obj.order_id}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+              <div class="modal-content">
+
+                <!-- Close -->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                  <i class="fe fe-x" aria-hidden="true"></i>
+                </button>
+
+                <!-- Content -->
+                <div class="row gx-0">
+                  <div class="col-12 col-lg-5">
+
+                    <!-- Image -->
+                    <img class="img-fluid" src="/uimg/a" alt="...">
+
+                  </div>
+                  <div class="col-12 col-lg-7 d-flex flex-column px-md-8">
+
+                    <!-- Body -->
+                    <div class="modal-body my-auto py-10" style="font-size:75%;">
+
+                      <!-- Heading -->
+                      <h4>결제정보 상세</h4>
+
+                      <!-- Text -->
+                      결제번호:<p class="mb-7 fs-lg modalp1">
+                    </p>
+                      결제일:<p class="mb-7 fs-lg">
+                        ${obj.order_date}
+                    </p>
+                      결제수단:<p class="mb-7 fs-lg modalp2">
+                    </p>
+                      결제상태:<p class="mb-7 fs-lg modalp3">
+                    </p>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <%--                modal end--%>
+
         </c:forEach>
 
         <!-- Pagination -->

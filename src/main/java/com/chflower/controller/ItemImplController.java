@@ -2,7 +2,9 @@ package com.chflower.controller;
 
 
 import com.chflower.dto.Addr;
+import com.chflower.dto.Item;
 import com.chflower.service.AddrService;
+import com.chflower.service.ItemService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -21,6 +24,8 @@ public class ItemImplController {
 
     @Autowired
     AddrService addrService;
+    @Autowired
+    ItemService itemService;
 
     @RequestMapping("/kakaopay")
     public String kakaopay(Model model) {
@@ -65,5 +70,12 @@ public class ItemImplController {
         } catch (Exception e) {
             throw new RuntimeException("addrimpl 에러입니다");
         }
+    }
+
+    @RequestMapping("/sortimpl")
+    public List<Item> sortimpl(String type) throws Exception {
+        List<Item> list = null;
+        list = itemService.getType(type);
+        return list;
     }
 }

@@ -137,8 +137,8 @@ public class ItemController {
     }
 
 
-    @RequestMapping("/bunch")
-    public String bunch(Model model) throws Exception {
+    @RequestMapping("/dabal")
+    public String dabal(Model model) throws Exception {
         List<Item> list = null;
         list = itemService.getCate(100.0);
         log.info(list.toString());
@@ -155,55 +155,23 @@ public class ItemController {
         return "index";
     }
 
-    @RequestMapping("/love")
-    public String love(Model model) throws Exception {
+    @RequestMapping("/sortdabal")
+    public String sortdabal(Model model, String dabaltype) throws Exception {
         List<Item> list = null;
-        list = itemService.getType("사랑");
+        log.info("+++++++++++++++++++++"+dabaltype);
+        list = itemService.getType(dabaltype);
+        log.info(list.toString());
         model.addAttribute("ilist", list);
         model.addAttribute("center", dir + "all");
         return "index";
     }
 
-    @RequestMapping("/cheer")
-    public String cheer(Model model) throws Exception {
+    @RequestMapping("/sortflower")
+    public String sortflower(Model model, String flowertype) throws Exception {
         List<Item> list = null;
-        list = itemService.getType("응원");
-        model.addAttribute("ilist", list);
-        model.addAttribute("center", dir + "all");
-        return "index";
-    }
-
-    @RequestMapping("/thanks")
-    public String thanks(Model model) throws Exception {
-        List<Item> list = null;
-        list = itemService.getType("감사");
-        model.addAttribute("ilist", list);
-        model.addAttribute("center", dir + "all");
-        return "index";
-    }
-
-    @RequestMapping("/rose")
-    public String rose(Model model) throws Exception {
-        List<Item> list = null;
-        list = itemService.getType("장미");
-        model.addAttribute("ilist", list);
-        model.addAttribute("center", dir + "all");
-        return "index";
-    }
-
-    @RequestMapping("/hydrangea")
-    public String hydrangea(Model model) throws Exception {
-        List<Item> list = null;
-        list = itemService.getType("수국");
-        model.addAttribute("ilist", list);
-        model.addAttribute("center", dir + "all");
-        return "index";
-    }
-
-    @RequestMapping("/freesia")
-    public String freesia(Model model) throws Exception {
-        List<Item> list = null;
-        list = itemService.getType("프리지아");
+        log.info("+++++++++++++++++++++"+flowertype);
+        list = itemService.getType(flowertype);
+        log.info(list.toString());
         model.addAttribute("ilist", list);
         model.addAttribute("center", dir + "all");
         return "index";
