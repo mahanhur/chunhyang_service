@@ -76,7 +76,7 @@
           <div class="col-12 col-md-7 col-lg-5 text-center text-black">
 
             <!-- Heading -->
-            <h1 class="display-4 mb-10">
+            <h1 class="display-4 mb-10" style="font-weight: bold">
               Better Things In a Better Way
             </h1>
             <!-- Links -->
@@ -97,7 +97,7 @@
             <h6>
               VASE EDITION
             </h6>
-            <h1 class="display-4">
+            <h1 class="display-4" style="font-weight: bold">
               PLEATS EDITION
             </h1>
             <h1 class="display-6 mb-5">
@@ -108,9 +108,7 @@
             </h9> <br/>
 
             <!-- Button -->
-            <a class="btn btn-dark mt-10" href="/subscribe">
-              Shop Now <i class="fe fe-arrow-right ms-2"></i>
-            </a>
+            <a type="button" class="btn btn-outline-dark" href="/bipum/all" style="opacity: 70%;margin:10px">상품 보러가기</a>
 
           </div>
         </div>
@@ -123,18 +121,16 @@
           <div class="col-12 col-md-7 col-lg-7 text-center text-black">
 
             <!-- Heading -->
-            <h2 class="display-4">
+            <h3 class="display-4" style="font-weight: bold">
               생기발랄한 마가렛
-            </h2>
+            </h3>
             <h9 class="mb-13">
               빈티지한 포인트를 주고싶다면 <br/>
               데이지의 한 종류, 마가렛을 만나보세요
             </h9> <br/>
 
             <!-- Button -->
-            <a class="btn btn-dark mt-10" href="/subscribe">
-              Shop Now <i class="fe fe-arrow-right ms-2"></i>
-            </a>
+            <a type="button" class="btn btn-outline-dark" href="/item/all" style="opacity: 70%;margin:10px">보러가기</a>
 
           </div>
         </div>
