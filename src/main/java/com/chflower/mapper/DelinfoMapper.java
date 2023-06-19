@@ -11,4 +11,5 @@ import java.util.List;
 @Mapper
 public interface DelinfoMapper extends CHMapper<Integer, Delinfo> {
     public Delinfo subsselect(Integer subsdetail_id);
+    public void orderinsert(Delinfo delinfo);
 }
