@@ -436,7 +436,7 @@
 
     <!-- Brand -->
     <a class="navbar-brand" href="/">
-      <img src="/uimg/logo1.png" class="main-logo" style="height: 80px;margin: 5px">
+      <img src="/uimg/logo1.png" class="main-logo" style="height: 70px;margin: 5px">
     </a>
 
     <!-- Toggler -->
