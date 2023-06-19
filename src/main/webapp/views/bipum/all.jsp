@@ -42,8 +42,32 @@
 
 <body>
 
-<header class="py-13 jarallax" data-jarallax data-speed=".8" style="background-image: url(/uimg/shopmainimage.jpg);">
+<header class="py-13 jarallax" data-jarallax data-speed=".8" style="background-image: url(/uimg/shopmainimage2.jpg);height: 400px">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
 
+        <!-- Heading -->
+        <h3 class="text-center text-white mb-8"style="font-weight: bold">꽃이 있어도, 꽃이 없어도 공간에 아름다울 화병</h3>
+        <h6 class="text-center text-white mb-6">
+          <span style="color: yellow">#</span>화병&nbsp;
+          <span style="color: yellow">#</span>특가제안&nbsp;
+          <span style="color: yellow">#</span>품절주의
+        </h6>
+
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb justify-content-center mb-0 text-center text-white fs-xs">
+          <li class="breadcrumb-item">
+            <a class="text-reset">Home</a>
+          </li>
+          <li class="breadcrumb-item active">
+            Bipum
+          </li>
+        </ol>
+
+      </div>
+    </div>
+  </div>
 </header>
 
 <!-- FILTERS -->
@@ -60,250 +84,9 @@
         </nav>
 
       </div>
-      <div class="col-12 col-md-auto text-center">
 
-        <!-- Filter -->
-        <a class="text-body" data-bs-toggle="collapse" href="#collapseFilter" role="button">
-          <i class="fe fe-list me-2"></i> 필터
-        </a>
-
-        <!-- Sort -->
-        <div class="dropdown ms-6">
-
-          <!-- Toggle -->
-          <a class="dropdown-toggle text-body" data-bs-toggle="dropdown" href="#">디폴트</a>
-
-          <!-- Menu -->
-          <form class="dropdown-menu">
-            <div class="card">
-              <div class="card-body">
-
-                <!-- Form group 시작-->
-                <div class="form-group-overflow">
-                  <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="sortOne" name="sort" type="radio" value="Default">
-                    <label class="form-check-label" for="sortOne">뭘</label>
-                  </div>
-                  <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="sortTwo" name="sort" type="radio" value="Newest">
-                    <label class="form-check-label" for="sortTwo">넣을지</label>
-                  </div>
-                  <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="sortThree" name="sort" type="radio" value="Most Popular">
-                    <label class="form-check-label" for="sortThree">고민좀</label>
-                  </div>
-                  <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="sortFour" name="sort" type="radio" value="Default Price">
-                    <label class="form-check-label" for="sortFour">해보겟습니다</label>
-                  </div>
-                </div>
-                <!-- Form group 끝-->
-              </div>
-            </div>
-          </form>
-        </div>
-
-      </div>
     </div>
   </div>
-</section>
-
-<!-- FILTERS (collapse) -->
-<section class="collapse" id="collapseFilter">
-  <form class="py-7 border-bottom">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-3">
-
-          <!-- Heading -->
-          <p class="fs-lg">
-            <strong>종류:</strong>
-          </p>
-
-          <!-- Form group -->
-          <div class="form-group form-group-overflow mb-md-0">
-            <div class="form-check mb-3">
-              <input class="form-check-input" id="seasonOne" name="category" type="checkbox" value="Summer">
-              <label class="form-check-label" for="seasonOne">화병</label>
-            </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" id="seasonTwo" name="category" type="checkbox" value="Winter">
-              <label class="form-check-label" for="seasonTwo">호미</label>
-            </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" id="seasonThree" name="category" type="checkbox" value="Spring & Fall">
-              <label class="form-check-label" for="seasonThree">영양제</label>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-12 col-md-3">
-
-          <!-- Heading -->
-          <p class="fs-lg">
-            <strong>Size:</strong>
-          </p>
-
-          <!-- Form group -->
-          <div class="form-group form-group-overflow mb-md-0">
-            <div class="form-check form-check-inline form-check-size mb-2">
-              <input class="form-check-input" id="sizeOne" type="checkbox">
-              <label class="form-check-label" for="sizeOne">
-                3XS
-              </label>
-            </div>
-            <div class="form-check form-check-inline form-check-size mb-2">
-              <input class="form-check-input" id="sizeTwo" type="checkbox" disabled>
-              <label class="form-check-label" for="sizeTwo">
-                2XS
-              </label>
-            </div>
-            <div class="form-check form-check-inline form-check-size mb-2">
-              <input class="form-check-input" id="sizeThree" type="checkbox">
-              <label class="form-check-label" for="sizeThree">
-                XS
-              </label>
-            </div>
-            <div class="form-check form-check-inline form-check-size mb-2">
-              <input class="form-check-input" id="sizeFour" type="checkbox">
-              <label class="form-check-label" for="sizeFour">
-                S
-              </label>
-            </div>
-            <div class="form-check form-check-inline form-check-size mb-2">
-              <input class="form-check-input" id="sizeFive" type="checkbox">
-              <label class="form-check-label" for="sizeFive">
-                M
-              </label>
-            </div>
-            <div class="form-check form-check-inline form-check-size mb-2">
-              <input class="form-check-input" id="sizeSix" type="checkbox">
-              <label class="form-check-label" for="sizeSix">
-                L
-              </label>
-            </div>
-            <div class="form-check form-check-inline form-check-size mb-2">
-              <input class="form-check-input" id="sizeSeven" type="checkbox">
-              <label class="form-check-label" for="sizeSeven">
-                XL
-              </label>
-            </div>
-            <div class="form-check form-check-inline form-check-size mb-2">
-              <input class="form-check-input" id="sizeEight" type="checkbox" disabled>
-              <label class="form-check-label" for="sizeEight">
-                2XL
-              </label>
-            </div>
-            <div class="form-check form-check-inline form-check-size mb-2">
-              <input class="form-check-input" id="sizeNine" type="checkbox">
-              <label class="form-check-label" for="sizeNine">
-                3XL
-              </label>
-            </div>
-            <div class="form-check form-check-inline form-check-size mb-2">
-              <input class="form-check-input" id="sizeTen" type="checkbox">
-              <label class="form-check-label" for="sizeTen">
-                4XL
-              </label>
-            </div>
-            <div class="form-check form-check-inline form-check-size mb-2">
-              <input class="form-check-input" id="sizeEleven" type="checkbox">
-              <label class="form-check-label" for="sizeEleven">
-                One Size
-              </label>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-12 col-md-3">
-
-          <!-- Heading -->
-          <p class="fs-lg">
-            <strong>Color:</strong>
-          </p>
-
-          <!-- Form group -->
-          <div class="form-group form-group-overflow mb-md-0">
-            <div class="form-check form-check-inline form-check-color mb-3">
-              <input class="form-check-input" id="colorOne" type="checkbox" style="background-color: #1f1f1f">
-            </div>
-            <div class="form-check form-check-inline form-check-color mb-3">
-              <input class="form-check-input" id="colorTwo" type="checkbox" style="background-color: #f9f9f9">
-            </div>
-            <div class="form-check form-check-inline form-check-color mb-3">
-              <input class="form-check-input" id="colorThree" type="checkbox" style="background-color: #3b86ff">
-            </div>
-            <div class="form-check form-check-inline form-check-color mb-3">
-              <input class="form-check-input" id="colorFour" type="checkbox" style="background-color: #ff6f61">
-            </div> <br />
-            <div class="form-check form-check-inline form-check-color mb-3">
-              <input class="form-check-input" id="colorFive" type="checkbox" style="background-color: #795548">
-            </div>
-            <div class="form-check form-check-inline form-check-color mb-3">
-              <input class="form-check-input" id="colorSix" type="checkbox" style="background-color: #bababa">
-            </div>
-            <div class="form-check form-check-inline form-check-color mb-3">
-              <input class="form-check-input" id="colorSeven" type="checkbox" style="background-color: #17a2b8">
-            </div>
-            <div class="form-check form-check-inline form-check-color">
-              <input class="form-check-input" id="colorEight" type="checkbox" style="background-color: #e83e8c">
-            </div>
-          </div>
-
-        </div>
-        <div class="col-12 col-md-3">
-
-          <!-- Heading -->
-          <p class="fs-lg">
-            <strong>Price:</strong>
-          </p>
-
-          <!-- Form group-->
-          <div class="form-group form-group-overflow mb-6" id="priceGroup">
-            <div class="form-check mb-3">
-              <input class="form-check-input" id="priceOne" type="checkbox">
-              <label class="form-check-label" for="priceOne">
-                $10.00 - $49.00
-              </label>
-            </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" id="priceTwo" type="checkbox">
-              <label class="form-check-label" for="priceTwo">
-                $50.00 - $99.00
-              </label>
-            </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" id="priceThree" type="checkbox">
-              <label class="form-check-label" for="priceThree">
-                $100.00 - $199.00
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" id="priceFour" type="checkbox">
-              <label class="form-check-label" for="priceFour">
-                $200.00 and Up
-              </label>
-            </div>
-          </div>
-
-          <!-- Range -->
-          <div class="d-flex align-items-center">
-
-            <!-- Input -->
-            <input type="number" class="form-control form-control-xs" placeholder="$10.00" min="10">
-
-            <!-- Divider -->
-            <div class="text-gray-350 mx-2">‒</div>
-
-            <!-- Input -->
-            <input type="number" class="form-control form-control-xs" placeholder="$350.00" max="350">
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </form>
 </section>
 
 <!-- CONTENT -->
