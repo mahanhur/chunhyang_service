@@ -107,8 +107,8 @@ public class MainController {
 
     @RequestMapping("/weather/weather")
     public String pop(Model model) throws Exception {
-        String result = WeatherUtil.getWeather1("109");
-        model.addAttribute("weatherinfo",result);
+//        String result = WeatherUtil.getWeather1("109");
+//        model.addAttribute("weatherinfo",result);
         model.addAttribute("center","weather/weather");
         return "index";
     }
