@@ -30,6 +30,8 @@ public class ItemController {
     AddrService addrService;
     @Autowired
     PointService pointService;
+    @Autowired
+    EntryCountService entryCountService;
 
 
     String dir = "item/";
@@ -53,7 +55,6 @@ public class ItemController {
             throw new Exception("시스템장애:ERORR002");
         }
 
-        log.info("+++++++++++++++++++++"+list);
 
         model.addAttribute("ilist", list);
         model.addAttribute("left", dir + "left");
@@ -67,7 +68,6 @@ public class ItemController {
         item = itemService.get(item_id);
         List<Itemimg> list= new ArrayList<>();
         list = itemimgService.get();
-//        log.info("---------------------"+list);
 
         List<Itemimg> ilist = new ArrayList<>();
        for (Itemimg obj : list) {
@@ -78,13 +78,11 @@ public class ItemController {
         List<ItemReview> reviewlist = null;
         reviewlist = itemReviewService.getItemReview(item_id);
         ItemReview itemReview = itemReviewService.getAvgItemReview(item_id);
-        log.info(itemReview.toString());
         model.addAttribute("reviewlist",reviewlist);
         model.addAttribute("itemReview",itemReview);
 
         List<RecommandItem> recommandItemList= new ArrayList<>();
         recommandItemList = recommandItemService.get();
-        log.info("recommandItemList={}", recommandItemList);
 
         model.addAttribute("recommandlist", recommandItemList);
         /* ▼리뷰등록을 위해서 item_id를 모델에 넣어서 detail.jsp화면에 던져서 form에 넣어 둔다 */
@@ -94,21 +92,26 @@ public class ItemController {
         model.addAttribute("img", itemimg);
         model.addAttribute("ilist", ilist);
         model.addAttribute("center", dir+"detail");
+
+        // 이전 카운트 값을 가져옴
+        int previousCount = entryCountService.getCount(item_id);
+
+        // 카운트 증가
+        int newCount = entryCountService.incrementCount(item_id);
+
+        // 로그 작성
+        log.info("'" +item_id+"'" + "," + newCount);
         return "index";
     }
     @RequestMapping("/register_reviewimpl")
     public String registerreviewimpl(ItemReview bipumreview, Integer item_id,String cust_id) throws Exception {
         bipumreview.setCust_id(cust_id);
         bipumreview.setItem_id(item_id);
-        log.info(bipumreview.toString());
-        log.info("cust_id={}", cust_id);
-        log.info("item_id={}", item_id);
         itemReviewService.register(bipumreview);
         return "redirect:/bipum/detail?item_id="+bipumreview.getItem_id();
     }
     @RequestMapping("/checkout")
     public String checkout(Model model, HttpSession session, Integer item_id, String cust_id, Integer cnt) throws Exception {
-        log.info("========================="+item_id+cust_id+cnt);
 
         Cust cust = (Cust) session.getAttribute("logincust");
         if(cust != null) {
@@ -119,7 +122,6 @@ public class ItemController {
             Item item = itemService.get(item_id);
             model.addAttribute("item", item);
 
-            log.info("=========================" +item.toString());
 
             Integer point = pointService.presentpoint(cust_id);
             model.addAttribute("point", point);
@@ -141,7 +143,6 @@ public class ItemController {
     public String bunch(Model model) throws Exception {
         List<Item> list = null;
         list = itemService.getCate(100.0);
-        log.info(list.toString());
         model.addAttribute("ilist", list);
         model.addAttribute("center", dir + "all");
         return "index";

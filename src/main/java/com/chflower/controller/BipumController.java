@@ -29,6 +29,8 @@ public class BipumController {
     CustService custservice;
     @Autowired
     RecommandItemService recommandItemService;
+    @Autowired
+    EntryCountService entryCountService;
 //    @Autowired
 //    CartService cartService;
 
@@ -70,13 +72,11 @@ public class BipumController {
         List<ItemReview> reviewlist = null;
         reviewlist = itemReviewService.getItemReview(item_id);
         ItemReview itemReview = itemReviewService.getAvgItemReview(item_id);
-        log.info(itemReview.toString());
         model.addAttribute("reviewlist",reviewlist);
         model.addAttribute("itemReview",itemReview);
 
         List<RecommandItem> recommandItemList= new ArrayList<>();
         recommandItemList = recommandItemService.get();
-        log.info("recommandItemList={}", recommandItemList);
 
         model.addAttribute("recommandlist", recommandItemList);
         /* ▼리뷰등록을 위해서 item_id를 모델에 넣어서 detail.jsp화면에 던져서 form에 넣어 둔다 */
@@ -85,15 +85,20 @@ public class BipumController {
         model.addAttribute("img", bipumimg);
         model.addAttribute("bipumlist", bipumlist);
         model.addAttribute("center", dir+"detail");
+        // 이전 카운트 값을 가져옴
+        int previousCount = entryCountService.getCount(item_id);
+
+        // 카운트 증가
+        int newCount = entryCountService.incrementCount(item_id);
+
+        // 로그 작성
+        log.info("'" +item_id+"'" + "," + newCount);
         return "index";
     }
     @RequestMapping("/register_reviewimpl")
     public String registerreviewimpl(ItemReview bipumreview, Integer item_id,String cust_id) throws Exception {
         bipumreview.setCust_id(cust_id);
         bipumreview.setItem_id(item_id);
-        log.info(bipumreview.toString());
-        log.info("cust_id={}", cust_id);
-        log.info("item_id={}", item_id);
         itemReviewService.register(bipumreview);
         return "redirect:/bipum/detail?item_id="+bipumreview.getItem_id();
     }
@@ -101,7 +106,6 @@ public class BipumController {
     public String hwabyung(Model model) throws Exception {
         List<Item> list = null;
         list = bipumService.getCate(300.0);
-        log.info(list.toString());
         model.addAttribute("ilist", list);
         model.addAttribute("center", dir + "all");
         return "index";
