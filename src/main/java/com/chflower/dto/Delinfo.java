@@ -33,4 +33,8 @@ public class Delinfo {
     public Delinfo(int subsdetail_id) {
         this.subsdetail_id = subsdetail_id;
     }
+
+    public Delinfo(Integer order_id) {
+        this.order_id = order_id;
+    }
 }

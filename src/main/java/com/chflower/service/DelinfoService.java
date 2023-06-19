@@ -1,6 +1,7 @@
 package com.chflower.service;
 
 import com.chflower.dto.Delinfo;
+import com.chflower.dto.Order;
 import com.chflower.frame.CHService;
 import com.chflower.mapper.DelinfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +44,7 @@ public class DelinfoService implements CHService<Integer, Delinfo> {
         return mapper.subsselect(subsdetail_id);
     }
 
+    public void orderregister(Delinfo delinfo) throws Exception {
+        mapper.orderinsert(delinfo);
+    }
 }

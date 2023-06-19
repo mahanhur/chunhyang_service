@@ -121,6 +121,19 @@
               <!-- Heading -->
               <h6 class="mb-7">구독 건별 세부정보</h6>
               <h6 class="heading-xxs text-muted">ㅇ 수정 버튼 클릭 시 건별 배달일자 및 배달정보를 수정하실 수 있습니다.</h6>
+              <form action="http://info.sweettracker.co.kr/tracking/4" method="post">
+                <div class="form-group">
+                  <input type="hidden" class="form-control" id="t_key" name="t_key" value="dctplXlVqmOW07OrDvmRTg">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="t_code" id="t_code" value="04"> <!--택배사 04대한통운 01우체국-->
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="t_invoice" id="t_invoice" value="655649541321"> <!--운송장번호입력-->
+                </div>
+                <h6 class="heading-xxs text-muted">ㅇ 현재 배송중인 꽃 배송 확인</h6>
+                <button type="submit" class="btn btn-success btn-xxs">조회하기</button>
+              </form>
 
               <!-- Divider -->
               <hr class="my-5">
@@ -151,10 +164,19 @@
                     <tr>
                       <td>${iobj.subsitem_name}</td>
                       <td class="subsdetail_idtd">${dobj.subsdetail_id}</td>
-                      <td>${delobj.del_state}</td>
+                      <td>
+                          ${delobj.del_state}
+                      </td>
                       <td><fmt:formatDate  value="${dobj.subs_duedate}" pattern="yyyy-MM-dd" /></td>
                       <td>
-                        <a href="/cust/delmodify?subsdetail_id=${dobj.subsdetail_id}" class="btn btn-outline-dark modify_btn">수정</a>
+                        <c:choose>
+                          <c:when  test="${delobj.del_state == '배송대기'}">
+                           <a href="/cust/delmodify?subsdetail_id=${dobj.subsdetail_id}" class="btn btn-outline-dark modify_btn">수정</a>
+                          </c:when>
+                          <c:otherwise>
+                            <span style="color:red;">수정불가</span>
+                          </c:otherwise>
+                        </c:choose>
                       </td>
                     </tr>
                       </c:if>

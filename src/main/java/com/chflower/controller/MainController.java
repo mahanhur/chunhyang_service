@@ -34,16 +34,24 @@ public class MainController {
         Object result = TodayFlowerUtil.todayFlower(date);
         model.addAttribute("todayFlower", result);
 
-        List<RecommandItem> recommandItemList= new ArrayList<>();
-        recommandItemList = recommandItemService.get();
-        log.info("recommandItemList={}", recommandItemList);
+        //subsitem 상품 랜덤3개 담긴 리스트
+        List<RecommandItem> recommandSubsList= new ArrayList<>();
+        recommandSubsList = recommandItemService.getsubs();
+        log.info("recommandItemList={}", recommandSubsList);
+        model.addAttribute("recommandlist", recommandSubsList);
 
-        model.addAttribute("recommandlist", recommandItemList);
-//        if (session.getAttribute("logincust")==null) {
-//            return "redirect:/cust/login";
-//        }
-        List<RecommandItem> selectedItems = recommandItemList.subList(0, 3);
-        model.addAttribute("recommandlist", selectedItems);
+
+        //category_id=100 상품 랜덤3개 담긴 리스트
+        List<RecommandItem> recommandItem100List= new ArrayList<>();
+        recommandItem100List = recommandItemService.get100();
+        log.info("recommandItemList={}", recommandItem100List);
+        model.addAttribute("recommandlist1", recommandItem100List);
+
+        //category_id=200 상품 랜덤3개 담긴 리스트
+        List<RecommandItem> recommandItem300List= new ArrayList<>();
+        recommandItem300List = recommandItemService.get300();
+        log.info("recommandItemList={}", recommandItem300List);
+        model.addAttribute("recommandlist2", recommandItem300List);
 
         return "index";
     }

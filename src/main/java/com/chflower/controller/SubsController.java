@@ -38,7 +38,10 @@ public class SubsController {
     SubsdetailService subsdetailService;
     @Autowired
     DelinfoService delinfoService;
+    @Autowired
+    EntryCountService entryCountService;
     String dir = "subs/";
+
 
     @RequestMapping("/subscribe")
     public String subscribe(Model model){
@@ -58,12 +61,22 @@ public class SubsController {
         model.addAttribute("center",dir+"all");
         return "index";
     }
+
     @RequestMapping("/detail")
     public String detail(Model model, int subsitem_id){
         Subsitem subsitem;
         try {
             subsitem = subsitemService.get(subsitem_id);
             model.addAttribute("obj", subsitem);
+
+            // 이전 카운트 값을 가져옴
+            int previousCount = entryCountService.getCount(subsitem_id);
+
+            // 카운트 증가
+            int newCount = entryCountService.incrementCount(subsitem_id);
+
+            // 로그 작성
+            log.info("'" +subsitem_id+"'" + "," + newCount);
         } catch (Exception e) {
             throw new RuntimeException("정기구독 상품 상세조회 오류입니다.");
         }

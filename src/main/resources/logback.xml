@@ -38,12 +38,65 @@
         </rollingPolicy>
     </appender>
 
+    <appender name="SUBSITEM" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS_DIR}/subscountlog.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss},%msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS_DIR}/subscountinfo.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>5MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
 
+    <appender name="ITEM" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS_DIR}/itemcountlog.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss},%msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS_DIR}/itemcountinfo.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>5MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="BIPUM" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS_DIR}/bipumcountlog.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss},%msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS_DIR}/bipumcountinfo.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>5MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="com.chflower.controller.SubsController" level="INFO">
+        <appender-ref ref="SUBSITEM" />
+    </logger>
+
+    <logger name="com.chflower.controller.ItemController" level="INFO">
+        <appender-ref ref="ITEM" />
+    </logger>
+
+    <logger name="com.chflower.controller.BipumController" level="INFO">
+        <appender-ref ref="BIPUM" />
+    </logger>
 
     <logger name="org.springframework.web" level="DEBUG">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />
     </logger>
+
     <logger name="com.chflower.controller.CustController" level="INFO">
         <appender-ref ref="FILE2" />
     </logger>

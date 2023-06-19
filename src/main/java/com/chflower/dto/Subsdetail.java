@@ -11,7 +11,7 @@ import java.util.Date;
 @ToString
 
 public class Subsdetail {
-    private int subsdetail_id;
+    private Integer subsdetail_id;
     private int subs_id;
     private String cust_id;
     private String receiver;
@@ -32,12 +32,12 @@ public class Subsdetail {
         this.subs_duedate = subs_duedate;
     }
 
-    public Subsdetail(int subsdetail_id, Date subs_duedate) {
+    public Subsdetail(Integer subsdetail_id, Date subs_duedate) {
         this.subsdetail_id = subsdetail_id;
         this.subs_duedate = subs_duedate;
     }
 
-    public Subsdetail(int subsdetail_id, String receiver, String receiver_phone, String rec_add1, String rec_add2, String subs_memo, Date subs_duedate) {
+    public Subsdetail(Integer subsdetail_id, String receiver, String receiver_phone, String rec_add1, String rec_add2, String subs_memo, Date subs_duedate) {
         this.subsdetail_id = subsdetail_id;
         this.receiver = receiver;
         this.receiver_phone = receiver_phone;

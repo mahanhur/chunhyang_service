@@ -199,6 +199,8 @@
   })
 
 </script>
+
+<%-- 고정탭바 --%>
 <script>
   let chatbtn = {
     init:function(){
@@ -426,7 +428,6 @@
   </div>
 </div>
 
-
 <!-- -------------------------------------------------------------------------------- -->
 <!-- 흰색 상단네비 고정바 -->
 <!-- NAVBAR -->
@@ -435,7 +436,7 @@
 
     <!-- Brand -->
     <a class="navbar-brand" href="/">
-      <img src="/uimg/logo_txt.png" class="main-logo" style="height: 50px;margin: 10px">
+      <img src="/uimg/logo1.png" class="main-logo" style="height: 70px;margin: 5px">
     </a>
 
     <!-- Toggler -->

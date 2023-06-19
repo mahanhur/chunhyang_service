@@ -35,6 +35,8 @@ public class OrderController {
     PointService pointService;
     @Autowired
     CartService cartService;
+    @Autowired
+    DelinfoService delinfoService;
 
 
     String dir = "order/";
@@ -95,7 +97,7 @@ public class OrderController {
             Order order = new Order(cust_id, order_amount, minus_point, pay_amount, order_name, order_phone, od_addr1, od_addr2);
             //order 적재
             orderService.register(order);
-            int order_id = orderService.getlast();
+            Integer order_id = orderService.getlast();
             model.addAttribute("order_id", order_id);
 
             //orderdetail 적재
@@ -106,10 +108,15 @@ public class OrderController {
             Payment payment = new Payment(order_id, 0, 1, 1);
             paymentService.iteminsert(payment);
 
+
+            //delinfo 적재
+            Delinfo delinfo = new Delinfo(order_id);
+            delinfoService.orderregister(delinfo);
+
             //point 적재
-            if (minus_point != 0) {
-                Point point = new Point(cust_id, minus_point);
-                pointService.minuspoint(point);
+                if (minus_point != 0) {
+                    Point point = new Point(cust_id, minus_point);
+                    pointService.minuspoint(point);
             }
 
 
@@ -137,6 +144,10 @@ public class OrderController {
         //payment 적재
         Payment payment = new Payment(order_id, 0, 1, 1);
         paymentService.iteminsert(payment);
+
+        //delinfo 적재
+        Delinfo delinfo = new Delinfo(order_id);
+        delinfoService.register(delinfo);
 
         //point 적재
         if (minus_point != 0) {
