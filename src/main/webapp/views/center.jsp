@@ -233,7 +233,7 @@
             <!-- Collapse -->
             <div class="card-collapse-parent">
               <!-- Body -->
-              <div class="card-body px-0 bg-white text-center">
+              <div class="card-body px-0 bg-black text-center" style="color: white">
                 <!-- Category -->
                 <div class="fs-bold">
                   <h6>${recommandlist1.item_name}</h6>
@@ -246,16 +246,17 @@
                 <div class="fw-bold text-muted">
                   <fmt:formatNumber value="${recommandlist1.item_price}" pattern="###,###원"/>
                 </div>
+                <button class="btn btn-xs btn-circle btn-black-primary text-center" data-toggle="button">
+                  <i class="fe fe-heart" style="color: white"></i>
+                </button>
               </div> <!-- Body end-->
 
-              <!-- Footer -->
-              <div class="card-collapse collapse">
-                <div class="card-footer px-0 pt-0 bg-white text-center">
-                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                    <i class="fe fe-heart"></i>
-                  </button>
-                </div>
-              </div>
+<%--              <!-- Footer -->--%>
+<%--              <div class="card-collapse collapse">--%>
+<%--                <div class="card-footer px-0 pt-0 bg-black ">--%>
+<%--                  --%>
+<%--                </div>--%>
+<%--              </div>--%>
             </div><!-- Collapse end -->
           </div> <!-- Card end-->
 

@@ -25,11 +25,19 @@
   <script src="/webjars/sockjs-client/sockjs.min.js"></script>
   <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 
+  <%-- font --%>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+
+
 <%--  <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">--%>
 
-<%--  <style>--%>
-<%--    body {font-family: 'SUIT Variable', sans-serif;}--%>
-<%--  </style>--%>
+  <style>
+    * {
+      font-family: 'Nanum Gothic', sans-serif;
+    }
+  </style>
 
   <!-- -------------------------------------------------------------------------------- -->
   <!-- Favicon -->
