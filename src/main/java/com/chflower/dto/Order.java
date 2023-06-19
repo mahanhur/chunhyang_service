@@ -10,7 +10,7 @@ import java.sql.Date;
 @Getter
 @ToString
 public class Order {
-    private int order_id;
+    private Integer order_id;
     private String cust_id;
     private Date order_date;
     private int order_amount;

@@ -36,6 +36,9 @@
     <insert id="insert" parameterType="delinfo">
         INSERT INTO delinfo VALUES(delinfo_seq.NEXTVAL, #{subsdetail_id}, null, 1, null, null, null, null)
     </insert>
+    <insert id="orderinsert" parameterType="delinfo">
+        INSERT INTO delinfo VALUES(delinfo_seq.NEXTVAL, null, #{order_id}, 1, null, null, null, null)
+    </insert>
     <update id="update" parameterType="delinfo">
     </update>
     <delete id="delete" parameterType="int">
