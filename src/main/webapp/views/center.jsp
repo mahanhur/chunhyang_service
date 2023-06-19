@@ -168,8 +168,8 @@
             <!-- Image -->
             <div class="card-img-top">
               <!-- img태그-->
-              <a  href="/subs/detail?subs_id=${recommandlist.item_id}">
-                <img class="card-img-top card-img-back" src="/uimg/${recommandlist.item_img}" alt="...">
+              <a  href="/subs/detail?subs_id=${recommandlist.subsitem_id}">
+                <img class="card-img-top card-img-back" src="/uimg/${recommandlist.subsitem_img}" alt="...">
               </a>
               <!-- Actions -->
               <div class="card-actions">
@@ -194,15 +194,15 @@
             <div class="card-body px-0">
               <!-- Category -->
               <div class="fs-bold">
-                <h6>${recommandlist.item_name}</h6>
+                <h6>${recommandlist.subsitem_name}</h6>
               </div>
               <!-- Title -->
               <div class="fw-xs">
-                  ${recommandlist.item_content}
+                  ${recommandlist.subsitem_content}
               </div>
               <!-- Price -->
               <div class="fw-bold text-muted">
-                  ${recommandlist.item_price}
+                  ${recommandlist.subsitem_price}
               </div>
             </div> <!-- Body end-->
           </div> <!-- Card end-->
@@ -228,7 +228,7 @@
       </div>
 
       <!-- 추천 꽃선물 -->
-      <c:forEach var="recommandlist" items="${recommandlist}">
+      <c:forEach var="recommandlist1" items="${recommandlist1}">
         <div class="col-12 col-md">
 
           <!-- Card -->
@@ -238,8 +238,8 @@
             <!-- Image -->
             <div class="card-img-top">
               <!-- img태그-->
-              <a  href="/subs/detail?subs_id=${recommandlist.item_id}">
-                <img class="card-img-top card-img-back" src="/uimg/${recommandlist.item_img}" alt="...">
+              <a  href="/item/detail?item_id=${recommandlist1.item_id}">
+                <img class="card-img-top card-img-back" src="/uimg/${recommandlist1.item_img}" alt="...">
               </a>
               <!-- Actions -->
               <div class="card-actions">
@@ -264,15 +264,15 @@
             <div class="card-body px-0">
               <!-- Category -->
               <div class="fs-bold">
-                <h6>${recommandlist.item_name}</h6>
+                <h6>${recommandlist1.item_name}</h6>
               </div>
               <!-- Title -->
               <div class="fw-xs">
-                  ${recommandlist.item_content}
+                  ${recommandlist1.item_content}
               </div>
               <!-- Price -->
               <div class="fw-bold text-muted">
-                  ${recommandlist.item_price}
+                  ${recommandlist1.item_price}
               </div>
             </div> <!-- Body end-->
           </div> <!-- Card end-->
@@ -298,7 +298,7 @@
       </div>
 
       <!-- 추천 꽃선물 -->
-      <c:forEach var="recommandlist" items="${recommandlist}">
+      <c:forEach var="recommandlist2" items="${recommandlist2}">
         <div class="col-12 col-md">
 
           <!-- Card -->
@@ -308,8 +308,8 @@
             <!-- Image -->
             <div class="card-img-top">
               <!-- img태그-->
-              <a  href="/subs/detail?subs_id=${recommandlist.item_id}">
-                <img class="card-img-top card-img-back" src="/uimg/${recommandlist.item_img}" alt="...">
+              <a  href="/bipum/detail?item_id=${recommandlist2.item_id}">
+                <img class="card-img-top card-img-back" src="/uimg/${recommandlist2.item_img}" alt="...">
               </a>
               <!-- Actions -->
               <div class="card-actions">
@@ -334,15 +334,15 @@
             <div class="card-body px-0">
               <!-- Category -->
               <div class="fs-bold">
-                <h6>${recommandlist.item_name}</h6>
+                <h6>${recommandlist2.item_name}</h6>
               </div>
               <!-- Title -->
               <div class="fw-xs">
-                  ${recommandlist.item_content}
+                  ${recommandlist2.item_content}
               </div>
               <!-- Price -->
               <div class="fw-bold text-muted">
-                  ${recommandlist.item_price}
+                  ${recommandlist2.item_price}
               </div>
             </div> <!-- Body end-->
           </div> <!-- Card end-->

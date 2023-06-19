@@ -10,4 +10,22 @@
         where <![CDATA[ rownum < 5 ]]>
     </select>
 
+    <select id="select100" resultType="RecommandItem">
+        SELECT *
+        FROM (SELECT * FROM item WHERE category_id IN (100, 200) ORDER BY dbms_random.value)
+        where <![CDATA[ rownum < 4 ]]>
+    </select>
+
+    <select id="select300" resultType="RecommandItem">
+        SELECT *
+        FROM (SELECT * FROM item WHERE category_id IN (300, 400) ORDER BY dbms_random.value)
+        where <![CDATA[ rownum < 4 ]]>
+    </select>
+
+    <select id="selectsubs" resultType="RecommandItem">
+        SELECT *
+        FROM (SELECT * FROM subsitem ORDER BY dbms_random.value)
+        where <![CDATA[ rownum < 4 ]]>
+
+    </select>
 </mapper>
