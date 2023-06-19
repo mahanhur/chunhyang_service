@@ -106,21 +106,19 @@
                 // });
 
 
-            /*========================================================================*/
-            var markers = [];// 지도에 표시된 마커 객체를 가지고 있을 배열입니다
-
-
-            // 마커를 생성하고 지도위에 표시하는 함수입니다
-            function addMarker(position) {
-                var marker = new kakao.maps.Marker({// 마커를 생성합니다
-                    position: position,
-                    image: markerImage // 마커이미지 설정
-                });
-                // 마커가 지도 위에 표시되도록 설정합니다
-                marker.setMap(map);
-                // 생성된 마커를 배열에 추가합니다
-                markers.push(marker);
-            }
+                /*========================================================================*/
+                var markers = [];// 지도에 표시된 마커 객체를 가지고 있을 배열입니다
+                // 마커를 생성하고 지도위에 표시하는 함수입니다
+                function addMarker(position) {
+                    var marker = new kakao.maps.Marker({// 마커를 생성합니다
+                        position: position,
+                        image: markerImage // 마커이미지 설정
+                    });
+                    // 마커가 지도 위에 표시되도록 설정합니다
+                    marker.setMap(map);
+                    // 생성된 마커를 배열에 추가합니다
+                    markers.push(marker);
+                }
 
                 $('#deliverybtn').click(function () {
                 let samplepath = [
@@ -163,6 +161,7 @@
 
                 for (let j = 0; j <= samplepath.length; j += 1) {
                     setTimeout(() => {
+                            if(j===samplepath.length) alert('퀵배송 완료!')
                             var p = new kakao.maps.LatLng(samplepath[j][0], samplepath[j][1]);
                             addMarker(p)
                             if (markers.length > 1) {
@@ -171,8 +170,7 @@
                             }
                         }
                         , j * 500)
-                    if(j===samplepath.length){
-                        alert('퀵배송 완료!')}
+
                 }
                 for (let q = 0; q <= samplepath.length; q += 1) {
                     setTimeout(() => {
