@@ -17,7 +17,7 @@ public class flowerDictionaryController {
     public String all(Model model) throws Exception {
         JSONArray list = new JSONArray();
 
-        for(int i=1; i<=16; i+=1) {
+        for(int i=1; i<=4; i+=1) {
             String date = Integer.toString(i);
             Object flower = TodayFlowerUtil.todayFlower(date);
             System.out.print(flower);

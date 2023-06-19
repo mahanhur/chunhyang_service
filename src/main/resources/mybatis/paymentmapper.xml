@@ -13,6 +13,9 @@
     <select id="selectsubsid"  parameterType="int" resultType="payment">
         SELECT * FROM payment WHERE subs_id=#{subs_id}
     </select>
+    <select id="selectorderid"  parameterType="Integer" resultType="payment">
+        SELECT * FROM payment WHERE order_id=#{order_id}
+    </select>
     <insert id="insert" parameterType="payment">
     </insert>
     <insert id="subsinsert" parameterType="payment">

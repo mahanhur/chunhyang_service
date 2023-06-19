@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 public class Payment {
     private int pay_id;
-    private int order_id ;
+    private Integer order_id ;
     private int subs_id;
     private int pay_opt;
     private int pay_state;
@@ -26,6 +26,8 @@ public class Payment {
         this.pay_opt = pay_opt;
         this.pay_state = pay_state;
     }
+
+
 
 
 }

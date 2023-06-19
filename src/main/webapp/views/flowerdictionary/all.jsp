@@ -12,6 +12,7 @@
 </header>
 
 <!-- CONTENT -->
+
 <section class="py-12">
   <div class="container">
     <div class="row">
@@ -23,8 +24,9 @@
           <div class="card mb-7" data-toggle="card-collapse">
 
             <!-- Image -->
+            <a href="/flowerdictionary/detail?dataNo=${obj.dataNo}">
               <img src="${obj.imgUrl1}" alt="꽃이미지 출력에러" class="card-img-top" <%--style="width: 100px; height:300px;"--%>>
-
+            </a>
             <!-- Collapse -->
             <div class="card-collapse-parent">
 

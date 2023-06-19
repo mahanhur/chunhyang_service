@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @Slf4j
@@ -32,8 +33,8 @@ public class OrderController {
     PaymentService paymentService;
     @Autowired
     PointService pointService;
-//    @Autowired
-//    CartService cartService;
+    @Autowired
+    CartService cartService;
 
 
     String dir = "order/";
@@ -82,7 +83,6 @@ public class OrderController {
 
     @RequestMapping("/success")
     public String success(Model model,HttpSession session, int item_id, int order_amount, int minus_point, int pay_amount, int order_cnt, int addr_id) throws Exception {
-        log.info("======================="+item_id+order_amount+minus_point+pay_amount+order_cnt);
         Cust cust = (Cust) session.getAttribute("logincust");
         String cust_id = cust.getCust_id();
         String order_name = cust.getCust_name();
@@ -97,17 +97,67 @@ public class OrderController {
             orderService.register(order);
             int order_id = orderService.getlast();
             model.addAttribute("order_id", order_id);
+
+            //orderdetail 적재
+            Orderdetail orderdetail = new Orderdetail(order_id, item_id, order_cnt);
+            orderService.registerdetail(orderdetail);
+
             //payment 적재
-            Payment payment = new Payment(order_id, 1, 1);
+            Payment payment = new Payment(order_id, 0, 1, 1);
             paymentService.iteminsert(payment);
+
             //point 적재
             if (minus_point != 0) {
                 Point point = new Point(cust_id, minus_point);
                 pointService.minuspoint(point);
             }
+
+
+        model.addAttribute("center",dir+"success");
+        return "index";
+    }
+    @RequestMapping("/success_cart")
+    public String success_cart(Model model,HttpSession session, int order_amount, int minus_point, int pay_amount, int addr_id) throws Exception {
+        Cust cust = (Cust) session.getAttribute("logincust");
+
+        String cust_id = cust.getCust_id();
+        String order_name = cust.getCust_name();
+        String order_phone = cust.getPhone();
+
+        Addr addr = addrService.get(addr_id);
+        String od_addr1 = addr.getDef_addr1();
+        String od_addr2 = addr.getDef_addr2();
+
+        Order order = new Order(cust_id, order_amount, minus_point, pay_amount, order_name, order_phone, od_addr1, od_addr2);
+        //order 적재
+        orderService.register(order);
+        int order_id = orderService.getlast();
+        model.addAttribute("order_id", order_id);
+
+        //payment 적재
+        Payment payment = new Payment(order_id, 0, 1, 1);
+        paymentService.iteminsert(payment);
+
+        //point 적재
+        if (minus_point != 0) {
+            Point point = new Point(cust_id, minus_point);
+            pointService.minuspoint(point);
+        }
+
+        List<Cart> list = null;
+        list = cartService.getMyCart(cust_id);
+
+        for (int i = 0; i < list.size(); i++) {
+            Cart cart = list.get(i);
+            int item_id = cart.getItem_id();
+            int order_cnt = cart.getCnt();
+
             //orderdetail 적재
             Orderdetail orderdetail = new Orderdetail(order_id, item_id, order_cnt);
-            orderService.register(orderdetail);
+            orderService.registerdetail(orderdetail);
+        }
+        //장바구니 초기화
+        cartService.delMycart(cust_id);
 
         model.addAttribute("center",dir+"success");
         return "index";

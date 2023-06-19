@@ -2,7 +2,42 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <script>
+  let dabal_sort = {
+    init: function () {
+      $("input[name='dabaltype']").change(function () {
+        dabal_sort.send();
+        let dabaltype= $("input[name='dabaltype']:checked").val();
+        console.log(dabaltype);
+      });
+    },
+    send: function () {
+      $("#dabalMenu_form").attr({
+        'action': '/item/sortdabal',
+        'method': 'post'
+      })
+      $("#dabalMenu_form").submit();
+    }
+  };
+
+  let flower_sort = {
+    init: function () {
+      $("input[name='flowertype']").change(function () {
+        flower_sort.send();
+        let flowertype= $("input[name='flowertype']:checked").val();
+        console.log(flowertype);
+      });
+    },
+    send: function () {
+      $("#flowerMenu_form").attr({
+        'action': '/item/sortflower',
+        'method': 'post'
+      })
+      $("#flowerMenu_form").submit();
+    }
+  };
+
   let item_get = {
     init: function () {
       $('.cart_btn').click(function () {
@@ -27,10 +62,17 @@
       });
     }
   };
+
+
+
   $(function () {
+    dabal_sort.init();
+    flower_sort.init();
     item_get.init();
   });
 </script>
+
+
 
 <!doctype html>
 <html lang="en">
@@ -1503,13 +1545,18 @@
 </div>
 
 <!-- HEADER -->
-<header class="py-13 jarallax" data-jarallax data-speed=".8" style="background-image: url(/uimg/shopmainimage.jpg);">
+<header class="py-13 jarallax" data-jarallax data-speed=".8" style="background-image: url(/uimg/shopmainimage.jpg);height: 400px">
   <div class="container">
     <div class="row">
       <div class="col-12">
 
         <!-- Heading -->
-        <h3 class="text-center text-white">Women's Clothing</h3>
+        <h3 class="text-center text-green mb-8">일상의 행복을 만드는 확실한 방법</h3>
+        <h6 class="text-center text-success">따사로운 햇살을 닮은 꽃선물</h6>
+        <h6 class="text-center text-white mb-6">
+          <span style="color: yellow">#</span>사랑&nbsp;
+          <span style="color: yellow">#</span>응원&nbsp;
+          <span style="color: yellow">#</span>감사</h6>
 
         <!-- Breadcrumb -->
         <ol class="breadcrumb justify-content-center mb-0 text-center text-white fs-xs">
@@ -1517,7 +1564,7 @@
             <a class="text-reset" href="#">Home</a>
           </li>
           <li class="breadcrumb-item active">
-            Women's Clothing
+            item
           </li>
         </ol>
 
@@ -1540,53 +1587,127 @@
           <!-- Toggle -->
           <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown">꽃다발</a>
           <!-- Menu -->
-          <form class="dropdown-menu">
+          <form id="dabalMenu_form" class="dropdown-menu">
             <div class="card">
               <div class="card-body">
                 <!-- Form group -->
                 <div class="form-group-overflow">
                   <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="Default" name="sort" type="radio" value="전체">
-                    <a class="form-check-label" for="sortOne" href="/item/bunch">전체</a>
+                    <input class="form-check-input" id="dabal" type="radio">
+<%--                    <label class="form-check-label" for="bunch">전체</label>--%>
+                    <a class="form-check-label" href="/item/dabal">전체</a>
                   </div>
                   <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="Newest" name="sort" type="radio" value="사랑">
-                    <a class="form-check-label" for="sortTwo" href="/item/love">사랑</a>
+                    <input class="form-check-input" id="love" name="dabaltype" type="radio" value="사랑">
+                    <label class="form-check-label" for="love">사랑</label>
+<%--                    <a class="form-check-label" for="sortTwo" href="/item/love">사랑</a>--%>
                   </div>
                   <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="Most Popular" name="sort" type="radio" value="응원">
-                    <a class="form-check-label" for="sortThree" href="/item/cheer">응원</a>
+                    <input class="form-check-input" id="cheer" name="dabaltype" type="radio" value="응원">
+                    <label class="form-check-label" for="cheer">응원</label>
+<%--                    <a class="form-check-label" for="sortThree" href="/item/cheer">응원</a>--%>
                   </div>
                   <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="Default Price" name="sort" type="radio" value="감사">
-                    <a class="form-check-label" for="sortFour"href="/item/thanks">감사</a>
+                    <input class="form-check-input" id="thanks" name="dabaltype" type="radio" value="감사">
+                    <label class="form-check-label" for="thanks">감사</label>
+<%--                    <a class="form-check-label" for="sortFour">감사</a>--%>
                   </div>
                 </div>
               </div>
             </div>
           </form>
+
           <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown" href="/item/flower">꽃</a>
           <!-- Menu -->
-          <form class="dropdown-menu">
+
+          <form id="flowerMenu_form" class="dropdown-menu">
             <div class="card">
               <div class="card-body">
                 <!-- Form group -->
                 <div class="form-group-overflow">
                   <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" name="sort" type="radio" value="전체">
-                    <a class="form-check-label" for="sortOne" href="/item/flower">전체</a>
+                    <input class="form-check-input" id="flower" value="전체">
+                    <a class="form-check-label" for="flower" href="/item/flower">전체</a>
                   </div>
                   <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input"  name="sort" type="radio" value="장미">
-                    <a class="form-check-label" for="sortTwo" href="/item/rose">장미</a>
+                    <input class="form-check-input" id="장미" name="flowertype" type="radio" value="장미">
+                    <label class="form-check-label" for="장미">장미</label>
+<%--                    <a class="form-check-label" for="rose" href="/item/rose">장미</a>--%>
                   </div>
                   <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input"  name="sort" type="radio" value="수국">
-                    <a class="form-check-label" for="sortThree" href="/item/hydrangea">수국</a>
+                    <input class="form-check-input" id="작약" name="flowertype" type="radio" value="작약">
+                    <label class="form-check-label" for="작약">작약</label>
+<%--                    <a class="form-check-label" for="rose" href="/item/rose">작약</a>--%>
                   </div>
                   <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input"  name="sort" type="radio" value="프리지아">
-                    <a class="form-check-label" for="sortFour" href="/item/freesia">프리지아</a>
+                    <input class="form-check-input" id="카라" name="flowertype" type="radio" value="카라">
+                    <label class="form-check-label" for="카라">카라</label>
+<%--                    <a class="form-check-label" for="kara" href="/item/kara">카라</a>--%>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="프리지아" name="flowertype" type="radio" value="프리지아">
+                    <label class="form-check-label" for="프리지아">프리지아</label>
+<%--                    <a class="form-check-label" for="freesia" href="/item/freesia">프리지아</a>--%>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="거베라" name="flowertype" type="radio" value="거베라">
+                    <label class="form-check-label" for="거베라">거베라</label>
+<%--                    <a class="form-check-label" for="gerbera" href="/item/gerbera">거베라</a>--%>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="수국" name="flowertype" type="radio" value="수국">
+                    <label class="form-check-label" for="수국">수국</label>
+<%--                    <a class="form-check-label" for="hydrangea" href="/item/hydrangea">수국</a>--%>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="해바라기" name="flowertype" type="radio" value="해바라기">
+                    <label class="form-check-label" for="해바라기">해바라기</label>
+<%--                    <a class="form-check-label" for="sortOne" href="/item/flower">해바라기</a>--%>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="백합" name="flowertype" type="radio" value="백합">
+                    <label class="form-check-label" for="백합">백합</label>
+<%--                    <a class="form-check-label" for="sortTwo" href="/item/rose">백합</a>--%>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="라벤더" name="flowertype" type="radio" value="라벤더">
+                    <label class="form-check-label" for="라벤더">라벤더</label>
+<%--                    <a class="form-check-label" for="sortThree" href="/item/hydrangea">라벤더</a>--%>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="리시안셔스" name="flowertype" type="radio" value="리시안셔스">
+                    <label class="form-check-label" for="리시안셔스">리시안셔스</label>
+<%--                    <a class="form-check-label" for="sortFour" href="/item/lisianthus">리시안셔스</a>--%>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="유칼립투스" name="flowertype" type="radio" value="유칼립투스">
+                    <label class="form-check-label" for="유칼립투스">유칼립투스</label>
+<%--                    <a class="form-check-label" for="sortTwo" href="/item/rose">유칼립투스</a>--%>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="아스틸베베" name="flowertype" type="radio" value="아스틸베베">
+                    <label class="form-check-label" for="아스틸베베">아스틸베베</label>
+<%--                    <a class="form-check-label" for="sortThree" href="/item/hydrangea">아스틸베베</a>--%>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="청공작초" name="flowertype" type="radio" value="청공작초">
+                    <label class="form-check-label" for="청공작초">청공작초</label>
+<%--                    <a class="form-check-label" for="sortFour" href="/item/freesia">청공작초</a>--%>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="투베로사" name="flowertype" type="radio" value="투베로사">
+                    <label class="form-check-label" for="투베로사">투베로사</label>
+<%--                    <a class="form-check-label" for="sortTwo" href="/item/rose">투베로사</a>--%>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="스톡크" name="flowertype" type="radio" value="스톡크">
+                    <label class="form-check-label" for="스톡크">스톡크</label>
+<%--                    <a class="form-check-label" for="sortThree" href="/item/hydrangea">스톡크</a>--%>
+                  </div>
+                  <div class="form-check form-check-text mb-3">
+                    <input class="form-check-input" id="기타" name="flowertype" type="radio" value="기타">
+                    <label class="form-check-label" for="기타">기타</label>
+<%--                    <a class="form-check-label" for="sortFour" href="/item/freesia">기타</a>--%>
                   </div>
                 </div>
               </div>

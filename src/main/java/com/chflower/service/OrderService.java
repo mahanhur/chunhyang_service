@@ -43,7 +43,7 @@ public class OrderService implements CHService<Integer, Order> {
         return mapper.getlast();
     }
 
-    public void register(Orderdetail orderdetail) throws Exception {
+    public void registerdetail(Orderdetail orderdetail) throws Exception {
         mapper.insertdetail(orderdetail);
     }
 

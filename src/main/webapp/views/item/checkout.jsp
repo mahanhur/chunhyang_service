@@ -83,7 +83,7 @@
           pg: "inicis",
           pay_method: "card",
           merchant_uid : 'merchant_'+new Date().getTime(),
-          name : '춘향전 ${subsitem.subsitem_name}',
+          name : '춘향전 ${item.item_name}',
           amount : finalprice,
           buyer_email : '${logincust.email}',
           buyer_name : '${logincust.cust_name}',
@@ -241,6 +241,7 @@
                 <li class="list-group-item" id="addr1">주소1</li>
                 <li class="list-group-item" id="addr2">주소2</li>
               </ul>
+              <a href="#addrmodal" class="btn btn-sm w-30 btn-outline-dark" data-bs-toggle="modal">주소 추가</a>
             </div>
 
             <p class="mb-7 fs-xs text-gray-500">
@@ -334,3 +335,69 @@
     </div>
   </div>
 </section>
+
+
+<!-- addr Modal -->
+<div class="modal fade" id="addrmodal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+
+      <!-- Close -->
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <i class="fe fe-x" aria-hidden="true"></i>
+      </button>
+
+      <!-- Content -->
+      <div class="row gx-0">
+        <div class="col-12 d-flex flex-column px-md-8">
+
+          <!-- Body -->
+          <div class="modal-body my-auto py-10">
+
+            <h6 class="mb-7">
+              주소 추가하기
+            </h6>
+
+            <form id="addr_form">
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label class="form-label" for="addr_name">주소지 이름 *</label>
+                    <input class="form-control" id="addr_name" type="text" name="addr_name" placeholder="주소지 이름을 입력해주세요" required>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <input class="form-control btn-outline-secondary" type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label class="form-label" for="addr_name">기본 주소 *</label>
+                    <input class="form-control" id="sample4_roadAddress" name="def_addr1" type="text" placeholder="기본 주소를 입력해주세요">
+                    <span id="guide" style="color:#999;display:none"></span>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="addr_name">상세 주소 *</label>
+                    <input class="form-control" id="sample4_detailAddress" name="def_addr2" type="text" placeholder="상세 주소를 입력해주세요">
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- Button -->
+              <button class="btn btn-dark" type="button" id="addradd_btn">
+                주소 추가
+              </button>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!-- addr Modal END-->

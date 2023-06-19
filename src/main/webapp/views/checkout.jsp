@@ -15,7 +15,7 @@
         $('#addradd_btn').click(function (){
           $('#addr_form').attr({
             method:'post',
-            action:'/cust/addraddimpl',
+            action:'/cust/addraddimpl'
           });
           $('#addr_form').submit();
         });
