@@ -162,36 +162,17 @@
         <div class="col-12 col-md">
 
           <!-- Card -->
-          <div class="card mb-7 mb-md-0 shadow">
+          <div class="card mb-7" data-toggle="card-collapse">
             <!-- Badge -->
             <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">Sale</div>
             <!-- Image -->
-            <div class="card-img-top">
-              <!-- img태그-->
-              <a  href="/subs/detail?subs_id=${recommandlist.subsitem_id}">
-                <img class="card-img-top card-img-back" src="/uimg/${recommandlist.subsitem_img}" alt="...">
-              </a>
-              <!-- Actions -->
-              <div class="card-actions">
-                    <span class="card-action">
-                      <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                        <i class="fe fe-eye"></i>
-                      </button>
-                    </span>
-                <span class="card-action">
-                      <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                        <i class="fe fe-shopping-cart"></i>
-                      </button>
-                    </span>
-                <span class="card-action">
-                      <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                        <i class="fe fe-heart"></i>
-                      </button>
-                    </span>
-              </div><!-- Actions end -->
-            </div> <!-- Image end -->
-            <!-- Body -->
-            <div class="card-body px-0">
+            <a  href="/subs/detail?subsitem_id=${recommandlist.subsitem_id}">
+              <img class="card-img-top card-img-back" src="/uimg/${recommandlist.subsitem_img}" alt="...">
+            </a>
+            <!-- Collapse -->
+            <div class="card-collapse-parent">
+              <!-- Body -->
+              <div class="card-body px-0 bg-white text-center">
               <!-- Category -->
               <div class="fs-bold">
                 <h6>${recommandlist.subsitem_name}</h6>
@@ -202,9 +183,19 @@
               </div>
               <!-- Price -->
               <div class="fw-bold text-muted">
-                  ${recommandlist.subsitem_price}
+                <fmt:formatNumber value="${recommandlist.subsitem_price}" pattern="###,###원"/>
               </div>
             </div> <!-- Body end-->
+
+            <!-- Footer -->
+            <div class="card-collapse collapse">
+              <div class="card-footer px-0 pt-0 bg-white text-center">
+                <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                  <i class="fe fe-heart"></i>
+                </button>
+              </div>
+            </div>
+          </div><!-- Collapse end -->
           </div> <!-- Card end-->
 
         </div>
@@ -232,49 +223,40 @@
         <div class="col-12 col-md">
 
           <!-- Card -->
-          <div class="card mb-7 mb-md-0 shadow">
+          <div class="card mb-7" data-toggle="card-collapse">
             <!-- Badge -->
             <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">Sale</div>
             <!-- Image -->
-            <div class="card-img-top">
-              <!-- img태그-->
-              <a  href="/item/detail?item_id=${recommandlist1.item_id}">
-                <img class="card-img-top card-img-back" src="/uimg/${recommandlist1.item_img}" alt="...">
-              </a>
-              <!-- Actions -->
-              <div class="card-actions">
-                    <span class="card-action">
-                      <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                        <i class="fe fe-eye"></i>
-                      </button>
-                    </span>
-                <span class="card-action">
-                      <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                        <i class="fe fe-shopping-cart"></i>
-                      </button>
-                    </span>
-                <span class="card-action">
-                      <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                        <i class="fe fe-heart"></i>
-                      </button>
-                    </span>
-              </div><!-- Actions end -->
-            </div> <!-- Image end -->
-            <!-- Body -->
-            <div class="card-body px-0">
-              <!-- Category -->
-              <div class="fs-bold">
-                <h6>${recommandlist1.item_name}</h6>
+            <a  href="/item/detail?item_id=${recommandlist1.item_id}">
+              <img class="card-img-top card-img-back" src="/uimg/${recommandlist1.item_img}" alt="...">
+            </a>
+            <!-- Collapse -->
+            <div class="card-collapse-parent">
+              <!-- Body -->
+              <div class="card-body px-0 bg-white text-center">
+                <!-- Category -->
+                <div class="fs-bold">
+                  <h6>${recommandlist1.item_name}</h6>
+                </div>
+                <!-- Title -->
+                <div class="fw-xs">
+                    ${recommandlist1.item_content}
+                </div>
+                <!-- Price -->
+                <div class="fw-bold text-muted">
+                  <fmt:formatNumber value="${recommandlist1.item_price}" pattern="###,###원"/>
+                </div>
+              </div> <!-- Body end-->
+
+              <!-- Footer -->
+              <div class="card-collapse collapse">
+                <div class="card-footer px-0 pt-0 bg-white text-center">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                    <i class="fe fe-heart"></i>
+                  </button>
+                </div>
               </div>
-              <!-- Title -->
-              <div class="fw-xs">
-                  ${recommandlist1.item_content}
-              </div>
-              <!-- Price -->
-              <div class="fw-bold text-muted">
-                  ${recommandlist1.item_price}
-              </div>
-            </div> <!-- Body end-->
+            </div><!-- Collapse end -->
           </div> <!-- Card end-->
 
         </div>
@@ -297,54 +279,45 @@
         </h3>
       </div>
 
-      <!-- 추천 꽃선물 -->
+      <!-- 추천 화병비품 -->
       <c:forEach var="recommandlist2" items="${recommandlist2}">
         <div class="col-12 col-md">
 
           <!-- Card -->
-          <div class="card mb-7 mb-md-0 shadow">
+          <div class="card mb-7" data-toggle="card-collapse">
             <!-- Badge -->
             <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">Sale</div>
             <!-- Image -->
-            <div class="card-img-top">
-              <!-- img태그-->
-              <a  href="/bipum/detail?item_id=${recommandlist2.item_id}">
-                <img class="card-img-top card-img-back" src="/uimg/${recommandlist2.item_img}" alt="...">
-              </a>
-              <!-- Actions -->
-              <div class="card-actions">
-                    <span class="card-action">
-                      <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                        <i class="fe fe-eye"></i>
-                      </button>
-                    </span>
-                <span class="card-action">
-                      <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                        <i class="fe fe-shopping-cart"></i>
-                      </button>
-                    </span>
-                <span class="card-action">
-                      <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                        <i class="fe fe-heart"></i>
-                      </button>
-                    </span>
-              </div><!-- Actions end -->
-            </div> <!-- Image end -->
-            <!-- Body -->
-            <div class="card-body px-0">
-              <!-- Category -->
-              <div class="fs-bold">
-                <h6>${recommandlist2.item_name}</h6>
+            <a  href="/item/detail?item_id=${recommandlist2.item_id}">
+              <img class="card-img-top card-img-back" src="/uimg/${recommandlist2.item_img}" alt="...">
+            </a>
+            <!-- Collapse -->
+            <div class="card-collapse-parent">
+              <!-- Body -->
+              <div class="card-body px-0 bg-white text-center">
+                <!-- Category -->
+                <div class="fs-bold">
+                  <h6>${recommandlist2.item_name}</h6>
+                </div>
+                <!-- Title -->
+                <div class="fw-xs">
+                    ${recommandlist2.item_content}
+                </div>
+                <!-- Price -->
+                <div class="fw-bold text-muted">
+                  <fmt:formatNumber value="${recommandlist2.item_price}" pattern="###,###원"/>
+                </div>
+              </div> <!-- Body end-->
+
+              <!-- Footer -->
+              <div class="card-collapse collapse">
+                <div class="card-footer px-0 pt-0 bg-white text-center">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                    <i class="fe fe-heart"></i>
+                  </button>
+                </div>
               </div>
-              <!-- Title -->
-              <div class="fw-xs">
-                  ${recommandlist2.item_content}
-              </div>
-              <!-- Price -->
-              <div class="fw-bold text-muted">
-                  ${recommandlist2.item_price}
-              </div>
-            </div> <!-- Body end-->
+            </div><!-- Collapse end -->
           </div> <!-- Card end-->
 
         </div>
