@@ -34,9 +34,6 @@
         <!-- Categories -->
         <nav class="nav nav-overflow mb-6 mb-md-0">
           <a class="nav-link active" data-bs-toggle="tab" href="#">전체</a>
-          <a class="nav-link" data-bs-toggle="tab" href="#">6개월</a>
-          <a class="nav-link" data-bs-toggle="tab" href="#">12개월</a>
-          <a class="nav-link" data-bs-toggle="tab" href="#">횟수권</a>
         </nav>
 
       </div>
