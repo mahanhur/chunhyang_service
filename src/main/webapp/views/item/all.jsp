@@ -1551,8 +1551,8 @@
       <div class="col-12">
 
         <!-- Heading -->
-        <h3 class="text-center text-white mb-8">일상의 행복을 만드는 확실한 방법</h3>
-        <h6 class="text-center text-white">따사로운 햇살을 닮은 꽃선물</h6>
+        <h3 class="text-center text-green mb-8">일상의 행복을 만드는 확실한 방법</h3>
+        <h6 class="text-center text-success">따사로운 햇살을 닮은 꽃선물</h6>
         <h6 class="text-center text-white mb-6">
           <span style="color: yellow">#</span>사랑&nbsp;
           <span style="color: yellow">#</span>응원&nbsp;

@@ -91,7 +91,10 @@
 
       </div>
       <div class="col-12 col-md-9 col-lg-8 offset-lg-1">
-        <c:forEach var="obj" items="${olist}" varStatus="status" >
+        <c:if test="${empty olist}">
+          <jsp:include page="/views/noinformation.jsp"/>
+        </c:if>
+        <c:forEach var="obj" items="${olist}" varStatus="status">
         <!-- Order -->
         <div class="card card-lg mb-5 border">
           <div class="card-body pb-0">

@@ -2,6 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%--카카오맵--%>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=da86c8457c75372952796f5bbc52cb25"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=da86c8457c75372952796f5bbc52cb25&libraries=services,clusterer,drawing"></script>
 
 <!doctype html>
 <html lang="ko">
@@ -196,6 +199,8 @@
   })
 
 </script>
+
+<%-- 고정탭바 --%>
 <script>
   let chatbtn = {
     init:function(){
@@ -423,7 +428,6 @@
   </div>
 </div>
 
-
 <!-- -------------------------------------------------------------------------------- -->
 <!-- 흰색 상단네비 고정바 -->
 <!-- NAVBAR -->
@@ -432,7 +436,7 @@
 
     <!-- Brand -->
     <a class="navbar-brand" href="/">
-      <img src="/uimg/logo_txt.png" class="main-logo" style="height: 50px;margin: 10px">
+      <img src="/uimg/logo1.png" class="main-logo" style="height: 70px;margin: 5px">
     </a>
 
     <!-- Toggler -->

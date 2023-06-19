@@ -294,7 +294,7 @@
           <div class="col-12 py-13 text-center">
 
             <!-- Button -->
-            <a href="#!" class="btn btn-white px-8">@shopper</a>
+            <a href="#!" class="btn btn-white px-8">@chunhyang</a>
 
           </div>
         </div>
