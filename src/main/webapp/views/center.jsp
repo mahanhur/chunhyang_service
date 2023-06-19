@@ -151,10 +151,11 @@
 
       <div class="col-12 col-lg-3">
         <!-- Heading -->
-        <h2 style="width: 200px;margin-top: 50px">정기구독</h2>
-        <p style="width: 200px;">100만명이 선택한 꽃 구독.<br/>이제 시작하세요</p>
-        <a type="button" class="btn btn-outline-dark" href="/subs/all" style="width: 190px;padding:10px">구독상품 전체보기</a>
-      </div>
+        <h3 class="mb-10 text-center text-lg-start">정기구독
+          <p style="font-size: 16px;margin-top: 20px">100만명이 선택한 꽃 구독.<br/>이제 시작하세요</p>
+          <a type="button" class="btn btn-outline-dark" href="/subs/all" style="width: 190px;padding:10px">구독상품 전체보기</a>
+        </h3>
+         </div>
 
       <!-- 추천 구독상품 -->
       <c:forEach var="recommandlist" items="${recommandlist}">
@@ -220,9 +221,10 @@
 
       <div class="col-12 col-lg-3">
         <!-- Heading -->
-        <h2 style="width: 200px;margin-top: 50px;color: white">꽃선물</h2>
-        <p style="width: 200px;color:white;">꽃 선물은 춘향의 전문 플로리스트에게 맡기세요</p>
-        <a type="button" class="btn btn-outline-white" href="/item/all" style="width: 190px;padding:10px">꽃선물 전체보기</a>
+        <h3 class="mb-10 text-center text-lg-start" style="color:white;">꽃선물
+          <p style="font-size: 16px;color:white;margin-top: 20px">꽃 선물은 <br/>전문 플로리스트에게 맡기세요</p>
+          <a type="button" class="btn btn-outline-white" href="/item/all" style="width: 190px;padding:10px">꽃선물 전체보기</a>
+        </h3>
       </div>
 
       <!-- 추천 꽃선물 -->
@@ -289,9 +291,10 @@
 
       <div class="col-12 col-lg-3">
         <!-- Heading -->
-        <h2 style="width: 200px;margin-top: 50px">화병/비품</h2>
-        <p style="width: 200px;">꽃이 있어도, 꽃이 없어도</p>
-        <a type="button" class="btn btn-outline-dark" href="/item/all" style="width: 190px;padding:10px">꽃선물 전체보기</a>
+        <h3 class="mb-10 text-center text-lg-start">화병/비품
+          <p style="font-size: 16px;margin-top: 20px">꽃이 있어도, 꽃이 없어도</p>
+          <a type="button" class="btn btn-outline-dark" href="/bipum/all" style="width: 190px;padding:10px">화병/비품 전체보기</a>
+        </h3>
       </div>
 
       <!-- 추천 꽃선물 -->
