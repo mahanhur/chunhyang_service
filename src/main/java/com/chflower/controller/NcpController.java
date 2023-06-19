@@ -62,9 +62,28 @@ public class NcpController {
         model.addAttribute("result",map);
         model.addAttribute("center","pic");
 
-        Random r = new Random();
-        int i = r.nextInt(365)+1;
-        String date = Integer.toString(i);
+        Integer k = Integer.valueOf(age_value.substring(0,2));
+        String q ="0";
+        String a ="";
+        log.info(String.valueOf(k));
+
+        if(k<10){
+            a = q+k;
+        }else{
+            a = Integer.toString(k);
+        }
+        int z=0;
+        int i=0;
+        if(gender_value.equals("male")) {
+            z = 1;
+        }
+        else if(gender_value.equals("female")){
+            z = 2;
+        }
+        else{
+            z = 3;
+        }
+        String date = z+a;
         Object j = TodayFlowerUtil.todayFlower(date);
         model.addAttribute("yourlower", j);
 

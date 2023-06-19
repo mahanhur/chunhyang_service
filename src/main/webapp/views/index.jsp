@@ -216,7 +216,7 @@
       document.body.appendChild(scrollBtn2);
       scrollBtn2.classList.add("show");
       scrollBtn2.addEventListener("click", function(){
-        location.href='/map/map01';
+        location.href='/quick/order';
       });
     }
   };

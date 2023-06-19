@@ -79,6 +79,9 @@
                             <!-- main Itemimg -->
                             <video  id="myVideo" style="height: 350px"></video>
                             <!-- sub Itemimg -->
+                            <a href="#" data-bigpicture='{"imgSrc": "${yourlower.imgUrl1}"}'>
+                                <img src="${yourlower.imgUrl1}" alt="..." class="card-img-top">
+                            </a>
                             <a href="#" data-bigpicture='{"imgSrc": "${yourlower.imgUrl2}"}'>
                                 <img src="${yourlower.imgUrl2}" alt="..." class="card-img-top">
                             </a>
@@ -94,11 +97,15 @@
                     <div class="flickity-nav mx-n2 mb-10 mb-md-0" data-flickity='{"asNavFor": "#productSlider", "contain": true, "wrapAround": false}'>
 
                         <!-- main Item -->
-                        <div class="col-12 px-2" style="max-width: 113px;">
+                        <div class="col-12 px-2" style="max-width: 113px; align-items: center">
                             <!-- main Image -->
-                            <canvas id="myCanvas" class="ratio ratio-1x1 bg-cover"></canvas><br>
+                            <div style="background:black; color: white; width: 100px; height: 100px; text-align:center">카메라 보기</div>
                         </div>
                         <!-- sub Item  -->
+                        <div class="col-12 px-2" style="max-width: 113px;">
+                            <!-- sub Image -->
+                            <div class="ratio ratio-1x1 bg-cover"><img src="${yourlower.imgUrl1}"></div>
+                        </div>
                         <div class="col-12 px-2" style="max-width: 113px;">
                             <!-- sub Image -->
                             <div class="ratio ratio-1x1 bg-cover"><img src="${yourlower.imgUrl2}"></div>
@@ -109,27 +116,28 @@
                         </div>
                     </div>
                     <!-- 작은 이미지 Slider 끝-->
-
+                    <canvas id="myCanvas" style="margin: 20px"></canvas><br>
                 </div>
                 <!-- 오른쪽 부분 시작 -->
+
                 <div class="col-12 col-md-6 ps-lg-10">
                     <!-- Header -->
                     <div class="row mb-1">
                         <div class="row">
-                            <input type=button class="col-3" value="사진 찍기"  onclick="pic.takeSnapshot(); pic.send()">
+                            <div class="col"><input type=button value="사진 찍기"  onclick="pic.takeSnapshot(); pic.send()"></div>
                             <form class="col" id="cfr_form" action="/mycfr" method="get">
-                                <input type="text" name="imgname" id="imgname" hidden><br>
                                 <button id="cfr_btn">나의 꽃 확인</button>
+                                <input type="text" name="imgname" id="imgname" hidden><br>
                             </form>
                         </div>
+                        <h6 class="mb-2">성별 [${result.gender}]</h6>
+                        <h6 class="mb-2">너의나이 [${result.age}]</h6>
                     </div>
                     <hr>
-                    <!-- 아이템 이름 -->
                     <h3 class="mb-2">꽃이름 [${yourlower.flowerName}]</h3></br>
-                    <h5 class="mb-2">꽃말 <${yourlower.flowerMeaning}></h5>
+                    <h5 class="mb-2">꽃말 <${yourlower.flowerMeaning}></h5><h8>꽃번호:${yourlower.dataNo}</h8>
                     <!-- Badge -->
                     <hr>
-                    <!-- 가격 및 재고 -->
                     <div class="mb-7">
                         ${yourlower.fContent}<br>
                         ${yourlower.fUse}

@@ -77,7 +77,7 @@
 
                     // 지도 위에 선을 그리기 위해 클릭한 지점과 해당 지점의 거리정보가 표시되고 있다면 지도에서 제거합니다
                     deleteCircleDot();
-
+                    console.log(path)
                     // 클릭한 위치를 기준으로 선을 생성하고 지도위에 표시합니다
                     clickLine = new kakao.maps.Polyline({
                         map: map, // 선을 표시할 지도입니다
@@ -200,12 +200,12 @@
                     setTimeout(() =>{
                         addMarker(path[i])
                         delMarker(i-1)
-                        console.log(path[i-1])
-                        console.log(path.length)
+                        // console.log(path[i-1])
                         }
                         ,i*500)
                     }
-
+                console.log(path.length)
+                console.log(path)
             });
 //================================================================================================================
             // 클릭으로 그려진 선을 지도에서 제거하는 함수입니다
