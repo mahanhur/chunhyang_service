@@ -14,7 +14,7 @@
         font-size: 15px;
         line-height: 1.7;
         color: #102770;
-        background-color: #ffeba7;
+        background-color: white;
         overflow-x: hidden;
     }
     a {
@@ -318,7 +318,7 @@
     .img-6{
         position: absolute;
         display: block;
-        right: -20px;
+        right: 20px;
         bottom: -55px;
         z-index: 5;
         width: calc(20% + 30px);
@@ -418,9 +418,10 @@
             const iconSection = document.querySelector('.icon')
             const citi ='seoul'
             const APIkey ='2a46eaaf77ed481752c3b3e338fd7a02'
-
             let url =`https://api.openweathermap.org/data/2.5/weather?q=\${citi}&APPID=\${APIkey}&units=metric`
+
             console.log(url)
+
             const getWeather = () => {
                 w.init();
                 fetch(url)
@@ -459,11 +460,11 @@
 <body>
 <dl>
     <dt>위치</dt>
-    <dd class="place"></dd>
+<%--    <dd class="place"></dd>--%>
     <dt>메인</dt>
     <dd class="main"></dd>
     <dt>기온</dt>
-    <dd class="temperature"></dd>
+<%--    <dd class="temperature"></dd>--%>
     <dt>습도</dt>
     <dd class="humidity"></dd>
     <dt>바람</dt>
@@ -474,7 +475,6 @@
     <img class="icon"/>
     <dd class="description"></dd>
 </dl>
-<div>하하</div>
 <a href="https://front.codes/" class="logo" target="_blank">
     <img src="https://assets.codepen.io/1462889/fcb.png" alt="">
 </a>
@@ -485,19 +485,20 @@
             <div class="col-12 text-center align-self-center py-5">
                 <div class="section text-center py-5 py-md-0">
                     <input class="pricing" type="checkbox" id="pricing" name="pricing"/>
-                    <label for="pricing"><span class="block-diff">서울<span class="float-right">부산</span></span></label>
+                    <label for="pricing"><span class="block-diff">SEOUL.KR<span class="float-right" style="margin-left: 50px">BUSAN.KR</span></span></label>
                     <div class="card-3d-wrap mx-auto">
                         <div class="card-3d-wrapper">
                             <div class="card-front">
-                                <div class="pricing-wrap">
-                                    <h4 class="mb-5">Kayaking</h4>
-                                    <h2 class="mb-2"><sup>$</sup>39 / 4<sup>hrs</sup></h2>
+                                <div class="pricing-wrap ">
+                                    <h4 class="mb-5 place"></h4><br>
+                                    <div class="temperature"></div>
+                                    <h2 class="mb-2 temperature"></h2><sub>섭씨</sub>
                                     <p class="mb-4">per person</p>
                                     <p class="mb-1"><i class="uil uil-location-pin-alt size-22"></i></p>
                                     <p class="mb-4">Drina, Serbia</p>
                                     <a href="#0" class="link">Choose Date</a>
                                     <div class="img-wrap img-2">
-                                        <img src="https://assets.codepen.io/1462889/sea.png" alt="">
+                                        <img src="/uimg/1.jpg" alt="">
                                     </div>
                                     <div class="img-wrap img-1">
                                         <img src="https://assets.codepen.io/1462889/kayak.png" alt="">
@@ -506,7 +507,7 @@
                                         <img src="https://assets.codepen.io/1462889/water.png" alt="">
                                     </div>
                                     <div class="img-wrap img-6">
-                                        <img src="https://assets.codepen.io/1462889/Stone.png" alt="">
+                                        <img src="/uimg/2.jpg" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -522,10 +523,10 @@
                                         <img src="https://assets.codepen.io/1462889/grass.png" alt="">
                                     </div>
                                     <div class="img-wrap img-4">
-                                        <img src="https://assets.codepen.io/1462889/camp.png" alt="">
+                                        <img src="https://assets.codepen.io/1462889/kayak.png" alt="">
                                     </div>
                                     <div class="img-wrap img-5">
-                                        <img src="https://assets.codepen.io/1462889/Ivy.png" alt="">
+                                        <img src="https://assets.codepen.io/1462889/water.png" alt="">
                                     </div>
                                     <div class="img-wrap img-7">
                                         <img src="https://assets.codepen.io/1462889/IvyRock.png" alt="">

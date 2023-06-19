@@ -532,6 +532,12 @@
           </a>
         </li>
 
+          <li class="nav-item">
+              <a class="nav-link" href="/weather/weather">
+                  <i class="fe fe-sun"></i>
+              </a>
+          </li>
+
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="offcanvas" href="#modalSearch">
             <i class="fe fe-search"></i>
