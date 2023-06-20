@@ -536,26 +536,26 @@
       </ul>
 
       <!-- Nav -->
-      <ul class="navbar-nav flex-row">
-        <li class="nav-item" style="display: flex; align-items: center;">
+      <ul class="navbar-nav flex-row" style="align-items: center;">
+        <li class="nav-item" style="align-items: center;">
           <a class="nav-link callcentericon" data-bs-toggle="modal" data-bs-target="#callcenter" style="padding: 0 16px">
             <img src="/uimg/callcenter.png" style="width: 40px;cursor: pointer;">
           </a>
         </li>
 
-          <li class="nav-item ms-lg-n4" style="display: flex; align-items: center;">
+          <li class="nav-item ms-lg-n4" style="align-items: center;">
               <a class="nav-link sunicon" href="/weather/weather" style="font-size: 30px;padding: 0 16px;">
                 <i class="fe fe-sun"></i>
               </a>
           </li>
 
-        <li class="nav-item ms-lg-n4" style="display: flex; align-items: center;">
+        <li class="nav-item ms-lg-n4" style="align-items: center;">
           <a class="nav-link" data-bs-toggle="offcanvas" href="#modalSearch">
             <i class="fe fe-search"></i>
           </a>
         </li>
 
-        <li class="nav-item ms-lg-n4 dropdown" style="display: flex; align-items: center;">
+        <li class="nav-item ms-lg-n4 dropdown" style="align-items: center;">
           <c:choose>
             <c:when test="${logincust == null}">
               <!-- Toggle -->
@@ -603,7 +603,7 @@
         </li>
 
 
-        <li class="nav-item ms-lg-n4" style="display: flex; align-items: center;">
+        <li class="nav-item ms-lg-n4" style="align-items: center;">
           <a class="nav-link" href="/account-wishlist">
             <i class="fe fe-heart"></i>
           </a>
