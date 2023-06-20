@@ -29,16 +29,49 @@
 </script>
 
 <style>
+
+  @media (max-width: 1200px) {
+    .main_slide_title {
+      font-size: 50px;
+    }
+  }
   @media (max-width: 1030px) {
     .mainpage-recommend {
       width: 50%;
       height: 50%;
     }
   }
+  @media (max-width: 992px) {
+    .main_slide_title {
+      font-size: 45px;
+    }
+    .main_slide_subtitle{
+      font-size: 32px;
+    }
+  }
   @media (max-width: 575.98px) {
     .mainpage-recommend {
       width: 50%;
       height: 50%;
+    }
+  }
+  @media (max-width: 405px) {
+    .main_slide_title {
+      font-size: 40px;
+    }
+    .main_slide_subtitle{
+      font-size: 28px;
+    }
+  }
+  @media (max-width: 376px) {
+    .main_slide_title {
+      font-size: 35px;
+    }
+    .main_slide_subtitle{
+      font-size: 22px;
+    }
+    h9.mb-13{
+      font-size: 13px;
     }
   }
 </style>
@@ -76,8 +109,8 @@
           <div class="col-12 col-md-7 col-lg-5 text-center text-black">
 
             <!-- Heading -->
-            <h1 class="display-4 mb-10" style="font-weight: bold">
-              Better Things In a Better Way
+            <h1 class="main_slide_title display-4 mb-10" style="font-weight: bold">
+              Better Things<br/>In a Better Way
             </h1>
             <!-- Links -->
             <a type="button" class="btn btn-outline-dark" href="/subs/subscribe" style="opacity: 70%;margin:10px">정기구독</a>
@@ -97,10 +130,10 @@
             <h6>
               VASE EDITION
             </h6>
-            <h1 class="display-4" style="font-weight: bold">
+            <h1 class="main_slide_title display-4" style="font-weight: bold">
               PLEATS EDITION
             </h1>
-            <h1 class="display-6 mb-5">
+            <h1 class="main_slide_subtitle display-6 mb-5">
               화병&라그라스 패키지 오픈
             </h1>
             <h9 class="mb-13">
@@ -121,7 +154,7 @@
           <div class="col-12 col-md-7 col-lg-7 text-center text-black">
 
             <!-- Heading -->
-            <h3 class="display-4" style="font-weight: bold">
+            <h3 class="main_slide_title display-4" style="font-weight: bold">
               생기발랄한 마가렛
             </h3>
             <h9 class="mb-13">
