@@ -115,6 +115,17 @@
       color: white;
       background-color: #222222;
     }
+
+    .callcentericon:hover img {
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
+    }
+    .sunicon:hover i {
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
+      text-shadow: 0 0 10px #ffc107;
+    }
+
   </style>
 
 <script>
@@ -526,25 +537,25 @@
 
       <!-- Nav -->
       <ul class="navbar-nav flex-row">
-        <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="modal" data-bs-target="#callcenter">
-            <i class="fe fe-message-square"></i>
+        <li class="nav-item" style="display: flex; align-items: center;">
+          <a class="nav-link callcentericon" data-bs-toggle="modal" data-bs-target="#callcenter" style="padding: 0 16px">
+            <img src="/uimg/callcenter.png" style="width: 40px;cursor: pointer;">
           </a>
         </li>
 
-          <li class="nav-item">
-              <a class="nav-link" href="/weather/weather">
-                  <i class="fe fe-sun"></i>
+          <li class="nav-item ms-lg-n4" style="display: flex; align-items: center;">
+              <a class="nav-link sunicon" href="/weather/weather" style="font-size: 30px;padding: 0 16px;">
+                <i class="fe fe-sun"></i>
               </a>
           </li>
 
-        <li class="nav-item">
+        <li class="nav-item ms-lg-n4" style="display: flex; align-items: center;">
           <a class="nav-link" data-bs-toggle="offcanvas" href="#modalSearch">
             <i class="fe fe-search"></i>
           </a>
         </li>
 
-        <li class="nav-item ms-lg-n4 dropdown">
+        <li class="nav-item ms-lg-n4 dropdown" style="display: flex; align-items: center;">
           <c:choose>
             <c:when test="${logincust == null}">
               <!-- Toggle -->
@@ -592,12 +603,12 @@
         </li>
 
 
-        <li class="nav-item ms-lg-n4">
+        <li class="nav-item ms-lg-n4" style="display: flex; align-items: center;">
           <a class="nav-link" href="/account-wishlist">
             <i class="fe fe-heart"></i>
           </a>
         </li>
-        <li class="nav-item ms-lg-n4">
+        <li class="nav-item ms-lg-n4" style="display: flex; align-items: center;">
           <a class="nav-link" href="/cart/all?cust_id=${logincust.cust_id}">
             <%--          모달로 할꺼면..... data-bs-toggle="offcanvas" href="#modalShoppingCart"--%>
             <span id="cartcount" data-cart-items="0">
