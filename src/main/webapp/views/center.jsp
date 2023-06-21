@@ -263,9 +263,12 @@
                 <div class="fw-bold text-muted">
                   <fmt:formatNumber value="${recommandlist1.item_price}" pattern="###,###원"/>
                 </div>
-                <button class="btn btn-xs btn-circle btn-black-primary text-center" data-toggle="button">
-                  <i class="fe fe-heart" style="color: white"></i>
-                </button>
+                <!-- Footer -->
+                <div class="card-footer px-0 pt-0 bg-black text-center">
+                  <button class="btn btn-xs btn-circle btn-black-primary" data-toggle="button">
+                    <i class="fe fe-heart" style="color:white;"></i>
+                  </button>
+                </div>
               </div> <!-- Body end-->
 
 <%--              <!-- Footer -->--%>
