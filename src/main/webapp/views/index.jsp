@@ -74,7 +74,7 @@
       overflow: auto;
     }
 
-    /* 고정탭 */
+    /* 고정탭 ----------------------------------*/
     #scroll-btn {
       display: inline-block;
       margin: 0 auto;
@@ -95,12 +95,10 @@
       transition: all 0.3s ease-out;
       overflow: hidden;
     }
-
     #scroll-btn:hover{
       width: 210px;
       align-items: center;
     }
-
     #scroll-btn div {
       width: 70px;
       height: 70px;
@@ -151,7 +149,6 @@
       width: 210px;
       align-items: center;
     }
-
     #scroll-btn2 div {
       width: 70px;
       height: 70px;
@@ -195,7 +192,6 @@
       border:none;
       z-index: 9999;
     }
-
     #scroll-btn3 div {
       width: 70px;
       height: 70px;
@@ -205,7 +201,6 @@
       box-sizing: border-box;
       line-height: 70px;
     }
-
     #scroll-btn3 div img{
       width: 60px;
       height: 60px;
@@ -214,10 +209,11 @@
       align-items: center;
     }
     #scroll-btn3 div img:hover {
-      width: 68px;
-      height: 68px;
-      margin: 2px;
+      width: 70px;
+      height: 70px;
+      margin: 0px;
     }
+    /* 고정탭 end----------------------------------*/
 
     .callcentericon:hover img {
       transform: scale(1.1);
