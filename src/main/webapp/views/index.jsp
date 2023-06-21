@@ -262,24 +262,35 @@
       <!-- Content -->
       <div class="row gx-0">
         <div class="col-12 col-lg-6">
-          <img src="/assets/img/callcenter.jpg" style="width: 400px" alt="채팅상담 이미지 출력 에러">
+          <img src="/assets/img/callcenter.jpg" style="width: 100%" alt="채팅상담 이미지 출력 에러">
         </div>
         <div class="col-12 col-lg-6" style="padding: 0px">
           <!-- Body -->
           <div class="modal-body my-auto py-3">
-            <h4 style="text-align: center">채팅 상담</h4>
+            <h4 style="text-align: center;margin-top: 12px">🤖채팅 상담</h4>
             <h1 id="adm_id" hidden>${logincust.cust_id}</h1>
             <hr>
-            <H8 id="status">대기중</H8>
-            <div hidden>
-              <button id="connect">연결중</button>
-              <button id="disconnect">연결끊김</button>
+            <!-- 연결상태 -->
+          <div style="background-image: url('/uimg/chat_bg.png');">
+            <div id="status" style="display:flex;align-items: center;">
+              <video autoplay loop muted style="width: 50px">
+                <source src="/uimg/connect_ing.mp4" type="video/mp4">
+              </video>
+              <h8>연결대기중</h8>
             </div>
-
-            <input type="text" id="target" value="유성진" hidden> <%--상담센터직원 이름 정해서 넣기--%>
-            <input type="text" id="totext" style="margin-top: 10px; height: 55px">
-            <button class="btn btn-outline-dark" id="sendto" >전송</button>
+            <div hidden>
+              <button id="connect"><img src="/uimg/connect_ok.png" alt="연결중">연결</button>
+              <button id="disconnect"><img src="/uimg/connect_fail.png" alt="연결끊김">연결끊김</button>
+            </div>
+            <!-- 입력창 -->
             <div id="to" col-lg-7 style="margin-top: 10px;"></div>
+            <div>
+              <input type="text" id="target" value="유성진" hidden> <%--상담센터직원 이름 정해서 넣기--%>
+              <input type="text" id="totext" style="margin-top: 10px; height: 55px">
+              <button class="btn btn-outline-dark" id="sendto" >전송</button>
+            </div>
+          </div>
+
           </div>
         </div>
       </div>
