@@ -35,24 +35,12 @@
       font-size: 50px;
     }
   }
-  @media (max-width: 1030px) {
-    .mainpage-recommend {
-      width: 50%;
-      height: 50%;
-    }
-  }
   @media (max-width: 992px) {
     .main_slide_title {
       font-size: 45px;
     }
     .main_slide_subtitle{
       font-size: 32px;
-    }
-  }
-  @media (max-width: 575.98px) {
-    .mainpage-recommend {
-      width: 50%;
-      height: 50%;
     }
   }
   @media (max-width: 405px) {
