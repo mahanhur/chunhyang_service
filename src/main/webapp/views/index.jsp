@@ -226,6 +226,120 @@
     }
 
   </style>
+<%-----------------------------------------------  챗봇--%>
+  <style>
+    .chatbot-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .chatbot-header {
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    .chatbot-title {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .chatbot-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+      background-color: #ffffff;
+    }
+
+    .chatbot-messages {
+      border: 2px solid gray;
+      margin-bottom: 15px;
+      height: 300px;
+      overflow-y: auto;
+      padding: 10px;
+    }
+
+    .chatbot-input {
+      display: flex;
+      align-items: center;
+    }
+
+    .chatbot-input input {
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    .chatbot-input button {
+      flex-shrink: 0;
+    }
+
+    #communicate > tr > td {
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    var stompClient = null;
+
+    function cbsetConnected(connected) {
+      $("#cbconnect").prop("disabled", connected);
+      $("#cbdisconnect").prop("disabled", !connected);
+      $("#cbsend").prop("disabled", !connected);
+      if (connected) {
+        $("#conversation").show();
+      }
+      else {
+        $("#conversation").hide();
+      }
+      $("#cbmsg").html("");
+    }
+
+    function cbconnect() {
+      var socket = new SockJS('/ws');
+      stompClient = Stomp.over(socket);
+      stompClient.connect({}, function (frame) {
+        cbsetConnected(true);
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/topic/public', function (message) {
+          cbshowMessage("<tr><td><img src='/uimg/flower.png' alt='도우미AI' style='width:20px;'>" +"도우미AI: " + message.body + "<tr><td>"); //서버에 메시지 전달 후 리턴받는 메시지
+        });
+      });
+    }
+
+    function cbdisconnect() {
+      if (stompClient !== null) {
+        stompClient.disconnect();
+      }
+      cbsetConnected(false);
+      console.log("Disconnected");
+    }
+
+    function cbsendMessage() {
+      let message = $("#cbmsg").val()
+      cbshowMessage("보낸 메시지: " + message);
+
+      stompClient.send("/app/sendMessage", {}, JSON.stringify(message)); //서버에 보낼 메시지
+    }
+
+    function cbshowMessage(message) {
+      $("#communicate").append(message);
+    }
+
+    $(function () {
+      $("form").on('submit', function (e) {
+        e.preventDefault();
+      });
+      // $( "#cbconnect" ).click(function() { cbconnect(); });
+      cbconnect();
+      $('#communicate').append("<tr><td><img src='/uimg/flower.png' alt='도우미AI' style='width:20px;'>" + "도우미AI: 안녕하세요? 봄의 향기, 춘향전의 도우미AI입니다." + "</td></tr>")
+      $('#communicate').append("<tr><td><img src='/uimg/flower.png' alt='도우미AI' style='width:20px;'>" + "도우미AI: 무엇을 도와드릴까요?" + "</td></tr>")
+      $( "#cbdisconnect" ).click(function() { cbdisconnect(); });
+      $( "#cbsend" ).click(function() { cbsendMessage(); });
+    });
+
+  </script>
+<%-------------------------------------------------------  챗봇end--%>
 
 <script>
   $(function () {
@@ -498,6 +612,37 @@
   </div>
 </div>
 <%--===============================================오늘의 꽃 끝==========================================--%>
+
+<%--===============================================챗봇 시작==========================================--%>
+<div id="main-content">
+  <div class="modal fade" id="chatbot" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+
+        <!-- Close -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fe fe-x" aria-hidden="true"></i>
+        </button>
+
+        <!-- Content -->
+        <div class="chatbot-content">
+          <div class="chatbot-header">
+            <h4 class="chatbot-title">챗봇</h4>
+          </div>
+          <div class="chatbot-body">
+            <div class="chatbot-messages" id="communicate"></div>
+            <div class="chatbot-input">
+              <input type="text" id="cbmsg" class="form-control" placeholder="내용을 입력하세요....">
+              <button id="cbsend" class="btn btn-primary" disabled type="submit">보내기</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<%--===============================================챗봇 끝==========================================--%>
 
 <!-- -------------------------------------------------------------------------------- -->
 <!-- 회색 상단 고정바 -->

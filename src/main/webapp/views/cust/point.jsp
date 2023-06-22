@@ -8,6 +8,9 @@
     init: function() {
       let presentpoint = 0;
       presentpoint = $('.tbody tr:first .presentpoint').html();
+      if(presentpoint == undefined) {
+        presentpoint = 0;
+      }
       $('.present').html('　　ㅇ 고객님의 현재 보유 포인트 : ' + presentpoint);
     }
   }

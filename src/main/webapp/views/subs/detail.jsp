@@ -194,15 +194,15 @@
                                   </div>
                                   <div class="form-check form-check-inline">
                                     <input class="form-check-input checkbox1" id="checkbox1" type="checkbox" value="option1">
-                                    <input type="text" class="datepicker datepicker1 form-control form-control-underline" name="date1" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="1회 수령일 선택"/>
+                                    <input type="text" autocomplete="off" class="datepicker datepicker1 form-control form-control-underline" name="date1" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="1회 수령일 선택"/>
                                   </div>
                                   <div class="form-check form-check-inline">
                                     <input class="form-check-input checkbox2" id="checkbox2" type="checkbox" value="option1">
-                                    <input type="text" class="datepicker datepicker2 form-control form-control-underline" name="date2" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="2회 수령일 선택"/>
+                                    <input type="text" autocomplete="off" class="datepicker datepicker2 form-control form-control-underline" name="date2" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="2회 수령일 선택"/>
                                   </div>
                                   <div class="form-check form-check-inline">
                                     <input class="form-check-input checkbox3" id="checkbox3" type="checkbox" value="option1">
-                                    <input type="text" class="datepicker datepicker3 form-control form-control-underline" name="date3" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="3회 수령일 선택"/>
+                                    <input type="text" autocomplete="off" class="datepicker datepicker3 form-control form-control-underline" name="date3" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="3회 수령일 선택"/>
                                   </div>
                                   <br/>
                                   <br/>
@@ -223,31 +223,31 @@
                                     </div>
                                     <div class="form-check form-check-inline">
                                       <input class="form-check-input checkbox1" type="checkbox" value="option1">
-                                      <input type="text" class="datepicker datepicker1 form-control form-control-underline" name="date1" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="1회 수령일 선택"/>
+                                      <input type="text" autocomplete="off" class="datepicker datepicker1 form-control form-control-underline" name="date1" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="1회 수령일 선택"/>
                                     </div>
                                     <div class="form-check form-check-inline">
                                       <input class="form-check-input checkbox2" type="checkbox" value="option1">
-                                      <input type="text" class="datepicker datepicker2 form-control form-control-underline" name="date2" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="2회 수령일 선택"/>
+                                      <input type="text" autocomplete="off" class="datepicker datepicker2 form-control form-control-underline" name="date2" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="2회 수령일 선택"/>
                                     </div>
                                     <div class="form-check form-check-inline">
                                       <input class="form-check-input checkbox3" type="checkbox" value="option1">
-                                      <input type="text" class="datepicker datepicker3 form-control form-control-underline" name="date3" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="3회 수령일 선택"/>
+                                      <input type="text" autocomplete="off" class="datepicker datepicker3 form-control form-control-underline" name="date3" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="3회 수령일 선택"/>
                                     </div>
                                     <div class="form-check form-check-inline">
                                       <input class="form-check-input checkbox4" type="checkbox" value="option1">
-                                      <input type="text" class="datepicker datepicker4 form-control form-control-underline" name="date4" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="4회 수령일 선택"/>
+                                      <input type="text" autocomplete="off" class="datepicker datepicker4 form-control form-control-underline" name="date4" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="4회 수령일 선택"/>
                                     </div>
                                     <div class="form-check form-check-inline">
                                       <input class="form-check-input checkbox5" type="checkbox" value="option1">
-                                      <input type="text" class="datepicker datepicker5 form-control form-control-underline" name="date5" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="5회 수령일 선택"/>
+                                      <input type="text" autocomplete="off" class="datepicker datepicker5 form-control form-control-underline" name="date5" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="5회 수령일 선택"/>
                                     </div>
                                     <div class="form-check form-check-inline">
                                       <input class="form-check-input checkbox6" type="checkbox" value="option1">
-                                      <input type="text" class="datepicker datepicker6 form-control form-control-underline" name="date6" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="6회 수령일 선택"/>
+                                      <input type="text" autocomplete="off" class="datepicker datepicker6 form-control form-control-underline" name="date6" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="6회 수령일 선택"/>
                                     </div>
                                     <div class="form-check form-check-inline">
                                       <input class="form-check-input checkbox7" type="checkbox" value="option1">
-                                      <input type="text" class="datepicker datepicker7 form-control form-control-underline" name="date7" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="7회 수령일 선택"/>
+                                      <input type="text" autocomplete="off" class="datepicker datepicker7 form-control form-control-underline" name="date7" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="7회 수령일 선택"/>
                                     </div>
                                     <br/>
                                     <br/>
@@ -272,7 +272,7 @@
                                   </div>
                                   <div class="form-check form-check-inline">
                                     <input class="form-check-input checkbox1" type="checkbox" value="option1">
-                                    <input type="text" class="datepicker datepicker1 form-control form-control-underline" name="date" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="최초 수령일 선택"/>
+                                    <input type="text" autocomplete="off" class="datepicker datepicker1 form-control form-control-underline" name="date" value="<fmt:formatDate  value="" pattern="yyyy-MM-dd" />" placeholder="최초 수령일 선택"/>
                                   </div>
                                 </div>
                               </div>

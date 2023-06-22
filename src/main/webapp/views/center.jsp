@@ -79,7 +79,7 @@
             <span class="heading-xxs letter-spacing-xl">
               🌸🌸[<span id="server_time"></span>] 오늘의 꽃은 <span style="text-decoration: underline white; cursor: pointer">
                 <a data-bs-toggle="modal" data-bs-target="#todayflower">${todayFlower.flowerName}</a>
-                </span> 입니다 🌸🌸
+                </span> 입니다 🌸🌸<a data-bs-toggle="modal" data-bs-target="#chatbot">test</a>
             </span>
         </div>
 
