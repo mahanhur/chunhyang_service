@@ -52,6 +52,9 @@ public class MainController {
         log.info("recommandItemList={}", recommandItem300List);
         model.addAttribute("recommandlist2", recommandItem300List);
 
+        //1:1채팅하기위해서 어드민 서버 정보 모델로 날려준다
+        model.addAttribute("adminserver",adminserver);
+
         return "index";
     }
 
