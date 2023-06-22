@@ -10,9 +10,9 @@
 <style>
     @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
-    :root{
-        font-size: 20px;
-    }
+    /*:root{*/
+    /*    font-size: 20px;*/
+    /*}*/
     body{
         font-family: 'Poppins', sans-serif;
         font-weight: 500;

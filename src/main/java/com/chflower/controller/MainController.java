@@ -40,7 +40,6 @@ public class MainController {
         log.info("recommandItemList={}", recommandSubsList);
         model.addAttribute("recommandlist", recommandSubsList);
 
-
         //category_id=100 상품 랜덤3개 담긴 리스트
         List<RecommandItem> recommandItem100List= new ArrayList<>();
         recommandItem100List = recommandItemService.get100();
@@ -52,6 +51,9 @@ public class MainController {
         recommandItem300List = recommandItemService.get300();
         log.info("recommandItemList={}", recommandItem300List);
         model.addAttribute("recommandlist2", recommandItem300List);
+
+        //1:1채팅하기위해서 어드민 서버 정보 모델로 날려준다
+        model.addAttribute("adminserver",adminserver);
 
         return "index";
     }
@@ -66,7 +68,6 @@ public class MainController {
         model.addAttribute("center","flower-class");
         return "index";
     }
-
     @RequestMapping("/account-address")  // home > My account > addresses
     public String account_address(Model model){
         model.addAttribute("center","account-address");
@@ -77,7 +78,6 @@ public class MainController {
         model.addAttribute("center","account-address-edit");
         return "index";
     }
-
 
     @RequestMapping("/account-wishlist")
     public String account_wishlist(Model model){

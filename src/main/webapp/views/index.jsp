@@ -30,6 +30,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
 
+  <%-- fixed-tab icon --%>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <%--  <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">--%>
 
@@ -71,50 +73,147 @@
       border: 2px solid gray;
       overflow: auto;
     }
+
+    /* 고정탭 ----------------------------------*/
     #scroll-btn {
-       font-family: 'Nanum Gothic', sans-serif;
-       opacity: 0;
-       width: 70px;
-       height: 70px;
-       color: dimgray;
-       background-color: white;
-       position: fixed;
-       bottom: 13%;
-       right: 3%;
-       border: 2px solid black;
-       font: bold 13px monospace;
-       transition: opacity 2s, transform 2s;
-     }
-    #scroll-btn.show {
-      opacity: 1;
-      transition: opacity 5s, transform 5s;
-    }
-    #scroll-btn2 {
-      font-family: 'Nanum Gothic', sans-serif;
-      opacity: 0;
+      display: inline-block;
+      margin: 0 auto;
+      padding: 0;
       width: 70px;
       height: 70px;
-      color: dimgray;
-      background-color: white;
-      position: fixed;
-      bottom: 5%;
+      float: left;
+      background: white;
+      border-radius: 50px;
+      cursor: pointer;
+      display: flex;
+      box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+      bottom: 165px;
       right: 3%;
-      border: 2px solid black;
-      font: bold 10px monospace;
-      transition: opacity 2s, transform 2s;
+      position: fixed;
+      border:none;
+      z-index: 9999;
+      transition: all 0.3s ease-out;
+      overflow: hidden;
     }
-    #scroll-btn2.show {
-      opacity: 1;
-      transition: opacity 5s, transform 5s;
+    #scroll-btn:hover{
+      width: 210px;
+      align-items: center;
     }
-    #scroll-btn:hover {
-      color: white;
-      background-color: #222222;
+    #scroll-btn div {
+      width: 70px;
+      height: 70px;
+      text-align: center;
+      align-items: center;
+      border-radius: 50px;
+      box-sizing: border-box;
+      line-height: 70px;
     }
-    #scroll-btn2:hover {
-      color: white;
-      background-color: #222222;
+    #scroll-btn div img{
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+      text-align: center;
+      align-items: center;
+      /*line-height: 70px;*/
     }
+    #scroll-btn span{
+      font-size: 15px;
+      margin-left: 5px;
+      white-space: nowrap;
+      align-items: center;
+      overflow: hidden;
+      line-height: 70px;
+    }
+
+    #scroll-btn2 {
+      display: inline-block;
+      margin: 0 auto;
+      padding: 0;
+      width: 70px;
+      height: 70px;
+      float: left;
+      background: white;
+      border-radius: 50px;
+      cursor: pointer;
+      display: flex;
+      box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+      bottom: 90px;
+      right: 3%;
+      position: fixed;
+      border:none;
+      z-index: 9999;
+      transition: all 0.3s ease-out;
+      overflow: hidden;
+    }
+    #scroll-btn2:hover{
+      width: 210px;
+      align-items: center;
+    }
+    #scroll-btn2 div {
+      width: 70px;
+      height: 70px;
+      text-align: center;
+      align-items: center;
+      border-radius: 50px;
+      box-sizing: border-box;
+      line-height: 70px;
+    }
+    #scroll-btn2 div img{
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+      text-align: center;
+      align-items: center;
+      /*line-height: 70px;*/
+    }
+    #scroll-btn2 span{
+      font-size: 15px;
+      margin-left: 5px;
+      white-space: nowrap;
+      align-items: center;
+      overflow: hidden;
+      line-height: 70px;
+    }
+    #scroll-btn3 {
+      display: inline-block;
+      margin: 0 auto;
+      padding: 0;
+      width: 70px;
+      height: 70px;
+      float: left;
+      background: white;
+      border-radius: 50px;
+      cursor: pointer;
+      display: flex;
+      box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+      bottom: 15px;
+      right: 3%;
+      position: fixed;
+      border:none;
+      z-index: 9999;
+    }
+    #scroll-btn3 div {
+      width: 70px;
+      height: 70px;
+      text-align: center;
+      align-items: center;
+      border-radius: 50px;
+      box-sizing: border-box;
+      line-height: 70px;
+    }
+    #scroll-btn3 div img{
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+      text-align: center;
+      align-items: center;
+    }
+    #scroll-btn3 div img:hover {
+      width: 70px;
+      height: 70px;
+      margin: 0px;
+    }
+    /* 고정탭 end----------------------------------*/
 
     .callcentericon:hover img {
       transform: scale(1.1);
@@ -220,31 +319,82 @@
 </script>
 
 <%-- 고정탭바 --%>
-<script>
-  let chatbtn = {
-    init:function(){
-      const scrollBtn = document.createElement("button");
-      scrollBtn.innerHTML = "나와어울리는꽃?";
-      scrollBtn.setAttribute("id", "scroll-btn");
-      document.body.appendChild(scrollBtn);
-      scrollBtn.classList.add("show");
-      scrollBtn.addEventListener("click", function(){
-        location.href='/pic';
-      });
-      const scrollBtn2 = document.createElement("button");
-      scrollBtn2.innerHTML = "급할땐 퀵!!";
-      scrollBtn2.setAttribute("id", "scroll-btn2");
-      document.body.appendChild(scrollBtn2);
-      scrollBtn2.classList.add("show");
-      scrollBtn2.addEventListener("click", function(){
-        location.href='/quick/order';
-      });
-    }
-  };
-  $(function(){
-    chatbtn.init();
-  });
-</script>
+  <script>
+    let chatbtn = {
+      init:function(){
+        // 버튼 1
+        const scrollBtn = document.createElement("button");
+        scrollBtn.setAttribute("id", "scroll-btn");
+        document.body.appendChild(scrollBtn);
+        scrollBtn.classList.add("show");
+
+        const div = document.createElement("div");
+        div.setAttribute("id", "fix_icon");
+        scrollBtn.appendChild(div);
+
+        const img = document.createElement("img");
+        img.setAttribute("src", "/uimg/flower.png");
+        div.appendChild(img);
+
+        const span = document.createElement("span");
+        span.innerHTML = "나와 어울리는 꽃은?";
+        scrollBtn.appendChild(span);
+
+        scrollBtn.addEventListener("click", function(){
+          location.href='/pic';
+        });
+        // 버튼 2
+        const scrollBtn2 = document.createElement("button");
+        scrollBtn2.setAttribute("id", "scroll-btn2");
+        document.body.appendChild(scrollBtn2);
+        scrollBtn2.classList.add("show");
+
+        const div2 = document.createElement("div");
+        div2.setAttribute("id", "fix_icon");
+        scrollBtn2.appendChild(div2);
+
+        const img2 = document.createElement("img");
+        img2.setAttribute("src", "/uimg/rocket.png");
+        div2.appendChild(img2);
+
+        const span2 = document.createElement("span");
+        span2.innerHTML = "🚨 급할땐 퀵!🚨";
+        scrollBtn2.appendChild(span2);
+
+        scrollBtn2.addEventListener("click", function(){
+          location.href='/quick/order';
+        });
+        // 버튼 3
+        const scrollBtn3 = document.createElement("button");
+        scrollBtn3.setAttribute("id", "scroll-btn3");
+        document.body.appendChild(scrollBtn3);
+        scrollBtn3.classList.add("show");
+
+        const div3 = document.createElement("div");
+        div2.setAttribute("id", "fix_icon");
+        scrollBtn3.appendChild(div3);
+
+        const img3 = document.createElement("img");
+        img3.setAttribute("src", "/uimg/top.png");
+        div3.appendChild(img3);
+
+        scrollBtn3.addEventListener("click", function(){
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        });
+
+      }
+    };
+
+    $(function(){
+      chatbtn.init();
+    });
+  </script>
+
+
+
 </head>
 
 <!-- -------------------------------------------------------------------------------- -->
@@ -262,24 +412,35 @@
       <!-- Content -->
       <div class="row gx-0">
         <div class="col-12 col-lg-6">
-          <img src="/assets/img/callcenter.jpg" style="width: 400px" alt="채팅상담 이미지 출력 에러">
+          <img src="/assets/img/callcenter.jpg" style="width: 100%" alt="채팅상담 이미지 출력 에러">
         </div>
         <div class="col-12 col-lg-6" style="padding: 0px">
           <!-- Body -->
           <div class="modal-body my-auto py-3">
-            <h4 style="text-align: center">채팅 상담</h4>
+            <h4 style="text-align: center;margin-top: 12px">🤖채팅 상담</h4>
             <h1 id="adm_id" hidden>${logincust.cust_id}</h1>
             <hr>
-            <H8 id="status">대기중</H8>
-            <div hidden>
-              <button id="connect">연결중</button>
-              <button id="disconnect">연결끊김</button>
+            <!-- 연결상태 -->
+          <div style="background-image: url('/uimg/chat_bg.png');">
+            <div id="status" style="display:flex;align-items: center;">
+              <video autoplay loop muted style="width: 50px">
+                <source src="/uimg/connect_ing.mp4" type="video/mp4">
+              </video>
+              <h8>연결대기중</h8>
             </div>
-
-            <input type="text" id="target" value="유성진" hidden> <%--상담센터직원 이름 정해서 넣기--%>
-            <input type="text" id="totext" style="margin-top: 10px; height: 55px">
-            <button class="btn btn-outline-dark" id="sendto" >전송</button>
+            <div hidden>
+              <button id="connect"><img src="/uimg/connect_ok.png" alt="연결중">연결</button>
+              <button id="disconnect"><img src="/uimg/connect_fail.png" alt="연결끊김">연결끊김</button>
+            </div>
+            <!-- 입력창 -->
             <div id="to" col-lg-7 style="margin-top: 10px;"></div>
+            <div>
+              <input type="text" id="target" value="유성진" hidden> <%--상담센터직원 이름 정해서 넣기--%>
+              <input type="text" id="totext" style="margin-top: 10px; height: 55px">
+              <button class="btn btn-outline-dark" id="sendto" >전송</button>
+            </div>
+          </div>
+
           </div>
         </div>
       </div>
