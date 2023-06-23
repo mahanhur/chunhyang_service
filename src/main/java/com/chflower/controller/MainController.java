@@ -31,7 +31,12 @@ public class MainController {
         LocalDate SeoulNow = LocalDate.now(ZoneId.of("Asia/Seoul"));
         int dayOfYear = SeoulNow.getDayOfYear()+1;
         String date = Integer.toString(dayOfYear);
-        Object result = TodayFlowerUtil.todayFlower(date);
+        Object result = null;
+        try {
+            result = TodayFlowerUtil.todayFlower(date);
+        } catch (Exception e) {
+            throw new RuntimeException("flower 오류");
+        }
         model.addAttribute("todayFlower", result);
 
         //subsitem 상품 랜덤3개 담긴 리스트

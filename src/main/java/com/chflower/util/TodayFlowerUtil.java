@@ -20,7 +20,7 @@ public class TodayFlowerUtil {
     @RequestMapping("/test")
     public static Object todayFlower(String date) throws Exception {
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1390804/NihhsTodayFlowerInfo01/selectTodayFlowerView01");
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=GzLKpZnRfILovTiCAh98dUSv8nzd9RCO86WuGrZVWLxuJQ0H%2Fyr47Xe5dqBSiBYqwrbGyYeouVulAc7BHHf7ZA%3D%3D");
+        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=R6XTDAtPn1psOlxitX0FdNF14tt0tmnfP%2BiuDzE6EC31DKTJbhVGqc51R%2FzJqMAttfho3w04G0a8ji2H6oSWLQ%3D%3D");
         urlBuilder.append("&" + URLEncoder.encode("dataNo", "UTF-8") + "=" + URLEncoder.encode(date, "UTF-8"));
         URL url = new URL(urlBuilder.toString());
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
