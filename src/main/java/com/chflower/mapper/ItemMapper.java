@@ -1,6 +1,7 @@
 package com.chflower.mapper;
 
 import com.chflower.dto.Item;
+import com.chflower.dto.Search;
 import com.chflower.frame.CHMapper;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Mapper;
@@ -15,4 +16,5 @@ public interface ItemMapper extends CHMapper<Integer, Item> {
     public Item select(Integer item_id);
     public List<Item> getcate(Double cate);
     public List<Item> gettype(String type);
+    List<Item> getSearch(Search search) throws Exception;
 }
