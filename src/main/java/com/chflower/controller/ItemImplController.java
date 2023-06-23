@@ -3,12 +3,14 @@ package com.chflower.controller;
 
 import com.chflower.dto.Addr;
 import com.chflower.dto.Item;
+import com.chflower.dto.Search;
 import com.chflower.service.AddrService;
 import com.chflower.service.ItemService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.*;
@@ -76,6 +78,12 @@ public class ItemImplController {
     public List<Item> sortimpl(String type) throws Exception {
         List<Item> list = null;
         list = itemService.getType(type);
+        return list;
+    }
+
+    @RequestMapping("/searchimpl")
+    public Object searchimpl(Model model, Search search) throws Exception {
+        List<Item> list = itemService.getSearch(search);
         return list;
     }
 }

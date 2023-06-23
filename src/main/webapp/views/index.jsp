@@ -290,6 +290,55 @@
   })
 </script>
 
+<script>
+
+    let search = {
+      init: function(){
+        $('#searchbtn').click(function() {
+          let category = $("#category").val();
+          let searchtext = $("#searchtext").val();
+          $.ajax({
+            method : 'post',
+            url : '/item/searchimpl',
+            data : {
+              category: category, searchtext: searchtext
+            },
+            // $('#searchform').serialize()
+            success: function (data) {
+              // alert(data);
+              search.result(data);
+            }
+          })
+        })
+      },
+      result: function(data) {
+        let tags = "";
+        for (let i = 0; i < data.length; i++) {
+          tags = '<div class="row align-items-center position-relative mb-5"><div class="col-4 col-md-3">';
+          tags += '<img class="img-fluid" src="/uimg/';
+          tags += data[i].item_img;
+          tags += '">';
+          tags += '</div>';
+          tags += ' <div class="col position-static"><p class="mb-0 fw-bold"><a class="stretched-link text-body" href="/item/detail?item_id=';
+          tags += data[i].item_id;
+          tags += '">';
+          tags += data[i].item_name;
+          tags += '</a> <br>';
+          tags += '<td>';
+          tags += ' <span class="text-muted">';
+          tags += data[i].item_price.toLocaleString() + '원';
+          tags += '</span></p></div></div>';
+          $('#searchResult').after(tags);
+        }
+      }
+    }
+
+    $(function () {
+      search.init()
+    });
+</script>
+
+
 </head>
 
 <!-- -------------------------------------------------------------------------------- -->
@@ -884,9 +933,9 @@
   <div class="offcanvas-body">
     <form>
       <div class="form-group">
-        <label class="visually-hidden" for="modalSearchCategories">카테고리:</label>
-        <select class="form-select" id="modalSearchCategories" name="category" id="category">
-          <option value="all" <c:if test="${search.category == 'all'}">selected</c:if>>전체</option>
+        <label class="visually-hidden" for="category">카테고리:</label>
+        <select class="form-select" name="category" id="category">
+<%--          <option value="all" <c:if test="${search.category == 'all'}">selected</c:if>>전체</option>--%>
           <option value="100" <c:if test="${search.category == '꽃다발'}">selected</c:if>>꽃다발</option>
           <option value="200" <c:if test="${search.category == '꽃'}">selected</c:if>>꽃</option>
           <option value="300" <c:if test="${search.category == '화병'}">selected</c:if>>화병</option>
@@ -909,94 +958,7 @@
   <div class="offcanvas-body border-top fs-sm">
 
     <!-- Heading -->
-    <p>Search Results:</p>
-
-    <!-- Items -->
-    <div class="row align-items-center position-relative mb-5">
-      <div class="col-4 col-md-3">
-
-        <!-- Image -->
-        <img class="img-fluid" src="./assets/img/products/product-5.jpg" alt="...">
-
-      </div>
-      <div class="col position-static">
-
-        <!-- Text -->
-        <p class="mb-0 fw-bold">
-          <a class="stretched-link text-body" href="./product.html">Leather mid-heel Sandals</a> <br>
-          <span class="text-muted">$129.00</span>
-        </p>
-
-      </div>
-    </div>
-    <div class="row align-items-center position-relative mb-5">
-      <div class="col-4 col-md-3">
-
-        <!-- Image -->
-        <img class="img-fluid" src="./assets/img/products/product-6.jpg" alt="...">
-
-      </div>
-      <div class="col position-static">
-
-        <!-- Text -->
-        <p class="mb-0 fw-bold">
-          <a class="stretched-link text-body" href="./product.html">Cotton floral print Dress</a> <br>
-          <span class="text-muted">$40.00</span>
-        </p>
-
-      </div>
-    </div>
-    <div class="row align-items-center position-relative mb-5">
-      <div class="col-4 col-md-3">
-
-        <!-- Image -->
-        <img class="img-fluid" src="./assets/img/products/product-7.jpg" alt="...">
-
-      </div>
-      <div class="col position-static">
-
-        <!-- Text -->
-        <p class="mb-0 fw-bold">
-          <a class="stretched-link text-body" href="./product.html">Leather Sneakers</a> <br>
-          <span class="text-primary">$85.00</span>
-        </p>
-
-      </div>
-    </div>
-    <div class="row align-items-center position-relative mb-5">
-      <div class="col-4 col-md-3">
-
-        <!-- Image -->
-        <img class="img-fluid" src="./assets/img/products/product-8.jpg" alt="...">
-
-      </div>
-      <div class="col position-static">
-
-        <!-- Text -->
-        <p class="mb-0 fw-bold">
-          <a class="stretched-link text-body" href="./product.html">Cropped cotton Top</a> <br>
-          <span class="text-muted">$29.00</span>
-        </p>
-
-      </div>
-    </div>
-    <div class="row align-items-center position-relative mb-5">
-      <div class="col-4 col-md-3">
-
-        <!-- Image -->
-        <img class="img-fluid" src="./assets/img/products/product-9.jpg" alt="...">
-
-      </div>
-      <div class="col position-static">
-
-        <!-- Text -->
-        <p class="mb-0 fw-bold">
-          <a class="stretched-link text-body" href="./product.html">Floral print midi Dress</a> <br>
-          <span class="text-muted">$50.00</span>
-        </p>
-
-      </div>
-    </div>
+    <p id="searchResult">검색 결과:</p>
 
     <!-- Button -->
     <a class="btn btn-link px-0 text-reset" href="/item/all">
