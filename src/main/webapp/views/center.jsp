@@ -28,6 +28,38 @@
   })
 </script>
 
+
+<!-- --------------- item 장바구니 --------------------- -->
+<script>
+  let item_get = {
+    init: function () {
+      $('.cart_btn').click(function () {
+        let cust_id = "${logincust.cust_id}";
+        let item_id = $(this).data('itemid');
+        let cnt = null;
+        $.ajax({
+          url: '/cart/addcart',
+          type: 'post',
+          data: {cust_id: cust_id, item_id: item_id, cnt: 1},
+          success: function () {
+            if(cust_id != '') {
+              location.href="/cart/all?cust_id="+cust_id;
+            } else {
+              location.href="/cust/login"
+            }
+          },
+          error:()=>{
+            alert("ajax에러")
+          }
+        });
+      });
+    }
+  };
+
+  $(function () {
+    item_get.init();
+  });
+</script>
 <style>
 
   @media (max-width: 1200px) {
@@ -293,9 +325,9 @@
                   <fmt:formatNumber value="${recommandlist1.item_price}" pattern="###,###원"/>
                 </div>
                 <!-- Footer -->
-                <div class="card-footer px-0 pt-0 bg-black text-center">
-                  <button class="btn btn-xs btn-circle btn-black-primary" data-toggle="button">
-                    <i class="fe fe-heart" style="color:white;"></i>
+                <div class="card-footer px-0 pt-0 bg-black text-center mt-2">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                    <i class="fe fe-shopping-cart"></i>
                   </button>
                 </div>
               </div> <!-- Body end-->
@@ -363,7 +395,7 @@
               <div class="card-collapse collapse">
                 <div class="card-footer px-0 pt-0 bg-white text-center">
                   <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                    <i class="fe fe-heart"></i>
+                    <i class="fe fe-shopping-cart"></i>
                   </button>
                 </div>
               </div>
