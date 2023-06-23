@@ -327,6 +327,7 @@
     let search = {
       init: function(){
         $('#searchbtn').click(function() {
+          $('#searchResult').empty();
           let category = $("#category").val();
           let searchtext = $("#searchtext").val();
           $.ajax({
