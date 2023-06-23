@@ -186,9 +186,6 @@
     }
 
     $(function () {
-      $("form").on('submit', function (e) {
-        e.preventDefault();
-      });
       // $( "#cbconnect" ).click(function() { cbconnect(); });
       cbconnect();
       $('#communicate').append("<tr><td><img src='/uimg/flower.png' alt='도우미AI' style='width:20px;'>" + "도우미AI: 안녕하세요? 봄의 향기, 춘향전의 도우미AI입니다." + "</td></tr>")
@@ -330,6 +327,7 @@
     let search = {
       init: function(){
         $('#searchbtn').click(function() {
+          $('#searchResult').empty();
           let category = $("#category").val();
           let searchtext = $("#searchtext").val();
           $.ajax({
@@ -363,7 +361,7 @@
           tags += ' <span class="text-muted">';
           tags += data[i].item_price.toLocaleString() + '원';
           tags += '</span></p></div></div>';
-          $('#searchResult').after(tags);
+          $('#searchResult').append(tags);
         }
       }
     }
@@ -978,15 +976,15 @@
 
   <!-- Body: Form -->
   <div class="offcanvas-body">
-    <form>
+<%--    <form>--%>
       <div class="form-group">
         <label class="visually-hidden" for="category">카테고리:</label>
         <select class="form-select" name="category" id="category">
-<%--          <option value="all" <c:if test="${search.category == 'all'}">selected</c:if>>전체</option>--%>
-          <option value="100" <c:if test="${search.category == '꽃다발'}">selected</c:if>>꽃다발</option>
-          <option value="200" <c:if test="${search.category == '꽃'}">selected</c:if>>꽃</option>
-          <option value="300" <c:if test="${search.category == '화병'}">selected</c:if>>화병</option>
-          <option value="400" <c:if test="${search.category == '비품'}">selected</c:if>>비품</option>
+          <option value="all" <c:if test="${search.category == 'all'}">selected</c:if>>전체</option>
+          <option value="100" <c:if test="${search.category == '100'}">selected</c:if>>꽃다발</option>
+          <option value="200" <c:if test="${search.category == '200'}">selected</c:if>>꽃</option>
+          <option value="300" <c:if test="${search.category == '300'}">selected</c:if>>화병</option>
+          <option value="400" <c:if test="${search.category == '400'}">selected</c:if>>비품</option>
         </select>
       </div>
       <div class="input-group input-group-merge">
@@ -998,14 +996,17 @@
           </button>
         </div>
       </div>
-    </form>
+<%--    </form>--%>
   </div>
 
   <!-- Body: Results (add `.d-none` to disable it) -->
   <div class="offcanvas-body border-top fs-sm">
 
     <!-- Heading -->
-    <p id="searchResult">검색 결과:</p>
+    <p>검색 결과:</p>
+    <div id="searchResult">
+
+    </div>
 
     <!-- Button -->
     <a class="btn btn-link px-0 text-reset" href="/item/all">

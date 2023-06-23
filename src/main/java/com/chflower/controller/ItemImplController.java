@@ -7,6 +7,7 @@ import com.chflower.dto.Search;
 import com.chflower.service.AddrService;
 import com.chflower.service.ItemService;
 import lombok.extern.slf4j.Slf4j;
+import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,7 +48,7 @@ public class ItemImplController {
 
             int result = con.getResponseCode(); // 실제 연결 결과를 int로 받고자 함
             InputStream inputStream; //서버연결로부터 받는 객체, 마찬가지로 바이트 형식으로 받음
-            if(result == 200) {
+            if (result == 200) {
                 inputStream = con.getInputStream();
             } else {
                 inputStream = con.getErrorStream();
@@ -83,7 +84,32 @@ public class ItemImplController {
 
     @RequestMapping("/searchimpl")
     public Object searchimpl(Model model, Search search) throws Exception {
-        List<Item> list = itemService.getSearch(search);
+        List<Item> list = null;
+        list = itemService.getSearch(search);
         return list;
     }
 }
+//
+//        JSONArray result = new JSONArray();
+//
+//        for (Item item : list) {
+//            if (item.getCategory_id() == 100.0) {
+//                list.clear();
+//                list.add(item);
+//            }
+//            if (item.getCategory_id() == 200.0) {
+//                list.clear();
+//                list.add(item);
+//            }
+//            if (item.getCategory_id() == 300.0) {
+//                list.clear();
+//                list.add(item);
+//            }
+//            if (item.getCategory_id() == 400.0) {
+//                list.clear();
+//                list.add(item);
+//            }
+//    }
+
+
+
