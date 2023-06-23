@@ -53,34 +53,45 @@
     <select id="getSearch" resultType="item" parameterType="search">
         SELECT *
         FROM item
+        <if test="category == 'all'">
         WHERE 1=1
-    <if test="category != null and category != ''">
-        <!--        <if test="category == 'all'">-->
-        <!--            AND item_name LIKE '%' ||  #{searchtext} || '%'-->
-        <!--        </if>-->
+            AND
+            (item_name LIKE '%' ||  #{searchtext} || '%'
+                OR flower_type LIKE '%' ||  #{searchtext} || '%'
+                OR flower_color LIKE '%' ||  #{searchtext} || '%'
+                OR item_content LIKE '%' ||  #{searchtext} || '%')
+        </if>
         <if test="category == '100'">
-            AND item_name LIKE '%' ||  #{searchtext} || '%'
+        WHERE category_id = #{category}
+        AND
+          (item_name LIKE '%' ||  #{searchtext} || '%'
             OR flower_type LIKE '%' ||  #{searchtext} || '%'
             OR flower_color LIKE '%' ||  #{searchtext} || '%'
-            OR item_content LIKE '%' ||  #{searchtext} || '%'
+            OR item_content LIKE '%' ||  #{searchtext} || '%')
         </if>
         <if test="category == '200'">
-            AND item_name LIKE '%' ||  #{searchtext} || '%'
+            WHERE category_id = #{category}
+            AND
+            (item_name LIKE '%' ||  #{searchtext} || '%'
             OR flower_type LIKE '%' ||  #{searchtext} || '%'
             OR flower_color LIKE '%' ||  #{searchtext} || '%'
-            OR item_content LIKE '%' ||  #{searchtext} || '%'
+            OR item_content LIKE '%' ||  #{searchtext} || '%')
         </if>
         <if test="category == '300'">
-            AND item_name LIKE '%' ||  #{searchtext} || '%'
-            OR flower_color LIKE '%' ||  #{searchtext} || '%'
-            OR item_content LIKE '%' ||  #{searchtext} || '%'
-        </if>
-        <if test="category == '400'">
-            AND item_name LIKE '%' ||  #{searchtext} || '%'
+            WHERE category_id = #{category}
+            AND
+            (item_name LIKE '%' ||  #{searchtext} || '%'
             OR flower_type LIKE '%' ||  #{searchtext} || '%'
             OR flower_color LIKE '%' ||  #{searchtext} || '%'
-            OR item_content LIKE '%' ||  #{searchtext} || '%'
+            OR item_content LIKE '%' ||  #{searchtext} || '%')
         </if>
-    </if>
+        <if test="category == '400'">
+            WHERE category_id = #{category}
+            AND
+            (item_name LIKE '%' ||  #{searchtext} || '%'
+            OR flower_type LIKE '%' ||  #{searchtext} || '%'
+            OR flower_color LIKE '%' ||  #{searchtext} || '%'
+            OR item_content LIKE '%' ||  #{searchtext} || '%')
+        </if>
     </select>
 </mapper>

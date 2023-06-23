@@ -45,6 +45,10 @@
     </c:otherwise>
   </c:choose>
       $('#checkout_btn').click(function(){
+        if( $('.datepicker').val() == "") {
+          alert("수령날짜를 모두 선택해주시기 바랍니다.")
+          return;
+        }
         $('#detail_form').attr({
           action:'/subs/checkout',
           method:'post'
@@ -121,12 +125,12 @@
 
                 <!-- Image -->
                 <a class="d-block mb-4" href="#" data-bigpicture='{ "imgSrc": "assets/img/products/product-158.jpg"}'>
-                  <img class="img-fluid" src="/uimg/${obj.subsitem_img}" alt="...">
+                  <img class="img-fluid" src="/uimg/A_12basic.jpg" alt="...">
                 </a>
 
                 <!-- Image -->
                 <a class="d-block" href="#" data-bigpicture='{ "imgSrc": "assets/img/products/product-159.jpg"}'>
-                  <img class="img-fluid" src="/uimg/${obj.subsitem_img}" alt="...">
+                  <img class="img-fluid" src="/uimg/A_12premium.jpg" alt="...">
                 </a>
               </div>
 
@@ -416,12 +420,14 @@
           <div class="col-12">
 
             <!-- Heading -->
+            <hr/>
             <h4 class="mb-10 text-center">춘향전의 꽃, 이렇게 준비됩니다.</h4>
 
-            <p>쏼라쏼라</p>
-            <p>이미지도 들어가주고</p>
-            <p>공통된 내용</p>
-            <img src="/uimg/subs02.jpg">
+            <p style="font-weight: bold">컬러풀하게 즐겨요!</p>
+            <p>어떤 모습이건 모두 환영합니다.</p>
+            <p>오렌지, 옐로, 핑크, 블루. 형형색색 제각기 다양한 컬러의 꽃들과 함께 뜨거운 여름, 화려한 파티를 함께 즐겨요!</p>
+            <img src="/uimg/A_detail1.jpg" style="width: 100%">
+            <img src="/uimg/A_detail3.jpg" style="width: 100%">
 
           </div>
         </div>
