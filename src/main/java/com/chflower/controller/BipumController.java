@@ -76,7 +76,7 @@ public class BipumController {
         model.addAttribute("itemReview",itemReview);
 
         List<RecommandItem> recommandItemList= new ArrayList<>();
-        recommandItemList = recommandItemService.get();
+        recommandItemList = recommandItemService.get300();
 
         model.addAttribute("recommandlist", recommandItemList);
         /* ▼리뷰등록을 위해서 item_id를 모델에 넣어서 detail.jsp화면에 던져서 form에 넣어 둔다 */

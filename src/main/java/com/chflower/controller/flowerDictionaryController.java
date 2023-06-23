@@ -19,7 +19,7 @@ public class flowerDictionaryController {
 
         for(int i=1; i<=4; i+=1) {
             String date = Integer.toString(i);
-            Object flower = TodayFlowerUtil.todayFlower(date);
+            Object flower = TodayFlowerUtil.allflower(date);
             System.out.print(flower);
             list.add(flower);
         }

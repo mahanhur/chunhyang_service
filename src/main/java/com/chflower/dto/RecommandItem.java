@@ -9,6 +9,7 @@ import java.util.Date;
 @Getter
 @ToString
 public class RecommandItem {
+    private int rank;
     private int item_id;
     private double category_id;
     private String item_img;
