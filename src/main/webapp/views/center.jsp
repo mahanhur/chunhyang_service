@@ -77,9 +77,9 @@
         <!-- Text -->
         <div class="text-center text-white">
             <span class="heading-xxs letter-spacing-xl">
-              🌸🌸[<span id="server_time"></span>] 오늘의 꽃은 <span style="text-decoration: underline white; cursor: pointer">
+              🌸🌸[<span id="server_time"></span>]<span class="today_txt1">오늘의 꽃은</span><span style="text-decoration: underline white; cursor: pointer">
                 <a data-bs-toggle="modal" data-bs-target="#todayflower">${todayFlower.flowerName}</a>
-                </span> 입니다 🌸🌸<a data-bs-toggle="modal" data-bs-target="#chatbot">test</a>
+                </span><span class="today_txt2">입니다</span>🌸🌸
             </span>
         </div>
 
@@ -109,7 +109,7 @@
       </div>
     </div>
     <!-- slide2 -->
-    <div class="w-100 bg-cover" style="background-image: url(/uimg/maintop2.jpg);">
+    <div class="w-100 bg-cover" style="background-image: url(/uimg/maintop2.jpg);display: inline-block;margin-left: auto;">
       <div class="container d-flex flex-column">
         <div class="row justify-content-center align-items-center pt-15 pb-12" style="min-height:90vh!important">
           <div class="col-12 col-md-7 col-lg-7 text-center text-black">
@@ -135,7 +135,36 @@
         </div>
       </div>
     </div>
+
     <!-- slide3 -->
+    <div class="w-100 bg-cover" style="background-image: url(/uimg/maintop4.jpg);">
+      <div class="container d-flex flex-column">
+        <div class="row justify-content-center align-items-center pt-15 pb-12" style="min-height:90vh!important">
+          <div class="col-12 col-md-7 col-lg-7 text-center text-white">
+
+            <h6>
+              COLLABORATION
+            </h6>
+            <!-- Heading -->
+            <h1 style="font-weight: bold">
+              CHUNHYANG X KB
+            </h1>
+            <h4 style="font-weight: bold">
+              또 한번의 놀라운 콜라보에<br/>초대합니다
+            </h4>
+            <h9 class="mb-13">
+              알파코 팝업스토어에 초대합니다
+            </h9> <br/>
+
+            <!-- Button -->
+            <a type="button" class="btn btn-outline-white" href="/about" style="opacity: 90%;margin:10px">보러가기</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- slide4 -->
     <div class="w-100 bg-cover" style="background-image: url(/uimg/maintop3.jpg);">
       <div class="container d-flex flex-column">
         <div class="row justify-content-center align-items-center pt-15 pb-12" style="min-height:90vh!important">
