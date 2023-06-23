@@ -6,36 +6,38 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnKt8_N4-FKOnhI_pSaDL7g_g-XI1-R9E"></script>
 <script src="./assets/js/vendor.bundle.js"></script>
 <script src="./assets/js/theme.bundle.js"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"
+        integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>
 
 <script>
-Kakao.init('c91de3a9ba7f48da3cb562c2fc973026');
-Kakao.Share.createDefaultButton({
-container: '#kakaotalk-sharing-btn',
-objectType: 'commerce',
-content: {
-title: '${flower.flowerName}',
-imageUrl:
-    'https://kukka.kr/static/kukkart_new/img/contents/subscribe_intro/lineup_003.png',
-link: {
-// [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
-mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
-webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
-},
-},
-commerce: {
-productName: '${flower.flowerName}',
-regularPrice: '${flower.flowerName}'
-},
-buttons: [
-{
-title: '자세히보기',
-link: {
-mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
-webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
-},
-}
-],
-});
+
+    $( function() {
+        Kakao.init('c91de3a9ba7f48da3cb562c2fc973026');
+        Kakao.Share.createDefaultButton({
+            container: '#kakaotalk-sharing-btn',
+            objectType: 'feed',
+            content: {
+                title: '${flower.flowerName}',
+                description: '꽃말: ${flower.flowerMeaning}',
+                imageUrl:
+                    '${flower.imgUrl1}',
+                link: {
+                    // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+                    mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
+                    webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
+                },
+            },
+            buttons: [
+                {
+                    title: '자세히 보기',
+                    link: {
+                        mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
+                        webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
+                    },
+                },
+            ],
+        });
+    })
 </script>
 
 <body>

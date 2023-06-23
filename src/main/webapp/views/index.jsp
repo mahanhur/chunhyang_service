@@ -290,6 +290,42 @@
   })
 </script>
 
+<%--  카카오공유하기--%>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"
+        integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>
+
+<script>
+
+  $( function() {
+    Kakao.init('c91de3a9ba7f48da3cb562c2fc973026');
+    Kakao.Share.createDefaultButton({
+      container: '#kakaotalk-sharing-btn',
+      objectType: 'feed',
+      content: {
+        title: '오늘의 꽃 - ${todayFlower.flowerName}',
+        description: '꽃말: ${todayFlower.flowerMeaning}',
+        imageUrl:
+                '${todayFlower.imgUrl1}',
+        link: {
+          // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+          mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+          webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+        },
+      },
+      buttons: [
+        {
+          title: '자세히 보기',
+          link: {
+            mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+            webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+          },
+        },
+      ],
+    });
+  })
+</script>
+
+
 </head>
 
 <!-- -------------------------------------------------------------------------------- -->
@@ -361,10 +397,10 @@
           <img class="img-fluid" src="${todayFlower.imgUrl1}" alt="오늘의 꽃 이미지 출력 에러">
           <img class="img-fluid" src="${todayFlower.imgUrl2}" alt="오늘의 꽃 이미지 출력 에러">
         </div>
-        <div class="col-12 col-lg-7 d-flex flex-column px-md-8">
+        <div class="col-12 col-lg-7 d-flex flex-column">
 
           <!-- Body -->
-          <div class="modal-body my-auto py-10">
+          <div class="modal-body my-auto py-8">
             <!-- Heading -->
             <h4>오늘의 꽃: ${todayFlower.flowerName}</h4>
             <!-- Text -->
@@ -376,6 +412,18 @@
             <hr>
             <H8>${todayFlower.fMonthDay}</H8>
             <br>
+            <a id="kakaotalk-sharing-btn" href="javascript:">
+              <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+                   alt="카카오톡 공유 보내기 버튼" style="width:8%;"/>
+            </a>
+            <a id="facebook-sharing-btn" href="javascript:">
+              <img src="/uimg/facebook.png"
+                   alt="페이스북 공유 보내기 버튼" style="width:10%;"/>
+            </a>
+            <a id="twitter-sharing-btn" href="javascript:">
+              <img src="/uimg/twitter.png"
+                   alt="트위터 공유 보내기 버튼" style="width:8%;"/>
+            </a>
           </div>
           <!-- Footer -->
           <div class="modal-footer pt-0">
