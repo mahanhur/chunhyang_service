@@ -74,147 +74,6 @@
       overflow: auto;
     }
 
-    /* 고정탭 ----------------------------------*/
-    #scroll-btn {
-      display: inline-block;
-      margin: 0 auto;
-      padding: 0;
-      width: 70px;
-      height: 70px;
-      float: left;
-      background: white;
-      border-radius: 50px;
-      cursor: pointer;
-      display: flex;
-      box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
-      bottom: 165px;
-      right: 3%;
-      position: fixed;
-      border:none;
-      z-index: 9999;
-      transition: all 0.3s ease-out;
-      overflow: hidden;
-    }
-    #scroll-btn:hover{
-      width: 210px;
-      align-items: center;
-    }
-    #scroll-btn div {
-      width: 70px;
-      height: 70px;
-      text-align: center;
-      align-items: center;
-      border-radius: 50px;
-      box-sizing: border-box;
-      line-height: 70px;
-    }
-    #scroll-btn div img{
-      width: 60px;
-      height: 60px;
-      margin: 5px;
-      text-align: center;
-      align-items: center;
-      /*line-height: 70px;*/
-    }
-    #scroll-btn span{
-      font-size: 15px;
-      margin-left: 5px;
-      white-space: nowrap;
-      align-items: center;
-      overflow: hidden;
-      line-height: 70px;
-    }
-
-    #scroll-btn2 {
-      display: inline-block;
-      margin: 0 auto;
-      padding: 0;
-      width: 70px;
-      height: 70px;
-      float: left;
-      background: white;
-      border-radius: 50px;
-      cursor: pointer;
-      display: flex;
-      box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
-      bottom: 90px;
-      right: 3%;
-      position: fixed;
-      border:none;
-      z-index: 9999;
-      transition: all 0.3s ease-out;
-      overflow: hidden;
-    }
-    #scroll-btn2:hover{
-      width: 210px;
-      align-items: center;
-    }
-    #scroll-btn2 div {
-      width: 70px;
-      height: 70px;
-      text-align: center;
-      align-items: center;
-      border-radius: 50px;
-      box-sizing: border-box;
-      line-height: 70px;
-    }
-    #scroll-btn2 div img{
-      width: 60px;
-      height: 60px;
-      margin: 5px;
-      text-align: center;
-      align-items: center;
-      /*line-height: 70px;*/
-    }
-    #scroll-btn2 span{
-      font-size: 15px;
-      margin-left: 5px;
-      white-space: nowrap;
-      align-items: center;
-      overflow: hidden;
-      line-height: 70px;
-    }
-    #scroll-btn3 {
-      display: inline-block;
-      margin: 0 auto;
-      padding: 0;
-      width: 70px;
-      height: 70px;
-      float: left;
-      background: white;
-      border-radius: 50px;
-      cursor: pointer;
-      display: flex;
-      box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
-      bottom: 15px;
-      right: 3%;
-      position: fixed;
-      border:none;
-      z-index: 9999;
-    }
-    #scroll-btn3 div {
-      width: 70px;
-      height: 70px;
-      text-align: center;
-      align-items: center;
-      border-radius: 50px;
-      box-sizing: border-box;
-      line-height: 70px;
-    }
-    #scroll-btn3 div img{
-      width: 60px;
-      height: 60px;
-      margin: 5px;
-      text-align: center;
-      align-items: center;
-    }
-    #scroll-btn3 div img:hover {
-      width: 70px;
-      height: 70px;
-      margin: 0px;
-    }
-    /* 고정탭 end----------------------------------*/
-
     .callcentericon:hover img {
       transform: scale(1.1);
       transition: transform 0.3s ease;
@@ -355,8 +214,8 @@
 
 </script>
 
-<script>
 <%--1:1채팅 상담 자바스크립트--%>
+<script>
   let callcenter = {
     id:null,
     stompClient:null,
@@ -416,7 +275,6 @@
         $("#status").text("연결끊김");
       }
     },
-
     sendTo:function(){
       var msg = JSON.stringify({
         'sendid' : this.id,
@@ -426,88 +284,11 @@
       this.stompClient.send('/receiveto', {}, msg);
     }
   };
+
   $(function(){
     callcenter.init();
   })
-
 </script>
-
-<%-- 고정탭바 --%>
-  <script>
-    let chatbtn = {
-      init:function(){
-        // 버튼 1
-        const scrollBtn = document.createElement("button");
-        scrollBtn.setAttribute("id", "scroll-btn");
-        document.body.appendChild(scrollBtn);
-        scrollBtn.classList.add("show");
-
-        const div = document.createElement("div");
-        div.setAttribute("id", "fix_icon");
-        scrollBtn.appendChild(div);
-
-        const img = document.createElement("img");
-        img.setAttribute("src", "/uimg/flower.png");
-        div.appendChild(img);
-
-        const span = document.createElement("span");
-        span.innerHTML = "나와 어울리는 꽃은?";
-        scrollBtn.appendChild(span);
-
-        scrollBtn.addEventListener("click", function(){
-          location.href='/pic';
-        });
-        // 버튼 2
-        const scrollBtn2 = document.createElement("button");
-        scrollBtn2.setAttribute("id", "scroll-btn2");
-        document.body.appendChild(scrollBtn2);
-        scrollBtn2.classList.add("show");
-
-        const div2 = document.createElement("div");
-        div2.setAttribute("id", "fix_icon");
-        scrollBtn2.appendChild(div2);
-
-        const img2 = document.createElement("img");
-        img2.setAttribute("src", "/uimg/rocket.png");
-        div2.appendChild(img2);
-
-        const span2 = document.createElement("span");
-        span2.innerHTML = "🚨 급할땐 퀵!🚨";
-        scrollBtn2.appendChild(span2);
-
-        scrollBtn2.addEventListener("click", function(){
-          location.href='/quick/order';
-        });
-        // 버튼 3
-        const scrollBtn3 = document.createElement("button");
-        scrollBtn3.setAttribute("id", "scroll-btn3");
-        document.body.appendChild(scrollBtn3);
-        scrollBtn3.classList.add("show");
-
-        const div3 = document.createElement("div");
-        div2.setAttribute("id", "fix_icon");
-        scrollBtn3.appendChild(div3);
-
-        const img3 = document.createElement("img");
-        img3.setAttribute("src", "/uimg/top.png");
-        div3.appendChild(img3);
-
-        scrollBtn3.addEventListener("click", function(){
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-          });
-        });
-
-      }
-    };
-
-    $(function(){
-      chatbtn.init();
-    });
-  </script>
-
-
 
 </head>
 
@@ -665,49 +446,18 @@
 
       <!-- Nav -->
       <ul class="nav nav-divided navbar-nav me-auto">
-        <li class="nav-item dropdown">
-
-          <!-- Toggle -->
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" style="padding: 0;">
-            <img class="mb-1 me-1" src="/assets/img/flags/usa.svg" alt="..." /> United States
-          </a>
-
-          <!-- Menu -->
-          <div class="dropdown-menu min-w-0">
-            <a class="dropdown-item" href="#!">
-              <img class="mb-1 me-2" src="/assets/img/flags/usa.svg" alt="USA">United States
-            </a>
-            <a class="dropdown-item" href="#!">
-              <img class="mb-1 me-2" src="/assets/img/flags/canada.svg" alt="Canada">Canada
-            </a>
-            <a class="dropdown-item" href="#!">
-              <img class="mb-1 me-2" src="/assets/img/flags/germany.svg" alt="Germany">Germany
-            </a>
-          </div>
 
         </li>
-        <li class="nav-item dropdown">
-
+        <li class="nav-item dropdown" style="margin-left: 20px">
           <!-- Toggle -->
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" style="padding: 0;">USD</a>
+          <a id="selectedLanguage" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" style="padding: 0;">한국어</a>
 
           <!-- Menu -->
           <div class="dropdown-menu min-w-0">
-            <a class="dropdown-item" href="#!">USD</a>
-            <a class="dropdown-item" href="#!">EUR</a>
-          </div>
-
-        </li>
-        <li class="nav-item dropdown">
-
-          <!-- Toggle -->
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" style="padding: 0;">English</a>
-
-          <!-- Menu -->
-          <div class="dropdown-menu min-w-0">
-            <a class="dropdown-item" href="#">English</a>
-            <a class="dropdown-item" href="#">French</a>
-            <a class="dropdown-item" href="#">German</a>
+            <a class="dropdown-item" href="#" data-value="ko_KR" onclick="changeLang(this)">한국어</a>
+            <a class="dropdown-item" href="#" data-value="en_US" onclick="changeLang(this)">English</a>
+            <a class="dropdown-item" href="#" data-value="ja" onclick="changeLang(this)">日本語</a>
+            <a class="dropdown-item" href="#" data-value="ch" onclick="changeLang(this)">中国话</a>
           </div>
         </li>
       </ul>
@@ -778,7 +528,7 @@
         <!-- ------------------------------------------------------------------- -->
         <li class="nav-item dropdown">
           <!-- Toggle -->
-          <a class="nav-link"  href="/subs/subscribe">정기구독</a>
+          <a class="nav-link lang_target"  href="/subs/subscribe">정기구독</a>
           <!-- Menu -->
 
         </li>
@@ -786,29 +536,29 @@
         <!-- ------------------------------------------------------------------- -->
         <li class="nav-item dropdown">
           <!-- Toggle -->
-          <a class="nav-link"  href="/item/all">꽃선물</a>
+          <a class="nav-link lang_target"  href="/item/all">꽃선물</a>
         </li>
 
         <!-- ------------------------------------------------------------------- -->
         <li class="nav-item dropdown">
           <!-- Toggle -->
-          <a class="nav-link"  href="/bipum/all">화병/비품</a>
+          <a class="nav-link lang_target"  href="/bipum/all">화병/비품</a>
         </li>
 
         <!-- ------------------------------------------------------------------- -->
         <li class="nav-item">
-          <a class="nav-link" href="/flower-class">플라워클래스</a>
+          <a class="nav-link lang_target" href="/flower-class">플라워클래스</a>
         </li>
 
         <!-- ------------------------------------------------------------------- -->
         <li class="nav-item">
-          <a class="nav-link" href="/flowerdictionary/all">꽃사전</a>
+          <a class="nav-link lang_target" href="/flowerdictionary/all">꽃사전</a>
         </li>
 
         <!-- ------------------------------------------------------------------- -->
         <li class="nav-item dropdown">
           <!-- Toggle -->
-          <a class="nav-link" data-bs-toggle="dropdown" href="#">소개</a>
+          <a class="nav-link lang_target" data-bs-toggle="dropdown" href="#">소개</a>
 
           <!-- Menu -->
           <div class="dropdown-menu">
@@ -816,7 +566,7 @@
               <div class="card-body">
                 <ul class="list-styled fs-sm">
                   <li class="list-styled-item">
-                    <a class="list-styled-link" href="/about">소개</a>
+                    <a class="list-styled-link lang_target" href="/about">소개</a>
                   </li>
                   <li class="list-styled-item">
                     <a class="list-styled-link" href="/faq">FAQ</a>
@@ -874,10 +624,10 @@
                   <div class="card-body">
                     <ul class="list-styled fs-sm">
                       <li class="list-styled-item">
-                        <a class="list-styled-link" href="/cust/login">로그인</a>
+                        <a class="list-styled-link lang_target" href="/cust/login">로그인</a>
                       </li>
                       <li class="list-styled-item">
-                        <a class="list-styled-link" href="/cust/register">회원가입</a>
+                        <a class="list-styled-link lang_target" href="/cust/register">회원가입</a>
                       </li>
                     </ul>
                   </div>
@@ -895,10 +645,10 @@
                   <div class="card-body">
                     <ul class="list-styled fs-sm">
                       <li class="list-styled-item">
-                        <a class="list-styled-link" href="/cust/account-orders?cust_id=${logincust.cust_id}">My account</a>
+                        <a class="list-styled-link lang_target" href="/cust/account-orders?cust_id=${logincust.cust_id}">My account</a>
                       </li>
                       <li class="list-styled-item">
-                        <a class="list-styled-link" href="/cust/logout">로그아웃</a>
+                        <a class="list-styled-link lang_target" href="/cust/logout">로그아웃</a>
                       </li>
                     </ul>
                   </div>
@@ -1106,6 +856,13 @@
 
 <!-- Theme JS -->
 <script src="/assets/js/theme.bundle.js"></script>
+
+<!-- 다국어 JS -->
+<script src="/assets/js/language.js"></script>
+
+<!-- 메인 고정버튼 JS -->
+<script src="/assets/js/fixed_btn.js"></script>
+<link rel="stylesheet" href="/assets/css/fixed_btn.css" />
 
 </body>
 </html>
