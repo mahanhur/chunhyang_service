@@ -7,15 +7,12 @@
       주문 정보
     </a>
     <a class="list-group-item list-group-item-action dropend-toggle" href="/cust/account-subsinfo?cust_id=${logincust.cust_id}">
-      구독 정보
+      구독신청 정보
     </a>
     <a class="list-group-item list-group-item-action dropend-toggle" href="/cust/account-subsdetail?cust_id=${logincust.cust_id}">
       구독상품 배송 정보
     </a>
 
-    <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/account-wishlist?cust_id=${logincust.cust_id}">
-      Wishlist
-    </a>
     <a class="list-group-item list-group-item-action dropend-toggle " href="/cust/personalinfo?cust_id=${logincust.cust_id}">
       나의 정보 수정
     </a>

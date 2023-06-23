@@ -327,7 +327,6 @@
     let search = {
       init: function(){
         $('#searchbtn').click(function() {
-          $('#searchResult').empty();
           let category = $("#category").val();
           let searchtext = $("#searchtext").val();
           $.ajax({
@@ -426,67 +425,6 @@
 </div>
 <%--===============================================1:1채팅 모달 끝==========================================--%>
 
-<%--===============================================오늘의 꽃 시작==========================================--%>
-<div class="modal fade" id="todayflower" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-
-      <!-- Close -->
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-        <i class="fe fe-x" aria-hidden="true"></i>
-      </button>
-
-      <!-- Content -->
-      <div class="row gx-0">
-        <div class="col-12 col-lg-5">
-          <!-- Image -->
-          <img class="img-fluid" src="${todayFlower.imgUrl1}" alt="오늘의 꽃 이미지 출력 에러">
-          <img class="img-fluid" src="${todayFlower.imgUrl2}" alt="오늘의 꽃 이미지 출력 에러">
-        </div>
-        <div class="col-12 col-lg-7 d-flex flex-column">
-
-          <!-- Body -->
-          <div class="modal-body my-auto py-8">
-            <!-- Heading -->
-            <h4>오늘의 꽃: ${todayFlower.flowerName}</h4>
-            <!-- Text -->
-            <p class="mb-7 fs-lg">
-              꽃   말: ${todayFlower.flowerMeaning}
-            </p>
-            <hr>
-            <H8>${todayFlower.fContent}</H8>
-            <hr>
-            <H8>${todayFlower.fMonthDay}</H8>
-            <br>
-            <a id="kakaotalk-sharing-btn" href="javascript:">
-              <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
-                   alt="카카오톡 공유 보내기 버튼" style="width:8%;"/>
-            </a>
-            <a id="facebook-sharing-btn" href="javascript:">
-              <img src="/uimg/facebook.png"
-                   alt="페이스북 공유 보내기 버튼" style="width:10%;"/>
-            </a>
-            <a id="twitter-sharing-btn" href="javascript:">
-              <img src="/uimg/twitter.png"
-                   alt="트위터 공유 보내기 버튼" style="width:8%;"/>
-            </a>
-          </div>
-          <!-- Footer -->
-          <div class="modal-footer pt-0">
-            <!-- 더이상보지 않기 체크박스!!기능구현은 안했음.. -->
-            <div class="form-check">
-              <input class="form-check-input" id="modalCheckbox" type="checkbox">
-              <label class="form-check-label fs-xs" for="modalCheckbox">
-                더이상 보지않기
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<%--===============================================오늘의 꽃 끝==========================================--%>
 
 <%--===============================================챗봇 시작==========================================--%>
 <div id="main-content">
@@ -739,7 +677,7 @@
                   <div class="card-body">
                     <ul class="list-styled fs-sm">
                       <li class="list-styled-item">
-                        <a class="list-styled-link lang_target" href="/cust/account-orders?cust_id=${logincust.cust_id}">My account</a>
+                        <a class="list-styled-link lang_target" href="/order/all?cust_id=${logincust.cust_id}">마이페이지</a>
                       </li>
                       <li class="list-styled-item">
                         <a class="list-styled-link lang_target" href="/cust/logout">로그아웃</a>

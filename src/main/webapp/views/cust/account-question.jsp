@@ -73,7 +73,7 @@
             <a class="text-gray-400" href="/">Home</a>
           </li>
           <li class="breadcrumb-item active">
-            My Account
+            1:1문의 작성
           </li>
         </ol>
 
