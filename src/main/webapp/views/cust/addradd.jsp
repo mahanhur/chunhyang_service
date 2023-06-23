@@ -85,7 +85,7 @@
                         <a class="text-gray-400" href="/">Home</a>
                     </li>
                     <li class="breadcrumb-item active">
-                        My Account
+                        주소지 추가
                     </li>
                 </ol>
 
@@ -100,7 +100,7 @@
             <div class="col-12 text-center">
 
                 <!-- Heading -->
-                <h3 class="mb-10">My Account</h3>
+                <h3 class="mb-10">주소지 추가</h3>
 
             </div>
         </div>

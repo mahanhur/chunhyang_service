@@ -127,7 +127,7 @@
             <a class="text-gray-400" href="/">Home</a>
           </li>
           <li class="breadcrumb-item active">
-            Register
+            회원가입
           </li>
         </ol>
 
@@ -143,7 +143,7 @@
       <div class="col-12 text-center">
 
         <!-- Heading -->
-        <h3 class="mb-10">Register</h3>
+        <h3 class="mb-10">회원가입</h3>
 
       </div>
     </div>

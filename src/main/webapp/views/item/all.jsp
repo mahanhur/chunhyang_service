@@ -256,7 +256,7 @@
         <div class="dropdown ms-6">
 
           <!-- Toggle -->
-          <a class="dropdown-toggle text-body" data-bs-toggle="dropdown" href="#">Default</a>
+          <a class="dropdown-toggle text-body" data-bs-toggle="dropdown" href="#">정렬기준</a>
 
           <!-- Menu -->
           <form class="dropdown-menu">
@@ -267,23 +267,19 @@
                 <div class="form-group-overflow">
                   <div class="form-check form-check-text mb-3">
                     <input class="form-check-input" id="sortOne" name="sort" type="radio" value="Default">
-                    <label class="form-check-label" for="sortOne">Default</label>
-                  </div>
-                  <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="sortTwo" name="sort" type="radio" value="Newest">
-                    <label class="form-check-label" for="sortTwo">Newest</label>
+                    <label class="form-check-label" for="sortOne">판매금액 많은순</label>
                   </div>
                   <div class="form-check form-check-text mb-3">
                     <input class="form-check-input" id="sortThree" name="sort" type="radio" value="Most Popular">
-                    <label class="form-check-label" for="sortThree">Most Popular</label>
+                    <label class="form-check-label" for="sortThree">리뷰 높은순</label>
                   </div>
                   <div class="form-check form-check-text mb-3">
                     <input class="form-check-input" id="sortFour" name="sort" type="radio" value="Default Price">
-                    <label class="form-check-label" for="sortFour">Default Price</label>
+                    <label class="form-check-label" for="sortFour">판매가격 낮은순</label>
                   </div>
                   <div class="form-check form-check-text">
                     <input class="form-check-input" id="sortFive" name="sort" type="radio" value="Highest Price">
-                    <label class="form-check-label" for="sortFive">Highest Price</label>
+                    <label class="form-check-label" for="sortFive">판매가격 높은순</label>
                   </div>
                 </div>
 
@@ -306,22 +302,22 @@
 
           <!-- Heading -->
           <p class="fs-lg">
-            <strong>꽃다발:</strong>
+            <strong>사이즈:</strong>
           </p>
 
           <!-- Form group -->
           <div class="form-group form-group-overflow mb-md-0">
             <div class="form-check mb-3">
-              <input class="form-check-input" id="seasonOne" name="category" type="checkbox" value="Summer">
-              <label class="form-check-label" for="seasonOne">사랑</label>
+              <input class="form-check-input" id="seasonOne" name="category" type="checkbox" value="L">
+              <label class="form-check-label" for="seasonOne">Large</label>
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" id="seasonTwo" name="category" type="checkbox" value="Winter">
-              <label class="form-check-label" for="seasonTwo">응원</label>
+              <input class="form-check-input" id="seasonTwo" name="category" type="checkbox" value="M">
+              <label class="form-check-label" for="seasonTwo">Medium</label>
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" id="seasonThree" name="category" type="checkbox" value="Spring & Fall">
-              <label class="form-check-label" for="seasonThree">감사</label>
+              <input class="form-check-input" id="seasonThree" name="category" type="checkbox" value="S">
+              <label class="form-check-label" for="seasonThree">Small</label>
             </div>
           </div>
 

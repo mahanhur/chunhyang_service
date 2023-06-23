@@ -161,6 +161,7 @@
     </div>
   </div>
 </section>
+
 <!-- OUR STORY -->
 <section class="py-8">
   <div class="container">
@@ -195,6 +196,7 @@
     </div>
   </div>
 </section>
+
 <!-- OUR STORY -->
 <section class="py-8">
   <div class="container">
@@ -211,13 +213,6 @@
         <p class="fs-lg text-muted">
           특별한 이유가 있을 때만이 아닌 일상에서도 꽃을 즐기는 문화를 지향하는 플라워 기반 라이프 스타일 브랜드 춘향전(CHUNHYANG)은 2023년 7월 런칭한 브랜드로, 꽃이 필요한 순간을 언제나 함께 합니다.
         </p>
-        <%--            <p class="mb-0 fs-lg text-muted">--%>
-        <%--              춘향전 커뮤니티는 #FLOWER 문화를 기반으로 활동하며,--%>
-        <%--              이는 각각 F(Fun)-L(Love)-O(Only)-W(Whatever)-E(Easy)-R(Respect)을 내포하고 있습니다.--%>
-        <%--              <br/>--%>
-        <%--              춘향전은 항상 존중·존경심을 기반으로 나 자신(yourself)과 상대방(you)를 위한--%>
-        <%--              흥미로운 컨텐츠로 사랑을 표현하며, 차별화된 혁신을 통한 라이프 스타일 커뮤니케이션을 지향합니다.--%>
-        <%--            </p>--%>
       </div>
 
       <div class="col-12 col-md-6">
@@ -230,17 +225,16 @@
     </div>
   </div>
 </section>
+
 <!-- SLOGAN -->
 <section>
   <div class="container">
-    <div class="row justify-content-center py-12 bg-primary bg-pattern">
+    <div class="row justify-content-center py-15 bg-cover" style="background-image: url(/uimg/about_line.png);padding-bottom:15rem!important;padding-top:15rem!important">
       <div class="col-12 col-lg-10 col-xl-8">
 
         <!-- Text -->
-        <p class="fs-5 lh-base text-center text-white mb-0">
-          Together won't divided fourth let grass above forth. Creature midst let
-          cattle place tree. Gathered whose land form fruitful under bring creeping
-          in upon void man unto divided itself gathered.
+        <p class="fs-5 lh-base align-text-top text-white mb-0">
+          @CHUNHYANG
         </p>
 
       </div>
@@ -255,19 +249,19 @@
       <div class="col-12 col-md-6 col-lg-5">
 
         <!-- Image -->
-        <img class="img-fluid mb-7" src="assets/img/products/product-116.jpg" alt="...">
+        <img class="img-fluid mb-7" src="/uimg/about_tool1.png" alt="...">
 
         <!-- Image -->
-        <img class="img-fluid mb-7 mb-md-0" src="assets/img/products/product-117.jpg" alt="...">
+        <img class="img-fluid mb-7 mb-md-0" src="/uimg/about_tool2.png" alt="...">
 
       </div>
       <div class="col-12 col-md-6 col-lg-5">
 
         <!-- Image -->
-        <img class="img-fluid mb-7 mt-md-12" src="assets/img/products/product-118.jpg" alt="...">
+        <img class="img-fluid mb-7 mt-md-12" src="/uimg/about_tool3.png" alt="...">
 
         <!-- Image -->
-        <img class="img-fluid mb-7 mb-md-0" src="assets/img/products/product-119.jpg" alt="...">
+        <img class="img-fluid mb-7 mb-md-0" src="/uimg/about_tool4.png" alt="...">
 
       </div>
     </div>
@@ -343,7 +337,7 @@
       <div class="col-12 py-13 text-center">
 
         <!-- Button -->
-        <a href="#!" class="btn btn-white px-8">@chunhyang</a>
+        <a href="https://www.instagram.com/explore/tags/flower/" class="btn btn-white px-8">@flower</a>
 
       </div>
     </div>
@@ -351,7 +345,7 @@
 </section>
 
 <!-- FEATURES -->
-<section class="py-9">
+<section class="py-9 mt-10">
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-6 col-lg-3">
@@ -360,19 +354,19 @@
         <div class="d-flex mb-6 mb-lg-0">
 
           <!-- Icon -->
-          <i class="fe fe-truck fs-lg text-primary"></i>
+          <i class="fe fe-plus fs-lg text-primary"></i>
 
           <!-- Body -->
           <div class="ms-6">
 
             <!-- Heading -->
             <h6 class="heading-xxs mb-1">
-              Free shipping
+              꽃 구독
             </h6>
 
             <!-- Text -->
             <p class="mb-0 fs-sm text-muted">
-              From all orders over $100
+              포인트로 정기결제
             </p>
 
           </div>
@@ -386,19 +380,19 @@
         <div class="d-flex mb-6 mb-lg-0">
 
           <!-- Icon -->
-          <i class="fe fe-repeat fs-lg text-primary"></i>
+          <i class="fe fe-thumbs-up fs-lg text-primary"></i>
 
           <!-- Body -->
           <div class="ms-6">
 
             <!-- Heading -->
             <h6 class="mb-1 heading-xxs">
-              Free returns
+              (9900원 상당)
             </h6>
 
             <!-- Text -->
             <p class="mb-0 fs-sm text-muted">
-              Return money within 30 days
+              시그니처 화병 증정
             </p>
 
           </div>
@@ -412,19 +406,19 @@
         <div class="d-flex mb-6 mb-md-0">
 
           <!-- Icon -->
-          <i class="fe fe-lock fs-lg text-primary"></i>
+          <i class="fe fe-award fs-lg text-primary"></i>
 
           <!-- Body -->
           <div class="ms-6">
 
             <!-- Heading -->
             <h6 class="mb-1 heading-xxs">
-              Secure shopping
+              모든 회차
             </h6>
 
             <!-- Text -->
             <p class="mb-0 fs-sm text-muted">
-              You're in safe hands
+              꽃 영양제 무료 제공
             </p>
 
           </div>
@@ -438,19 +432,19 @@
         <div class="d-flex">
 
           <!-- Icon -->
-          <i class="fe fe-tag fs-lg text-primary"></i>
+          <i class="fe fe-box fs-lg text-primary"></i>
 
           <!-- Body -->
           <div class="ms-6">
 
             <!-- Heading -->
             <h6 class="mb-1 heading-xxs">
-              Over 10,000 Styles
+              (6개월 이상 신규 구독시)
             </h6>
 
             <!-- Text -->
             <p class="mb-0 fs-sm text-muted">
-              We have everything you need
+              스타터 키트 증정
             </p>
 
           </div>
@@ -461,4 +455,3 @@
     </div>
   </div>
 </section>
-
