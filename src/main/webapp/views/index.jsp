@@ -1109,3 +1109,158 @@
 
 </body>
 </html>
+
+<!-- Search -->
+<div class="offcanvas offcanvas-end" id="modalSearch" tabindex="-1" role="dialog" aria-hidden="true">
+
+  <!-- Close -->
+  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+    <i class="fe fe-x" aria-hidden="true"></i>
+  </button>
+
+  <!-- Header-->
+  <div class="offcanvas-header lh-fixed fs-lg">
+    <strong class="mx-auto">상품 검색</strong>
+  </div>
+
+  <!-- Body: Form -->
+  <div class="offcanvas-body">
+    <form>
+      <div class="form-group">
+        <label class="visually-hidden" for="modalSearchCategories">카테고리:</label>
+        <select class="form-select" id="modalSearchCategories" name="category" id="category">
+          <option value="all" <c:if test="${search.category == 'all'}">selected</c:if>>전체</option>
+          <option value="100" <c:if test="${search.category == '꽃다발'}">selected</c:if>>꽃다발</option>
+          <option value="200" <c:if test="${search.category == '꽃'}">selected</c:if>>꽃</option>
+          <option value="300" <c:if test="${search.category == '화병'}">selected</c:if>>화병</option>
+          <option value="400" <c:if test="${search.category == '비품'}">selected</c:if>>비품</option>
+        </select>
+      </div>
+      <div class="input-group input-group-merge">
+        <input class="form-control" type="search" name="searchtext" id="searchtext" placeholder="찾으시는 상품의 이름, 색상, 종류 등을 입력해 주세요."
+               <c:if test="${search.searchtext != null}">value="${search.searchtext}"</c:if>>
+        <div class="input-group-append">
+          <button id="searchbtn" class="btn btn-outline-border">
+            <i class="fe fe-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Body: Results (add `.d-none` to disable it) -->
+  <div class="offcanvas-body border-top fs-sm">
+
+    <!-- Heading -->
+    <p>Search Results:</p>
+
+    <!-- Items -->
+    <div class="row align-items-center position-relative mb-5">
+      <div class="col-4 col-md-3">
+
+        <!-- Image -->
+        <img class="img-fluid" src="./assets/img/products/product-5.jpg" alt="...">
+
+      </div>
+      <div class="col position-static">
+
+        <!-- Text -->
+        <p class="mb-0 fw-bold">
+          <a class="stretched-link text-body" href="./product.html">Leather mid-heel Sandals</a> <br>
+          <span class="text-muted">$129.00</span>
+        </p>
+
+      </div>
+    </div>
+    <div class="row align-items-center position-relative mb-5">
+      <div class="col-4 col-md-3">
+
+        <!-- Image -->
+        <img class="img-fluid" src="./assets/img/products/product-6.jpg" alt="...">
+
+      </div>
+      <div class="col position-static">
+
+        <!-- Text -->
+        <p class="mb-0 fw-bold">
+          <a class="stretched-link text-body" href="./product.html">Cotton floral print Dress</a> <br>
+          <span class="text-muted">$40.00</span>
+        </p>
+
+      </div>
+    </div>
+    <div class="row align-items-center position-relative mb-5">
+      <div class="col-4 col-md-3">
+
+        <!-- Image -->
+        <img class="img-fluid" src="./assets/img/products/product-7.jpg" alt="...">
+
+      </div>
+      <div class="col position-static">
+
+        <!-- Text -->
+        <p class="mb-0 fw-bold">
+          <a class="stretched-link text-body" href="./product.html">Leather Sneakers</a> <br>
+          <span class="text-primary">$85.00</span>
+        </p>
+
+      </div>
+    </div>
+    <div class="row align-items-center position-relative mb-5">
+      <div class="col-4 col-md-3">
+
+        <!-- Image -->
+        <img class="img-fluid" src="./assets/img/products/product-8.jpg" alt="...">
+
+      </div>
+      <div class="col position-static">
+
+        <!-- Text -->
+        <p class="mb-0 fw-bold">
+          <a class="stretched-link text-body" href="./product.html">Cropped cotton Top</a> <br>
+          <span class="text-muted">$29.00</span>
+        </p>
+
+      </div>
+    </div>
+    <div class="row align-items-center position-relative mb-5">
+      <div class="col-4 col-md-3">
+
+        <!-- Image -->
+        <img class="img-fluid" src="./assets/img/products/product-9.jpg" alt="...">
+
+      </div>
+      <div class="col position-static">
+
+        <!-- Text -->
+        <p class="mb-0 fw-bold">
+          <a class="stretched-link text-body" href="./product.html">Floral print midi Dress</a> <br>
+          <span class="text-muted">$50.00</span>
+        </p>
+
+      </div>
+    </div>
+
+    <!-- Button -->
+    <a class="btn btn-link px-0 text-reset" href="/item/all">
+      전체 상품 보러가기 <i class="fe fe-arrow-right ms-2"></i>
+    </a>
+
+  </div>
+
+  <!-- Body: Empty (remove `.d-none` to enable it) -->
+  <div class="offcanvas-body d-none">
+
+    <!-- Text -->
+    <p class="mb-3 fs-sm text-center">
+      Nothing matches your search
+    </p>
+
+    <!-- Smiley -->
+    <p class="mb-0 fs-sm text-center">
+      😞
+    </p>
+
+  </div>
+
+</div>

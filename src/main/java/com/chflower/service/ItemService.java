@@ -1,6 +1,7 @@
 package com.chflower.service;
 
 import com.chflower.dto.Item;
+import com.chflower.dto.Search;
 import com.chflower.frame.CHService;
 import com.chflower.mapper.ItemMapper;
 import com.github.pagehelper.Page;
@@ -55,7 +56,9 @@ public class ItemService implements CHService<Integer, Item> {
     public List<Item> getType(String type) throws Exception {
         return mapper.gettype(type);
     }
-
+    public List<Item> getSearch(Search search) throws Exception {
+        return mapper.getSearch(search);
+    }
     public Page<Item> getPage(int pageNo) throws Exception {
         PageHelper.startPage(pageNo, 3); // 3: 한화면에 출력되는 개수
         return mapper.getpage();
