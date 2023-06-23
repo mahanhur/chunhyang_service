@@ -11,13 +11,13 @@
         SELECT * FROM subsinfo
     </select>
     <select id="selectcust" parameterType="String" resultType="subs">
-        SELECT * FROM subsinfo WHERE cust_id=#{cust_id}
+        SELECT * FROM subsinfo WHERE cust_id=#{cust_id} order by subs_id desc
     </select>
     <select id="getlast" resultType="int">
         SELECT MAX(subs_id) from subsinfo
     </select>
     <insert id="insert" parameterType="subs">
-        INSERT INTO subsinfo VALUES (subsinfo_seq.NEXTVAL, #{cust_id}, #{subsitem_id}, #{subs_amount}, #{minus_point}, #{subs_pay_amount}, SYSDATE)
+        INSERT INTO subsinfo VALUES ((SELECT MAX(subs_id) from subsinfo)+1, #{cust_id}, #{subsitem_id}, #{subs_amount}, #{minus_point}, #{subs_pay_amount}, SYSDATE)
     </insert>
     <update id="update" parameterType="subs">
     </update>

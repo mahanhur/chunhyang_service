@@ -63,7 +63,41 @@
     }
   }
 </style>
+<%--  카카오공유하기--%>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"
+        integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>
 
+<script>
+
+  $( function() {
+    Kakao.init('c91de3a9ba7f48da3cb562c2fc973026');
+    Kakao.Share.createDefaultButton({
+      container: '#kakaotalk-sharing-btn1',
+      objectType: 'feed',
+      content: {
+        title: '오늘의 꽃 - ${todayFlower.flowerName}',
+        description: '꽃말: ${todayFlower.flowerMeaning}',
+        imageUrl:
+                '${todayFlower.imgUrl1}',
+        link: {
+          // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+          mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+          webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+        },
+      },
+      buttons: [
+        {
+          title: '자세히 보기',
+          link: {
+            mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+            webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+          },
+        },
+      ],
+    });
+  })
+</script>
+<%--카카오공유하기--%>
 
 
 
@@ -716,3 +750,65 @@
     </div>
   </div>
 </section>
+
+<%--===============================================오늘의 꽃 시작==========================================--%>
+<div class="modal fade" id="todayflower" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+
+      <!-- Close -->
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <i class="fe fe-x" aria-hidden="true"></i>
+      </button>
+
+      <!-- Content -->
+      <div class="row gx-0">
+        <div class="col-12 col-lg-5">
+          <!-- Image -->
+          <img class="img-fluid" src="${todayFlower.imgUrl1}" alt="오늘의 꽃 이미지 출력 에러">
+          <img class="img-fluid" src="${todayFlower.imgUrl2}" alt="오늘의 꽃 이미지 출력 에러">
+        </div>
+        <div class="col-12 col-lg-7 d-flex flex-column">
+
+          <!-- Body -->
+          <div class="modal-body my-auto py-8">
+            <!-- Heading -->
+            <h4>오늘의 꽃: ${todayFlower.flowerName}</h4>
+            <!-- Text -->
+            <p class="mb-7 fs-lg">
+              꽃   말: ${todayFlower.flowerMeaning}
+            </p>
+            <hr>
+            <H8>${todayFlower.fContent}</H8>
+            <hr>
+            <H8>${todayFlower.fMonthDay}</H8>
+            <br>
+            <a id="kakaotalk-sharing-btn1" href="javascript:">
+              <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+                   alt="카카오톡 공유 보내기 버튼" style="width:8%;"/>
+            </a>
+            <a id="facebook-sharing-btn" href="javascript:">
+              <img src="/uimg/facebook.png"
+                   alt="페이스북 공유 보내기 버튼" style="width:10%;"/>
+            </a>
+            <a id="twitter-sharing-btn" href="javascript:">
+              <img src="/uimg/twitter.png"
+                   alt="트위터 공유 보내기 버튼" style="width:8%;"/>
+            </a>
+          </div>
+          <!-- Footer -->
+          <div class="modal-footer pt-0">
+            <!-- 더이상보지 않기 체크박스!!기능구현은 안했음.. -->
+            <div class="form-check">
+              <input class="form-check-input" id="modalCheckbox" type="checkbox">
+              <label class="form-check-label fs-xs" for="modalCheckbox">
+                더이상 보지않기
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%--===============================================오늘의 꽃 끝==========================================--%>
