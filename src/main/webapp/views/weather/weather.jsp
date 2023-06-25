@@ -468,15 +468,14 @@
 <div class="section over-hide">
     <div class="container">
         <div class="row full-height justify-content-center">
-            <div class="col-12 text-center align-self-center py-5">
-                <div class="section text-center py-5 py-md-0">
+            <div class="col-12 text-center align-self-center py-0">
+                <div class="section text-center py-0 py-md-0">
                     <input class="pricing" type="checkbox" id="pricing" name="pricing"/>
                     <label for="pricing"><span class="block-diff">SEOUL.KR<span class="float-right" style="margin-left: 50px">BUSAN.KR</span></span></label>
 <%--                    <h8 class="SeoulIcon"></h8>--%>
                     <div class="card-3d-wrap mx-auto">
                         <div class="card-3d-wrapper">
                             <div class="card-front">
-
                                 <div class="pricing-wrap ">
                                     <h4 class="mb-5 Seoulname"></h4><br>
                                     <div class="row">

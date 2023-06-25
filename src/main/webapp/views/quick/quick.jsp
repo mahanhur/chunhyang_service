@@ -6,6 +6,11 @@
 <script src="./assets/js/vendor.bundle.js"></script>
 <script src="./assets/js/theme.bundle.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 <style>
     .map_wrap {overflow:hidden;height:500px}
 </style>
@@ -31,7 +36,7 @@
             var rvClient = new kakao.maps.RoadviewClient(); //좌표로부터 로드뷰 파노ID를 가져올 로드뷰 helper객체
 
             var imageSrc = '/assets/img/flower.png', // 마커이미지의 주소입니다
-                imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+                imageSize = new kakao.maps.Size(100, 100), // 마커이미지의 크기입니다
                 imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
             // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
@@ -80,7 +85,7 @@
                 line = new kakao.maps.Polyline({
                     map: map, // 선을 표시할 지도입니다
                     path: linepath, // 선을 구성하는 좌표 배열입니다 클릭한 위치를 넣어줍니다
-                    strokeWeight: 3, // 선의 두께입니다
+                    strokeWeight: 5, // 선의 두께입니다
                     strokeColor: '#db4040', // 선의 색깔입니다
                     strokeOpacity: 1, // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
                     endArrow: true, // 선의 끝을 화살표로 표시되도록 설정한다
@@ -161,7 +166,7 @@
 
                 for (let j = 0; j <= samplepath.length; j += 1) {
                     setTimeout(() => {
-                            if(j===samplepath.length) alert('퀵배송 완료!')
+                            if(j===samplepath.length) toastr.success('퀵배송이 완료 되었습니다')
                             var p = new kakao.maps.LatLng(samplepath[j][0], samplepath[j][1]);
                             addMarker(p)
                             if (markers.length > 1) {
@@ -199,8 +204,9 @@
     $(function (){
         quick.init();
     });
-
 </script>
+
+
 <body>
     <nav class="py-2">
         <div class="col" style="padding:30px; background-color: black; color: white; text-align:center; font-size: large;">

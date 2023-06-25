@@ -69,8 +69,7 @@ let register_review = {
 
 <!-- 현재 보고있는 PRODUCT -->
 <section>
-
-    <div class="container">
+    <div class="container py-5">
 
         <div class="row">
             <div class="col-12">
@@ -118,15 +117,39 @@ let register_review = {
                             </c:forEach>
                         </div>
                         <!-- 작은 이미지 Slider 끝-->
+
+                        <%--왼쪽 페이지 하단 부분 시작--%>
+                        <hr>
+                        <h6><strong>나의 취향으로 채우는 나만의 공간</strong></h6>
+                        <h8>꽃꽂이에 재미를, 파스텔톤 색감으로 시선을 끌고, 주름진 듯한 디테일에 한번 더 반하게 됩니다.
+                            꽃꽂이할 때, 화병과 꽃의 색깔이 한데 어우러져
+                            수채화로 그림을 그리듯 더욱 매력적이게 연출할 수 있습니다.</h8>
+                        <hr>
+                        <div ><img src="/uimg/${detail.item_img}" style="width: 600px"></div>
+                        <hr>
+                        <c:forEach var="obj" items="${bipumlist}">
+                            <div>
+                                <!-- sub Image -->
+                                <div><img src="/uimg/${obj.item_subimg}" style="width: 600px"></div>
+                            </div>
+                            <hr>
+                        </c:forEach>
+                        <img src="/uimg/bipum.jpg" style="width: 600px">
+                        <hr>
+                        <h6><strong> * 취급시 주의사항</strong></h6>
+                        <h8>1) 제품의 컬러는 각 모니터 및 조명의 종류와 밝기에 따라 차이가 있을 수 있습니다.
+                            2) 용도 외 사용을 금지해주세요.
+                            3) 강한 충격에 의한 파손 및 상해에 주의해주세요.
+                            4) 제품 공정에서 생기는 기포, 잔흠집은 환불 사유가 되지 않습니다.
+                            5) 사용자 부주의로 인한 제품 파손은 교환/반품이 불가합니다.</h8>
+                        <hr>
                     </div>
+
                     <!-- 오른쪽 부분 시작 -->
                     <div class="col-12 col-md-6 ps-lg-10">
                         <!-- Header -->
                         <div class="row mb-1">
                             <div class="col">
-                                <!-- 링크. 지울까? -->
-                                <a class="text-muted" href="#">링크...넣을까??</a>
-
                             </div>
                             <!-- 별점 및 리뷰 시작-->
                             <div class="col-auto">
@@ -206,8 +229,10 @@ let register_review = {
                                         <i class="fab fa-pinterest-p"></i>
                                     </a>
                                 </p>
-                            </div>
                         </form>
+                        <hr>
+                        <img src="/uimg/bipum2.jpg" style="width: 400px">
+                    </div>
                         <!-- 수량, 카트, 찜 입력 Form 끝-->
 
                     </div>
@@ -219,6 +244,7 @@ let register_review = {
 </section>
 
 <!-- DESCRIPTION: 페이지 하단의 설명 -->
+<!-- DESCRIPTION -->
 <section class="pt-11">
     <div class="container">
         <div class="row">
@@ -227,13 +253,13 @@ let register_review = {
                 <!-- Nav -->
                 <div class="nav nav-tabs nav-overflow justify-content-start justify-content-md-center border-bottom">
                     <a class="nav-link active" data-bs-toggle="tab" href="#descriptionTab">
-                        설명
+                        상세설명
                     </a>
                     <a class="nav-link" data-bs-toggle="tab" href="#sizeTab">
-                        상품 크기
+                        자주묻는 질문
                     </a>
                     <a class="nav-link" data-bs-toggle="tab" href="#shippingTab">
-                        배송 및 환율
+                        배송안내
                     </a>
                 </div>
 
@@ -246,44 +272,26 @@ let register_review = {
                                     <div class="col-12">
 
                                         <!-- Text -->
-                                        <p class="text-gray-500">
-                                            Won't herb first male seas, beast. Let upon, female upon third fifth every. Man subdue rule after years herb after
-                                            form. And image may, morning. Behold in tree day sea that together cattle whose. Fifth gathering brought
-                                            bearing. Abundantly creeping whose. Beginning form have void two. A whose.
+                                        <img src="/uimg/detail_description_1.png">
+                                        <img src="/uimg/detail_description_2.jpg">
+                                        <img src="/uimg/detail_description_3.jpg">
+
+                                        <p class="text-gray-500" style="margin-top: 30px">
+                                        <div><strong><b> 꽃다발은 싱싱함이 최우선입니다. </b> 좋은 품질의 꽃을 좋은 가격으로 구매하여 고객님의 집 앞으로 배송하기 위해 꾸까는 매일 노력합니다. 이런 노력들이 모여 우리 일상의 꽃 문화가 만들어지리라 믿습니다.</strong></div>
+                                        <img src="/uimg/detail_description_4.jpg">
                                         </p>
 
-                                    </div>
-                                    <div class="col-12 col-md-6">
+                                        <img src="/uimg/detail_description_5.jpg" width="883px">
+                                        <p class="text-gray-500" style="margin-top: 30px">
+                                            <h8><strong><b>혜택 1 |</b> 전국 전지역 배송</strong></h8>
+                                            선물함에 어려움이 없도록 전국으로 배송됩니다. 어느 지역이라도 부담 없이 선물하세요.<br/>
 
-                                        <!-- List -->
-                                        <ul class="list list-unstyled mb-md-0 text-gray-500">
-                                            <li>
-                                                <strong class="text-body">SKU</strong>: #61590437
-                                            </li>
-                                            <li>
-                                                <strong class="text-body">Occasion</strong>: Lifestyle, Sport
-                                            </li>
-                                            <li>
-                                                <strong class="text-body">Country</strong>: Italy
-                                            </li>
-                                        </ul>
-
-                                    </div>
-                                    <div class="col-12 col-md-6">
-
-                                        <!-- List -->
-                                        <ul class="list list-unstyled mb-0">
-                                            <li>
-                                                <strong>Outer</strong>: Leather 100%, Polyamide 100%
-                                            </li>
-                                            <li>
-                                                <strong>Lining</strong>: Polyester 100%
-                                            </li>
-                                            <li>
-                                                <strong>CounSoletry</strong>: Rubber 100%
-                                            </li>
-                                        </ul>
-
+                                            *제주, 도서산간 지역의 경우 배송에 1-2일 더 소요될 수 있습니다.
+                                            <br/>
+                                            <br/>
+                                            <h8><strong><b>혜택 2 |</b>  꽃 영양제 무료 제공</strong></h8>
+                                            마음을 담아 선물한 꽃을 더 오래 볼 수 있는 꽃 영양제입니다. 꽃은 관리법에 따라 수명이 2배 가까이 차이가 나기도 하기에 마음을 담아 선물한 꽃을 더 오래 보실 수 있도록 꽃 영양제(플라워 푸드)를 선물로 함께 보내드립니다.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -292,52 +300,10 @@ let register_review = {
                     <div class="tab-pane fade" id="sizeTab">
                         <div class="row justify-content-center py-9">
                             <div class="col-12 col-lg-10 col-xl-8">
-                                <div class="row">
-                                    <div class="col-12 col-md-6">
-
-                                        <!-- Text -->
-                                        <p class="mb-4">
-                                            <strong>Fitting information:</strong>
-                                        </p>
-
-                                        <!-- List -->
-                                        <ul class="mb-md-0 text-gray-500">
-                                            <li>
-                                                Upon seas hath every years have whose
-                                                subdue creeping they're it were.
-                                            </li>
-                                            <li>
-                                                Make great day bearing.
-                                            </li>
-                                            <li>
-                                                For the moveth is days don't said days.
-                                            </li>
-                                        </ul>
-
-                                    </div>
-                                    <div class="col-12 col-md-6">
-
-                                        <!-- Text -->
-                                        <p class="mb-4">
-                                            <strong>Model measurements:</strong>
-                                        </p>
-
-                                        <!-- List -->
-                                        <ul class="list-unstyled text-gray-500">
-                                            <li>Height: 1.80 m</li>
-                                            <li>Bust/Chest: 89 cm</li>
-                                            <li>Hips: 91 cm</li>
-                                            <li>Waist: 65 cm</li>
-                                            <li>Model size: M</li>
-                                        </ul>
-
-                                        <!-- Size -->
-                                        <p class="mb-0">
-                                            <img src="assets/img/icons/icon-ruler.svg" alt="..." class="img-fluid">
-                                            <a class="text-reset text-decoration-underline ms-3" data-bs-toggle="modal" href="#modalSizeChart">Size chart</a>
-                                        </p>
-
-                                    </div>
+                                <div>
+                                    <p class="mb-4">
+                                        <img src="/uimg/detail_Q&A_1.jpg">
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -346,48 +312,15 @@ let register_review = {
                         <div class="row justify-content-center py-9">
                             <div class="col-12 col-lg-10 col-xl-8">
 
+                                <img src="/uimg/detail_delivery_1.jpg" width="350px">
+                                <img src="/uimg/detail_delivery.jpg" height="550px">
                                 <!-- Table -->
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-sm table-hover">
-                                        <thead>
-                                        <tr>
-                                            <th>Shipping Options</th>
-                                            <th>Delivery Time</th>
-                                            <th>Price</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>Standard Shipping</td>
-                                            <td>Delivery in 5 - 7 working days</td>
-                                            <td>$8.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Express Shipping</td>
-                                            <td>Delivery in 3 - 5 working days</td>
-                                            <td>$12.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 - 2 day Shipping</td>
-                                            <td>Delivery in 1 - 2 working days</td>
-                                            <td>$12.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Free Shipping</td>
-                                            <td>
-                                                Living won't the He one every subdue meat replenish
-                                                face was you morning firmament darkness.
-                                            </td>
-                                            <td>$0.00</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+
                                 </div>
 
                                 <!-- Caption -->
-                                <p class="mb-0 text-gray-500">
-                                    May, life blessed night so creature likeness their, for. <a class="text-body text-decoration-underline" href="#!">Find out more</a>
-                                </p>
+                                <p class="mb-0 text-gray-500"></p>
 
                             </div>
                         </div>
@@ -406,7 +339,7 @@ let register_review = {
             <div class="col-12">
 
                 <!-- Heading -->
-                <h4 class="mb-10 text-center">춘향! 강력추천 상품!!</h4>
+                <h4 class="mb-10 text-center">판매랭킹 추천상품!</h4>
 
                 <!-- Items -->
                 <div class="row">
@@ -420,7 +353,7 @@ let register_review = {
 
                             <!-- Badge -->
                             <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">
-                                Sale
+                                <strong>Rank: ${recommandlist.rank}</strong>
                             </div>
 
                             <!-- Image -->

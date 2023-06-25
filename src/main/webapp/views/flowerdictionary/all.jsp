@@ -13,10 +13,17 @@
 
 <!-- CONTENT -->
 
-<section class="py-12">
+<section >
+  <div class="card mb-4">
+    <div class="card-header">
+      <p class="alert alert-Danger dismissible">
+        ㅇ 출저 및 제공기관 : 공공데이터 포털<sub>[농촌진흥청, 오늘의 꽃 오픈API]</sub>
+        <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
+      </p>
+    </div>
+  </div>
   <div class="container">
     <div class="row">
-
       <c:forEach var="obj" items="${flowerlist}" varStatus="status">
         <div class="col-6 col-md-3 col-lg">
 
@@ -71,15 +78,15 @@
               <p class="fs-sm text-muted">
               </p>
 
-              <!-- Progress -->
-              <div class="progress mx-auto mb-7" style="max-width: 250px;">
-                <div class="progress-bar bg-dark" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+<%--              <!-- Progress -->--%>
+<%--              <div class="progress mx-auto mb-7" style="max-width: 250px;">--%>
+<%--                <div class="progress-bar bg-dark" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>--%>
+<%--              </div>--%>
 
-              <!-- Button -->
-              <a class="btn btn-sm btn-outline-dark" href="#!">
-                더보기
-              </a>
+<%--              <!-- Button -->--%>
+<%--              <a class="btn btn-sm btn-outline-dark" href="#!">--%>
+<%--                더보기--%>
+<%--              </a>--%>
 
             </div>
           </div>
