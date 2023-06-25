@@ -15,7 +15,7 @@ class UpdateTest {
     @Test
     void contextLoads() {
         try {
-            service.modify(new Cust("test01", "김하연", "pwd01", "01022223333", 20, "test@naver.com"));
+            service.modify(new Cust("test01", "김하연", "pwd01", "01022223333", 20,"1", "test@naver.com"));
             // rdate는 insert할때 등록되고, 수정할땐 날짜 이외정보 수정.
             // del_date는 default null이고, 탈퇴할 경우 withdraw로 del_date만 update.
         } catch (Exception e) {

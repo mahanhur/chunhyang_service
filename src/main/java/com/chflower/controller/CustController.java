@@ -123,7 +123,7 @@ public class CustController {
         //httpbody 오브젝트 생성
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type","authorization_code");
-        params.add("client_id","ec3548a0503c6cbca894ccff296796d3");
+        params.add("client_id","0a9d14b3b112ee3f48ca206b470a2018");
         params.add("redirect_uri","http://localhost/cust/kakao/callback");
         params.add("code",code);
         //httpheader와 httpbody를 하나의 오브젝트에 담기
