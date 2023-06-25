@@ -22,7 +22,7 @@
               group by b.item_id,b.ITEM_IMG,b.ITEM_NAME,b.ITEM_PRICE,b.ITEM_CONTENT
               order by cnt desc
              ) b
-        where <![CDATA[ rownum < 5 ]]>
+        where <![CDATA[ rownum < 4 ]]>
     </select>
 
     <select id="select300" resultType="RecommandItem">
@@ -33,7 +33,7 @@
               group by b.item_id,b.ITEM_IMG,b.ITEM_NAME,b.ITEM_PRICE,b.ITEM_CONTENT
               order by cnt desc
              ) b
-        where <![CDATA[ rownum < 5 ]]>
+        where <![CDATA[ rownum < 4 ]]>
     </select>
 
     <select id="selectsubs" resultType="RecommandItem">

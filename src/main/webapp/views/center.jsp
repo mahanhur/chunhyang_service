@@ -270,13 +270,26 @@
          </div>
 
       <!-- 추천 구독상품 -->
-      <c:forEach var="recommandlist" items="${recommandlist}">
+      <c:forEach var="recommandlist" items="${recommandlist}" varStatus="status">
         <div class="col-12 col-md">
-
           <!-- Card -->
           <div class="card mb-7" data-toggle="card-collapse">
             <!-- Badge -->
-            <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">Sale</div>
+            <div class="badge bg-white text-body card-badge card-badge-start text-uppercase" style="font-size: 17px;font-weight: bold;padding: 5px">
+              <c:choose>
+                <c:when test="${status.index == 0}">
+                  🥇1
+                </c:when>
+                <c:when test="${status.index == 1}">
+                  🥈2
+                </c:when>
+                <c:when test="${status.index == 2}">
+                  🥉3
+                </c:when>
+              </c:choose>
+              위
+            </div>
+
             <!-- Image -->
             <a  href="/subs/detail?subsitem_id=${recommandlist.subsitem_id}">
               <img class="card-img-top card-img-back" src="/uimg/${recommandlist.subsitem_img}" alt="...">
@@ -331,13 +344,26 @@
       </div>
 
       <!-- 추천 꽃선물 -->
-      <c:forEach var="recommandlist1" items="${recommandlist1}">
+      <c:forEach var="recommandlist1" items="${recommandlist1}" varStatus="status">
         <div class="col-12 col-md">
 
           <!-- Card -->
           <div class="card mb-7" data-toggle="card-collapse">
             <!-- Badge -->
-            <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">Sale</div>
+            <div class="badge bg-white text-body card-badge card-badge-start text-uppercase" style="font-size: 17px;font-weight: bold;padding: 5px">
+              <c:choose>
+                <c:when test="${status.index == 0}">
+                  🥇1
+                </c:when>
+                <c:when test="${status.index == 1}">
+                  🥈2
+                </c:when>
+                <c:when test="${status.index == 2}">
+                  🥉3
+                </c:when>
+              </c:choose>
+              위
+            </div>
             <!-- Image -->
             <a  href="/item/detail?item_id=${recommandlist1.item_id}">
               <img class="card-img-top card-img-back" src="/uimg/${recommandlist1.item_img}" alt="...">
@@ -360,7 +386,7 @@
                 </div>
                 <!-- Footer -->
                 <div class="card-footer px-0 pt-0 bg-black text-center mt-2">
-                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                  <button class="btn btn-xs btn-circle btn-white-primary cart_btn" data-itemid="${recommandlist1.item_id}" data-toggle="button">
                     <i class="fe fe-shopping-cart"></i>
                   </button>
                 </div>
@@ -396,13 +422,27 @@
       </div>
 
       <!-- 추천 화병비품 -->
-      <c:forEach var="recommandlist2" items="${recommandlist2}">
+      <c:forEach var="recommandlist2" items="${recommandlist2}" varStatus="status">
         <div class="col-12 col-md">
 
           <!-- Card -->
           <div class="card mb-7" data-toggle="card-collapse">
             <!-- Badge -->
-            <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">Sale</div>
+            <div class="badge bg-white text-body card-badge card-badge-start text-uppercase" style="font-size: 17px;font-weight: bold;padding: 5px">
+              <c:choose>
+                <c:when test="${status.index == 0}">
+                  🥇1
+                </c:when>
+                <c:when test="${status.index == 1}">
+                  🥈2
+                </c:when>
+                <c:when test="${status.index == 2}">
+                  🥉3
+                </c:when>
+              </c:choose>
+              위
+            </div>
+
             <!-- Image -->
             <a  href="/item/detail?item_id=${recommandlist2.item_id}">
               <img class="card-img-top card-img-back" src="/uimg/${recommandlist2.item_img}" alt="...">
@@ -428,7 +468,7 @@
               <!-- Footer -->
               <div class="card-collapse collapse">
                 <div class="card-footer px-0 pt-0 bg-white text-center">
-                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                  <button class="btn btn-xs btn-circle btn-white-primary cart_btn" data-itemid="${recommandlist2.item_id}" data-toggle="button">
                     <i class="fe fe-shopping-cart"></i>
                   </button>
                 </div>
