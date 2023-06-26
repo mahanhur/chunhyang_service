@@ -1,14 +1,93 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.6.3/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.6.3/umd/react-dom.production.min.js"></script>
+
+<style>
+    /* CSS 코드 */
+    @import url('https://fonts.googleapis.com/css?family=Teko');
+
+    .App {
+        background: #131F2F;
+        font-family: 'Teko', serif;
+        height: 50vh;
+        /*width: 100vw;*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .Loader {
+        color: white;
+        font-size: 10vw;
+        letter-spacing: 0.01em;
+        transition: transform 0.125s ease;
+    }
+
+    .Loader sup {
+        font-size: 50%;
+        vertical-align: baseline;
+    }
+</style>
 
 <script>
     let pic = {
         myVideoStream:null,
         init:function(){
+            let yourage = $("#yourage").val();
+            if(yourage == ""){
+            $("#yourflower").css("display" ,"none");
+            $("#smallimg").css("display" ,"none");
+            }
+
+            $('#cfr_btn').click(function () {
+                renderApp();
+                $("#yourflower").css("display" ,"none");
+                $("#smallimg").css("display" ,"none");
+                setTimeout(() => {
+                    $("#yourflower").css("display", "block");
+                    $("#smallimg").css("display" ,"block");
+                    $("#root").css("display", "none");
+                }, 5000)
+            });
+
             this.myVideoStream = document.querySelector('#myVideo');
             pic.getVideo();
+
+            function Loader({ number }) {
+                let numberString = number;
+                if (number < 10) {
+                    numberString = '0' + number;
+                }
+                const loaderDiv = document.createElement('div');
+                loaderDiv.className = 'Loader';
+                loaderDiv.setAttribute('data-size', number);
+                loaderDiv.innerHTML = `\${numberString}<sup>%</sup>`;
+                return loaderDiv;
+            }
+            function renderApp() {
+                const appDiv = document.createElement('div');
+                appDiv.className = 'App';
+                const loader = new Loader({ number: 0 });
+                appDiv.appendChild(loader);
+                const rootElement = document.getElementById('root');
+                rootElement.appendChild(appDiv);
+                let number = 0;
+                let interval = setInterval(() => {
+                    if (number < 100) {
+                        number++;
+                        loader.setAttribute('data-size', number);
+                        const numberString = number < 10 ? '0' + number : number.toString();
+                        loader.innerHTML = `\${numberString}<sup>%</sup>`;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 50);
+            }
         },
+
+
         getVideo:function(){
             navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
             navigator.getMedia(
@@ -21,43 +100,38 @@
                     alert('webcam not working');
                 });
         },
-        takeSnapshot:function(){
+         takeSnapshot:function(){
             var myCanvasElement = document.querySelector('#myCanvas');
             var myCTX = myCanvasElement.getContext('2d');
             myCTX.drawImage(this.myVideoStream, 0, 0, myCanvasElement.width, myCanvasElement.height);
         },
+
         send:function(){
-            const canvas = document.querySelector('#myCanvas');
-            const imgBase64 = canvas.toDataURL('image/jpeg', 'image/octet-stream');
-            const decodImg = atob(imgBase64.split(',')[1]);
-            let array = [];
-            for (let i = 0; i < decodImg .length; i++) {
-                array.push(decodImg .charCodeAt(i));
-            }
-            const file = new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
-            const fileName = 'snapshot_' + new Date().getMilliseconds() + '.jpg';
-            let formData = new FormData();
-            formData.append('file', file, fileName);
-            $.ajax({
-                type: 'post',
-                url: '/saveimg/',
-                enctype: 'multipart/form-data',
-                cache: false,
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function (data) {
-                    $('#imgname').val(data);
+                const canvas = document.querySelector('#myCanvas');
+                const imgBase64 = canvas.toDataURL('image/jpeg', 'image/octet-stream');
+                const decodImg = atob(imgBase64.split(',')[1]);
+                let array = [];
+                for (let i = 0; i < decodImg.length; i++) {
+                    array.push(decodImg.charCodeAt(i));
                 }
-            });
+                const file = new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
+                const fileName = 'snapshot_' + new Date().getMilliseconds() + '.jpg';
+                let formData = new FormData();
+                formData.append('file', file, fileName);
+                $.ajax({
+                    type: 'post',
+                    url: '/saveimg/',
+                    enctype: 'multipart/form-data',
+                    cache: false,
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        $('#imgname').val(data);
+                    }
+                });
         },
-        takeAuto:function(interval){
-            this.getVideo();
-            myStoredInterval = setInterval(function(){
-                pic.takeSnapshot();
-                pic.send();
-            }, interval);
-        }
+
     };
     $(function(){
         pic.init();
@@ -94,7 +168,7 @@
                     <!-- 왼쪽 상단 Card 끝-->
 
                     <!-- 작은 이미지 Slider 시작-->
-                    <div class="flickity-nav mx-n2 mb-10 mb-md-0" data-flickity='{"asNavFor": "#productSlider", "contain": true, "wrapAround": false}'>
+                    <div id="smallimg" class="flickity-nav mx-n2 mb-10 mb-md-0" data-flickity='{"asNavFor": "#productSlider", "contain": true, "wrapAround": false}'>
 
                         <!-- main Item -->
                         <div class="col-12 px-2" style="max-width: 113px; align-items: center">
@@ -116,42 +190,52 @@
                         </div>
                     </div>
                     <!-- 작은 이미지 Slider 끝-->
-                    <canvas id="myCanvas" style="margin: 20px"></canvas><br>
+                    <canvas class="py-3" id="myCanvas" style="margin: 0px"></canvas><br>
                 </div>
                 <!-- 오른쪽 부분 시작 -->
-
                 <div class="col-12 col-md-6 ps-lg-10">
                     <!-- Header -->
                     <div class="row mb-1">
                         <div class="row">
-                            <div class="col"><input type=button value="사진 찍기"  onclick="pic.takeSnapshot(); pic.send()"></div>
-                            <form class="col" id="cfr_form" action="/mycfr" method="get">
-                                <button id="cfr_btn">나의 꽃 확인</button>
-                                <input type="text" name="imgname" id="imgname" hidden><br>
-                            </form>
+                            <div class="col-2">
+                                <input type=button value="사진 찍기"  onclick="pic.takeSnapshot(); pic.send()">
+                            </div>
+                            <div class="col-6">
+                                <form class="col" id="cfr_form" action="/mycfr" method="get">
+                                    <button id="cfr_btn">나의 꽃 확인</button>
+                                    <input type="text" name="imgname" id="imgname" hidden><br>
+                                </form>
+                            </div>
                         </div>
-                        <h6 class="mb-2">성별 [${result.gender}]</h6>
-                        <h6 class="mb-2">너의나이 [${result.age}]</h6>
                     </div>
-                    <hr>
-                    <h3 class="mb-2">꽃이름 [${yourlower.flowerName}]</h3></br>
-                    <h5 class="mb-2">꽃말 <${yourlower.flowerMeaning}></h5><h8>꽃번호:${yourlower.dataNo}</h8>
-                    <!-- Badge -->
-                    <hr>
-                    <div class="mb-7">
-                        ${yourlower.fContent}<br>
-                        ${yourlower.fUse}
+
+                    <div id="root"></div>
+
+                    <div id="yourflower">
+                        <input hidden id="yourage" value=${result.age}>
+                        <h6 class="mb-2" >너의 성별 [${result.gender}]</h6>
+                        <h6 class="mb-2">너의 나이 [${result.age}]</h6>
                         <hr>
-                        키우는 방법<br>
-                        ${yourlower.fGrow}
+                        <h3 class="mb-2">꽃이름 [${yourlower.flowerName}]</h3></br>
+                        <h5 class="mb-2">꽃말 <${yourlower.flowerMeaning}></h5><h8>꽃번호:${yourlower.dataNo}</h8>
+                        <!-- Badge -->
+                        <hr>
+                        <div class="mb-7">
+                            ${yourlower.fContent}<br>
+                            ${yourlower.fUse}
+                            <hr>
+                            키우는 방법<br>
+                            ${yourlower.fGrow}
+                        </div>
+
+                        <!-- 공유하기 -->
+                        <p style="margin-bottom: 20px">
+                            <a id="kakaotalk-sharing-btn" href="javascript:">
+                                <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+                                     alt="카카오톡 공유 보내기 버튼" style="width:8%;"/>
+                            </a>
+                        </p>
                     </div>
-                    <!-- 공유하기 -->
-                    <p style="margin-bottom: 20px">
-                        <a id="kakaotalk-sharing-btn" href="javascript:">
-                            <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
-                                 alt="카카오톡 공유 보내기 버튼" style="width:8%;"/>
-                        </a>
-                    </p>
                 </div>
             </div>
         </div>

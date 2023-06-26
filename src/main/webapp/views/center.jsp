@@ -74,6 +74,9 @@
     .main_slide_subtitle{
       font-size: 32px;
     }
+    .ranking-wrap {
+      display: none;
+    }
   }
   @media (max-width: 405px) {
     .main_slide_title {
@@ -95,6 +98,34 @@
     }
   }
 </style>
+
+<style> <%--랭킹--%>
+#search-ranking {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  width: 200px;
+  height: 20px;
+}
+#search-ranking ul {
+  display: none;
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  width: 200px;
+  border: 1px solid #aaa;
+  background: white;
+  position: absolute;
+  top: -10px;
+  right: 0;
+  z-index: 1;
+}
+#search-ranking:hover ul {
+  display: inline-block;
+}
+</style>
+
+
 <%--  카카오공유하기--%>
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"
         integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>
@@ -129,26 +160,62 @@
     });
   })
 </script>
-<%--카카오공유하기--%>
+<%--카카오공유하기 end--%>
+
 
 
 
 <!-- WELCOME -->
 <!-- PROMO ( 검은배너 ) -->
-<div class="py-3 bg-dark bg-pattern" style="position:sticky;z-index: 1;">
+<div class="py-3 bg-dark bg-pattern">
   <div class="container">
     <div class="row">
       <div class="col-12">
 
         <!-- Text -->
-        <div class="text-center text-white">
-            <span class="heading-xxs letter-spacing-xl">
-              🌸🌸[<span id="server_time"></span>]<span class="today_txt1">오늘의 꽃은</span><span style="text-decoration: underline white; cursor: pointer">
-                <a data-bs-toggle="modal" data-bs-target="#todayflower">${todayFlower.flowerName}</a>
-                </span><span class="today_txt2">입니다</span>🌸🌸
-            </span>
-        </div>
+        <div>
+            <div class="text-center">
+              <span class="text-white heading-xxs letter-spacing-xl">
+                🌸🌸[<span id="server_time"></span>]<span class="today_txt1">오늘의 꽃은</span><span style="text-decoration: underline white; cursor: pointer">
+                  <a data-bs-toggle="modal" data-bs-target="#todayflower">${todayFlower.flowerName}</a>
+                  </span><span class="today_txt2">입니다</span>🌸🌸
+              </span>
+            </div>
 
+            <div class="position-relative ranking-wrap" style="margin: 0 auto">
+              <div id="search-ranking">
+                <div class="text-center text-white">
+                  <span id="rank-number">1</span>
+                  <span id="rank-title1">장미</span>
+                </div>
+                <ul id="rankingContainer">
+                  <h6 class="text-center">인기 검색어👀</h6>
+
+<%--                  <li>--%>
+<%--                    <span class="rank-number">1</span>--%>
+<%--                    <span class="rank-title1"></span>--%>
+<%--                  </li>--%>
+<%--                  <li>--%>
+<%--                    <span class="rank-number">2</span>--%>
+<%--                    <span class="rank-title2"></span>--%>
+<%--                  </li>--%>
+<%--                  <li>--%>
+<%--                    <span class="rank-number">3</span>--%>
+<%--                    <span class="rank-title3"></span>--%>
+<%--                  </li>--%>
+<%--                  <li>--%>
+<%--                    <span class="rank-number">4</span>--%>
+<%--                    <span class="rank-title4"></span>--%>
+<%--                  </li>--%>
+<%--                  <li>--%>
+<%--                    <span class="rank-number">5</span>--%>
+<%--                    <span class="rank-title5"></span>--%>
+<%--                  </li>--%>
+                </ul>
+              </div>
+            </div> <!-- ranking end -->
+
+        </div> <!-- 오늘의꽃+ranking end -->
       </div>
     </div>
   </div>
@@ -884,3 +951,145 @@
   </div>
 </div>
 <%--===============================================오늘의 꽃 끝==========================================--%>
+
+<%------------------------인기검색어-------------------------------%>
+<script>
+  var defaultData = 'http://127.0.0.1/logs/itemcountlog.log';
+  var urlInput = document.getElementById('fetchURL1');
+  var pollingCheckbox = document.getElementById('enablePolling1');
+  var pollingInput = document.getElementById('pollingTime1');
+  var chart;
+
+  function createChart() {
+    var dataUrl = urlInput.value;
+
+    // 데이터 가공
+    fetch(dataUrl)
+            .then(response => response.text())
+            .then(data => {
+              var lines = data.trim().split('\n');
+              var seriesData = [];
+
+              lines.forEach(line => {
+                var parts = line.split(',');
+                var timestamp = parts[0];
+                var idorigin = parts[1].trim().replace(/'/g, '');
+
+                function itemname(idorigin) {
+                  let id = "";
+                  switch (idorigin){
+                    case "200":
+                      id = "[Special] 사랑의 맹세를 담아, 프로미스 꽃다발";
+                      break;
+                    case "210":
+                      id = "여름의 나에게, 베레나핑크 수국";
+                      break;
+                    case "211":
+                      id = "오묘한 컬러의 감성, 라벤더블루 수국";
+                      break;
+                    case "212":
+                      id = "여름날 더위를 식혀 줄, 스노우볼 수국";
+                      break;
+                    case "213":
+                      id = "여름 태양같이 뜨겁게, 빨간 수국";
+                      break;
+                    case "214":
+                      id = "사랑을 맹세할 때, 하젤 장미";
+                      break;
+                    case "215":
+                      id = "파이어웍스 장미";
+                      break;
+                    case "216":
+                      id = "순수했던 시절이 그립다면, 마루시아 장미";
+                      break;
+                    case "217":
+                      id = "스페인이 생각나면, 클라린스 장미";
+                      break;
+                    case "218":
+                      id = "작지만 튼튼한, 랜덤 피콜리니 거베라";
+                      break;
+                    case "219":
+                      id = "아이의 마음 같은, 랜덤 폼포니 거베라";
+                      break;
+                    case "221":
+                      id = "단아함의 상징, 벤츄라 카라";
+                      break;
+                    case "222":
+                      id = "결혼을 앞둔 너에게, 로베라핑크 리시안셔스";
+                      break;
+                    case "223":
+                      id = "순수한 너, 겨울 화이트 리시안셔스";
+                      break;
+                    case "224":
+                      id = "로제 와인 빛, 메갈로 샴페인 리시안셔스";
+                      break;
+                    case "225":
+                      id = "변치않는 사랑, 리시안셔스";
+                      break;
+                    case "227":
+                      id = "싱그러움이 가득한, 그리너리 꽃다발";
+                      break;
+                    case "228":
+                      id = "눈부시게 빛나는, 브라이트데이 꽃다발";
+                      break;
+                    case "229":
+                      id = "상큼함이 필요할 떄, 트로피컬주스 꽃다발";
+                      break;
+                    case "230":
+                      id = "수줍었던 그때처럼, 젠틀나잇 꽃다발";
+                      break;
+                    case "231":
+                      id = "볼수록 매력적인, 스윗가든 꽃다발";
+                      break;
+                  }
+                  return id;
+                }
+
+                var id = itemname(idorigin);
+                var count = parseInt(parts[2].trim());
+
+                // 이미 해당 아이템이 존재하는 경우, 새로운 카운트 값으로 갱신
+                var existingItem = seriesData.find(item => item.id === id);
+                if (existingItem) {
+                  if (count > existingItem.count) {
+                    existingItem.count = count;
+                  }
+                } else {
+                  seriesData.push({ id: id, count: count });
+                }
+              });
+
+              // 클릭 수에 따라 정렬
+              seriesData.sort((a, b) => b.count - a.count);
+
+              // 화면에 표시
+              var rankingContainer = document.getElementById('rankingContainer');
+              rankingContainer.innerHTML = '';
+
+              seriesData.forEach((item, index) => {
+
+                var itemRank = document.createElement('li');
+
+                var itemName = document.createElement('span');
+                itemName.textContent = item.id + ' : ';
+
+                var itemCount = document.createElement('/li');
+
+                itemElement.appendChild(itemRank);
+                itemElement.appendChild(itemName);
+                itemElement.appendChild(itemCount);
+                rankingContainer.appendChild(itemElement);
+              });
+            });
+  }
+
+  urlInput.value = defaultData;
+
+  pollingCheckbox.onchange = urlInput.onchange = pollingInput.onchange = createChart;
+
+  createChart();
+
+  // 일정 간격마다 데이터 업데이트
+  setInterval(createChart, parseInt(pollingInput.value, 10) * 500);
+</script>
+<%------------------------인기검색어 end-------------------------------%>

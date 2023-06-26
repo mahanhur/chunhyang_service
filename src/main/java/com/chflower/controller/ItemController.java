@@ -51,6 +51,14 @@ public class ItemController {
         List<Item> list = null;
         try {
             list = itemService.get();
+            // 이전 카운트 값을 가져옴
+            int previousCount = entryCountService.getCountdir(dir);
+
+            // 카운트 증가
+            int newCount = entryCountService.incrementCountdir(dir);
+
+            // 로그 작성
+            log.info(dir + newCount);
         } catch (Exception e) {
             throw new Exception("시스템장애:ERORR002");
         }

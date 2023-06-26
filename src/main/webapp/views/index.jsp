@@ -398,7 +398,7 @@
             <h1 id="adm_id" hidden>${logincust.cust_id}</h1>
             <hr>
             <!-- 연결상태 -->
-          <div style="background-image: url('/uimg/chat_bg.png');">
+<%--          <div style="background-image: url('/uimg/chat_bg.png');">--%>
             <div id="status" style="display:flex;align-items: center;">
               <video autoplay loop muted style="width: 50px">
                 <source src="/uimg/connect_ing.mp4" type="video/mp4">
