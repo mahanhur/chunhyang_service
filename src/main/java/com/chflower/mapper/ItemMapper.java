@@ -17,4 +17,8 @@ public interface ItemMapper extends CHMapper<Integer, Item> {
     public List<Item> getcate(Double cate);
     public List<Item> gettype(String type);
     List<Item> getSearch(Search search) throws Exception;
+    List<Item> lineuptotal() throws Exception;
+    List<Item> lineuphigh() throws Exception;
+    List<Item> lineuplow() throws Exception;
+    List<Item> lineupreview() throws Exception;
 }

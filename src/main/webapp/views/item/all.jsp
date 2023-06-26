@@ -64,11 +64,93 @@
   };
 
 
+  let lineup = {
+    init: function () {
+      $("input[name='sort']").change(function () {
+        lineup.send();
+        console.log(sortnumber);
+      });
+    },
+    send: function () {
+      let sortnumber= $("input[name='sort']:checked").val();
+      if (sortnumber == 1) {
+        $("#sortMenu_form").attr({
+          'action': '/item/lineuptotal',
+          'method': 'post'
+        })
+        $("#sortMenu_form").submit();
+      } else if (sortnumber == 2) {
+        $("#sortMenu_form").attr({
+          'action': '/item/lineupreview',
+          'method': 'post'
+        })
+        $("#sortMenu_form").submit();
+      } else if (sortnumber == 3) {
+        $("#sortMenu_form").attr({
+          'action': '/item/lineuplow',
+          'method': 'post'
+        })
+        $("#sortMenu_form").submit();
+      } else if (sortnumber == 4) {
+        $("#sortMenu_form").attr({
+          'action': '/item/lineuphigh',
+          'method': 'post'
+        })
+        $("#sortMenu_form").submit();
+      }
+    }
+  };
+
+  // let lineup = {
+  //   init: function(){
+  //     $("input[name='sort']").change(function () {
+  //       let sortnumber= $("input[name='sort']:checked").val();
+  //       console.log(sortnumber);
+  //
+  //       $.ajax({
+  //         url: '/item/lineupimpl',
+  //         type: 'post',
+  //         data: {sortnumber: sortnumber},
+  //         success: function (data) {
+  //           alert(data);
+  //           console.log(data);
+  //           var sortingField = "price";
+  //           var result = data.sort(function (a, b) {
+  //             return a[sortingField] - b[sortingField];
+  //             console.log(result);
+  //             lineup.result(result);
+  //         })
+  //         }
+  //       })
+  //     })
+  //   },
+  //   result: function(result) {
+  //     let tags = "";
+  //     for (let i = 0; i < result.length; i++) {
+  //       tags = '<div class="row align-items-center position-relative mb-5"><div class="col-4 col-md-3">';
+  //       tags += '<img class="img-fluid" src="/uimg/';
+  //       tags += result[i].item_img;
+  //       tags += '">';
+  //       tags += '</div>';
+  //       tags += ' <div class="col position-static"><p class="mb-0 fw-bold"><a class="stretched-link text-body" href="/item/detail?item_id=';
+  //       tags += result[i].item_id;
+  //       tags += '">';
+  //       tags += result[i].item_name;
+  //       tags += '</a> <br>';
+  //       tags += '<td>';
+  //       tags += ' <span class="text-muted">';
+  //       tags += result[i].item_price.toLocaleString() + '원';
+  //       tags += '</span></p></div></div>';
+  //       $('#itemcontainer').append(tags);
+  //     }
+  //   }}
+
 
   $(function () {
     dabal_sort.init();
     flower_sort.init();
     item_get.init();
+    lineup.init();
   });
 </script>
 
@@ -259,27 +341,27 @@
           <a class="dropdown-toggle text-body" data-bs-toggle="dropdown" href="#">정렬기준</a>
 
           <!-- Menu -->
-          <form class="dropdown-menu">
+          <form id="sortMenu_form" class="dropdown-menu">
             <div class="card">
               <div class="card-body">
 
                 <!-- Form group -->
-                <div class="form-group-overflow">
+                <div id="sort" class="form-group-overflow">
                   <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="sortOne" name="sort" type="radio" value="Default">
-                    <label class="form-check-label" for="sortOne">판매금액 많은순</label>
+                    <input class="form-check-input" id="sortTotal" name="sort" type="radio" value="1">
+                    <label class="form-check-label" for="sortTotal">판매금액 많은순</label>
                   </div>
                   <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="sortThree" name="sort" type="radio" value="Most Popular">
-                    <label class="form-check-label" for="sortThree">리뷰 높은순</label>
+                    <input class="form-check-input" id="sortReview" name="sort" type="radio" value="2">
+                    <label class="form-check-label" for="sortReview">리뷰 높은순</label>
                   </div>
                   <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="sortFour" name="sort" type="radio" value="Default Price">
-                    <label class="form-check-label" for="sortFour">판매가격 낮은순</label>
+                    <input class="form-check-input" id="sortLow" name="sort" type="radio" value="3">
+                    <label class="form-check-label" for="sortLow">판매가격 낮은순</label>
                   </div>
                   <div class="form-check form-check-text">
-                    <input class="form-check-input" id="sortFive" name="sort" type="radio" value="Highest Price">
-                    <label class="form-check-label" for="sortFive">판매가격 높은순</label>
+                    <input class="form-check-input" id="sortHigh" name="sort" type="radio" value="4">
+                    <label class="form-check-label" for="sortHigh">판매가격 높은순</label>
                   </div>
                 </div>
 
@@ -465,7 +547,7 @@
 <!-- 상품리스트 -->
 <section class="py-12">
   <div class="container">
-    <div class="row">
+    <div id="itemcontainer" class="row">
       <c:forEach var="obj" items="${ilist}" varStatus="status">
         <div class="col-6 col-md-3 col-lg">
 
