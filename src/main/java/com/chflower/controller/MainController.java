@@ -68,6 +68,12 @@ public class MainController {
         model.addAttribute("center","about");
         return "index";
     }
+
+    @RequestMapping("/test")
+    public String test(Model model){
+        model.addAttribute("center","rankingtest");
+        return "index";
+    }
     @RequestMapping("/flower-class")
     public String flower_class(Model model){
         model.addAttribute("center","flower-class");

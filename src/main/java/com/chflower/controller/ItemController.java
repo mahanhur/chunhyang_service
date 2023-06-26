@@ -159,9 +159,7 @@ public class ItemController {
     @RequestMapping("/sortdabal")
     public String sortdabal(Model model, String dabaltype) throws Exception {
         List<Item> list = null;
-        log.info("+++++++++++++++++++++"+dabaltype);
         list = itemService.getType(dabaltype);
-        log.info(list.toString());
         model.addAttribute("ilist", list);
         model.addAttribute("center", dir + "all");
         return "index";
@@ -170,9 +168,7 @@ public class ItemController {
     @RequestMapping("/sortflower")
     public String sortflower(Model model, String flowertype) throws Exception {
         List<Item> list = null;
-        log.info("+++++++++++++++++++++"+flowertype);
         list = itemService.getType(flowertype);
-        log.info(list.toString());
         model.addAttribute("ilist", list);
         model.addAttribute("center", dir + "all");
         return "index";
