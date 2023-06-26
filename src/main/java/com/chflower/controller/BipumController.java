@@ -49,6 +49,14 @@ public class BipumController {
         List<Bipum> list = null;
         try {
             list = bipumService.get();
+            // 이전 카운트 값을 가져옴
+            int previousCount = entryCountService.getCountdir(dir);
+
+            // 카운트 증가
+            int newCount = entryCountService.incrementCountdir(dir);
+
+            // 로그 작성
+            log.info(dir + newCount);
         } catch (Exception e) {
             throw new Exception("화병/비품 전체 리스트를 가져오지 못함");
         }

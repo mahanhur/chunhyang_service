@@ -14,8 +14,33 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-md-10 col-lg-8 col-xl-6 text-center">
-        <div id="rankingContainer"></div>
-        <div class="ld-row">
+<%--        <div id="rankingContainer"></div>--%>
+
+    <h6 class="text-center">인기 검색어👀</h6>
+  <ul id="rankingContainer">
+
+    <li>
+      <span class="rank-number">1</span>
+      <span class="rank-title1"></span>
+    </li>
+    <li>
+      <span class="rank-number">2</span>
+      <span class="rank-title2"></span>
+    </li>
+    <li>
+      <span class="rank-number">3</span>
+      <span class="rank-title3"></span>
+    </li>
+    <li>
+      <span class="rank-number">4</span>
+      <span class="rank-title4"></span>
+    </li>
+    <li>
+      <span class="rank-number">5</span>
+      <span class="rank-title5"></span>
+    </li>
+  </ul>
+  <div class="ld-row">
           <input type="hidden" checked="checked" id="enablePolling1"/>
         </div>
         <div class="ld-row">

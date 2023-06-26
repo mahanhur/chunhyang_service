@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <property name="LOGS_DIR" value="c://mainproject/logs" />
+<!--    <property name="LOGS_DIR" value="/root/logs/" />-->
+    <property name="LOGS_DIR" value="C://mainproject/logs/" />
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
@@ -38,19 +39,47 @@
         </rollingPolicy>
     </appender>
 
-    <appender name="SUBSITEM" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOGS_DIR}/subscountlog.log</file>
-        <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss},%msg%n</pattern>
-        </encoder>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOGS_DIR}/subscountinfo.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>5MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
-            <maxHistory>30</maxHistory>
-        </rollingPolicy>
-    </appender>
+<!--    <appender name="SUBSCLICK" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${LOGS_DIR}/subsclicklog.log</file>-->
+<!--        <encoder>-->
+<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss},%msg%n</pattern>-->
+<!--        </encoder>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            <fileNamePattern>${LOGS_DIR}/subsclick.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>-->
+<!--            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+<!--                <maxFileSize>5MB</maxFileSize>-->
+<!--            </timeBasedFileNamingAndTriggeringPolicy>-->
+<!--            <maxHistory>30</maxHistory>-->
+<!--        </rollingPolicy>-->
+<!--    </appender>-->
+
+<!--    <appender name="ITEMCLICK" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${LOGS_DIR}/itemclicklog.log</file>-->
+<!--        <encoder>-->
+<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss},%msg%n</pattern>-->
+<!--        </encoder>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            <fileNamePattern>${LOGS_DIR}/itemclick.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>-->
+<!--            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+<!--                <maxFileSize>5MB</maxFileSize>-->
+<!--            </timeBasedFileNamingAndTriggeringPolicy>-->
+<!--            <maxHistory>30</maxHistory>-->
+<!--        </rollingPolicy>-->
+<!--    </appender>-->
+
+<!--    <appender name="BIPUMCLICK" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${LOGS_DIR}/bipumclicklog.log</file>-->
+<!--        <encoder>-->
+<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss},%msg%n</pattern>-->
+<!--        </encoder>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            <fileNamePattern>${LOGS_DIR}/bipumclick.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>-->
+<!--            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+<!--                <maxFileSize>5MB</maxFileSize>-->
+<!--            </timeBasedFileNamingAndTriggeringPolicy>-->
+<!--            <maxHistory>30</maxHistory>-->
+<!--        </rollingPolicy>-->
+<!--    </appender>-->
 
     <appender name="ITEM" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOGS_DIR}/itemcountlog.log</file>
@@ -66,31 +95,21 @@
         </rollingPolicy>
     </appender>
 
-    <appender name="BIPUM" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOGS_DIR}/bipumcountlog.log</file>
-        <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss},%msg%n</pattern>
-        </encoder>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOGS_DIR}/bipumcountinfo.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>5MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
-            <maxHistory>30</maxHistory>
-        </rollingPolicy>
-    </appender>
-
-    <logger name="com.chflower.controller.SubsController" level="INFO">
-        <appender-ref ref="SUBSITEM" />
-    </logger>
+<!--    <logger name="com.chflower.controller.SubsController" level="INFO">-->
+<!--        <appender-ref ref="SUBSCLICK" />-->
+<!--    </logger>-->
 
     <logger name="com.chflower.controller.ItemController" level="INFO">
         <appender-ref ref="ITEM" />
     </logger>
 
-    <logger name="com.chflower.controller.BipumController" level="INFO">
-        <appender-ref ref="BIPUM" />
-    </logger>
+<!--    <logger name="com.chflower.controller.ItemController" level="INFO">-->
+<!--        <appender-ref ref="ITEMCLICK" />-->
+<!--    </logger>-->
+
+<!--    <logger name="com.chflower.controller.BipumController" level="INFO">-->
+<!--        <appender-ref ref="BIPUMCLICK" />-->
+<!--    </logger>-->
 
     <logger name="org.springframework.web" level="DEBUG">
         <appender-ref ref="STDOUT" />

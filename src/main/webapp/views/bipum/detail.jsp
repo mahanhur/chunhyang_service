@@ -203,13 +203,13 @@ let register_review = {
                                         장바구니 추가 <i class="fe fe-shopping-cart ms-2"></i>
                                     </button>
                                     </div>
-                                    <div class="col-12 col-lg-auto">
-                                        <!-- 찜하기 -->
-                                        <button class="btn btn-outline-dark w-100 mb-2" data-toggle="button">
-                                            찜하기 <i class="fe fe-heart ms-2"></i>
-                                        </button>
+<%--                                    <div class="col-12 col-lg-auto">--%>
+<%--                                        <!-- 찜하기 -->--%>
+<%--                                        <button class="btn btn-outline-dark w-100 mb-2" data-toggle="button">--%>
+<%--                                            찜하기 <i class="fe fe-heart ms-2"></i>--%>
+<%--                                        </button>--%>
 
-                                    </div>
+<%--                                    </div>--%>
                                 </div>
                                 <!-- 담당자에게 연락하기 -->
                                 <p>
