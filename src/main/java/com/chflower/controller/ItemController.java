@@ -51,14 +51,14 @@ public class ItemController {
         List<Item> list = null;
         try {
             list = itemService.get();
-            // 이전 카운트 값을 가져옴
-            int previousCount = entryCountService.getCountdir(dir);
-
-            // 카운트 증가
-            int newCount = entryCountService.incrementCountdir(dir);
-
-            // 로그 작성
-            log.info(dir + newCount);
+//            // 이전 카운트 값을 가져옴
+//            int previousCount = entryCountService.getCountdir(dir);
+//
+//            // 카운트 증가
+//            int newCount = entryCountService.incrementCountdir(dir);
+//
+//            // 로그 작성
+//            log.info(dir + newCount);
         } catch (Exception e) {
             throw new Exception("시스템장애:ERORR002");
         }
@@ -185,7 +185,6 @@ public class ItemController {
     public String lineuptotal(Model model) throws Exception {
         List<Item> list = null;
         list = itemService.lineuptotal();
-        log.info("============================="+ list.toString());
         model.addAttribute("ilist", list);
         model.addAttribute("center", dir + "all");
         return "index";
@@ -194,7 +193,6 @@ public class ItemController {
     public String lineuplow(Model model) throws Exception {
         List<Item> list = null;
         list = itemService.lineuplow();
-        log.info("============================="+ list.toString());
         model.addAttribute("ilist", list);
         model.addAttribute("center", dir + "all");
         return "index";
@@ -203,7 +201,6 @@ public class ItemController {
     public String lineuphigh(Model model) throws Exception {
         List<Item> list = null;
         list = itemService.lineuphigh();
-        log.info("============================="+ list.toString());
         model.addAttribute("ilist", list);
         model.addAttribute("center", dir + "all");
         return "index";
@@ -212,7 +209,6 @@ public class ItemController {
     public String lineupreview(Model model) throws Exception {
         List<Item> list = null;
         list = itemService.lineupreview();
-        log.info("============================="+ list.toString());
         model.addAttribute("ilist", list);
         model.addAttribute("center", dir + "all");
         return "index";
