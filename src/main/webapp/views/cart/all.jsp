@@ -1604,6 +1604,12 @@
                   <c:set var="total" value="${total +(obj.cnt * obj.item_price)}"/>
               </c:forEach>
 
+
+            <!-- 장바구니 푸터 -->
+            <div class="row align-items-end justify-content-between mb-10 mb-md-0">
+
+            </div>
+
           </div>
           <div class="col-12 col-md-5 col-lg-4 offset-lg-1">
 
@@ -1623,6 +1629,9 @@
                     <span>총 결제금액</span> <span class="ms-auto fs-sm">
                     <fmt:formatNumber value="${total}" pattern="###,###원"/>
                   </span>
+                  </li>
+                  <li class="list-group-item fs-sm text-center text-gray-500">
+                    포인트 사용은 주문/결제시 적용가능합니다. *
                   </li>
                 </ul>
               </div>

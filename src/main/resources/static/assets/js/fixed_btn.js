@@ -63,29 +63,29 @@ let chatbtn = {
             });
         });
         // 버튼 4
-        const scrollBtn4 = document.createElement("button");
-        scrollBtn4.setAttribute("id", "scroll-btn4");
-        document.body.appendChild(scrollBtn4);
-        scrollBtn4.classList.add("show");
-
-        const div4 = document.createElement("div");
-        div4.setAttribute("id", "fix_icon");
-        scrollBtn4.appendChild(div4);
-
-        const img4 = document.createElement("img");
-        img4.setAttribute("src", "/uimg/ebang.png");
-        div4.appendChild(img4);
-
-        scrollBtn4.addEventListener("click", function(){
-            const modalLink = document.createElement("a");
-            modalLink.setAttribute("data-bs-toggle", "modal");
-            modalLink.setAttribute("data-bs-target", "#chatbot");
-            document.body.appendChild(modalLink);
-
-            setTimeout(() => {
-                modalLink.click(); // 모달 링크 클릭하여 모달 창 열기
-            }, 0);
-        });
+        // const scrollBtn4 = document.createElement("button");
+        // scrollBtn4.setAttribute("id", "scroll-btn4");
+        // document.body.appendChild(scrollBtn4);
+        // scrollBtn4.classList.add("show");
+        //
+        // const div4 = document.createElement("div");
+        // div4.setAttribute("id", "fix_icon");
+        // scrollBtn4.appendChild(div4);
+        //
+        // const img4 = document.createElement("img");
+        // img4.setAttribute("src", "/uimg/ebang.png");
+        // div4.appendChild(img4);
+        //
+        // scrollBtn4.addEventListener("click", function(){
+        //     const modalLink = document.createElement("a");
+        //     modalLink.setAttribute("data-bs-toggle", "modal");
+        //     modalLink.setAttribute("data-bs-target", "#chatbot");
+        //     document.body.appendChild(modalLink);
+        //
+        //     setTimeout(() => {
+        //         modalLink.click(); // 모달 링크 클릭하여 모달 창 열기
+        //     }, 0);
+        // });
     }
 };
 
