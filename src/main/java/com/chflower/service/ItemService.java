@@ -63,4 +63,17 @@ public class ItemService implements CHService<Integer, Item> {
         PageHelper.startPage(pageNo, 3); // 3: 한화면에 출력되는 개수
         return mapper.getpage();
     }
+    public List<Item> lineuptotal() throws Exception {
+        return mapper.lineuptotal();
+    }
+    public List<Item> lineuphigh() throws Exception {
+        return mapper.lineuphigh();
+    }
+    public List<Item> lineuplow() throws Exception {
+        return mapper.lineuplow();
+    }
+    public List<Item> lineupreview() throws Exception {
+        return mapper.lineupreview();
+    }
+
 }

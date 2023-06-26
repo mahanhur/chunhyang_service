@@ -32,6 +32,10 @@ public class Item {
     private int avgscore;
     private int cnt;
 
+    private int order_cnt;
+    private Double total;
+
+
     public Item(Integer item_id, double category_id, String item_img, String item_name, int item_cnt, int item_price, String item_content, Date item_rdate, String flower_color, String flower_type, String flower_size, String main_img) {
         this.item_id = item_id;
         this.category_id = category_id;
@@ -62,4 +66,6 @@ public class Item {
         this.main_img = main_img;
         this.cnt = cnt;
     }
+
+
 }
