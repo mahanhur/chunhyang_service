@@ -18,7 +18,7 @@ class InsertTest {
         Cust obj = new Cust(
                 "test01", "김하연",
                 "pwd01", "01022223333",
-                10, "test@naver.com",
+                10, "1","test@naver.com",
                 null);
         try {
             service.register(obj);

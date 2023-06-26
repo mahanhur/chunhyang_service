@@ -5,26 +5,43 @@
 <mapper namespace="com.chflower.mapper.RecommandItemMapper">
 
     <select id="selectall" resultType="RecommandItem">
-        select *
-        from  (select * from item order by dbms_random.value)
+        SELECT rownum as rank, b.item_id item_id,b.ITEM_IMG ITEM_IMG,b.ITEM_NAME ITEM_NAME,b.ITEM_PRICE ITEM_PRICE,b.ITEM_CONTENT ITEM_CONTENT
+        FROM (select count(a.item_id) as cnt,b.item_id,b.ITEM_IMG,b.ITEM_NAME,b.ITEM_PRICE,b.ITEM_CONTENT
+              from orderdetail a left outer join item b ON a.item_id = b.item_id
+              group by b.item_id,b.ITEM_IMG,b.ITEM_NAME,b.ITEM_PRICE,b.ITEM_CONTENT
+              order by cnt desc
+             ) b
         where <![CDATA[ rownum < 5 ]]>
     </select>
 
     <select id="select100" resultType="RecommandItem">
-        SELECT *
-        FROM (SELECT * FROM item WHERE category_id IN (100, 200) ORDER BY dbms_random.value)
+        SELECT rownum as rank, b.item_id item_id,b.ITEM_IMG ITEM_IMG,b.ITEM_NAME ITEM_NAME,b.ITEM_PRICE ITEM_PRICE,b.ITEM_CONTENT ITEM_CONTENT
+        FROM (select count(a.item_id) as cnt,b.item_id,b.ITEM_IMG,b.ITEM_NAME,b.ITEM_PRICE,b.ITEM_CONTENT
+              from orderdetail a left outer join item b ON a.item_id = b.item_id
+              where b.category_id IN (100, 200)
+              group by b.item_id,b.ITEM_IMG,b.ITEM_NAME,b.ITEM_PRICE,b.ITEM_CONTENT
+              order by cnt desc
+             ) b
         where <![CDATA[ rownum < 4 ]]>
     </select>
 
     <select id="select300" resultType="RecommandItem">
-        SELECT *
-        FROM (SELECT * FROM item WHERE category_id IN (300, 400) ORDER BY dbms_random.value)
+        SELECT rownum as rank, b.item_id item_id,b.ITEM_IMG ITEM_IMG,b.ITEM_NAME ITEM_NAME,b.ITEM_PRICE ITEM_PRICE,b.ITEM_CONTENT ITEM_CONTENT
+        FROM (select count(a.item_id) as cnt,b.item_id,b.ITEM_IMG,b.ITEM_NAME,b.ITEM_PRICE,b.ITEM_CONTENT
+              from orderdetail a left outer join item b ON a.item_id = b.item_id
+              where b.category_id IN (300, 400)
+              group by b.item_id,b.ITEM_IMG,b.ITEM_NAME,b.ITEM_PRICE,b.ITEM_CONTENT
+              order by cnt desc
+             ) b
         where <![CDATA[ rownum < 4 ]]>
     </select>
 
     <select id="selectsubs" resultType="RecommandItem">
-        SELECT *
-        FROM (SELECT * FROM subsitem ORDER BY dbms_random.value)
+        SELECT rownum as rank, b.SUBSITEM_ID SUBSITEM_ID,b.SUBSITEM_NAME SUBSITEM_NAME,b.SUBSITEM_PRICE SUBSITEM_PRICE,b.SUBSITEM_CONTENT SUBSITEM_CONTENT,b.SUBSITEM_IMG SUBSITEM_IMG,b.SUBSITEM_CNT SUBSITEM_CNT
+        FROM (select count(a.SUBSITEM_ID) as cnt,b.SUBSITEM_ID,b.SUBSITEM_NAME,b.SUBSITEM_PRICE,b.SUBSITEM_CONTENT,b.SUBSITEM_IMG,b.SUBSITEM_CNT
+              from subsinfo a left outer join subsitem b ON a.SUBSITEM_ID= b.SUBSITEM_ID
+              group by b.SUBSITEM_ID,b.SUBSITEM_NAME,b.SUBSITEM_PRICE,b.SUBSITEM_CONTENT,b.SUBSITEM_IMG,b.SUBSITEM_CNT
+              order by cnt desc) b
         where <![CDATA[ rownum < 4 ]]>
 
     </select>

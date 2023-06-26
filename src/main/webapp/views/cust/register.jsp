@@ -3,24 +3,23 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <script>
-
   let register_form = {
-    init:function(){
+    init: function() {
       $('#register_btn').addClass('disabled');
-      $('#register_btn').click(function(){
+      $('#register_btn').click(function() {
         register_form.send();
       });
-      $('#cust_name').keyup(function (){
+      $('#cust_name').keyup(function() {
         var cust_id = $('#cust_id').val();
         var cust_name = $('#cust_name').val();
         var cust_pwd = $('#cust_pwd').val();
 
-        if(cust_id != '' && cust_name != '' && cust_pwd != ''){
+        if (cust_id != '' && cust_name != '' && cust_pwd != '') {
           $('#register_btn').removeClass('disabled');
         }
       });
 
-      // Enter 키 이벤트 처리
+      // Enter키 이벤트 처리
       $('input').keypress(function(event) {
         if (event.keyCode === 13) {
           event.preventDefault();
@@ -38,25 +37,25 @@
         }
       });
 
-      //id 4자리 이상. 중복체크
-      $('#cust_id').keyup(function (){
+      // id 4자리 이상. 중복체크
+      $('#cust_id').keyup(function() {
         var txt_id = $(this).val();
-        if (txt_id.length <= 3){
-          $('#check_id').html('ID는 영문소문자, 숫자 4자리이상 입니다.');
-          $('#check_id').css('color','red');
+        if (txt_id.length <= 3) {
+          $('#check_id').html('ID는 영문소문자, 숫자 4자리 이상입니다.');
+          $('#check_id').css('color', 'red');
           return;
         }
         $.ajax({
-          url:'/checkid',
-          data:{'cust_id':txt_id},
-          success:function(result){
-            if(result == 0){
-              $('#check_id').html('사용가능한 ID입니다.');
-              $('#check_id').css('color','rgb(0, 0, 255)');
+          url: '/checkid',
+          data: { 'cust_id': txt_id },
+          success: function(result) {
+            if (result == 0) {
+              $('#check_id').html('사용 가능한 ID입니다.');
+              $('#check_id').css('color', 'rgb(0, 0, 255)');
               // $('#cust_pwd').focus();
-            }else{
-              $('#check_id').html('이미 사용중인 ID입니다.');
-              $('#check_id').css('color','rgb(255, 0, 0)');
+            } else {
+              $('#check_id').html('이미 사용 중인 ID입니다.');
+              $('#check_id').css('color', 'rgb(255, 0, 0)');
             }
           }
         });
@@ -68,40 +67,58 @@
 
       // ID 입력 필드에 영어가 들어오면 무조건 소문자로 변환
       // ID에는 한글 입력 안됨
-      $('#cust_id').on('input', function(){
+      $('#cust_id').on('input', function() {
         var value = $(this).val();
         value = value.toLowerCase();
         value = value.replace(/[ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
         $(this).val(value);
       });
 
+      // 성별 라디오 버튼 변경 이벤트
+      const maleRadio = document.getElementById("inlineRadio1");
+      const femaleRadio = document.getElementById("inlineRadio2");
+      const registerForm = {}; // register_form 객체
+
+      maleRadio.addEventListener("change", function() {
+        if (maleRadio.checked) {
+          registerForm.gender = "1";
+        }
+      });
+      femaleRadio.addEventListener("change", function() {
+        if (femaleRadio.checked) {
+          registerForm.gender = "2";
+        }
+      });
 
       // Phone, Age 입력 필드에 숫자만 입력되도록 제한
-      $('#phone, #age').on('input', function(){
+      $('#phone, #age').on('input', function() {
         var value = $(this).val();
         value = value.replace(/[^0-9]/g, ''); // 비 숫자 문자 제거
         $(this).val(value);
       });
-
     },
-    send:function(){
+    send: function() {
       var cust_id = $('#cust_id').val();
       var cust_name = $('#cust_name').val();
       var cust_pwd = $('#cust_pwd').val();
+      var phone = $('#phone').val();
+      var age = $('#age').val();
+      var email = $('#email').val();
+      var gender = $('input[name="gender"]:checked').val() === '남자' ? '1' : '2';
 
       // Check if ID가 빨간색인 경우 전송 안됨
       if ($('#check_id').css('color') == 'rgb(255, 0, 0)') {
         $('#register_btn').addClass('disabled');
         return;
       }
-      if(cust_name == ''){
+      if (cust_name == '') {
         $('#cust_name').focus();
         return;
       }
-      if(cust_pwd == ''){
+      if (cust_pwd == '') {
         $('#cust_pwd').focus();
         return;
-      } //공백일 땐 서버로 전송안된다
+      } // 공백일 때 서버로 전송되지 않습니다
       $('#register_form').attr({
         'action':'/cust/registerimpl',
         'method':'post'
@@ -114,6 +131,7 @@
     register_form.init();
   });
 </script>
+
 
 <!-- BREADCRUMB -->
 <nav class="py-5">
@@ -180,13 +198,31 @@
 
             <div style="font-size:12px;padding-bottom: 10px" id="check_id"></div>
 
-            <div class="col-12">
+            <div class="col-12 col-md-6">
               <!-- Name -->
               <div class="form-group">
                 <label class="form-label" >
                   NAME *
                 </label>
                 <input class="form-control form-control-sm" id="cust_name" type="text" name="cust_name" placeholder="이름을 입력하세요 *" required>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <!-- 성별 -->
+              <div class="form-group">
+                <label class="form-label mb-4">
+                  성별 *
+                </label>
+                <br/>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="1">
+                  <label class="form-check-label" for="inlineRadio1">남자</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="2">
+                  <label class="form-check-label" for="inlineRadio2">여자</label>
+                </div>
               </div>
             </div>
 
@@ -225,7 +261,7 @@
               <div class="form-group">
                 <button id="register_btn" type="button" class="btn btn-dark">회원가입</button>
 
-                <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=ec3548a0503c6cbca894ccff296796d3&redirect_uri=http://localhost/cust/kakao/callback">
+                <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=0a9d14b3b112ee3f48ca206b470a2018&redirect_uri=http://localhost/cust/kakao/callback">
                   <img id="kakao_register_btn" src="/uimg/kakao_register_btn.png" style="margin:0px 20px;height: 56px"/>
                 </a>
 

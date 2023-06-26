@@ -186,8 +186,8 @@
 
                                 </div>
                                 <div class="col-12 col-lg">
-                                    <button class="btn btn-dark mb-2"/>
-                                    <a href="/quick/quick" style="color: white">배송현황 보기</a><i class="fe fe-truck ms-2"></i>
+                                    <button class="btn btn-dark mb-2" onclick="location.href='/quick/quick'">배송현황 보기
+                                    <i class="fe fe-truck ms-2"></i>
                                     </button>
                                 </div>
                             </div>
