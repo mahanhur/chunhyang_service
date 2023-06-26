@@ -89,27 +89,6 @@ public class ItemImplController {
         return list;
     }
 }
-//
-//        JSONArray result = new JSONArray();
-//
-//        for (Item item : list) {
-//            if (item.getCategory_id() == 100.0) {
-//                list.clear();
-//                list.add(item);
-//            }
-//            if (item.getCategory_id() == 200.0) {
-//                list.clear();
-//                list.add(item);
-//            }
-//            if (item.getCategory_id() == 300.0) {
-//                list.clear();
-//                list.add(item);
-//            }
-//            if (item.getCategory_id() == 400.0) {
-//                list.clear();
-//                list.add(item);
-//            }
-//    }
 
 
 

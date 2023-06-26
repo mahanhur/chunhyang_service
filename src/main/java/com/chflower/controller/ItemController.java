@@ -51,6 +51,14 @@ public class ItemController {
         List<Item> list = null;
         try {
             list = itemService.get();
+            // 이전 카운트 값을 가져옴
+            int previousCount = entryCountService.getCountdir(dir);
+
+            // 카운트 증가
+            int newCount = entryCountService.incrementCountdir(dir);
+
+            // 로그 작성
+            log.info(dir + newCount);
         } catch (Exception e) {
             throw new Exception("시스템장애:ERORR002");
         }
@@ -159,9 +167,7 @@ public class ItemController {
     @RequestMapping("/sortdabal")
     public String sortdabal(Model model, String dabaltype) throws Exception {
         List<Item> list = null;
-        log.info("+++++++++++++++++++++"+dabaltype);
         list = itemService.getType(dabaltype);
-        log.info(list.toString());
         model.addAttribute("ilist", list);
         model.addAttribute("center", dir + "all");
         return "index";
@@ -170,9 +176,43 @@ public class ItemController {
     @RequestMapping("/sortflower")
     public String sortflower(Model model, String flowertype) throws Exception {
         List<Item> list = null;
-        log.info("+++++++++++++++++++++"+flowertype);
         list = itemService.getType(flowertype);
-        log.info(list.toString());
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+    @RequestMapping("/lineuptotal")
+    public String lineuptotal(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.lineuptotal();
+        log.info("============================="+ list.toString());
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+    @RequestMapping("/lineuplow")
+    public String lineuplow(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.lineuplow();
+        log.info("============================="+ list.toString());
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+    @RequestMapping("/lineuphigh")
+    public String lineuphigh(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.lineuphigh();
+        log.info("============================="+ list.toString());
+        model.addAttribute("ilist", list);
+        model.addAttribute("center", dir + "all");
+        return "index";
+    }
+    @RequestMapping("/lineupreview")
+    public String lineupreview(Model model) throws Exception {
+        List<Item> list = null;
+        list = itemService.lineupreview();
+        log.info("============================="+ list.toString());
         model.addAttribute("ilist", list);
         model.addAttribute("center", dir + "all");
         return "index";
