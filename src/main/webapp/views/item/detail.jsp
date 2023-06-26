@@ -2,6 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"
+        integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>
+
 <script>
     let item_get = {
         init: function () {
@@ -72,6 +75,35 @@
     $(function (){
         register_review.init();
     })
+
+    Kakao.init('c91de3a9ba7f48da3cb562c2fc973026');
+    Kakao.Share.createDefaultButton({
+        container: '#kakaotalk-sharing-btn',
+        objectType: 'commerce',
+        content: {
+            title: '${detail.item_content}',
+            imageUrl:
+                'https://kukka.kr/static/kukkart_new/img/contents/subscribe_intro/lineup_003.png',
+            link: {
+                // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+                mobileWebUrl: 'http://172.16.20.108/item/detail?item_id=${detail.item_id}',
+                webUrl: 'http://172.16.20.108/item/detail?item_id=${detail.item_id}',
+            },
+        },
+        commerce: {
+            productName: '${detail.item_name}',
+            regularPrice: ${detail.item_price}
+        },
+        buttons: [
+            {
+                title: '자세히보기',
+                link: {
+                    mobileWebUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${detail.item_id}',
+                    webUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${detail.item_id}',
+                },
+            }
+        ],
+    });
 </script>
 
 <!doctype html>
@@ -328,7 +360,6 @@
                         <!-- Price -->
                         <div class="mb-7">
                             <span class="h5">${detail.item_price}</span>
-                            <span class="fs-sm">(In Stock)</span>
                         </div>
 
 <%--                        <!-- Form -->--%>
@@ -1553,14 +1584,13 @@
                 <!-- Breadcrumb -->
                 <ol class="breadcrumb mb-0 fs-xs text-gray-400">
                     <li class="breadcrumb-item">
-                        <a class="text-gray-400" href="index.html">Home</a>
+                        <a class="text-gray-400" href="/">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a class="text-gray-400" href="shop.html">Women's Shoes</a>
+                        <a class="text-gray-400" href="/item/all">꽃선물
+                        </a>
                     </li>
-                    <li class="breadcrumb-item active">
-                        Leather Sneakers
-                    </li>
+
                 </ol>
 
             </div>
@@ -1681,7 +1711,7 @@
                                 <fmt:formatNumber value="${detail.item_price}" pattern="###,###원"/>
                             </span>
                             <span class="badge rounded bg-success">재고: ${detail.item_cnt}개</span>
-                            <span class="fs-sm ms-1">(In Stock)</span>
+
                         </div>
 
 
@@ -1705,49 +1735,25 @@
                                     Size: <strong><span id="sizeCaption">${detail.flower_size}</span></strong>
                                 </p>
                             </div>
-                                <!-- Radio -->
-<%--                                <div class="mb-2">--%>
-<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
-<%--                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioOne" value="S" data-toggle="form-caption" data-target="#sizeCaption">--%>
-<%--                                        <label class="form-check-label" for="sizeRadioOne">Small</label>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
-<%--                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioTwo" value="M" data-toggle="form-caption" data-target="#sizeCaption" >--%>
-<%--&lt;%&ndash;                                        disabled 하면 클릭불가됨&ndash;%&gt;--%>
-<%--                                        <label class="form-check-label" for="sizeRadioTwo">Medium</label>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="form-check form-check-inline form-check-size mb-2">--%>
-<%--                                        <input type="radio" class="form-check-input" name="sizeRadio" id="sizeRadioThree" value="L" data-toggle="form-caption" data-target="#sizeCaption">--%>
-<%--                                        <label class="form-check-label" for="sizeRadioThree">Large</label>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
 
-<%--                                <!-- Size chart -->--%>
-<%--                                <p class="mb-8">--%>
-<%--                                    <img src="assets/img/icons/icon-ruler.svg" alt="..." class="img-fluid"> <a class="text-reset text-decoration-underline ms-3" data-bs-toggle="modal" href="#modalSizeChart">Size chart</a>--%>
-<%--                                </p>--%>
-                        <!-- Form -->
+                        <!-- 장바구니/ 주문하기 -->
                         <form id="detail_form">
                                 <div class="row gx-5 mb-7">
                                     <div class="col-12 col-lg-auto">
                                         <!-- Quantity -->
-                                        <input type="number" id="inputcnt" class="form-control form-control-sm" name="cnt" value=${cnt}/>
+                                        <input type="number"  min="1" max="${detail.item_cnt}" id="inputcnt" class="form-control form-control-sm" style="width: 140px" name="cnt" value=${cnt} />
                                     </div>
                                     <div class="col-12 col-lg">
                                         <!-- Submit -->
-                                        <button type="button" class="btn w-60 btn-dark mb-2 cart_btn"
+                                        <button type="button" class="btn w-120 btn-dark mb-2 cart_btn"
                                                 data-itemid="${detail.item_id}">
-                                            장바구니 추가 <i class="fe fe-shopping-cart ms-2"></i>
+                                            장바구니 <i class="fe fe-shopping-cart ms-2"></i>
                                         </button>
                                         <input type="hidden" name="item_id" value="${detail.item_id}"/>
                                         <input type="hidden" name="cust_id" value="${logincust.cust_id}"/>
-                                        <button type="submit" class="btn w-120 btn-dark mb-2 checkout_btn"/>
-                                            바로주문 하기 <i class="fe fe-shopping-bag ms-2"></i>
-                                        </button>
 
-                                        <!-- Wishlist -->
-                                        <button class="btn btn-outline-dark w-60 mb-2" data-toggle="button">
-                                            찜하기 <i class="fe fe-heart ms-2"></i>
+                                        <button type="submit" class="btn w-120 btn-dark mb-2 checkout_btn"/>
+                                            바로주문 <i class="fe fe-shopping-bag ms-2"></i>
                                         </button>
                                     </div>
                                 </div>
@@ -1755,11 +1761,16 @@
                             <!-- 담당자에게 연락하기 -->
                             <p>
                                 <span class="text-gray-500">원하시는 상품이 품절인가요??</span>
-                                <a class="text-reset text-decoration-underline" data-bs-toggle="modal" href="#modalWaitList">담당자에게 연락 주세요!</a>
+                                <a class="text-reset text-decoration-underline" data-bs-toggle="modal" href="#callcenter">담당자에게 연락 주세요!</a>
                             </p>
                             <!-- 공유하기 -->
                             <p class="mb-0">
                                 <span class="me-4">공유하기:</span>
+                                <%--                      카카오공유하기--%>
+                                <a id="kakaotalk-sharing-btn" href="javascript:">
+                                    <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+                                         alt="카카오톡 공유 보내기 버튼" style="width:8%;"/>
+                                </a>
                                 <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
                                     <i class="fab fa-twitter"></i>
                                 </a>
@@ -1871,7 +1882,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-
+                <br>
+                <hr>
                 <!-- Heading -->
                 <h4 class="mb-10 text-center">춘향! 강력추천 상품!!</h4>
 

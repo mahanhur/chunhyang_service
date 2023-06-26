@@ -1605,40 +1605,9 @@
               </c:forEach>
 
 
-            <!-- Footer -->
+            <!-- 장바구니 푸터 -->
             <div class="row align-items-end justify-content-between mb-10 mb-md-0">
-              <div class="col-12 col-md-7">
 
-                <!-- Coupon -->
-                <form class="mb-7 mb-md-0">
-                  <label class="form-label fs-sm fw-bold" for="cartCouponCode">
-                    Coupon code:
-                  </label>
-                  <div class="row row gx-5">
-                    <div class="col">
-
-                      <!-- Input -->
-                      <input class="form-control form-control-sm" id="cartCouponCode" type="text" placeholder="Enter coupon code*">
-
-                    </div>
-                    <div class="col-auto">
-
-                      <!-- Button -->
-                      <button class="btn btn-sm btn-dark" type="submit">
-                        Apply
-                      </button>
-
-                    </div>
-                  </div>
-                </form>
-
-              </div>
-              <div class="col-12 col-md-auto">
-
-                <!-- Button -->
-                <button class="btn btn-sm btn-outline-dark">Update Cart</button>
-
-              </div>
             </div>
 
           </div>
@@ -1662,7 +1631,7 @@
                   </span>
                   </li>
                   <li class="list-group-item fs-sm text-center text-gray-500">
-                    Shipping cost calculated at Checkout *
+                    포인트 사용은 주문/결제시 적용가능합니다. *
                   </li>
                 </ul>
               </div>
