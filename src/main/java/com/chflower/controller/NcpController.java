@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +25,7 @@ public class NcpController {
 
     @RequestMapping("/mycfr")
     public String mycfr(Model model, String imgname) throws Exception {
-
+        Thread.sleep(4600);
         //Ncp에게 물어본다
 
         JSONObject result =

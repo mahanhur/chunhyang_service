@@ -32,7 +32,7 @@
                   <img src="/uimg/${gqna.qna_image1}" alt="..." width="50px">
                 </a>
                 <a href="#" data-bigpicture='{ "imgSrc": "/uimg/${gqna.qna_image2}"}'>
-                  <img src="/uimg/${gqna.qna_image2}" width="50px">
+                  <img src="/uimg/${gqna.qna_image2}" alt="..." width="50px">
                 </a>
               </div>
             <hr>
