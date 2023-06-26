@@ -74,6 +74,9 @@
     .main_slide_subtitle{
       font-size: 32px;
     }
+    .ranking-wrap {
+      display: none;
+    }
   }
   @media (max-width: 405px) {
     .main_slide_title {
@@ -95,6 +98,34 @@
     }
   }
 </style>
+
+<style> <%--랭킹--%>
+#search-ranking {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  width: 200px;
+  height: 20px;
+}
+#search-ranking ul {
+  display: none;
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  width: 200px;
+  border: 1px solid #aaa;
+  background: white;
+  position: absolute;
+  top: -10px;
+  right: 0;
+  z-index: 1;
+}
+#search-ranking:hover ul {
+  display: inline-block;
+}
+</style>
+
+
 <%--  카카오공유하기--%>
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"
         integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>
@@ -129,26 +160,61 @@
     });
   })
 </script>
-<%--카카오공유하기--%>
+<%--카카오공유하기 end--%>
 
 
 
 <!-- WELCOME -->
 <!-- PROMO ( 검은배너 ) -->
-<div class="py-3 bg-dark bg-pattern" style="position:sticky;z-index: 1;">
+<div class="py-3 bg-dark bg-pattern">
   <div class="container">
     <div class="row">
       <div class="col-12">
 
         <!-- Text -->
-        <div class="text-center text-white">
-            <span class="heading-xxs letter-spacing-xl">
-              🌸🌸[<span id="server_time"></span>]<span class="today_txt1">오늘의 꽃은</span><span style="text-decoration: underline white; cursor: pointer">
-                <a data-bs-toggle="modal" data-bs-target="#todayflower">${todayFlower.flowerName}</a>
-                </span><span class="today_txt2">입니다</span>🌸🌸
-            </span>
-        </div>
+        <div>
+            <div class="text-center">
+              <span class="text-white heading-xxs letter-spacing-xl">
+                🌸🌸[<span id="server_time"></span>]<span class="today_txt1">오늘의 꽃은</span><span style="text-decoration: underline white; cursor: pointer">
+                  <a data-bs-toggle="modal" data-bs-target="#todayflower">${todayFlower.flowerName}</a>
+                  </span><span class="today_txt2">입니다</span>🌸🌸
+              </span>
+            </div>
 
+            <div class="position-relative ranking-wrap" style="margin: 0 auto">
+              <div id="search-ranking">
+                <div class="text-center text-white">
+                  <span id="rank-number">1</span>
+                  <span id="rank-title">장미</span>
+                </div>
+                <ul>
+                  <h6 class="text-center">인기 검색어👀</h6>
+
+                  <li>
+                    <span class="rank-number">1</span>
+                    <span class="rank-title">수국</span>
+                  </li>
+                  <li>
+                    <span class="rank-number">2</span>
+                    <span class="rank-title">수국</span>
+                  </li>
+                  <li>
+                    <span class="rank-number">3</span>
+                    <span class="rank-title">수국</span>
+                  </li>
+                  <li>
+                    <span class="rank-number">4</span>
+                    <span class="rank-title">수국</span>
+                  </li>
+                  <li>
+                    <span class="rank-number">5</span>
+                    <span class="rank-title">수국</span>
+                  </li>
+                </ul>
+              </div>
+            </div> <!-- ranking end -->
+
+        </div> <!-- 오늘의꽃+ranking end -->
       </div>
     </div>
   </div>
