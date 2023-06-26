@@ -428,6 +428,9 @@
             <p>오렌지, 옐로, 핑크, 블루. 형형색색 제각기 다양한 컬러의 꽃들과 함께 뜨거운 여름, 화려한 파티를 함께 즐겨요!</p>
             <img src="/uimg/A_detail1.jpg" style="width: 100%">
             <img src="/uimg/A_detail3.jpg" style="width: 100%">
+            <br/>
+            <br/>
+            <br/>
 
           </div>
         </div>
