@@ -55,4 +55,14 @@ public class ItemReviewService implements CHService<String, ItemReview> {
         return mapper.getItemReview(i);
     }
 
+    public List<ItemReview> dabalreview() throws Exception {
+        return mapper.dabalreview();
+    }
+    public List<ItemReview> flowerreview() throws Exception {
+        return mapper.flowerreview();
+    }
+    public List<ItemReview> bipumreview() throws Exception {
+        return mapper.bipumreview();
+    }
+
 }

@@ -739,35 +739,31 @@
 
         <!-- Heading -->
         <h2 class="mb-12 text-center">
-          A positive Experience in many ways.
+          [강추!!]<br>최근 후기 좋은 상품
         </h2>
 
       </div>
     </div>
     <div class="row">
+      <!-- 최신리뷰 첫번째 열 시작 -->
       <div class="col-12 col-md-6 col-lg-4">
-
-        <!-- Card -->
+        <c:forEach var="obj" items="${dabalreview}">
         <div class="card card-lg mb-11">
           <div class="card-body text-center bg-light">
 
             <!-- Avatar -->
-            <img src="assets/img/avatars/avatar-1.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
-
+            <a href="/item/detail?item_id=${obj.item_id}">
+            <img src="/uimg/${obj.item_img}" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
+            </a>
             <!-- Text -->
             <blockquote class="blockquote mb-0">
 
               <!-- Text -->
               <p class="fs-lg fst-normal">
-                From creepeth said moved given
-                divide make multiply of him shall itself
-                also above second doesn't unto
-                created saying land herb sea midst
-                night wherein.
+              ${obj.review_title}
               </p>
-
               <!-- Rating -->
-              <div class="rating fs-xs text-warning mb-2" data-value="5">
+              <div class="rating fs-xs text-warning mb-2" data-value=${obj.review_score}>
                 <div class="rating-item">
                   <i class="fas fa-star"></i>
                 </div>
@@ -787,264 +783,116 @@
 
               <!-- Footer -->
               <footer class="blockquote-footer">
-                Catherine Hicks, 21 Jul 2019
+              <fmt:formatDate  value="${obj.review_rdata}" pattern="yyyy-MM-dd" />
               </footer>
 
             </blockquote>
 
           </div>
         </div>
-
-        <!-- Card -->
-        <div class="card card-lg mb-11">
-          <div class="card-body text-center bg-light">
-
-            <!-- Avatar -->
-            <img src="assets/img/avatars/avatar-4.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
-
-            <!-- Text -->
-            <blockquote class="blockquote mb-0">
-
-              <!-- Text -->
-              <p class="fs-lg fst-normal">
-                Creeping his under doesn't.
-                Above two fourth dry open blessed
-                our creeping, made great.
-              </p>
-
-              <!-- Rating -->
-              <div class="rating fs-xs text-warning mb-2" data-value="5">
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-
-              <!-- Footer -->
-              <footer class="blockquote-footer">
-                Jason Griffith, 05 Jul 2019
-              </footer>
-
-            </blockquote>
-
-          </div>
-        </div>
-
+        </c:forEach>
       </div>
+      <!-- 최신리뷰 첫번째 열 끝 -->
+
+      <!-- 최신리뷰 두번째 열 시작 -->
       <div class="col-12 col-md-7 col-lg-4">
+        <c:forEach var="obj" items="${flowerreview}">
+          <div class="card card-lg mb-11">
+            <div class="card-body text-center bg-light">
 
-        <!-- Card -->
-        <div class="card card-lg mb-11">
-          <div class="card-body text-center bg-light">
-
-            <!-- Avatar -->
-            <img src="assets/img/avatars/avatar-2.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
-
-            <!-- Text -->
-            <blockquote class="blockquote mb-0">
-
+              <!-- Avatar -->
+              <a href="/item/detail?item_id=${obj.item_id}">
+              <img src="/uimg/${obj.item_img}" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
+              </a>
               <!-- Text -->
-              <p class="fs-lg fst-normal">
-                Gathered to were female. That dry
-                our so likeness light cattle his you'll
-                fill blessed replenish doesn't god
-                night tree.
-              </p>
-
-              <!-- Rating -->
-              <div class="rating fs-xs text-warning mb-2" data-value="5">
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-
-              <!-- Footer -->
-              <footer class="blockquote-footer">
-                Daisy Turner, 18 Jul 2019
-              </footer>
-
-            </blockquote>
-
-          </div>
-        </div>
-
-        <!-- Card -->
-        <div class="card card-lg mb-11">
-          <div class="card-body text-center bg-light">
-
-            <!-- Avatar -->
-            <img src="assets/img/avatars/avatar-5.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
-
-            <!-- Text -->
-            <blockquote class="blockquote mb-0">
-
-              <!-- Text -->
-              <p class="fs-lg fst-normal">
-                Yielding place upon heaven
-                created sea So fly you'll had years
-                which good herb hath moveth for
-                grass. Created. Wherein, had every
-                were, face you'll made from.
-              </p>
-
-              <!-- Rating -->
-              <div class="rating fs-xs text-warning mb-2" data-value="5">
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-
-              <!-- Footer -->
-              <footer class="blockquote-footer">
-                Katrina Willis, 30 Jun 2019
-              </footer>
-
-            </blockquote>
-
-          </div>
-        </div>
-
-      </div>
-      <div class="col-12 col-lg-4">
-        <div class="row">
-          <div class="col-12 col-md-6 col-lg-12">
-
-            <!-- Card -->
-            <div class="card card-lg mb-11">
-              <div class="card-body text-center bg-light">
-
-                <!-- Avatar -->
-                <img src="assets/img/avatars/avatar-3.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
+              <blockquote class="blockquote mb-0">
 
                 <!-- Text -->
-                <blockquote class="blockquote mb-0">
-
-                  <!-- Text -->
-                  <p class="fs-lg fst-normal">
-                    Abundantly behold. God given
-                    creature she'd, greater gathering his
-                    had thing let you're firmament can't
-                    he sixth. Without evening. Given
-                    appear days signs abundantly and
-                    brought female bring.
-                  </p>
-
-                  <!-- Rating -->
-                  <div class="rating fs-xs text-warning mb-2" data-value="4">
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
+                <p class="fs-lg fst-normal">
+                    ${obj.review_title}
+                </p>
+                <!-- Rating -->
+                <div class="rating fs-xs text-warning mb-2" data-value=${obj.review_score}>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
                   </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
 
-                  <!-- Footer -->
-                  <footer class="blockquote-footer">
-                    Logan Edwards, 11 Jul 2019
-                  </footer>
+                <!-- Footer -->
+                <footer class="blockquote-footer">
+                  <fmt:formatDate  value="${obj.review_rdata}" pattern="yyyy-MM-dd" />
+                </footer>
 
-                </blockquote>
+              </blockquote>
 
-              </div>
             </div>
-
           </div>
-          <div class="col-12 col-md-6 col-lg-12">
+        </c:forEach>
+      </div>
+      <!-- 최신리뷰 두번째 열 끝 -->
 
-            <!-- Card -->
-            <div class="card card-lg mb-11">
-              <div class="card-body text-center bg-light">
+      <!-- 최신리뷰 세번째 열 시작 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <c:forEach var="obj" items="${bipumreview}">
+          <div class="card card-lg mb-11">
+            <div class="card-body text-center bg-light">
 
-                <!-- Avatar -->
-                <img src="assets/img/avatars/avatar-6.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
+              <!-- Avatar -->
+              <a href="/bipum/detail?item_id=${obj.item_id}">
+              <img src="/uimg/${obj.item_img}" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
+              </a>
+              <!-- Text -->
+              <blockquote class="blockquote mb-0">
 
                 <!-- Text -->
-                <blockquote class="blockquote mb-0">
-
-                  <!-- Text -->
-                  <p class="fs-lg fst-normal">
-                    Place whose a give upon seed
-                    Yielding don't cattle living.
-                  </p>
-
-                  <!-- Rating -->
-                  <div class="rating fs-xs text-warning mb-2" data-value="5">
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
+                <p class="fs-lg fst-normal">
+                    ${obj.review_title}
+                </p>
+                <!-- Rating -->
+                <div class="rating fs-xs text-warning mb-2" data-value=${obj.review_score}>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
                   </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
 
-                  <!-- Footer -->
-                  <footer class="blockquote-footer">
-                    George Sanders, 17 Jun 2019
-                  </footer>
+                <!-- Footer -->
+                <footer class="blockquote-footer">
+                <fmt:formatDate  value="${obj.review_rdata}" pattern="yyyy-MM-dd" />
+                </footer>
 
-                </blockquote>
+              </blockquote>
 
-              </div>
             </div>
-
           </div>
-        </div>
+        </c:forEach>
       </div>
-    </div>
+      <!-- 최신리뷰 세번째 열 끝 -->
+
+    </div>  <%--ROW 끝나느곳--%>
     <div class="row">
       <div class="col-12">
 
