@@ -43,19 +43,19 @@ public class SubsController {
     String dir = "subs/";
 
 
-    @RequestMapping("/subscribe")
-    public String subscribe(Model model){
-        // 이전 카운트 값을 가져옴
-        int previousCount = entryCountService.getCountdir(dir);
-
-        // 카운트 증가
-        int newCount = entryCountService.incrementCountdir(dir);
-
-        // 로그 작성
-        log.info(dir + newCount);
-        model.addAttribute("center",dir+"subscribe");
-        return "index";
-    }
+//    @RequestMapping("/subscribe")
+//    public String subscribe(Model model){
+//        // 이전 카운트 값을 가져옴
+//        int previousCount = entryCountService.getCountdir(dir);
+//
+//        // 카운트 증가
+//        int newCount = entryCountService.incrementCountdir(dir);
+//
+//        // 로그 작성
+//        log.info(dir + newCount);
+//        model.addAttribute("center",dir+"subscribe");
+//        return "index";
+//    }
 
     @RequestMapping("/all")
     public String all(Model model){

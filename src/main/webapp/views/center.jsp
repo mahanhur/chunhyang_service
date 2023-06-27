@@ -85,67 +85,67 @@
                     let id = "";
                     switch (idorigin){
                       case "200":
-                        id = "[Special] 사랑의 맹세를 담아, 프로미스 꽃다발";
+                        id = "  프로미스 꽃다발";
                         break;
                       case "210":
-                        id = "여름의 나에게, 베레나핑크 수국";
+                        id = "  베레나핑크 수국";
                         break;
                       case "211":
-                        id = "오묘한 컬러의 감성, 라벤더블루 수국";
+                        id = "  라벤더블루 수국";
                         break;
                       case "212":
-                        id = "여름날 더위를 식혀 줄, 스노우볼 수국";
+                        id = "  스노우볼 수국";
                         break;
                       case "213":
-                        id = "여름 태양같이 뜨겁게, 빨간 수국";
+                        id = "  빨간 수국";
                         break;
                       case "214":
-                        id = "사랑을 맹세할 때, 하젤 장미";
+                        id = "  하젤 장미";
                         break;
                       case "215":
-                        id = "파이어웍스 장미";
+                        id = "  파이어웍스 장미";
                         break;
                       case "216":
-                        id = "순수했던 시절이 그립다면, 마루시아 장미";
+                        id = "  마루시아 장미";
                         break;
                       case "217":
-                        id = "스페인이 생각나면, 클라린스 장미";
+                        id = "  클라린스 장미";
                         break;
                       case "218":
-                        id = "작지만 튼튼한, 랜덤 피콜리니 거베라";
+                        id = "  피콜리니 거베라";
                         break;
                       case "219":
-                        id = "아이의 마음 같은, 랜덤 폼포니 거베라";
+                        id = "  폼포니 거베라";
                         break;
                       case "221":
-                        id = "단아함의 상징, 벤츄라 카라";
+                        id = "  벤츄라 카라";
                         break;
                       case "222":
-                        id = "결혼을 앞둔 너에게, 로베라핑크 리시안셔스";
+                        id = "  핑크 리시안셔스";
                         break;
                       case "223":
-                        id = "순수한 너, 겨울 화이트 리시안셔스";
+                        id = "  화이트 리시안셔스";
                         break;
                       case "224":
-                        id = "로제 와인 빛, 메갈로 샴페인 리시안셔스";
+                        id = "  샴페인 리시안셔스";
                         break;
                       case "225":
-                        id = "변치않는 사랑, 리시안셔스";
+                        id = "  리시안셔스";
                         break;
                       case "227":
-                        id = "싱그러움이 가득한, 그리너리 꽃다발";
+                        id = "  그리너리 꽃다발";
                         break;
                       case "228":
-                        id = "눈부시게 빛나는, 브라이트데이 꽃다발";
+                        id = "  브라이트데이 꽃다발";
                         break;
                       case "229":
-                        id = "상큼함이 필요할 떄, 트로피컬주스 꽃다발";
+                        id = "  트로피컬주스 꽃다발";
                         break;
                       case "230":
-                        id = "수줍었던 그때처럼, 젠틀나잇 꽃다발";
+                        id = "  젠틀나잇 꽃다발";
                         break;
                       case "231":
-                        id = "볼수록 매력적인, 스윗가든 꽃다발";
+                        id = "  스윗가든 꽃다발";
                         break;
                     }
                     return id;
@@ -171,10 +171,15 @@
                 // 화면에 표시
                 var rankingContainer = document.getElementById('rankingContainer');
                 rankingContainer.innerHTML = '';
+                var forh6 = document.createElement('h6');
+                forh6.classList.add('text-center');
+                forh6.textContent = ("인기 검색어👀");
+                rankingContainer.appendChild(forh6);
 
                 seriesData.forEach((item, index) => {
                   // 최대 다섯 개의 요소만 표출
                   if (index < 5) {
+
                     var itemElement = document.createElement('li');
 
                     var itemRank = document.createElement('span');
@@ -338,8 +343,9 @@
                   <span id="rank-number-1">1</span>
                   <span id="rank-title-1"></span>
                 </div>
+                <div>
+<%--                  <h6 class="text-center">인기 검색어👀</h6>--%>
                 <ul id="rankingContainer">
-                  <h6 class="text-center">인기 검색어👀</h6>
 
                 </ul>
                   <div class="ld-row">
@@ -351,6 +357,7 @@
                   <div class="ld-row">
                     <input class="ld-url-input" type="hidden" id="fetchURL1"/>
                   </div>
+                </div>
 
 <%--                  <li>--%>
 <%--                    <span class="rank-number">1</span>--%>
