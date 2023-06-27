@@ -51,32 +51,6 @@ public class ItemController {
         return "index";
     }
 
-
-    @RequestMapping("/all")
-    public String all(Model model) throws Exception {
-        List<Item> list = null;
-        try {
-            list = itemService.get();
-            // 이전 카운트 값을 가져옴
-            int previousCount = entryCountService.getCountdir(dir);
-
-            // 카운트 증가
-            int newCount = entryCountService.incrementCountdir(dir);
-
-            // 로그 작성
-            itemClickLogger.info("찍히나");
-
-        } catch (Exception e) {
-            throw new Exception("시스템장애:ERORR002");
-        }
-
-
-        model.addAttribute("ilist", list);
-        model.addAttribute("left", dir + "left");
-        model.addAttribute("center", dir + "all");
-        return "index";
-    }
-
     @RequestMapping("/detail")
     public String detail(Model model, Integer item_id, Item item, Itemimg itemimg) throws Exception {
 
@@ -115,7 +89,7 @@ public class ItemController {
         int newCount = entryCountService.incrementCount(item_id);
 
         // 로그 작성
-        itemCountLogger.info("'" +item_id+"'" + "," + newCount);
+        log.info("'" +item_id+"'" + "," + newCount);
         return "index";
     }
     @RequestMapping("/register_reviewimpl")
