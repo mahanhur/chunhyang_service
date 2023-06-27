@@ -4,6 +4,8 @@ import com.chflower.dto.*;
 import com.chflower.service.*;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Slf4j
 @Controller
@@ -34,6 +37,9 @@ public class ItemController {
     EntryCountService entryCountService;
 
 
+    Logger itemClickLogger = LoggerFactory.getLogger("ITEMCLICK");
+    Logger itemCountLogger = LoggerFactory.getLogger("ITEM");
+
     String dir = "item/";
 
 
@@ -51,14 +57,15 @@ public class ItemController {
         List<Item> list = null;
         try {
             list = itemService.get();
-//            // 이전 카운트 값을 가져옴
-//            int previousCount = entryCountService.getCountdir(dir);
-//
-//            // 카운트 증가
-//            int newCount = entryCountService.incrementCountdir(dir);
-//
-//            // 로그 작성
-//            log.info(dir + newCount);
+            // 이전 카운트 값을 가져옴
+            int previousCount = entryCountService.getCountdir(dir);
+
+            // 카운트 증가
+            int newCount = entryCountService.incrementCountdir(dir);
+
+            // 로그 작성
+            itemClickLogger.info("찍히나");
+
         } catch (Exception e) {
             throw new Exception("시스템장애:ERORR002");
         }
@@ -108,7 +115,7 @@ public class ItemController {
         int newCount = entryCountService.incrementCount(item_id);
 
         // 로그 작성
-        log.info("'" +item_id+"'" + "," + newCount);
+        itemCountLogger.info("'" +item_id+"'" + "," + newCount);
         return "index";
     }
     @RequestMapping("/register_reviewimpl")
@@ -228,5 +235,6 @@ public class ItemController {
         model.addAttribute("center", dir + "allpage");
         return "index";
     }
+
 
 }

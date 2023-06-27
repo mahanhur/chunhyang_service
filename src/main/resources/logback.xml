@@ -67,19 +67,6 @@
 <!--        </rollingPolicy>-->
 <!--    </appender>-->
 
-<!--    <appender name="BIPUMCLICK" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
-<!--        <file>${LOGS_DIR}/bipumclicklog.log</file>-->
-<!--        <encoder>-->
-<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss},%msg%n</pattern>-->
-<!--        </encoder>-->
-<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
-<!--            <fileNamePattern>${LOGS_DIR}/bipumclick.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>-->
-<!--            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
-<!--                <maxFileSize>5MB</maxFileSize>-->
-<!--            </timeBasedFileNamingAndTriggeringPolicy>-->
-<!--            <maxHistory>30</maxHistory>-->
-<!--        </rollingPolicy>-->
-<!--    </appender>-->
 
     <appender name="ITEM" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOGS_DIR}/itemcountlog.log</file>
@@ -95,17 +82,29 @@
         </rollingPolicy>
     </appender>
 
+<!--    <appender name="BIPUMCLICK" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${LOGS_DIR}/bipumclicklog.log</file>-->
+<!--        <encoder>-->
+<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss},%msg%n</pattern>-->
+<!--        </encoder>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            <fileNamePattern>${LOGS_DIR}/bipumclick.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>-->
+<!--            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+<!--                <maxFileSize>5MB</maxFileSize>-->
+<!--            </timeBasedFileNamingAndTriggeringPolicy>-->
+<!--            <maxHistory>30</maxHistory>-->
+<!--        </rollingPolicy>-->
+<!--    </appender>-->
+
 <!--    <logger name="com.chflower.controller.SubsController" level="INFO">-->
 <!--        <appender-ref ref="SUBSCLICK" />-->
 <!--    </logger>-->
 
     <logger name="com.chflower.controller.ItemController" level="INFO">
         <appender-ref ref="ITEM" />
+<!--        <appender-ref ref="ITEMCLICK" />-->
     </logger>
 
-<!--    <logger name="com.chflower.controller.ItemController" level="INFO">-->
-<!--        <appender-ref ref="ITEMCLICK" />-->
-<!--    </logger>-->
 
 <!--    <logger name="com.chflower.controller.BipumController" level="INFO">-->
 <!--        <appender-ref ref="BIPUMCLICK" />-->
