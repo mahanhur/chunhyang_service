@@ -471,6 +471,52 @@
 
 <%--===============================================챗봇 끝==========================================--%>
 
+
+<%--=============================================== 게임 모달 버튼 ==========================================--%>
+<!-- 게임 modal -->
+<div id="main-content">
+  <div class="modal fade" id="game" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <!-- Close -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="padding:.9375rem 1.25rem;position:absolute;right:0;top:0;z-index:2">
+          <i class="fe fe-x" aria-hidden="true"></i>
+        </button>
+
+        <!-- Content -->
+        <div class="game-content" style="display: flex; flex-direction: column; height: 100%">
+          <div class="game-header align-items-center" style="padding: 10px; background-color: #f8f9fa; border-bottom: 1px solid #dee2e6;">
+            <h6 class="game-title mb-0">룰렛 게임</h6>
+          </div>
+
+          <div class="game-body" style="flex: 1; overflow-y: auto; padding: 15px; background-color: #ffffff;">
+            <!-- 룰렛 ---------------------------------------------->
+            <div style="box-sizing: border-box" >
+              <div style="display: grid;place-items: center;overflow: hidden;">
+                <div class="deal-wheel">
+                  <ul class="spinner"></ul>
+                  <figure class="cap">
+                    <svg class="grim-reaper" viewBox="0 0 582 653">
+                      <circle id="BG" cx="295.6" cy="286.3" r="286.3" fill="#EE8AF8"/>
+                    </svg>
+                  </figure>
+                  <div class="ticker"></div>
+                  <button class="btn-spin">
+                    Spin the wheel
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- 룰렛 end ---------------------------------------------->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%--===============================================게임 모달 버튼 끝==========================================--%>
+
 <!-- -------------------------------------------------------------------------------- -->
 <!-- 회색 상단 고정바 -->
 <!-- NAVBAR -->
@@ -911,6 +957,10 @@
 <!-- 메인 고정버튼 JS -->
 <script src="/assets/js/fixed_btn.js"></script>
 <link rel="stylesheet" href="/assets/css/fixed_btn.css" />
+
+<!-- 메인 게임 모달 JS -->
+<script src="/assets/js/game_modal.js"></script>
+<link rel="stylesheet" href="/assets/css/game_modal.css" />
 
 </body>
 </html>
