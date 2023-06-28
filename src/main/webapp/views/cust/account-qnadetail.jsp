@@ -33,7 +33,7 @@
                   <img src="/uimg/${gqna.qna_image1}" alt="..." width="50px">
                 </a>
                 </c:if>
-                <c:if test="${gqna.qna_image1 != null}">
+                <c:if test="${gqna.qna_image2 != null}">
                 <a href="#" data-bigpicture='{ "imgSrc": "/uimg/${gqna.qna_image2}"}'>
                   <img src="/uimg/${gqna.qna_image2}" alt="..." width="50px">
                 </a>
