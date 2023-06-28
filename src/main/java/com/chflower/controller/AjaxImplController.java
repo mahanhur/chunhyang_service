@@ -42,7 +42,31 @@ public class AjaxImplController {
         }
         return result;
     }
+    @RequestMapping("/checkphone")
+    public Object checkphone(String phone) throws Exception {
+        int result = 0;
+        //if(id.equals("qqqq") || id.equals("aaaa") || id.equals("ssss")){
 
+        Cust cust = null;
+        cust = custservice.getPhone(phone);
+        if(cust != null){
+            result = 1;
+        }
+        return result;
+    }
+
+    @RequestMapping("/checkemail")
+    public Object checkemail(String email) throws Exception {
+        int result = 0;
+        //if(id.equals("qqqq") || id.equals("aaaa") || id.equals("ssss")){
+
+        Cust cust = null;
+        cust = custservice.getEmail(email);
+        if(cust != null){
+            result = 1;
+        }
+        return result;
+    }
     //메인상단 오늘의 꽃 배너
     @RequestMapping("/getservertime")
     public Object getservertime() {

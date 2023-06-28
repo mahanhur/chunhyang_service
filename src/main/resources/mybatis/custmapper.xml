@@ -12,6 +12,14 @@
         SELECT * FROM cust
     </select>
 
+    <select id="selectphone" parameterType="String" resultType="cust">
+        SELECT * FROM cust WHERE phone=#{phone}
+    </select>
+
+    <select id="selectemail" parameterType="String" resultType="cust">
+        SELECT * FROM cust WHERE email=#{email}
+    </select>
+
     <!-- 가입일(SYSDATE) 탈퇴일(default null) -->
     <insert id="insert" parameterType="cust">
         INSERT INTO cust

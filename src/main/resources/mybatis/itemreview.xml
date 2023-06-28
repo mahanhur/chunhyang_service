@@ -35,8 +35,8 @@
         FROM ( SELECT *
         FROM ( SELECT *
         FROM ITEM_REVIEW
-        ORDER BY REVIEW_RDATA DESC, REVIEW_SCORE DESC
-        )) IR JOIN ITEM I ON IR.ITEM_ID = I.ITEM_ID
+        ORDER BY REVIEW_SCORE DESC,REVIEW_RDATA DESC
+             )) IR JOIN ITEM I ON IR.ITEM_ID = I.ITEM_ID
         WHERE I.CATEGORY_ID =100
         AND   <![CDATA[ rownum < 3 ]]>
     </select>
@@ -48,7 +48,7 @@
          FROM (
               SELECT *
               FROM ITEM_REVIEW
-              ORDER BY REVIEW_RDATA DESC, REVIEW_SCORE DESC
+              ORDER BY REVIEW_SCORE DESC,REVIEW_RDATA DESC
               )
         ) IR
                  JOIN ITEM I ON IR.ITEM_ID = I.ITEM_ID
@@ -63,7 +63,7 @@
              FROM (
                   SELECT *
                   FROM ITEM_REVIEW
-                  ORDER BY REVIEW_RDATA DESC, REVIEW_SCORE DESC
+                  ORDER BY REVIEW_SCORE DESC,REVIEW_RDATA DESC
                   )
         ) IR
                  JOIN ITEM I ON IR.ITEM_ID = I.ITEM_ID
