@@ -23,16 +23,16 @@
                     '${flower.imgUrl1}',
                 link: {
                     // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
-                    mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
-                    webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
+                    mobileWebUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${flower.dataNo}',
+                    webUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${flower.dataNo}',
                 },
             },
             buttons: [
                 {
                     title: '자세히 보기',
                     link: {
-                        mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
-                        webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${flower.dataNo}',
+                        mobileWebUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${flower.dataNo}',
+                        webUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${flower.dataNo}',
                     },
                 },
             ],
@@ -113,18 +113,22 @@
                         <!-- 공유하기 -->
                         <p style="margin-bottom: 20px">
                             <span class="me-4">공유하기:</span>
-                            <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                <i class="fab fa-pinterest-p"></i>
-                            </a>
+                            <%--카카오공유하기--%>
                             <a id="kakaotalk-sharing-btn" href="javascript:">
                                 <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
-                                     alt="카카오톡 공유 보내기 버튼" style="width:8%;"/>
+                                     alt="카카오톡 공유 보내기 버튼" style="width:8%;margin: 5px"/>
+                            </a>
+                            <a id="facebook-sharing-btn" href="javascript:">
+                                <img src="https://cdn-icons-png.flaticon.com/128/1384/1384863.png"
+                                     alt="페이스북 공유 보내기 버튼" style="width:8%;border-radius: 10px;margin: 5px"/>
+                            </a>
+                            <a id="twitter-sharing-btn" href="javascript:">
+                                <img src="https://cdn-icons-png.flaticon.com/128/3938/3938028.png"
+                                     alt="트위터 공유 보내기 버튼" style="width:8%;margin: 5px"/>
+                            </a>
+                            <a id="pinterest-sharing-btn" href="javascript:">
+                                <img src="https://cdn-icons-png.flaticon.com/128/3536/3536559.png"
+                                     alt="핀터레스트 공유 보내기 버튼" style="width:8%;border-radius: 10px;margin: 5px"/>
                             </a>
                         </p>
                     </div>
