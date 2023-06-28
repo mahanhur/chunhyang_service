@@ -65,7 +65,7 @@ let register_review = {
         item_get.init();
     });
 </script>
-<body>
+
 
 <!-- 현재 보고있는 PRODUCT -->
 <section>
@@ -202,7 +202,7 @@ let register_review = {
                                             data-itemid="${obj.item_id}">
                                         장바구니 추가 <i class="fe fe-shopping-cart ms-2"></i>
                                     </button>
-                                    </div>
+                                </div>
 <%--                                    <div class="col-12 col-lg-auto">--%>
 <%--                                        <!-- 찜하기 -->--%>
 <%--                                        <button class="btn btn-outline-dark w-100 mb-2" data-toggle="button">--%>
@@ -210,25 +210,30 @@ let register_review = {
 <%--                                        </button>--%>
 
 <%--                                    </div>--%>
-                                </div>
-                                <!-- 담당자에게 연락하기 -->
-                                <p>
-                                    <span class="text-gray-500">원하시는 상품이 품절인가요??</span>
-                                    <a class="text-reset text-decoration-underline" data-bs-toggle="modal" href="#modalWaitList">담당자에게 연락 주세요!</a>
-                                </p>
-                                <!-- 공유하기 -->
-                                <p class="mb-0">
-                                    <span class="me-4">공유하기:</span>
-                                    <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                    <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                    <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                        <i class="fab fa-pinterest-p"></i>
-                                    </a>
-                                </p>
+                            </div>
+                            <!-- 담당자에게 연락하기 -->
+                            <p>
+                                <span class="text-gray-500">원하시는 상품이 품절인가요??</span>
+                                <a class="text-reset text-decoration-underline" data-bs-toggle="modal" href="#modalWaitList">담당자에게 연락 주세요!</a>
+                            </p>
+                            <!-- 공유하기 -->
+                            <p class="mb-0">
+                                <span class="me-4">공유하기:</span>
+                                <%-- 카카오공유하기 --%>
+                                <a id="kakaotalk-sharing-btn" href="javascript:">
+                                    <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+                                         alt="카카오톡 공유 보내기 버튼" style="width:8%;"/>
+                                </a>
+                                <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                            </p>
                         </form>
                         <hr>
                         <img src="/uimg/bipum2.jpg" style="width: 400px">
@@ -347,70 +352,68 @@ let register_review = {
                     <%--첫번째 추천 아이템시작--%>
                     <c:forEach var="recommandlist" items="${recommandlist}">
 
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-                        <!-- Card -->
-                        <div class="card mb-7">
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                            <!-- Card -->
+                            <div class="card mb-7">
 
-                            <!-- Badge -->
-                            <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">
-                                <strong>Rank: ${recommandlist.rank}</strong>
-                            </div>
+                                <!-- Badge -->
+                                <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">
+                                    <strong>Rank: ${recommandlist.rank}</strong>
+                                </div>
 
-                            <!-- Image -->
-                            <div class="card-img">
                                 <!-- Image -->
-                                <a  href="/bipum/detail?item_id=${recommandlist.item_id}">
-                                    <img class="card-img-top card-img-back" src="/uimg/${recommandlist.item_img}" alt="...">
-                                </a>
+                                <div class="card-img">
+                                    <!-- Image -->
+                                    <a  href="/bipum/detail?item_id=${recommandlist.item_id}">
+                                        <img class="card-img-top card-img-back" src="/uimg/${recommandlist.item_img}" alt="...">
+                                    </a>
 
-                                <!-- Actions -->
-                                <div class="card-actions">
-                                  <span class="card-action">
-                                    <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
-                                      <i class="fe fe-eye"></i>
-                                    </button>
-                                  </span>
-                                  <span class="card-action">
-                                    <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                                      <i class="fe fe-shopping-cart"></i>
-                                    </button>
-                                  </span>
-                                  <span class="card-action">
-                                    <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
-                                      <i class="fe fe-heart"></i>
-                                    </button>
-                                  </span>
+                                    <!-- Actions -->
+                                    <div class="card-actions">
+                                      <span class="card-action">
+                                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                                          <i class="fe fe-eye"></i>
+                                        </button>
+                                      </span>
+                                      <span class="card-action">
+                                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                                          <i class="fe fe-shopping-cart"></i>
+                                        </button>
+                                      </span>
+                                      <span class="card-action">
+                                        <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                                          <i class="fe fe-heart"></i>
+                                        </button>
+                                      </span>
+                                    </div>
+
                                 </div>
 
-                            </div>
+                                <!-- Body -->
+                                <div class="card-body px-0">
 
-                            <!-- Body -->
-                            <div class="card-body px-0">
+                                    <!-- Category -->
+                                    <div class="fs-bold">
+                                        <h6>${recommandlist.item_name}</h6>
+                                    </div>
 
-                                <!-- Category -->
-                                <div class="fs-bold">
-                                    <h6>${recommandlist.item_name}</h6>
-                                </div>
+                                    <!-- Title -->
+                                    <div class="fw-xs">
+                                        ${recommandlist.item_content}
+                                    </div>
+                                    <!-- Price -->
+                                    <div class="fw-bold text-muted">
+                                        ${recommandlist.item_price}
+                                    </div>
 
-                                <!-- Title -->
-                                <div class="fw-xs">
-                                    ${recommandlist.item_content}
-                                </div>
-                                <!-- Price -->
-                                <div class="fw-bold text-muted">
-                                    ${recommandlist.item_price}
                                 </div>
 
                             </div>
 
                         </div>
-
-                    </div>
                     </c:forEach>
 
-                        </div>
 
-                    </div>
                 </div>
 
             </div>
@@ -445,8 +448,8 @@ let register_review = {
                             </div>
 
                         </div>
-
                     </div>
+
                     <div class="col-12 col-md text-md-center">
 
                         <!-- Rating -->
@@ -470,8 +473,8 @@ let register_review = {
 
                         <!-- Count -->
                         <strong class="fs-sm ms-2">평균별점: ${itemReview.avgscore}점</strong>
-
                     </div>
+
                     <div class="col-12 col-md-auto">
 
                         <!-- 리뷰 출력 Button -->
@@ -519,23 +522,23 @@ let register_review = {
                                             <i class="fas fa-star"></i>
                                         </div>
                                     </div>
-
                                 </div>
 
                             </div>
-                                <!-- 제목 -->
-                                <div class="col-12 form-group">
-                                    <label class="visually-hidden" for="review_title">제목:</label>
-                                    <input class="form-control form-control-sm" id="review_title" name="review_title" type="text" placeholder="제목을 적으세요*" required>
-                                </div>
 
-                                <!-- 리뷰 -->
-                                <div class="col-12 form-group">
-                                    <label class="visually-hidden" for="review_content">리뷰:</label>
-                                    <textarea class="form-control form-control-sm" id="review_content" name="review_content" rows="5" placeholder="솔직한 리뷰를 부탁드립니다*" required></textarea>
-                                </div>
+                            <!-- 제목 -->
+                            <div class="col-12 form-group">
+                                <label class="visually-hidden" for="review_title">제목:</label>
+                                <input class="form-control form-control-sm" id="review_title" name="review_title" type="text" placeholder="제목을 적으세요*" required>
+                            </div>
 
-                                 <div class="col-12 text-center">
+                            <!-- 리뷰 -->
+                            <div class="col-12 form-group">
+                                <label class="visually-hidden" for="review_content">리뷰:</label>
+                                <textarea class="form-control form-control-sm" id="review_content" name="review_content" rows="5" placeholder="솔직한 리뷰를 부탁드립니다*" required></textarea>
+                            </div>
+
+                            <div class="col-12 text-center">
                                 <!-- Button -->
                                 <button class="btn btn-outline-dark" id="register_btn" type="submit">리뷰등록</button>
                             </div>
@@ -547,89 +550,89 @@ let register_review = {
                 <!-- 다른고객이 등록한 리뷰 시작-->
                 <div class="mt-8">
                     <c:forEach var="obj" items="${reviewlist}">
-                    <!-- Review -->
-                    <div class="review">
-                        <div class="review-body">
-                            <div class="row">
-                                <div class="col-12 col-md-auto">
+                        <!-- Review -->
+                        <div class="review">
+                            <div class="review-body">
+                                <div class="row">
+                                    <div class="col-12 col-md-auto">
 
-                                    <!-- Avatar -->
-                                    <div class="avatar avatar-xxl mb-6 mb-md-0">
-                                        <span class="avatar-title rounded-circle">
-                                          <i class="fa fa-user"></i>
-                                        </span>
-                                    </div>
-
-                                </div>
-                                <div class="col-12 col-md">
-
-                                    <!-- Header -->
-                                    <div class="row mb-6">
-                                        <div class="col-12">
-                                            <!-- 별점 시작 -->
-                                            <div class="rating fs-sm text-dark" data-value=${obj.review_score}>
-                                                <div class="rating-item">
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <div class="rating-item">
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <div class="rating-item">
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <div class="rating-item">
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <div class="rating-item">
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <!-- 별점 끝-->
-                                        </div>
-                                        <div class="col-12">
-
-                                            <!-- (1) 작성자. 작성일자 시작 -->
-                                            <span class="fs-xs text-muted">
-                                            작성자: ${obj.cust_id}
-                                            작성일자: <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${obj.review_rdata}"/>
+                                        <!-- Avatar -->
+                                        <div class="avatar avatar-xxl mb-6 mb-md-0">
+                                            <span class="avatar-title rounded-circle">
+                                               <i class="fa fa-user"></i>
                                             </span>
                                         </div>
-                                        <!-- 작성자. 작성일자 끝 -->
+
                                     </div>
-                                    <!-- (2) 리뷰 제목 -->
-                                    <p class="mb-2 fs-lg fw-bold">${obj.review_title}</p>
-                                    <!-- (3) 리뷰 본문 -->
-                                    <p class="text-gray-500">${obj.review_content}</p>
 
+                                    <div class="col-12 col-md">
 
-                                    <!-- Footer -->
-                                    <div class="row align-items-center">
-                                        <div class="col-auto d-none d-lg-block">
-
-                                            <!-- Text -->
-                                            <p class="mb-0 fs-sm">리뷰가 도움이 되었나요?</p>
-
-                                        </div>
-                                        <div class="col-auto me-auto">
-
-                                            <!-- Rate -->
-                                            <div class="rate">
-                                                <a class="rate-item" data-toggle="vote" data-count="3" href="#" role="button">
-                                                    <i class="fe fe-thumbs-up"></i>
-                                                </a>
-                                                <a class="rate-item" data-toggle="vote" data-count="0" href="#" role="button">
-                                                    <i class="fe fe-thumbs-down"></i>
-                                                </a>
+                                        <!-- Header -->
+                                        <div class="row mb-6">
+                                            <div class="col-12">
+                                                <!-- 별점 시작 -->
+                                                <div class="rating fs-sm text-dark" data-value=${obj.review_score}>
+                                                    <div class="rating-item">
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                    <div class="rating-item">
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                    <div class="rating-item">
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                    <div class="rating-item">
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                    <div class="rating-item">
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <!-- 별점 끝-->
                                             </div>
 
+                                            <div class="col-12">
+
+                                                <!-- (1) 작성자. 작성일자 시작 -->
+                                                <span class="fs-xs text-muted">
+                                                작성자: ${obj.cust_id}
+                                                작성일자: <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${obj.review_rdata}"/>
+                                                </span>
+                                            </div>
+                                            <!-- 작성자. 작성일자 끝 -->
                                         </div>
+                                        <!-- (2) 리뷰 제목 -->
+                                        <p class="mb-2 fs-lg fw-bold">${obj.review_title}</p>
+                                        <!-- (3) 리뷰 본문 -->
+                                        <p class="text-gray-500">${obj.review_content}</p>
+
+
+                                        <!-- Footer -->
+                                        <div class="row align-items-center">
+                                            <div class="col-auto d-none d-lg-block">
+                                                <!-- Text -->
+                                                <p class="mb-0 fs-sm">리뷰가 도움이 되었나요?</p>
+                                            </div>
+
+                                            <div class="col-auto me-auto">
+
+                                                <!-- Rate -->
+                                                <div class="rate">
+                                                    <a class="rate-item" data-toggle="vote" data-count="3" href="#" role="button">
+                                                        <i class="fe fe-thumbs-up"></i>
+                                                    </a>
+                                                    <a class="rate-item" data-toggle="vote" data-count="0" href="#" role="button">
+                                                        <i class="fe fe-thumbs-down"></i>
+                                                    </a>
+                                                </div>
+
+                                            </div>
+                                        </div> <!-- footer end -->
 
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </c:forEach>
                 </div>
                 <!-- 다른고객이 등록한 리뷰 끝-->
@@ -776,4 +779,3 @@ let register_review = {
     </div>
 </section>
 
-</body>
