@@ -151,5 +151,10 @@ public class MainController {
         model.addAttribute("center", "pic");
         return "index";
     }
+    @RequestMapping("/kakaopaysuccess")
+    public String kakaopaysuccess(Model model) {
+        model.addAttribute("center", "kakaopaysuccess");
+        return "index";
+    }
 
 }

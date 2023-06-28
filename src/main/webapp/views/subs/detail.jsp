@@ -85,8 +85,8 @@
                 'https://kukka.kr/static/kukkart_new/img/contents/subscribe_intro/lineup_003.png',
         link: {
           // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
-          mobileWebUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${obj.subsitem_id}',
-          webUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${obj.subsitem_id}',
+          mobileWebUrl: 'http://49.50.160.198/subs/detail?subsitem_id=${obj.subsitem_id}',
+          webUrl: 'http://49.50.160.198/subs/detail?subsitem_id=${obj.subsitem_id}',
         },
       },
       commerce: {
@@ -97,8 +97,8 @@
         {
           title: '자세히보기',
           link: {
-            mobileWebUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${obj.subsitem_id}',
-            webUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${obj.subsitem_id}',
+            mobileWebUrl: 'http://49.50.160.198/subs/detail?subsitem_id=${obj.subsitem_id}',
+            webUrl: 'http://49.50.160.198/subs/detail?subsitem_id=${obj.subsitem_id}',
           },
         }
       ],
@@ -164,18 +164,22 @@
                       <p class="mb-5">
                         <strong id="colorCaption">${obj.subsitem_content}</strong>
                       </p>
-<%--                      카카오공유하기--%>
+                      <%--카카오공유하기--%>
                       <a id="kakaotalk-sharing-btn" href="javascript:">
                         <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
-                             alt="카카오톡 공유 보내기 버튼" style="width:8%;"/>
+                             alt="카카오톡 공유 보내기 버튼" style="width:8%;margin: 5px"/>
                       </a>
                       <a id="facebook-sharing-btn" href="javascript:">
-                        <img src="/uimg/facebook.png"
-                             alt="페이스북 공유 보내기 버튼" style="width:10%;"/>
+                        <img src="https://cdn-icons-png.flaticon.com/128/1384/1384863.png"
+                             alt="페이스북 공유 보내기 버튼" style="width:8%;border-radius: 10px;margin: 5px"/>
                       </a>
                       <a id="twitter-sharing-btn" href="javascript:">
-                        <img src="/uimg/twitter.png"
-                             alt="트위터 공유 보내기 버튼" style="width:8%;"/>
+                        <img src="https://cdn-icons-png.flaticon.com/128/3938/3938028.png"
+                             alt="트위터 공유 보내기 버튼" style="width:8%;margin: 5px"/>
+                      </a>
+                      <a id="pinterest-sharing-btn" href="javascript:">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3536/3536559.png"
+                             alt="핀터레스트 공유 보내기 버튼" style="width:8%;border-radius: 10px;margin: 5px"/>
                       </a>
                       <hr/>
                     </div>

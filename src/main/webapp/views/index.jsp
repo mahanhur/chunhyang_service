@@ -32,6 +32,9 @@
 
   <%-- fixed-tab icon --%>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<%--toastr library--%>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <%--  <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">--%>
 
@@ -161,7 +164,7 @@
         cbsetConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe('/topic/public', function (message) {
-          cbshowMessage("<tr><td><img src='/uimg/flower.png' alt='도우미AI' style='width:20px;'>" +"도우미AI: " + message.body + "<tr><td>"); //서버에 메시지 전달 후 리턴받는 메시지
+          cbshowMessage("<tr><td><img src='/uimg/flower.png' alt='꽃집사' style='width:20px;'>" +"꽃집사AI: " + message.body + "<tr><td>"); //서버에 메시지 전달 후 리턴받는 메시지
         });
       });
     }
@@ -188,10 +191,16 @@
     $(function () {
       // $( "#cbconnect" ).click(function() { cbconnect(); });
       cbconnect();
-      $('#communicate').append("<tr><td><img src='/uimg/flower.png' alt='도우미AI' style='width:20px;'>" + "도우미AI: 안녕하세요? 봄의 향기, 춘향전의 도우미AI입니다." + "</td></tr>")
-      $('#communicate').append("<tr><td><img src='/uimg/flower.png' alt='도우미AI' style='width:20px;'>" + "도우미AI: 무엇을 도와드릴까요?" + "</td></tr>")
+      $('#communicate').append("<tr><td><img src='/uimg/flower.png' alt='꽃집사' style='width:20px;'>" + "꽃집사: 안녕하세요? 봄의 향기, 춘향전의 도우미AI, '꽃집사'입니다." + "</td></tr>")
+      $('#communicate').append("<tr><td><img src='/uimg/flower.png' alt='꽃집사' style='width:20px;'>" + "꽃집사: 무엇을 도와드릴까요?" + "</td></tr>")
       $( "#cbdisconnect" ).click(function() { cbdisconnect(); });
-      $( "#cbsend" ).click(function() { cbsendMessage(); });
+      $( "#cbsend" ).click(function() { cbsendMessage();$('#cbmsg').val(''); });
+      $('#cbmsg').keypress(function(event) {
+        if (event.keyCode === 13) {
+            cbsendMessage();
+            $('#cbmsg').val('');
+        }
+      });
     });
 
   </script>
@@ -287,40 +296,40 @@
   })
 </script>
 
-  <%--  카카오공유하기--%>
-<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"
-          integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>
+<%--  &lt;%&ndash;  카카오공유하기&ndash;%&gt;--%>
+<%--<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"--%>
+<%--          integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>--%>
 
-<script>
+<%--<script>--%>
 
-    $( function() {
-      Kakao.init('c91de3a9ba7f48da3cb562c2fc973026');
-      Kakao.Share.createDefaultButton({
-        container: '#kakaotalk-sharing-btn',
-        objectType: 'feed',
-        content: {
-          title: '오늘의 꽃 - ${todayFlower.flowerName}',
-          description: '꽃말: ${todayFlower.flowerMeaning}',
-          imageUrl:
-                  '${todayFlower.imgUrl1}',
-          link: {
-            // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
-            mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
-            webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
-          },
-        },
-        buttons: [
-          {
-            title: '자세히 보기',
-            link: {
-              mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
-              webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
-            },
-          },
-        ],
-      });
-    })
-</script>
+<%--    $( function() {--%>
+<%--      Kakao.init('c91de3a9ba7f48da3cb562c2fc973026');--%>
+<%--      Kakao.Share.createDefaultButton({--%>
+<%--        container: '#kakaotalk-sharing-btn',--%>
+<%--        objectType: 'feed',--%>
+<%--        content: {--%>
+<%--          title: '오늘의 꽃 - ${todayFlower.flowerName}',--%>
+<%--          description: '꽃말: ${todayFlower.flowerMeaning}',--%>
+<%--          imageUrl:--%>
+<%--                  '${todayFlower.imgUrl1}',--%>
+<%--          link: {--%>
+<%--            // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함--%>
+<%--            mobileWebUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',--%>
+<%--            webUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',--%>
+<%--          },--%>
+<%--        },--%>
+<%--        buttons: [--%>
+<%--          {--%>
+<%--            title: '자세히 보기',--%>
+<%--            link: {--%>
+<%--              mobileWebUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',--%>
+<%--              webUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',--%>
+<%--            },--%>
+<%--          },--%>
+<%--        ],--%>
+<%--      });--%>
+<%--    })--%>
+<%--</script>--%>
 
 <script>
 
@@ -368,6 +377,7 @@
 
     $(function () {
       search.init()
+
     });
 </script>
 
@@ -441,7 +451,7 @@
         <!-- Content -->
         <div class="chatbot-content">
           <div class="chatbot-header">
-            <h4 class="chatbot-title">챗봇</h4>
+            <h4 class="chatbot-title">춘향전 도우미AI 꽃집사</h4>
           </div>
           <div class="chatbot-body">
             <div class="chatbot-messages" id="communicate"></div>
@@ -629,12 +639,13 @@
 
       <!-- Nav -->
       <ul class="navbar-nav flex-row" style="align-items: center;">
+        <c:if test="${logincust != null}"> <%--로그인커스트(로그인한경우) 에만 보이게 해라--%>
         <li class="nav-item" style="align-items: center;">
           <a class="nav-link callcentericon" data-bs-toggle="modal" data-bs-target="#callcenter" style="padding: 0 16px">
             <img src="/uimg/callcenter.png" style="width: 20px;cursor: pointer;">
           </a>
         </li>
-
+        </c:if>
           <li class="nav-item ms-lg-n4" style="align-items: center;">
               <a class="nav-link sunicon" href="/weather/weather" style="font-size: 20px;padding: 0 16px;">
                 <i class="fe fe-sun"></i>
@@ -646,7 +657,7 @@
             <i class="fe fe-search"></i>
           </a>
         </li>
-
+        <c:if test="${logincust != null}"> <%--로그인커스트(로그인한경우) 에만 보이게 해라--%>
         <li class="nav-item ms-lg-n4" style="display: flex; align-items: center;">
           <a class="nav-link" href="/cart/all?cust_id=${logincust.cust_id}">
             <%--          모달로 할꺼면..... data-bs-toggle="offcanvas" href="#modalShoppingCart"--%>
@@ -655,7 +666,7 @@
             </span>
           </a>
         </li>
-
+        </c:if>
         <%--        <li class="nav-item ms-lg-n4" style="align-items: center;">--%>
         <%--          <a class="nav-link" href="/account-wishlist">--%>
         <%--            <i class="fe fe-heart"></i>--%>

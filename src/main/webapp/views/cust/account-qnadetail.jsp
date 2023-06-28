@@ -28,12 +28,16 @@
                   ${gqna.qna_contents}
                 </div>
               <div class="col-12 col-lg-6 col-xl-7">
+                <c:if test="${gqna.qna_image1 != null}">
                 <a href="#" data-bigpicture='{ "imgSrc": "/uimg/${gqna.qna_image1}"}'>
                   <img src="/uimg/${gqna.qna_image1}" alt="..." width="50px">
                 </a>
+                </c:if>
+                <c:if test="${gqna.qna_image2 != null}">
                 <a href="#" data-bigpicture='{ "imgSrc": "/uimg/${gqna.qna_image2}"}'>
                   <img src="/uimg/${gqna.qna_image2}" alt="..." width="50px">
                 </a>
+                </c:if>
               </div>
             <hr>
             <br>
@@ -56,7 +60,6 @@
               <div class="form-group mb-0">
                 <div class="row gx-5">
                   <div class="col-12 col-lg-auto">
-
                     <!-- 만족도 점수 -->
                     <select class="form-select mb-2">
                       <option value="1">1 점</option>
@@ -71,9 +74,7 @@
                     <button type="submit" class="btn w-100 btn-dark mb-2" disabled >
                       답변만족도 제출<i class="fe fe-heart ms-2"></i>
                     </button>
-
                   </div>
-
                   <!-- 채팅상담 -->
                   <a data-bs-toggle="modal" data-bs-target="#callcenter"><div class="alert alert-danger">
                     <strong> 답변이 만족스럽지 못하신가요? ☞ 1:1채팅상담 하기</strong>

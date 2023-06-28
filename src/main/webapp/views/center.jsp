@@ -25,6 +25,9 @@
 
   $(function(){
     today_form.init();
+    <%--if(${rtoastr}) {--%>
+    <%--  alert("회원가입이 완료되었습니다😍😍😍");--%>
+    <%--}--%>
   })
 </script>
 
@@ -61,6 +64,7 @@
     <%------------------------인기검색어-------------------------------%>
 
     var defaultData = 'http://127.0.0.1/logs/itemcountlog.log';
+    // var defaultData = 'http://49.50.160.198/logs/itemcountlog.log';
     var urlInput = document.getElementById('fetchURL1');
     var pollingCheckbox = document.getElementById('enablePolling1');
     var pollingInput = document.getElementById('pollingTime1');
@@ -199,6 +203,10 @@
                   }
                 });
                 document.getElementById('rank-title-1').textContent = seriesData[0].id;
+                document.getElementById('rank-title-2').textContent = seriesData[1].id;
+                document.getElementById('rank-title-3').textContent = seriesData[2].id;
+                document.getElementById('rank-title-4').textContent = seriesData[3].id;
+                document.getElementById('rank-title-5').textContent = seriesData[4].id;
               });
     }
 
@@ -297,16 +305,16 @@
                 '${todayFlower.imgUrl1}',
         link: {
           // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
-          mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
-          webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+          mobileWebUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+          webUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
         },
       },
       buttons: [
         {
           title: '자세히 보기',
           link: {
-            mobileWebUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
-            webUrl: 'http://172.16.20.108/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+            mobileWebUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+            webUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
           },
         },
       ],
@@ -332,7 +340,7 @@
             <div class="text-center">
               <span class="text-white heading-xxs letter-spacing-xl">
                 🌸🌸[<span id="server_time"></span>]<span class="today_txt1">오늘의 꽃은</span><span style="text-decoration: underline white; cursor: pointer">
-                  <a data-bs-toggle="modal" data-bs-target="#todayflower">${todayFlower.flowerName}</a>
+                  <a class="todayflower_for_lang text-warning" data-bs-toggle="modal" data-bs-target="#todayflower">${todayFlower.flowerName}</a>
                   </span><span class="today_txt2">입니다</span>🌸🌸
               </span>
             </div>
@@ -341,7 +349,15 @@
               <div id="search-ranking">
                 <div class="text-center text-white">
                   <span id="rank-number-1">1</span>
-                  <span id="rank-title-1"></span>
+                  <span id="rank-title-1"></span><br/>
+                  <span id="rank-number-2">2</span>
+                  <span id="rank-title-2"></span><br/>
+                  <span id="rank-number-3">3</span>
+                  <span id="rank-title-3"></span><br/>
+                  <span id="rank-number-4">4</span>
+                  <span id="rank-title-4"></span><br/>
+                  <span id="rank-number-5">5</span>
+                  <span id="rank-title-5"></span>
                 </div>
                 <div>
 <%--                  <h6 class="text-center">인기 검색어👀</h6>--%>
@@ -359,26 +375,6 @@
                   </div>
                 </div>
 
-<%--                  <li>--%>
-<%--                    <span class="rank-number">1</span>--%>
-<%--                    <span class="rank-title1"></span>--%>
-<%--                  </li>--%>
-<%--                  <li>--%>
-<%--                    <span class="rank-number">2</span>--%>
-<%--                    <span class="rank-title2"></span>--%>
-<%--                  </li>--%>
-<%--                  <li>--%>
-<%--                    <span class="rank-number">3</span>--%>
-<%--                    <span class="rank-title3"></span>--%>
-<%--                  </li>--%>
-<%--                  <li>--%>
-<%--                    <span class="rank-number">4</span>--%>
-<%--                    <span class="rank-title4"></span>--%>
-<%--                  </li>--%>
-<%--                  <li>--%>
-<%--                    <span class="rank-number">5</span>--%>
-<%--                    <span class="rank-title5"></span>--%>
-<%--                  </li>--%>
 
               </div>
             </div> <!-- ranking end -->

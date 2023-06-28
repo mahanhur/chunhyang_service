@@ -18,7 +18,7 @@
 
             <!-- Text -->
             <p class="mb-7 text-gray-500">
-              고객님의 주문 <span class="text-body text-decoration-underline">(주문번호: ${subs_id})</span> 이 성공적으로 완료되었습니다.
+              고객님의 주문이 성공적으로 완료되었습니다.
               '마이페이지'에서 고객님의 주문을 확인 및 수정하실 수 있습니다!
             </p>
 
