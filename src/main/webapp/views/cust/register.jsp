@@ -96,6 +96,7 @@
         value = value.replace(/[^0-9]/g, ''); // 비 숫자 문자 제거
         $(this).val(value);
       });
+
       $('#phone').keyup(function () {
         var phone = $('#phone').val();
         if (phone.length < 10 || phone.length>=12) {
@@ -269,33 +270,35 @@
             </div>
 
             <div class="col-12 col-md-6">
-              <!-- Phone -->
+              <!-- 휴대폰 -->
               <div class="form-group">
                 <label class="form-label">
                   PHONE *
                 </label>
                 <input class="form-control form-control-sm" id="phone" type="text" name="phone" placeholder="전화번호를 입력하세요 *">
+                <div style="font-size:12px;padding-bottom: 10px" id="check_phone"></div>
               </div>
             </div>
 
             <div class="col-12 col-md-6">
-              <!-- Phone -->
+              <!-- 나이 -->
               <div class="form-group">
                 <label class="form-label">
                   Age *
                 </label>
-                <div style="font-size:12px;padding-bottom: 10px" id="check_phone"></div>
                 <input class="form-control form-control-sm" id="age" type="int" name="age" placeholder="나이를 입력하세요 *">
               </div>
             </div>
 
+
+
             <div class="col-12 col-md-12">
-              <!-- Email -->
+              <!-- 이메일 -->
               <div class="form-group">
                 <label class="form-label">
                   Email Address *
                 </label>
-                <input class="form-control form-control-sm" id="email" type="email" name="email" placeholder="이메일을 입력하세요 *">
+                <input class="form-control form-control-sm" id="email" type="email" name="email" placeholder="이메일을 입력하세요 *" required autofocus>
                 <div style="font-size:12px;padding-bottom: 10px" id="check_email"></div>
               </div>
             </div>

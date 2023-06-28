@@ -194,7 +194,7 @@ let register_review = {
                             <div class="row gx-5 mb-7">
                                 <div class="col-12 col-lg-auto">
                                     <!-- Quantity -->
-                                    <input type="number" id="inputcnt" class="form-control form-control-sm" value="${cnt}"/>
+                                    <input type="number" id="inputcnt" class="form-control form-control-sm" value="${empty cnt ? 1 : cnt}"/>
                                 </div>
                                 <div class="col-12 col-lg">
                                     <!-- Submit -->
