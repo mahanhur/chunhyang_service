@@ -158,36 +158,15 @@
             <div class="row align-items-center">
               <div class="col-12 col-lg-6">
                 <div class="row gx-5 mb-4 mb-lg-0">
+                  <c:forEach var="dobj" items="${odlist}" varStatus="status">
+                    <c:if test="${obj.order_id == dobj.order_id}">
                   <div class="col-3">
 <%--                  주문상품 사진--%>
                     <!-- Image -->
-                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(/assets/img/products/product-5.jpg);"></div>
-
+                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(/uimg/${dobj.item_img});"></div>
                   </div>
-                  <div class="col-3">
-
-                    <!-- Image -->
-                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(/assets/img/products/product-112.jpg);"></div>
-
-                  </div>
-                  <div class="col-3">
-
-                    <!-- Image -->
-                    <div class="ratio ratio-1x1 bg-cover" style="background-image: url(/assets/img/products/product-7.jpg);"></div>
-
-                  </div>
-                  <div class="col-3">
-
-                    <!-- Image -->
-                    <div class="ratio ratio-1x1 bg-light">
-                      <a class="ratio-item ratio-item-text text-reset" href="#!">
-                        <div class="fs-xxs fw-bold">
-                          +2 <br> more
-                        </div>
-                      </a>
-                    </div>
-
-                  </div>
+                    </c:if>
+                  </c:forEach>
                 </div>
               </div>
               <div class="col-12 col-lg-6">

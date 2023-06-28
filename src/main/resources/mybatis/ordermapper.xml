@@ -14,6 +14,14 @@
                  JOIN item i ON d.item_id = i.item_id
         WHERE o.order_id = #{order_id}
     </select>
+    <select id="getallorderdetail" parameterType="String" resultType="orderdetail">
+        SELECT o.order_id, o.cust_id, o.order_date, o.order_amount, o.user_point, o.pay_amount,
+               d.orderdetail_id, d.item_id, d.order_cnt, i.item_img, i.item_name
+        FROM item_order o
+                 JOIN orderdetail d ON o.order_id = d.order_id
+                 JOIN item i ON d.item_id = i.item_id
+        WHERE cust_id = #{cust_id}
+    </select>
     <select id="select" parameterType="int" resultType="order">
         SELECT * FROM item_order WHERE order_id=#{order_id}
     </select>
