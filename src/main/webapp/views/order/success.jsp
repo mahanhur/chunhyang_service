@@ -23,7 +23,7 @@
             </p>
 
             <!-- Button -->
-            <a class="btn btn-dark" href="/cust/account-orders">
+            <a class="btn btn-dark" href="/order/all?cust_id=${logincust.cust_id}">
               마이페이지
             </a>
 
