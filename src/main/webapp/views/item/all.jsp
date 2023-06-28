@@ -4,6 +4,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <script>
+
   let dabal_sort = {
     init: function () {
       $("input[name='dabaltype']").change(function () {
@@ -101,56 +102,11 @@
     }
   };
 
-  // let lineup = {
-  //   init: function(){
-  //     $("input[name='sort']").change(function () {
-  //       let sortnumber= $("input[name='sort']:checked").val();
-  //       console.log(sortnumber);
-  //
-  //       $.ajax({
-  //         url: '/item/lineupimpl',
-  //         type: 'post',
-  //         data: {sortnumber: sortnumber},
-  //         success: function (data) {
-  //           alert(data);
-  //           console.log(data);
-  //           var sortingField = "price";
-  //           var result = data.sort(function (a, b) {
-  //             return a[sortingField] - b[sortingField];
-  //             console.log(result);
-  //             lineup.result(result);
-  //         })
-  //         }
-  //       })
-  //     })
-  //   },
-  //   result: function(result) {
-  //     let tags = "";
-  //     for (let i = 0; i < result.length; i++) {
-  //       tags = '<div class="row align-items-center position-relative mb-5"><div class="col-4 col-md-3">';
-  //       tags += '<img class="img-fluid" src="/uimg/';
-  //       tags += result[i].item_img;
-  //       tags += '">';
-  //       tags += '</div>';
-  //       tags += ' <div class="col position-static"><p class="mb-0 fw-bold"><a class="stretched-link text-body" href="/item/detail?item_id=';
-  //       tags += result[i].item_id;
-  //       tags += '">';
-  //       tags += result[i].item_name;
-  //       tags += '</a> <br>';
-  //       tags += '<td>';
-  //       tags += ' <span class="text-muted">';
-  //       tags += result[i].item_price.toLocaleString() + '원';
-  //       tags += '</span></p></div></div>';
-  //       $('#itemcontainer').append(tags);
-  //     }
-  //   }}
-
 
   $(function () {
     dabal_sort.init();
     flower_sort.init();
     item_get.init();
-    lineup.init();
   });
 </script>
 
@@ -548,8 +504,8 @@
 <section class="py-12">
   <div class="container">
     <div id="itemcontainer" class="row">
-      <c:forEach var="obj" items="${ilist}" varStatus="status">
-        <div class="col-6 col-md-3 col-lg">
+      <c:forEach var="obj" items="${ilist}" begin="0" end="7" step="1" varStatus="status">
+        <div class="col-6 col-md-3 col-lg" id="itemElement${status.count}">
 
             <!-- Card -->
             <div class="card mb-7" data-toggle="card-collapse">
@@ -637,9 +593,9 @@
             </div>
 
             <!-- Button -->
-            <a class="btn btn-sm btn-outline-dark" href="#!">
+            <button id="morebtn" type="button" class="btn btn-sm btn-outline-dark">
               Load more
-            </a>
+            </button>
 
           </div>
         </div>
