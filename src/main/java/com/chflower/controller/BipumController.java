@@ -44,28 +44,6 @@ public class BipumController {
         return "index";
     }
 
-    @RequestMapping("all")
-    public String all(Model model) throws Exception {
-        List<Bipum> list = null;
-        try {
-            list = bipumService.get();
-            // 이전 카운트 값을 가져옴
-            int previousCount = entryCountService.getCountdir(dir);
-
-            // 카운트 증가
-            int newCount = entryCountService.incrementCountdir(dir);
-
-            // 로그 작성
-            log.info(dir + newCount);
-        } catch (Exception e) {
-            throw new Exception("화병/비품 전체 리스트를 가져오지 못함");
-        }
-
-        model.addAttribute("ilist", list);
-        model.addAttribute("left", dir + "left");
-        model.addAttribute("center", dir + "all");
-        return "index";
-    }
     @RequestMapping("/detail")
     public String detail(Model model,Integer item_id, Bipum bipum, Bipumimg bipumimg) throws Exception {
         bipum = bipumService.get(item_id);

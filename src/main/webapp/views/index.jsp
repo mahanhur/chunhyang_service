@@ -631,12 +631,12 @@
       <ul class="navbar-nav flex-row" style="align-items: center;">
         <li class="nav-item" style="align-items: center;">
           <a class="nav-link callcentericon" data-bs-toggle="modal" data-bs-target="#callcenter" style="padding: 0 16px">
-            <img src="/uimg/callcenter.png" style="width: 40px;cursor: pointer;">
+            <img src="/uimg/callcenter.png" style="width: 20px;cursor: pointer;">
           </a>
         </li>
 
           <li class="nav-item ms-lg-n4" style="align-items: center;">
-              <a class="nav-link sunicon" href="/weather/weather" style="font-size: 30px;padding: 0 16px;">
+              <a class="nav-link sunicon" href="/weather/weather" style="font-size: 20px;padding: 0 16px;">
                 <i class="fe fe-sun"></i>
               </a>
           </li>
@@ -646,6 +646,21 @@
             <i class="fe fe-search"></i>
           </a>
         </li>
+
+        <li class="nav-item ms-lg-n4" style="display: flex; align-items: center;">
+          <a class="nav-link" href="/cart/all?cust_id=${logincust.cust_id}">
+            <%--          모달로 할꺼면..... data-bs-toggle="offcanvas" href="#modalShoppingCart"--%>
+            <span id="cartcount" data-cart-items="0">
+                  <i class="fe fe-shopping-cart"></i>
+            </span>
+          </a>
+        </li>
+
+        <%--        <li class="nav-item ms-lg-n4" style="align-items: center;">--%>
+        <%--          <a class="nav-link" href="/account-wishlist">--%>
+        <%--            <i class="fe fe-heart"></i>--%>
+        <%--          </a>--%>
+        <%--        </li>--%>
 
         <li class="nav-item ms-lg-n4 dropdown" style="align-items: center;">
           <c:choose>
@@ -694,20 +709,6 @@
           </c:choose>
         </li>
 
-
-        <li class="nav-item ms-lg-n4" style="align-items: center;">
-          <a class="nav-link" href="/account-wishlist">
-            <i class="fe fe-heart"></i>
-          </a>
-        </li>
-        <li class="nav-item ms-lg-n4" style="display: flex; align-items: center;">
-          <a class="nav-link" href="/cart/all?cust_id=${logincust.cust_id}">
-            <%--          모달로 할꺼면..... data-bs-toggle="offcanvas" href="#modalShoppingCart"--%>
-            <span id="cartcount" data-cart-items="0">
-                  <i class="fe fe-shopping-cart"></i>
-            </span>
-          </a>
-        </li>
       </ul>
 
     </div>

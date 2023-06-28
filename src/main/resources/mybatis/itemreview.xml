@@ -28,4 +28,51 @@
         INSERT INTO ITEM_REVIEW (review_id, cust_id, item_id, review_title, review_content,review_rdata,review_score, review_img)
                VALUES(ITEM_REVIEW_SEQ.NEXTVAL,#{cust_id}, #{item_id}, #{review_title}, #{review_content},SYSDATE,#{review_score},null)
     </insert>
+
+    <select id="dabalreview" resultType="itemreview">
+        SELECT IR.REVIEW_ID, IR.CUST_ID, IR.ITEM_ID, IR.REVIEW_TITLE, IR.REVIEW_CONTENT, IR.REVIEW_IMG, IR.REVIEW_RDATA , IR.REVIEW_SCORE,
+        I.ITEM_IMG, I.ITEM_NAME,I.CATEGORY_ID
+        FROM (
+        SELECT *
+        FROM (
+        SELECT *
+        FROM ITEM_REVIEW
+        ORDER BY REVIEW_RDATA, REVIEW_SCORE DESC
+        )
+
+        ) IR
+        JOIN ITEM I ON IR.ITEM_ID = I.ITEM_ID
+        WHERE I.CATEGORY_ID =100
+        AND   <![CDATA[ rownum < 3 ]]>
+    </select>
+    <select id="flowerreview" resultType="itemreview">
+        SELECT IR.REVIEW_ID, IR.CUST_ID, IR.ITEM_ID, IR.REVIEW_TITLE, IR.REVIEW_CONTENT, IR.REVIEW_IMG, IR.REVIEW_RDATA , IR.REVIEW_SCORE,
+               I.ITEM_IMG, I.ITEM_NAME,I.CATEGORY_ID
+        FROM (
+                 SELECT *
+                 FROM (
+                          SELECT *
+                          FROM ITEM_REVIEW
+                          ORDER BY REVIEW_RDATA, REVIEW_SCORE DESC
+                      )
+        ) IR
+                 JOIN ITEM I ON IR.ITEM_ID = I.ITEM_ID
+        WHERE I.CATEGORY_ID =200
+        AND   <![CDATA[ rownum < 3 ]]>
+    </select>
+    <select id="bipumreview" resultType="itemreview">
+        SELECT IR.REVIEW_ID, IR.CUST_ID, IR.ITEM_ID, IR.REVIEW_TITLE, IR.REVIEW_CONTENT, IR.REVIEW_IMG, IR.REVIEW_RDATA , IR.REVIEW_SCORE,
+               I.ITEM_IMG, I.ITEM_NAME,I.CATEGORY_ID
+        FROM (
+                 SELECT *
+                 FROM (
+                          SELECT *
+                          FROM ITEM_REVIEW
+                          ORDER BY REVIEW_RDATA, REVIEW_SCORE DESC
+                      )
+        ) IR
+                 JOIN ITEM I ON IR.ITEM_ID = I.ITEM_ID
+        WHERE I.CATEGORY_ID in(300,400)
+        AND   <![CDATA[ rownum < 3 ]]>
+    </select>
 </mapper>

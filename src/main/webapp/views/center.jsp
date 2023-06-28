@@ -85,67 +85,67 @@
                     let id = "";
                     switch (idorigin){
                       case "200":
-                        id = "[Special] 사랑의 맹세를 담아, 프로미스 꽃다발";
+                        id = "  프로미스 꽃다발";
                         break;
                       case "210":
-                        id = "여름의 나에게, 베레나핑크 수국";
+                        id = "  베레나핑크 수국";
                         break;
                       case "211":
-                        id = "오묘한 컬러의 감성, 라벤더블루 수국";
+                        id = "  라벤더블루 수국";
                         break;
                       case "212":
-                        id = "여름날 더위를 식혀 줄, 스노우볼 수국";
+                        id = "  스노우볼 수국";
                         break;
                       case "213":
-                        id = "여름 태양같이 뜨겁게, 빨간 수국";
+                        id = "  빨간 수국";
                         break;
                       case "214":
-                        id = "사랑을 맹세할 때, 하젤 장미";
+                        id = "  하젤 장미";
                         break;
                       case "215":
-                        id = "파이어웍스 장미";
+                        id = "  파이어웍스 장미";
                         break;
                       case "216":
-                        id = "순수했던 시절이 그립다면, 마루시아 장미";
+                        id = "  마루시아 장미";
                         break;
                       case "217":
-                        id = "스페인이 생각나면, 클라린스 장미";
+                        id = "  클라린스 장미";
                         break;
                       case "218":
-                        id = "작지만 튼튼한, 랜덤 피콜리니 거베라";
+                        id = "  피콜리니 거베라";
                         break;
                       case "219":
-                        id = "아이의 마음 같은, 랜덤 폼포니 거베라";
+                        id = "  폼포니 거베라";
                         break;
                       case "221":
-                        id = "단아함의 상징, 벤츄라 카라";
+                        id = "  벤츄라 카라";
                         break;
                       case "222":
-                        id = "결혼을 앞둔 너에게, 로베라핑크 리시안셔스";
+                        id = "  핑크 리시안셔스";
                         break;
                       case "223":
-                        id = "순수한 너, 겨울 화이트 리시안셔스";
+                        id = "  화이트 리시안셔스";
                         break;
                       case "224":
-                        id = "로제 와인 빛, 메갈로 샴페인 리시안셔스";
+                        id = "  샴페인 리시안셔스";
                         break;
                       case "225":
-                        id = "변치않는 사랑, 리시안셔스";
+                        id = "  리시안셔스";
                         break;
                       case "227":
-                        id = "싱그러움이 가득한, 그리너리 꽃다발";
+                        id = "  그리너리 꽃다발";
                         break;
                       case "228":
-                        id = "눈부시게 빛나는, 브라이트데이 꽃다발";
+                        id = "  브라이트데이 꽃다발";
                         break;
                       case "229":
-                        id = "상큼함이 필요할 떄, 트로피컬주스 꽃다발";
+                        id = "  트로피컬주스 꽃다발";
                         break;
                       case "230":
-                        id = "수줍었던 그때처럼, 젠틀나잇 꽃다발";
+                        id = "  젠틀나잇 꽃다발";
                         break;
                       case "231":
-                        id = "볼수록 매력적인, 스윗가든 꽃다발";
+                        id = "  스윗가든 꽃다발";
                         break;
                     }
                     return id;
@@ -171,10 +171,15 @@
                 // 화면에 표시
                 var rankingContainer = document.getElementById('rankingContainer');
                 rankingContainer.innerHTML = '';
+                var forh6 = document.createElement('h6');
+                forh6.classList.add('text-center');
+                forh6.textContent = ("인기 검색어👀");
+                rankingContainer.appendChild(forh6);
 
                 seriesData.forEach((item, index) => {
                   // 최대 다섯 개의 요소만 표출
                   if (index < 5) {
+
                     var itemElement = document.createElement('li');
 
                     var itemRank = document.createElement('span');
@@ -338,8 +343,9 @@
                   <span id="rank-number-1">1</span>
                   <span id="rank-title-1"></span>
                 </div>
+                <div>
+<%--                  <h6 class="text-center">인기 검색어👀</h6>--%>
                 <ul id="rankingContainer">
-                  <h6 class="text-center">인기 검색어👀</h6>
 
                 </ul>
                   <div class="ld-row">
@@ -351,6 +357,7 @@
                   <div class="ld-row">
                     <input class="ld-url-input" type="hidden" id="fetchURL1"/>
                   </div>
+                </div>
 
 <%--                  <li>--%>
 <%--                    <span class="rank-number">1</span>--%>
@@ -732,35 +739,31 @@
 
         <!-- Heading -->
         <h2 class="mb-12 text-center">
-          A positive Experience in many ways.
+          [강추!!]<br>최근 후기 좋은 상품
         </h2>
 
       </div>
     </div>
     <div class="row">
+      <!-- 최신리뷰 첫번째 열 시작 -->
       <div class="col-12 col-md-6 col-lg-4">
-
-        <!-- Card -->
+        <c:forEach var="obj" items="${dabalreview}">
         <div class="card card-lg mb-11">
           <div class="card-body text-center bg-light">
 
             <!-- Avatar -->
-            <img src="assets/img/avatars/avatar-1.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
-
+            <a href="/item/detail?item_id=${obj.item_id}">
+            <img src="/uimg/${obj.item_img}" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
+            </a>
             <!-- Text -->
             <blockquote class="blockquote mb-0">
 
               <!-- Text -->
               <p class="fs-lg fst-normal">
-                From creepeth said moved given
-                divide make multiply of him shall itself
-                also above second doesn't unto
-                created saying land herb sea midst
-                night wherein.
+              ${obj.review_title}
               </p>
-
               <!-- Rating -->
-              <div class="rating fs-xs text-warning mb-2" data-value="5">
+              <div class="rating fs-xs text-warning mb-2" data-value=${obj.review_score}>
                 <div class="rating-item">
                   <i class="fas fa-star"></i>
                 </div>
@@ -780,264 +783,116 @@
 
               <!-- Footer -->
               <footer class="blockquote-footer">
-                Catherine Hicks, 21 Jul 2019
+              <fmt:formatDate  value="${obj.review_rdata}" pattern="yyyy-MM-dd" />
               </footer>
 
             </blockquote>
 
           </div>
         </div>
-
-        <!-- Card -->
-        <div class="card card-lg mb-11">
-          <div class="card-body text-center bg-light">
-
-            <!-- Avatar -->
-            <img src="assets/img/avatars/avatar-4.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
-
-            <!-- Text -->
-            <blockquote class="blockquote mb-0">
-
-              <!-- Text -->
-              <p class="fs-lg fst-normal">
-                Creeping his under doesn't.
-                Above two fourth dry open blessed
-                our creeping, made great.
-              </p>
-
-              <!-- Rating -->
-              <div class="rating fs-xs text-warning mb-2" data-value="5">
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-
-              <!-- Footer -->
-              <footer class="blockquote-footer">
-                Jason Griffith, 05 Jul 2019
-              </footer>
-
-            </blockquote>
-
-          </div>
-        </div>
-
+        </c:forEach>
       </div>
+      <!-- 최신리뷰 첫번째 열 끝 -->
+
+      <!-- 최신리뷰 두번째 열 시작 -->
       <div class="col-12 col-md-7 col-lg-4">
+        <c:forEach var="obj" items="${flowerreview}">
+          <div class="card card-lg mb-11">
+            <div class="card-body text-center bg-light">
 
-        <!-- Card -->
-        <div class="card card-lg mb-11">
-          <div class="card-body text-center bg-light">
-
-            <!-- Avatar -->
-            <img src="assets/img/avatars/avatar-2.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
-
-            <!-- Text -->
-            <blockquote class="blockquote mb-0">
-
+              <!-- Avatar -->
+              <a href="/item/detail?item_id=${obj.item_id}">
+              <img src="/uimg/${obj.item_img}" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
+              </a>
               <!-- Text -->
-              <p class="fs-lg fst-normal">
-                Gathered to were female. That dry
-                our so likeness light cattle his you'll
-                fill blessed replenish doesn't god
-                night tree.
-              </p>
-
-              <!-- Rating -->
-              <div class="rating fs-xs text-warning mb-2" data-value="5">
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-
-              <!-- Footer -->
-              <footer class="blockquote-footer">
-                Daisy Turner, 18 Jul 2019
-              </footer>
-
-            </blockquote>
-
-          </div>
-        </div>
-
-        <!-- Card -->
-        <div class="card card-lg mb-11">
-          <div class="card-body text-center bg-light">
-
-            <!-- Avatar -->
-            <img src="assets/img/avatars/avatar-5.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
-
-            <!-- Text -->
-            <blockquote class="blockquote mb-0">
-
-              <!-- Text -->
-              <p class="fs-lg fst-normal">
-                Yielding place upon heaven
-                created sea So fly you'll had years
-                which good herb hath moveth for
-                grass. Created. Wherein, had every
-                were, face you'll made from.
-              </p>
-
-              <!-- Rating -->
-              <div class="rating fs-xs text-warning mb-2" data-value="5">
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="rating-item">
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-
-              <!-- Footer -->
-              <footer class="blockquote-footer">
-                Katrina Willis, 30 Jun 2019
-              </footer>
-
-            </blockquote>
-
-          </div>
-        </div>
-
-      </div>
-      <div class="col-12 col-lg-4">
-        <div class="row">
-          <div class="col-12 col-md-6 col-lg-12">
-
-            <!-- Card -->
-            <div class="card card-lg mb-11">
-              <div class="card-body text-center bg-light">
-
-                <!-- Avatar -->
-                <img src="assets/img/avatars/avatar-3.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
+              <blockquote class="blockquote mb-0">
 
                 <!-- Text -->
-                <blockquote class="blockquote mb-0">
-
-                  <!-- Text -->
-                  <p class="fs-lg fst-normal">
-                    Abundantly behold. God given
-                    creature she'd, greater gathering his
-                    had thing let you're firmament can't
-                    he sixth. Without evening. Given
-                    appear days signs abundantly and
-                    brought female bring.
-                  </p>
-
-                  <!-- Rating -->
-                  <div class="rating fs-xs text-warning mb-2" data-value="4">
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
+                <p class="fs-lg fst-normal">
+                    ${obj.review_title}
+                </p>
+                <!-- Rating -->
+                <div class="rating fs-xs text-warning mb-2" data-value=${obj.review_score}>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
                   </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
 
-                  <!-- Footer -->
-                  <footer class="blockquote-footer">
-                    Logan Edwards, 11 Jul 2019
-                  </footer>
+                <!-- Footer -->
+                <footer class="blockquote-footer">
+                  <fmt:formatDate  value="${obj.review_rdata}" pattern="yyyy-MM-dd" />
+                </footer>
 
-                </blockquote>
+              </blockquote>
 
-              </div>
             </div>
-
           </div>
-          <div class="col-12 col-md-6 col-lg-12">
+        </c:forEach>
+      </div>
+      <!-- 최신리뷰 두번째 열 끝 -->
 
-            <!-- Card -->
-            <div class="card card-lg mb-11">
-              <div class="card-body text-center bg-light">
+      <!-- 최신리뷰 세번째 열 시작 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <c:forEach var="obj" items="${bipumreview}">
+          <div class="card card-lg mb-11">
+            <div class="card-body text-center bg-light">
 
-                <!-- Avatar -->
-                <img src="assets/img/avatars/avatar-6.jpg" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
+              <!-- Avatar -->
+              <a href="/bipum/detail?item_id=${obj.item_id}">
+              <img src="/uimg/${obj.item_img}" alt="..." class="img-fluid rounded-circle mb-7 mt-n11" style="max-width: 100px;">
+              </a>
+              <!-- Text -->
+              <blockquote class="blockquote mb-0">
 
                 <!-- Text -->
-                <blockquote class="blockquote mb-0">
-
-                  <!-- Text -->
-                  <p class="fs-lg fst-normal">
-                    Place whose a give upon seed
-                    Yielding don't cattle living.
-                  </p>
-
-                  <!-- Rating -->
-                  <div class="rating fs-xs text-warning mb-2" data-value="5">
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="rating-item">
-                      <i class="fas fa-star"></i>
-                    </div>
+                <p class="fs-lg fst-normal">
+                    ${obj.review_title}
+                </p>
+                <!-- Rating -->
+                <div class="rating fs-xs text-warning mb-2" data-value=${obj.review_score}>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
                   </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
 
-                  <!-- Footer -->
-                  <footer class="blockquote-footer">
-                    George Sanders, 17 Jun 2019
-                  </footer>
+                <!-- Footer -->
+                <footer class="blockquote-footer">
+                <fmt:formatDate  value="${obj.review_rdata}" pattern="yyyy-MM-dd" />
+                </footer>
 
-                </blockquote>
+              </blockquote>
 
-              </div>
             </div>
-
           </div>
-        </div>
+        </c:forEach>
       </div>
-    </div>
+      <!-- 최신리뷰 세번째 열 끝 -->
+
+    </div>  <%--ROW 끝나느곳--%>
     <div class="row">
       <div class="col-12">
 

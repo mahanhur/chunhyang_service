@@ -9,6 +9,13 @@
         personalinfo_form.send();
       });
 
+      // Phone, Age 입력 필드에 숫자만 입력되도록 제한
+      $('#phone, #age').on('input', function() {
+        var value = $(this).val();
+        value = value.replace(/[^0-9]/g, ''); // 비 숫자 문자 제거
+        $(this).val(value);
+      });
+
     },
     send:function(){
       var cust_id = $('#cust_id').val();
