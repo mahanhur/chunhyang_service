@@ -462,19 +462,22 @@
                         <!-- 공유하기 -->
                         <p class="mb-0">
                             <span class="me-4">공유하기:</span>
-                            <%-- 카카오공유하기 --%>
+                            <%--카카오공유하기--%>
                             <a id="kakaotalk-sharing-btn" href="javascript:">
                                 <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
-                                     alt="카카오톡 공유 보내기 버튼" style="width:8%;"/>
+                                     alt="카카오톡 공유 보내기 버튼" style="width:8%;margin: 5px"/>
                             </a>
-                            <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                <i class="fab fa-twitter"></i>
+                            <a id="facebook-sharing-btn" href="javascript:">
+                                <img src="https://cdn-icons-png.flaticon.com/128/1384/1384863.png"
+                                     alt="페이스북 공유 보내기 버튼" style="width:8%;border-radius: 10px;margin: 5px"/>
                             </a>
-                            <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                <i class="fab fa-facebook-f"></i>
+                            <a id="twitter-sharing-btn" href="javascript:">
+                                <img src="https://cdn-icons-png.flaticon.com/128/3938/3938028.png"
+                                     alt="트위터 공유 보내기 버튼" style="width:8%;margin: 5px"/>
                             </a>
-                            <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                <i class="fab fa-pinterest-p"></i>
+                            <a id="pinterest-sharing-btn" href="javascript:">
+                                <img src="https://cdn-icons-png.flaticon.com/128/3536/3536559.png"
+                                     alt="핀터레스트 공유 보내기 버튼" style="width:8%;border-radius: 10px;margin: 5px"/>
                             </a>
                         </p>
 
