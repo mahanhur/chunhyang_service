@@ -434,49 +434,49 @@
 
                         <!-- 장바구니/ 주문하기 -->
                         <form id="detail_form">
-                                <div class="row gx-5 mb-7">
-                                    <div class="col-12 col-lg-auto">
-                                        <!-- Quantity -->
-                                        <input type="number"  min="1" max="${detail.item_cnt}" id="inputcnt" class="form-control form-control-sm" style="width: 140px" name="cnt" value=${cnt} />
-                                    </div>
-                                    <div class="col-12 col-lg">
-                                        <!-- Submit -->
-                                        <button type="button" class="btn w-120 btn-dark mb-2 cart_btn"
-                                                data-itemid="${detail.item_id}">
-                                            장바구니 <i class="fe fe-shopping-cart ms-2"></i>
-                                        </button>
-                                        <input type="hidden" name="item_id" value="${detail.item_id}"/>
-                                        <input type="hidden" name="cust_id" value="${logincust.cust_id}"/>
-
-                                        <button type="submit" class="btn w-120 btn-dark mb-2 checkout_btn"/>
-                                            바로주문 <i class="fe fe-shopping-bag ms-2"></i>
-                                        </button>
-                                    </div>
+                            <div class="row gx-5 mb-7">
+                                <div class="col-12 col-lg-auto">
+                                    <!-- Quantity -->
+                                    <input type="number"  min="1" max="${detail.item_cnt}" id="inputcnt" class="form-control form-control-sm" style="width: 140px" name="cnt" value=${cnt} />
                                 </div>
+                                <div class="col-12 col-lg">
+                                    <!-- Submit -->
+                                    <button type="button" class="btn w-120 btn-dark mb-2 cart_btn"
+                                            data-itemid="${detail.item_id}">
+                                        장바구니 <i class="fe fe-shopping-cart ms-2"></i>
+                                    </button>
+                                    <input type="hidden" name="item_id" value="${detail.item_id}"/>
+                                    <input type="hidden" name="cust_id" value="${logincust.cust_id}"/>
+
+                                    <button type="submit" class="btn w-120 btn-dark mb-2 checkout_btn"/>
+                                        바로주문 <i class="fe fe-shopping-bag ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </form>
-                            <!-- 담당자에게 연락하기 -->
-                            <p>
-                                <span class="text-gray-500">원하시는 상품이 품절인가요??</span>
-                                <a class="text-reset text-decoration-underline" data-bs-toggle="modal" href="#callcenter">담당자에게 연락 주세요!</a>
-                            </p>
-                            <!-- 공유하기 -->
-                            <p class="mb-0">
-                                <span class="me-4">공유하기:</span>
-                                <%-- 카카오공유하기 --%>
-                                <a id="kakaotalk-sharing-btn" href="javascript:">
-                                    <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
-                                         alt="카카오톡 공유 보내기 버튼" style="width:8%;"/>
-                                </a>
-                                <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                    <i class="fab fa-pinterest-p"></i>
-                                </a>
-                            </p>
+                        <!-- 담당자에게 연락하기 -->
+                        <p>
+                            <span class="text-gray-500">원하시는 상품이 품절인가요??</span>
+                            <a class="text-reset text-decoration-underline" data-bs-toggle="modal" href="#callcenter">담당자에게 연락 주세요!</a>
+                        </p>
+                        <!-- 공유하기 -->
+                        <p class="mb-0">
+                            <span class="me-4">공유하기:</span>
+                            <%-- 카카오공유하기 --%>
+                            <a id="kakaotalk-sharing-btn" href="javascript:">
+                                <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+                                     alt="카카오톡 공유 보내기 버튼" style="width:8%;"/>
+                            </a>
+                            <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                        </p>
 
                     </div>
                 </div>
