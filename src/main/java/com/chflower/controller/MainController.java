@@ -1,6 +1,8 @@
 package com.chflower.controller;
 
+import com.chflower.dto.ItemReview;
 import com.chflower.dto.RecommandItem;
+import com.chflower.service.ItemReviewService;
 import com.chflower.service.RecommandItemService;
 import com.chflower.util.TodayFlowerUtil;
 import com.chflower.util.WeatherUtil;
@@ -25,6 +27,8 @@ public class MainController {
 
     @Autowired
     RecommandItemService recommandItemService;
+    @Autowired
+    ItemReviewService itemReviewService;
 
     @RequestMapping("/")
     public String main(Model model) throws Exception {
@@ -56,6 +60,19 @@ public class MainController {
         recommandItem300List = recommandItemService.get300();
         log.info("recommandItemList={}", recommandItem300List);
         model.addAttribute("recommandlist2", recommandItem300List);
+
+        //최신 Item Review 보기
+        List<ItemReview> dabalreview= new ArrayList<>();
+        dabalreview = itemReviewService.dabalreview();
+        model.addAttribute("dabalreview", dabalreview);
+
+        List<ItemReview> flowerreview= new ArrayList<>();
+        flowerreview = itemReviewService.flowerreview();
+        model.addAttribute("flowerreview", flowerreview);
+
+        List<ItemReview> bipumreview= new ArrayList<>();
+        bipumreview = itemReviewService.bipumreview();
+        model.addAttribute("bipumreview", bipumreview);
 
         //1:1채팅하기위해서 어드민 서버 정보 모델로 날려준다
         model.addAttribute("adminserver",adminserver);

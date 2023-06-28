@@ -20,6 +20,9 @@ public class ItemReview {
     private Date review_rdata;
     private int review_score;
     private String review_img;
+    private String item_name;
+    private String item_img;
+    private int category_id;
 
     private Integer avgscore;
     private Integer cnt;
