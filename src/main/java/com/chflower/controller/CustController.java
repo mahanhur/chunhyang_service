@@ -70,13 +70,14 @@ public class CustController {
             //화면에서 입력된 암호를 가져와서 암호화 후 다시 암호로 집어넣는다
             custservice.register(cust);
             session.setAttribute("logincust",cust);
+//            model.addAttribute("rtoastr",true);
         } catch (Exception e) {
             e.printStackTrace();
             throw new Exception("가입오류");
         }
         model.addAttribute("rcust", cust);
-//        model.addAttribute("center",dir+"login");
-        return "redirect:/";
+        model.addAttribute("center", dir+"afterregister");
+        return "index";
     }
     @RequestMapping("/login")  //마이페이지 첫화면
     public String login(Model model,String redirectURL){
