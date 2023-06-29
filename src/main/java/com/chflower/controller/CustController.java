@@ -125,7 +125,7 @@ public class CustController {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type","authorization_code");
         params.add("client_id","0a9d14b3b112ee3f48ca206b470a2018");
-        params.add("redirect_uri","http://localhost/cust/kakao/callback");
+        params.add("redirect_uri","https://40.50.160.198:8443/cust/kakao/callback");
         params.add("code",code);
         //httpheader와 httpbody를 하나의 오브젝트에 담기
         HttpEntity<MultiValueMap<String,String>>kakaoTokenRequest
