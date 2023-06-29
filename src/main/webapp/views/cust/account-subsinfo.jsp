@@ -197,7 +197,7 @@
               </li>
             </ul>
                 <hr/>
-          <a href="#" class="btn btn-sm w-30 btn-outline-dark">배송정보상세</a>
+          <a href="/cust/account-subsdetail?cust_id=${logincust_custid}" class="btn btn-sm w-30 btn-outline-dark">배송정보상세</a>
                 <a href="#paymentmodal_${obj.subs_id}" class="btn btn-sm w-30 btn-outline-dark modala" data-bs-toggle="modal" data-subsid="${obj.subs_id}">결제정보상세</a>
 
 

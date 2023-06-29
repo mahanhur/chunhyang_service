@@ -3,6 +3,7 @@ package com.chflower.controller;
 import com.chflower.dto.ItemReview;
 import com.chflower.dto.RecommandItem;
 import com.chflower.service.ItemReviewService;
+import com.chflower.service.PointService;
 import com.chflower.service.RecommandItemService;
 import com.chflower.util.TodayFlowerUtil;
 import com.chflower.util.WeatherUtil;
@@ -29,6 +30,8 @@ public class MainController {
     RecommandItemService recommandItemService;
     @Autowired
     ItemReviewService itemReviewService;
+    @Autowired
+    PointService pointService;
 
     @RequestMapping("/")
     public String main(Model model) throws Exception {
