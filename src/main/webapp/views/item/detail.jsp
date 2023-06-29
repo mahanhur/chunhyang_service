@@ -2,10 +2,41 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<%--<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"--%>
-<%--        integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>--%>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"
+        integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>
 
 <script>
+    $(function (){
+        Kakao.init('c91de3a9ba7f48da3cb562c2fc973026');
+        Kakao.Share.createDefaultButton({
+            container: '#kakaotalk-sharing-btn',
+            objectType: 'commerce',
+            content: {
+                title: '${detail.item_content}',
+                imageUrl:
+                    'https://kukka.kr/static/kukkart_new/img/contents/subscribe_intro/lineup_003.png',
+                link: {
+                    // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+                    mobileWebUrl: 'http://49.50.160.198/subs/detail?subsitem_id=${obj.subsitem_id}',
+                    webUrl: 'http://49.50.160.198/subs/detail?subsitem_id=${obj.subsitem_id}',
+                },
+            },
+            commerce: {
+                productName: '${detail.item_name}',
+                regularPrice: ${detail.item_price}
+            },
+            buttons: [
+                {
+                    title: '자세히보기',
+                    link: {
+                        mobileWebUrl: 'http://49.50.160.198/subs/detail?subsitem_id=${obj.subsitem_id}',
+                        webUrl: 'http://49.50.160.198/subs/detail?subsitem_id=${obj.subsitem_id}',
+                    },
+                }
+            ],
+        });
+    })
+
     let item_get = {
         init: function () {
             $('.cart_btn').click(function () {
@@ -76,34 +107,6 @@
         register_review.init();
     })
 
-    Kakao.init('c91de3a9ba7f48da3cb562c2fc973026');
-    Kakao.Share.createDefaultButton({
-        container: '#kakaotalk-sharing-btn',
-        objectType: 'commerce',
-        content: {
-            title: '${detail.item_content}',
-            imageUrl:
-                'https://kukka.kr/static/kukkart_new/img/contents/subscribe_intro/lineup_003.png',
-            link: {
-                // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
-                mobileWebUrl: 'http://172.16.20.108/item/detail?item_id=${detail.item_id}',
-                webUrl: 'http://172.16.20.108/item/detail?item_id=${detail.item_id}',
-            },
-        },
-        commerce: {
-            productName: '${detail.item_name}',
-            regularPrice: ${detail.item_price}
-        },
-        buttons: [
-            {
-                title: '자세히보기',
-                link: {
-                    mobileWebUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${detail.item_id}',
-                    webUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${detail.item_id}',
-                }
-            }
-        ]
-    });
 </script>
 
 

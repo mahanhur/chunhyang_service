@@ -1545,7 +1545,7 @@
                   <div class="col-3">
 
                     <!-- Image -->
-                    <a href="product.html">
+                    <a href="/item/detail?item_id=${obj.item_id}">
                       <img src="/uimg/${obj.item_img}" alt="..." class="img-fluid">
                     </a>
 
@@ -1554,7 +1554,7 @@
 
                     <!-- Title -->
                     <div class="d-flex mb-2 fw-bold">
-                      <a class="text-body" href="product.html">${obj.item_name}</a>
+                      <a class="text-body" href="/item/detail?item_id=${obj.item_id}">${obj.item_name}</a>
                       <span class="ms-auto">
                         <fmt:formatNumber value="${obj.item_price}" pattern="###,###원"/>
                       </span>
@@ -1568,14 +1568,14 @@
                     <div class="d-flex align-items-center">
                     <!--장바구니 상품개수-->
                       <form class="mb-7 mb-md-0">
-                        <label class="form-label fs-sm fw-bold" for="cartCouponCode">
+                        <label class="form-label fs-sm fw-bold" >
                           상품수량:
                         </label>
                         <div class="row row gx-5">
                           <div class="col">
 
                             <!-- Input -->
-                            <input class="form-control form-control-sm" id="inputcnt" type="number" value="${obj.cnt}">
+                            <input class="form-control form-control-sm" id="inputcnt" type="number" min="1" value="${obj.cnt}">
 
                           </div>
                           <div class="col-auto">
