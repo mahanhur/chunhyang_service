@@ -98,7 +98,7 @@ public class CustController {
                 // pwd는 입력된 패스워드. cust.getPwd 암호화된 패스워드 일치하는지 확인
                 // &&앞에꺼실패하면 끝. &하나는 앞뒤 다 비교
                 // true 나오면 로그인성공
-                nextPage = "/order/all?cust_id="+cust_id; //loginok -> index
+                nextPage = "redirect:/"; //loginok -> index
                 session.setMaxInactiveInterval(100000); //로그인유지시간
                 session.setAttribute("logincust",cust);
                 //session에 logincust를 넣어줌. 모델에 담은것처럼 세션에 담은것도 $사인으로 꺼낼 수 있다
@@ -108,7 +108,7 @@ public class CustController {
             throw new Exception("시스템 장애 : 다시 로그인 하세요");
         }
         model.addAttribute("center",nextPage);
-        return "index";
+        return "redirect:/";
     }
 
     //kakao_login

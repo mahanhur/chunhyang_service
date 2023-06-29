@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chflower.mapper.OrderMapper">
     <select id="getmyorder" parameterType="String" resultType="order">
-        SELECT * FROM item_order WHERE cust_id=#{cust_id}
+        SELECT * FROM item_order WHERE cust_id=#{cust_id} order by ORDER_DATE DESC
     </select>
     <select id="getorderdetail" parameterType="int" resultType="orderdetail">
         SELECT o.order_id, o.cust_id, o.order_date, o.order_amount, o.user_point, o.pay_amount,

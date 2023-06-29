@@ -180,12 +180,15 @@
 
                   </div>
                   <div class="col-6">
-
-                    <!-- Button -->
-                    <a class="btn btn-sm w-100 btn-outline-dark" href="#!">
-                      배송상태
-                    </a>
-
+                    <form action="http://info.sweettracker.co.kr/tracking/4" method="post">
+                        <input type="hidden" class="form-control" id="t_key" name="t_key" value="dctplXlVqmOW07OrDvmRTg">
+                        <input type="hidden" class="form-control" name="t_code" id="t_code" value="04"> <!--택배사 04대한통운 01우체국-->
+                        <input type="hidden" class="form-control" name="t_invoice" id="t_invoice" value="655649541321"> <!--운송장번호입력-->
+                      <!-- Button -->
+                      <button class="btn btn-sm w-100 btn-outline-dark" type="submit">
+                        배송상태
+                      </button>
+                    </form>
                   </div>
                 </div>
 

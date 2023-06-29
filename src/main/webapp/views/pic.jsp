@@ -87,7 +87,6 @@
             }
         },
 
-
         getVideo:function(){
             navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
             navigator.getMedia(
@@ -215,9 +214,11 @@
                         <input hidden id="yourage" value=${result.age}>
                         <h6 class="mb-2" >너의 성별 [${result.gender}]</h6>
                         <h6 class="mb-2">너의 나이 [${result.age}]</h6>
+                        <h8>꽃번호:${yourlower.dataNo}</h8><br>
+                        <h8>꽃번호 로직: [성별이 남자 1, 여자 2, 어린이 3] + 나이의 작은 값</h8>
                         <hr>
                         <h3 class="mb-2">꽃이름 [${yourlower.flowerName}]</h3></br>
-                        <h5 class="mb-2">꽃말 <${yourlower.flowerMeaning}></h5><h8>꽃번호:${yourlower.dataNo}</h8>
+                        <h5 class="mb-2">꽃말 <${yourlower.flowerMeaning}></h5>
                         <!-- Badge -->
                         <hr>
                         <div class="mb-7">
