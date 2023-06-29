@@ -293,6 +293,11 @@
 
   $(function(){
     callcenter.init();
+
+    if($('.pp').html() == 0) {
+      $('.pp').html(0);
+      $('.btn-spin').attr('disabled', true);
+    }
     $('.btn-spin').click( function() {
       toastr.info("100포인트를 사용하였습니다.");
       $.ajax({
