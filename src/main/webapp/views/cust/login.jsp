@@ -95,7 +95,7 @@
               <!-- Button -->
               <button class="btn btn-dark" id="login_btn" type="button" >로그인</button>
 
-              <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=0a9d14b3b112ee3f48ca206b470a2018&redirect_uri=http://localhost/cust/kakao/callback">
+              <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=0a9d14b3b112ee3f48ca206b470a2018&redirect_uri=https://40.50.160.198:8443/cust/kakao/callback">
                 <img id="kakao_login_btn" src="/uimg/kakao_login_btn.png" style="margin:0px 20px;height: 56px"/>
               </a>
 
