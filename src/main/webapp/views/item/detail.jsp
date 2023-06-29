@@ -437,7 +437,7 @@
                             <div class="row gx-5 mb-7">
                                 <div class="col-12 col-lg-auto">
                                     <!-- Quantity -->
-                                    <input type="number"  min="1" max="${detail.item_cnt}" id="inputcnt" class="form-control form-control-sm" style="width: 140px" name="cnt" value=${cnt} />
+                                    <input type="number"  min="1" max="${detail.item_cnt}" id="inputcnt" class="form-control form-control-sm" style="width: 140px" name="cnt" value="${empty cnt ? 1 : cnt}" />
                                 </div>
                                 <div class="col-12 col-lg">
                                     <!-- Submit -->

@@ -17,4 +17,5 @@ public interface OrderMapper extends CHMapper<Integer, Order> {
 
     public void insertdetail(Orderdetail orderdetail);
     public List<Orderdetail> getorderdetail(int order_id);
+    public List<Orderdetail> getallorderdetail(String cust_id);
 }

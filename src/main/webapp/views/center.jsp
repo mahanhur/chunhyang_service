@@ -340,7 +340,7 @@
             <div class="text-center">
               <span class="text-white heading-xxs letter-spacing-xl">
                 🌸🌸[<span id="server_time"></span>]<span class="today_txt1">오늘의 꽃은</span><span style="text-decoration: underline white; cursor: pointer">
-                  <a data-bs-toggle="modal" data-bs-target="#todayflower">${todayFlower.flowerName}</a>
+                  <a class="todayflower_for_lang text-warning" data-bs-toggle="modal" data-bs-target="#todayflower">${todayFlower.flowerName}</a>
                   </span><span class="today_txt2">입니다</span>🌸🌸
               </span>
             </div>

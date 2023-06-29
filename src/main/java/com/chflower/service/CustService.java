@@ -42,4 +42,10 @@ public class CustService implements CHService<String, Cust> {
     public List<Cust> get() throws Exception {
         return mapper.selectall();
     }
+    public Cust getPhone(String s) throws Exception {
+        return mapper.selectphone(s);
+    }
+    public Cust getEmail(String s) throws Exception {
+        return mapper.selectemail(s);
+    }
 }

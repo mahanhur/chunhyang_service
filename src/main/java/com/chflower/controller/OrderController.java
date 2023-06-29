@@ -52,14 +52,23 @@ public class OrderController {
 
     @RequestMapping("/all")
     public String all(Model model, HttpSession session, String cust_id) throws Exception {
-        log.info("+++++++++++++++++++++"+cust_id);
         Cust cust = (Cust) session.getAttribute("logincust");
 
-        List<Order> list = null;
-        list = orderService.getMyorder(cust_id);
-        log.info("+++++++++++++++++++++"+list);
-        model.addAttribute("olist", list);
+        List<Order> list = orderService.getMyorder(cust_id);
+        List<Orderdetail> alllist = orderService.getallorderdetail(cust_id);
 
+        List<Orderdetail> odlist = new ArrayList<>();
+        for (Orderdetail orderdetail : alllist) {
+            for (Order order : list) {
+                if (orderdetail.getOrder_id() == order.getOrder_id()) {
+                    odlist.add(orderdetail);
+                    break;
+                }
+            }
+        }
+
+        model.addAttribute("odlist", odlist);
+        model.addAttribute("olist",list);
         model.addAttribute("center", dir + "all");
         return "index";
     }

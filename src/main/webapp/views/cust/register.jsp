@@ -96,6 +96,46 @@
         value = value.replace(/[^0-9]/g, ''); // 비 숫자 문자 제거
         $(this).val(value);
       });
+
+      $('#phone').keyup(function () {
+        var phone = $('#phone').val();
+        if (phone.length < 10 || phone.length>=12) {
+          $('#check_phone').html('올바른 휴대폰 번호를 입력하세요.');
+          $('#check_phone').css('color', 'red');
+          return;
+        }
+        $.ajax({
+          url: '/checkphone',
+          data: {'phone': phone},
+          success: function (result) {
+            if (result == 0) {
+              $('#check_phone').html('사용 가능한 휴대폰번호 입니다.');
+              $('#check_phone').css('color', 'rgb(0, 0, 255)');
+            } else {
+              $('#check_phone').html('이미 사용 중인 휴대폰번호 입니다.');
+              $('#check_phone').css('color', 'rgb(255, 0, 0)');
+            }
+          }
+        })
+      });
+
+      $('#email').keyup(function () {
+        var email = $('#email').val();
+
+        $.ajax({
+          url: '/checkemail',
+          data: {'email': email},
+          success: function (result) {
+            if (result == 0) {
+              $('#check_email').html('');
+              $('#check_email').css('color', 'rgb(0, 0, 255)');
+            } else {
+              $('#check_email').html('이미 사용 중인 이메일주소 입니다.');
+              $('#check_email').css('color', 'rgb(255, 0, 0)');
+            }
+          }
+        })
+      });
     },
     send: function() {
       var cust_id = $('#cust_id').val();
@@ -230,17 +270,18 @@
             </div>
 
             <div class="col-12 col-md-6">
-              <!-- Phone -->
+              <!-- 휴대폰 -->
               <div class="form-group">
                 <label class="form-label">
                   PHONE *
                 </label>
                 <input class="form-control form-control-sm" id="phone" type="text" name="phone" placeholder="전화번호를 입력하세요 *">
+                <div style="font-size:12px;padding-bottom: 10px" id="check_phone"></div>
               </div>
             </div>
 
             <div class="col-12 col-md-6">
-              <!-- Phone -->
+              <!-- 나이 -->
               <div class="form-group">
                 <label class="form-label">
                   Age *
@@ -249,13 +290,16 @@
               </div>
             </div>
 
+
+
             <div class="col-12 col-md-12">
-              <!-- Email -->
+              <!-- 이메일 -->
               <div class="form-group">
                 <label class="form-label">
                   Email Address *
                 </label>
-                <input class="form-control form-control-sm" id="email" type="email" name="email" placeholder="이메일을 입력하세요 *">
+                <input class="form-control form-control-sm" id="email" type="email" name="email" placeholder="이메일을 입력하세요 *" required autofocus>
+                <div style="font-size:12px;padding-bottom: 10px" id="check_email"></div>
               </div>
             </div>
 

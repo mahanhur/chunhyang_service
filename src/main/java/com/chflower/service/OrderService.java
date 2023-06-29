@@ -53,5 +53,8 @@ public class OrderService implements CHService<Integer, Order> {
     public List<Orderdetail> getOrderdetail(int order_id){
         return mapper.getorderdetail(order_id);
     }
+    public List<Orderdetail> getallorderdetail(String cust_id){
+        return mapper.getallorderdetail(cust_id);
+    }
 
 }
