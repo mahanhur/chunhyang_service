@@ -50,7 +50,21 @@ public class ItemController {
         model.addAttribute("center", dir + "center");
         return "index";
     }
+//    @RequestMapping("/all")
+//    public String all(Model model) throws Exception {
+//        List<Item> list = null;
+//        try {
+//            list = itemService.get();
+//        } catch (Exception e) {
+//            throw new Exception("시스템장애:ERORR002");
+//        }
 
+//
+//        model.addAttribute("ilist", list);
+//        model.addAttribute("left", dir + "left");
+//        model.addAttribute("center", dir + "all");
+//        return "index";
+//    }
     @RequestMapping("/detail")
     public String detail(Model model, Integer item_id, Item item, Itemimg itemimg) throws Exception {
 

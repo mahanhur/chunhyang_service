@@ -108,6 +108,7 @@
     dabal_sort.init();
     flower_sort.init();
     item_get.init();
+    lineup.init();
   });
 </script>
 
@@ -202,80 +203,84 @@
 <%--                    <a class="form-check-label" for="rose" href="/item/rose">장미</a>--%>
                   </div>
                   <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="작약" name="flowertype" type="radio" value="작약">
-                    <label class="form-check-label" for="작약">작약</label>
-<%--                    <a class="form-check-label" for="rose" href="/item/rose">작약</a>--%>
-                  </div>
-                  <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="카라" name="flowertype" type="radio" value="카라">
-                    <label class="form-check-label" for="카라">카라</label>
-<%--                    <a class="form-check-label" for="kara" href="/item/kara">카라</a>--%>
-                  </div>
-                  <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="프리지아" name="flowertype" type="radio" value="프리지아">
-                    <label class="form-check-label" for="프리지아">프리지아</label>
-<%--                    <a class="form-check-label" for="freesia" href="/item/freesia">프리지아</a>--%>
-                  </div>
-                  <div class="form-check form-check-text mb-3">
                     <input class="form-check-input" id="거베라" name="flowertype" type="radio" value="거베라">
                     <label class="form-check-label" for="거베라">거베라</label>
-<%--                    <a class="form-check-label" for="gerbera" href="/item/gerbera">거베라</a>--%>
+                    <%--                    <a class="form-check-label" for="gerbera" href="/item/gerbera">거베라</a>--%>
                   </div>
                   <div class="form-check form-check-text mb-3">
                     <input class="form-check-input" id="수국" name="flowertype" type="radio" value="수국">
                     <label class="form-check-label" for="수국">수국</label>
-<%--                    <a class="form-check-label" for="hydrangea" href="/item/hydrangea">수국</a>--%>
-                  </div>
-                  <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="해바라기" name="flowertype" type="radio" value="해바라기">
-                    <label class="form-check-label" for="해바라기">해바라기</label>
-<%--                    <a class="form-check-label" for="sortOne" href="/item/flower">해바라기</a>--%>
-                  </div>
-                  <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="백합" name="flowertype" type="radio" value="백합">
-                    <label class="form-check-label" for="백합">백합</label>
-<%--                    <a class="form-check-label" for="sortTwo" href="/item/rose">백합</a>--%>
-                  </div>
-                  <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="라벤더" name="flowertype" type="radio" value="라벤더">
-                    <label class="form-check-label" for="라벤더">라벤더</label>
-<%--                    <a class="form-check-label" for="sortThree" href="/item/hydrangea">라벤더</a>--%>
+                    <%--                    <a class="form-check-label" for="hydrangea" href="/item/hydrangea">수국</a>--%>
                   </div>
                   <div class="form-check form-check-text mb-3">
                     <input class="form-check-input" id="리시안셔스" name="flowertype" type="radio" value="리시안셔스">
                     <label class="form-check-label" for="리시안셔스">리시안셔스</label>
-<%--                    <a class="form-check-label" for="sortFour" href="/item/lisianthus">리시안셔스</a>--%>
+                    <%--                    <a class="form-check-label" for="sortFour" href="/item/lisianthus">리시안셔스</a>--%>
                   </div>
                   <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="유칼립투스" name="flowertype" type="radio" value="유칼립투스">
-                    <label class="form-check-label" for="유칼립투스">유칼립투스</label>
-<%--                    <a class="form-check-label" for="sortTwo" href="/item/rose">유칼립투스</a>--%>
+                    <input class="form-check-input" id="백합" name="flowertype" type="radio" value="백합">
+                    <label class="form-check-label" for="백합">백합</label>
+                    <%--                    <a class="form-check-label" for="sortTwo" href="/item/rose">백합</a>--%>
                   </div>
                   <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="아스틸베베" name="flowertype" type="radio" value="아스틸베베">
-                    <label class="form-check-label" for="아스틸베베">아스틸베베</label>
-<%--                    <a class="form-check-label" for="sortThree" href="/item/hydrangea">아스틸베베</a>--%>
+                    <input class="form-check-input" id="꽃기타" name="flowertype" type="radio" value="꽃기타">
+                    <label class="form-check-label" for="꽃기타">기타</label>
+                    <%--                    <a class="form-check-label" for="sortFour" href="/item/freesia">기타</a>--%>
                   </div>
-                  <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="청공작초" name="flowertype" type="radio" value="청공작초">
-                    <label class="form-check-label" for="청공작초">청공작초</label>
-<%--                    <a class="form-check-label" for="sortFour" href="/item/freesia">청공작초</a>--%>
-                  </div>
-                  <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="투베로사" name="flowertype" type="radio" value="투베로사">
-                    <label class="form-check-label" for="투베로사">투베로사</label>
-<%--                    <a class="form-check-label" for="sortTwo" href="/item/rose">투베로사</a>--%>
-                  </div>
-                  <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="스톡크" name="flowertype" type="radio" value="스톡크">
-                    <label class="form-check-label" for="스톡크">스톡크</label>
-<%--                    <a class="form-check-label" for="sortThree" href="/item/hydrangea">스톡크</a>--%>
-                  </div>
-                  <div class="form-check form-check-text mb-3">
-                    <input class="form-check-input" id="기타" name="flowertype" type="radio" value="기타">
-                    <label class="form-check-label" for="기타">기타</label>
-<%--                    <a class="form-check-label" for="sortFour" href="/item/freesia">기타</a>--%>
-                  </div>
+<%--                  <div class="form-check form-check-text mb-3">--%>
+<%--                    <input class="form-check-input" id="카라" name="flowertype" type="radio" value="카라">--%>
+<%--                    <label class="form-check-label" for="카라">카라</label>--%>
+<%--                    &lt;%&ndash;                    <a class="form-check-label" for="kara" href="/item/kara">카라</a>&ndash;%&gt;--%>
+<%--                  </div>--%>
+<%--                  <div class="form-check form-check-text mb-3">--%>
+<%--                    <input class="form-check-input" id="프리지아" name="flowertype" type="radio" value="프리지아">--%>
+<%--                    <label class="form-check-label" for="프리지아">프리지아</label>--%>
+<%--&lt;%&ndash;                    <a class="form-check-label" for="freesia" href="/item/freesia">프리지아</a>&ndash;%&gt;--%>
+<%--                  </div>--%>
+<%--                  <div class="form-check form-check-text mb-3">--%>
+<%--                    <input class="form-check-input" id="작약" name="flowertype" type="radio" value="작약">--%>
+<%--                    <label class="form-check-label" for="작약">작약</label>--%>
+<%--                    &lt;%&ndash;                    <a class="form-check-label" for="rose" href="/item/rose">작약</a>&ndash;%&gt;--%>
+<%--                  </div>--%>
+
+<%--                  <div class="form-check form-check-text mb-3">--%>
+<%--                    <input class="form-check-input" id="해바라기" name="flowertype" type="radio" value="해바라기">--%>
+<%--                    <label class="form-check-label" for="해바라기">해바라기</label>--%>
+<%--&lt;%&ndash;                    <a class="form-check-label" for="sortOne" href="/item/flower">해바라기</a>&ndash;%&gt;--%>
+<%--                  </div>--%>
+
+<%--                  <div class="form-check form-check-text mb-3">--%>
+<%--                    <input class="form-check-input" id="라벤더" name="flowertype" type="radio" value="라벤더">--%>
+<%--                    <label class="form-check-label" for="라벤더">라벤더</label>--%>
+<%--&lt;%&ndash;                    <a class="form-check-label" for="sortThree" href="/item/hydrangea">라벤더</a>&ndash;%&gt;--%>
+<%--                  </div>--%>
+
+<%--                  <div class="form-check form-check-text mb-3">--%>
+<%--                    <input class="form-check-input" id="유칼립투스" name="flowertype" type="radio" value="유칼립투스">--%>
+<%--                    <label class="form-check-label" for="유칼립투스">유칼립투스</label>--%>
+<%--&lt;%&ndash;                    <a class="form-check-label" for="sortTwo" href="/item/rose">유칼립투스</a>&ndash;%&gt;--%>
+<%--                  </div>--%>
+<%--                  <div class="form-check form-check-text mb-3">--%>
+<%--                    <input class="form-check-input" id="아스틸베베" name="flowertype" type="radio" value="아스틸베베">--%>
+<%--                    <label class="form-check-label" for="아스틸베베">아스틸베베</label>--%>
+<%--&lt;%&ndash;                    <a class="form-check-label" for="sortThree" href="/item/hydrangea">아스틸베베</a>&ndash;%&gt;--%>
+<%--                  </div>--%>
+<%--                  <div class="form-check form-check-text mb-3">--%>
+<%--                    <input class="form-check-input" id="청공작초" name="flowertype" type="radio" value="청공작초">--%>
+<%--                    <label class="form-check-label" for="청공작초">청공작초</label>--%>
+<%--&lt;%&ndash;                    <a class="form-check-label" for="sortFour" href="/item/freesia">청공작초</a>&ndash;%&gt;--%>
+<%--                  </div>--%>
+<%--                  <div class="form-check form-check-text mb-3">--%>
+<%--                    <input class="form-check-input" id="투베로사" name="flowertype" type="radio" value="투베로사">--%>
+<%--                    <label class="form-check-label" for="투베로사">투베로사</label>--%>
+<%--&lt;%&ndash;                    <a class="form-check-label" for="sortTwo" href="/item/rose">투베로사</a>&ndash;%&gt;--%>
+<%--                  </div>--%>
+<%--                  <div class="form-check form-check-text mb-3">--%>
+<%--                    <input class="form-check-input" id="스톡크" name="flowertype" type="radio" value="스톡크">--%>
+<%--                    <label class="form-check-label" for="스톡크">스톡크</label>--%>
+<%--&lt;%&ndash;                    <a class="form-check-label" for="sortThree" href="/item/hydrangea">스톡크</a>&ndash;%&gt;--%>
+<%--                  </div>--%>
+
                 </div>
               </div>
             </div>
@@ -286,10 +291,10 @@
 
       <div class="col-12 col-md-auto text-center">
 
-        <!-- Filter -->
-        <a class="text-body" data-bs-toggle="collapse" href="#collapseFilter" role="button">
-          <i class="fe fe-list me-2"></i> Filter
-        </a>
+<%--        <!-- Filter -->--%>
+<%--        <a class="text-body" data-bs-toggle="collapse" href="#collapseFilter" role="button">--%>
+<%--          <i class="fe fe-list me-2"></i> Filter--%>
+<%--        </a>--%>
 
         <!-- Sort -->
         <div class="dropdown ms-6">
@@ -505,7 +510,7 @@
 <section class="py-12">
   <div class="container">
     <div id="itemcontainer" class="row">
-      <c:forEach var="obj" items="${ilist}" begin="0" end="7" step="1" varStatus="status">
+      <c:forEach var="obj" items="${ilist}" varStatus="status">
         <div class="col-6 col-md-3 col-lg" id="itemElement${status.count}">
 
             <!-- Card -->
@@ -576,33 +581,33 @@
       </c:forEach>
     </div>
 
-    <div class="row">
-      <div class="col-12">
+<%--    <div class="row">--%>
+<%--      <div class="col-12">--%>
 
-        <!-- Progress -->
-        <div class="row justify-content-center mt-7">
-          <div class="col-12 text-center">
+<%--        <!-- Progress -->--%>
+<%--        <div class="row justify-content-center mt-7">--%>
+<%--          <div class="col-12 text-center">--%>
 
-            <!-- Caption -->
-            <p class="fs-sm text-muted">
-              Showing 16 of 24 products
-            </p>
+<%--            <!-- Caption -->--%>
+<%--            <p class="fs-sm text-muted">--%>
+<%--              Showing 16 of 24 products--%>
+<%--            </p>--%>
 
-            <!-- Progress -->
-            <div class="progress mx-auto mb-7" style="max-width: 250px;">
-              <div class="progress-bar bg-dark" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+<%--            <!-- Progress -->--%>
+<%--            <div class="progress mx-auto mb-7" style="max-width: 250px;">--%>
+<%--              <div class="progress-bar bg-dark" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>--%>
+<%--            </div>--%>
 
-            <!-- Button -->
-            <button id="morebtn" type="button" class="btn btn-sm btn-outline-dark">
-              Load more
-            </button>
+<%--            <!-- Button -->--%>
+<%--            <button id="morebtn" type="button" class="btn btn-sm btn-outline-dark">--%>
+<%--              Load more--%>
+<%--            </button>--%>
 
-          </div>
-        </div>
+<%--          </div>--%>
+<%--        </div>--%>
 
-      </div>
-    </div>
+<%--      </div>--%>
+<%--    </div>--%>
   </div>
 </section>
 
