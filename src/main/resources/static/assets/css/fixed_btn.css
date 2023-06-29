@@ -176,3 +176,43 @@
     height: 60px;
     margin: 0px;
 }
+#scroll-btn5 {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0;
+    width: 60px;
+    height: 60px;
+    float: left;
+    background: white;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+    bottom: 275px;
+    right: 3%;
+    position: fixed;
+    border:none;
+    z-index: 9999;
+}
+#scroll-btn5 div {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    align-items: center;
+    border-radius: 50px;
+    box-sizing: border-box;
+    line-height: 60px;
+}
+#scroll-btn5 div img{
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    text-align: center;
+    align-items: center;
+    border-radius: 50px;
+}
+@media (min-width: 991px) {
+    #scroll-btn5{
+        display: none;
+    }
+}

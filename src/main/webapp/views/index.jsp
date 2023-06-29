@@ -381,6 +381,13 @@
     });
 </script>
 
+<style>
+  @media (max-width: 992px) {
+    .chatbot-icon {
+      display: none;
+    }
+  }
+</style>
 
 </head>
 
@@ -467,7 +474,9 @@
   </div>
 </div>
 
-<jsp:include page="/views/chatbot-icon.jsp"/>
+<div class="chatbot-icon">
+  <jsp:include page="/views/chatbot-icon.jsp"/>
+</div>
 
 <%--===============================================챗봇 끝==========================================--%>
 
