@@ -325,6 +325,42 @@
 </script>
 <%--카카오공유하기 end--%>
 
+<style>
+  .rank-list {
+    /*position: relative;*/
+    top: 50%;
+    left: 0;
+    height: 30px;
+    /*font-size: 13px;*/
+    line-height: 30px;
+  }
+  .rank-list:first-child{
+    animation: rank 15s infinite;
+  }
+  @keyframes rank {
+    0% {
+      margin-top: 0px;
+    }
+    16% {
+      margin-top: 0px;
+    }
+    33% {
+      margin-top: -30px;
+    }
+    50% {
+      margin-top: -60px;
+    }
+    66% {
+      margin-top: -90px;
+    }
+    82% {
+      margin-top: -120px;
+    }
+    100% {
+      margin-top: -150px;
+    }
+  }
+</style>
 
 
 
@@ -346,24 +382,36 @@
             </div>
 
             <div class="position-relative ranking-wrap" style="margin: 0 auto">
-              <div id="search-ranking">
-                <div class="text-center text-white">
-                  <span id="rank-number-1">1</span>
-                  <span id="rank-title-1"></span><br/>
-                  <span id="rank-number-2">2</span>
-                  <span id="rank-title-2"></span><br/>
-                  <span id="rank-number-3">3</span>
-                  <span id="rank-title-3"></span><br/>
-                  <span id="rank-number-4">4</span>
-                  <span id="rank-title-4"></span><br/>
-                  <span id="rank-number-5">5</span>
-                  <span id="rank-title-5"></span>
+              <div id="search-ranking" >
+                <!-- rollup rank -->
+                <div style="position:relative;">
+                <div class="text-center text-white" style="position: absolute; top: 0;overflow: hidden;">
+                  <div class="rank-list" style="margin-top: 0;padding-top: 0">
+                    <span id="rank-number-1" class="rank-number">1</span>
+                    <span id="rank-title-1" class="rank-title"></span>
+                  </div>
+                  <div class="rank-list">
+                    <span id="rank-number-2" class="rank-number">2</span>
+                    <span id="rank-title-2" class="rank-title"></span>
+                  </div>
+                  <div class="rank-list">
+                    <span id="rank-number-3" class="rank-number">3</span>
+                    <span id="rank-title-3" class="rank-title"></span>
+                  </div>
+                  <div class="rank-list">
+                    <span id="rank-number-4" class="rank-number">4</span>
+                    <span id="rank-title-4" class="rank-title"></span>
+                  </div>
+                  <div class="rank-list">
+                    <span id="rank-number-5" class="rank-number">5</span>
+                    <span id="rank-title-5" class="rank-title"></span>
+                  </div>
                 </div>
+              </div>
+                <!-- hover rank -->
                 <div>
 <%--                  <h6 class="text-center">인기 검색어👀</h6>--%>
-                <ul id="rankingContainer">
-
-                </ul>
+                  <ul id="rankingContainer"></ul>
                   <div class="ld-row">
                     <input type="hidden" checked="checked" id="enablePolling1"/>
                   </div>
