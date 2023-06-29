@@ -1,14 +1,18 @@
 package com.chflower.controller;
 
 import com.chflower.dto.Cust;
+import com.chflower.dto.Point;
 import com.chflower.service.CartService;
 import com.chflower.service.CustService;
+import com.chflower.service.PointService;
 import com.chflower.util.FileUploadUtil;
 import com.chflower.util.WeatherUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,6 +30,8 @@ public class AjaxImplController {
     CustService custservice;
     @Autowired
     CartService cartservice;
+    @Autowired
+    PointService pointService;
 
     @Value("${uploadimgdir}")
     String imgdir;
@@ -111,5 +117,25 @@ public class AjaxImplController {
         String filename = file.getOriginalFilename();
         FileUploadUtil.saveFile(file, imgdir);
         return filename;
+    }
+
+    @RequestMapping("/game")
+    public Object game(Model model, HttpSession session, @RequestParam("pluspoint")int pluspoint) {
+        Cust cust = (Cust) session.getAttribute("logincust");
+        String cust_id = cust.getCust_id();
+
+        Point point = new Point(cust_id, pluspoint);
+        pointService.pluspoint(point);
+        Integer pp = pointService.presentpoint(cust_id);
+        return pp;
+    }
+    @RequestMapping("/btnspin")
+    public Object btnspin(Model model, HttpSession session) {
+        Cust cust = (Cust) session.getAttribute("logincust");
+        String cust_id = cust.getCust_id();
+        Point minuspoint = new Point(cust_id, 0,100);
+        pointService.minuspoint(minuspoint);
+        Integer pp = pointService.presentpoint(cust_id);
+        return pp;
     }
 }

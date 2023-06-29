@@ -1,6 +1,8 @@
 package com.chflower.controller;
 
+import com.chflower.dto.Cust;
 import com.chflower.dto.ItemReview;
+import com.chflower.dto.Point;
 import com.chflower.dto.RecommandItem;
 import com.chflower.service.ItemReviewService;
 import com.chflower.service.PointService;
@@ -13,6 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
@@ -34,7 +37,7 @@ public class MainController {
     PointService pointService;
 
     @RequestMapping("/")
-    public String main(Model model) throws Exception {
+    public String main(Model model, HttpSession session) throws Exception {
         LocalDate SeoulNow = LocalDate.now(ZoneId.of("Asia/Seoul"));
         int dayOfYear = SeoulNow.getDayOfYear()+1;
         String date = Integer.toString(dayOfYear);
@@ -80,6 +83,13 @@ public class MainController {
         //1:1채팅하기위해서 어드민 서버 정보 모델로 날려준다
         model.addAttribute("adminserver",adminserver);
 
+        Cust cust = (Cust) session.getAttribute("logincust");
+        int pp;
+        if(cust != null) {
+            String cust_id = cust.getCust_id();
+            pp = pointService.presentpoint(cust_id);
+            model.addAttribute("pp", pp);
+        }
         return "index";
     }
 
@@ -159,5 +169,6 @@ public class MainController {
         model.addAttribute("center", "kakaopaysuccess");
         return "index";
     }
+
 
 }

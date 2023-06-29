@@ -37,6 +37,7 @@ public class PointService implements CHService<String, Point> {
     }
 
     public void pluspoint(Point point) {
+        mapper.pluspoint(point);
     }
     public void minuspoint(Point point) {
         mapper.minuspoint(point);

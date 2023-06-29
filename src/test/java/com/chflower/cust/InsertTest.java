@@ -1,7 +1,9 @@
 package com.chflower.cust;
 
 import com.chflower.dto.Cust;
+import com.chflower.dto.Point;
 import com.chflower.service.CustService;
+import com.chflower.service.PointService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,25 +14,12 @@ import org.springframework.dao.DuplicateKeyException;
 @SpringBootTest
 class InsertTest {
     @Autowired
-    CustService service;
+    PointService service;
     @Test
-    void contextLoads() {
-        Cust obj = new Cust(
-                "test01", "김하연",
-                "pwd01", "01022223333",
-                10, "1","test@naver.com",
-                null);
-        try {
-            service.register(obj);
-            log.info("등록 정상");
-        } catch (Exception e) {
-            if(e instanceof DuplicateKeyException){
-                log.info("ID가 중복 되었습니다.-------------------------------");
-
-            }else{
-                log.info("시스템 장애입니다.----------------------------------");
-                e.printStackTrace();
-            }
-        }
+    void contextLoads() throws Exception {
+        Point point = new Point("id96", 100);
+        Point minuspoint = new Point("id96", 0,100);
+        service.minuspoint(minuspoint);
+        service.presentpoint("id96");
     }
 }
