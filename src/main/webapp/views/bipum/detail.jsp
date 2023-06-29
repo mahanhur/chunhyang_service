@@ -10,6 +10,40 @@
 <script src="./assets/js/vendor.bundle.js"></script>
 <!-- 3) Theme JS -->
 <script src="./assets/js/theme.bundle.js"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"
+        integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>
+<script>
+    $(function (){
+        Kakao.init('c91de3a9ba7f48da3cb562c2fc973026');
+        Kakao.Share.createDefaultButton({
+            container: '#kakaotalk-sharing-btn',
+            objectType: 'commerce',
+            content: {
+                title: '${detail.item_content}',
+                imageUrl:
+                    'https://kukka.kr/static/kukkart_new/img/contents/subscribe_intro/lineup_003.png',
+                link: {
+                    // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+                    mobileWebUrl: 'http://49.50.160.198/bipum/detail?sitem_id=${detail.item_id}',
+                    webUrl: 'http://49.50.160.198/bipum/detail?item_id=${detail.item_id}',
+                },
+            },
+            commerce: {
+                productName: '${detail.item_name}',
+                regularPrice: ${detail.item_price}
+            },
+            buttons: [
+                {
+                    title: '자세히보기',
+                    link: {
+                        mobileWebUrl: 'http://49.50.160.198/bipum/detail?item_id=${detail.item_id}',
+                        webUrl: 'http://49.50.160.198/bipum/detail?item_id=${detail.item_id}',
+                    },
+                }
+            ],
+        });
+    })
+</script>
 <script>
 let register_review = {
         init:function (){
@@ -65,7 +99,23 @@ let register_review = {
         item_get.init();
     });
 </script>
+<script>
+    let item_checkout = {
+        init: () => {
+            $('.checkout_btn').click(function(){
+                $('#detail_form').attr({
+                    action:'/item/checkout',
+                    method:'post'
+                });
+                $('#detail_form').submit();
+            })
 
+        }
+    };
+    $(function () {
+        item_checkout.init();
+    });
+</script>
 
 <!-- 현재 보고있는 PRODUCT -->
 <section>
@@ -189,33 +239,33 @@ let register_review = {
                             </span>
                             <span class="badge rounded bg-success">재고: ${detail.item_cnt}개</span>
                         </div>
-                        <!-- 수량, 카트, 찜 입력 Form 시작-->
-                        <form>
+                        <!-- 장바구니/ 주문하기 -->
+                        <form id="detail_form">
                             <div class="row gx-5 mb-7">
                                 <div class="col-12 col-lg-auto">
                                     <!-- Quantity -->
-                                    <input type="number" id="inputcnt" class="form-control form-control-sm" value="${empty cnt ? 1 : cnt}"/>
+                                    <input type="number"  min="1" max="${detail.item_cnt}" id="inputcnt" class="form-control form-control-sm" style="width: 140px" name="cnt" value="${empty cnt ? 1 : cnt}" />
                                 </div>
                                 <div class="col-12 col-lg">
                                     <!-- Submit -->
-                                    <button type="button" class="btn w-60 btn-dark mb-2 cart_btn"
-                                            data-itemid="${obj.item_id}">
-                                        장바구니 추가 <i class="fe fe-shopping-cart ms-2"></i>
+                                    <button type="button" class="btn w-120 btn-dark mb-2 cart_btn"
+                                            data-itemid="${detail.item_id}">
+                                        장바구니 <i class="fe fe-shopping-cart ms-2"></i>
+                                    </button>
+                                    <input type="hidden" name="item_id" value="${detail.item_id}"/>
+                                    <input type="hidden" name="cust_id" value="${logincust.cust_id}"/>
+
+                                    <button type="submit" class="btn w-120 btn-dark mb-2 checkout_btn"/>
+                                    바로주문 <i class="fe fe-shopping-bag ms-2"></i>
                                     </button>
                                 </div>
-<%--                                    <div class="col-12 col-lg-auto">--%>
-<%--                                        <!-- 찜하기 -->--%>
-<%--                                        <button class="btn btn-outline-dark w-100 mb-2" data-toggle="button">--%>
-<%--                                            찜하기 <i class="fe fe-heart ms-2"></i>--%>
-<%--                                        </button>--%>
-
-<%--                                    </div>--%>
                             </div>
-                            <!-- 담당자에게 연락하기 -->
-                            <p>
-                                <span class="text-gray-500">원하시는 상품이 품절인가요??</span>
-                                <a class="text-reset text-decoration-underline" data-bs-toggle="modal" href="#modalWaitList">담당자에게 연락 주세요!</a>
-                            </p>
+                        </form>
+                        <!-- 담당자에게 연락하기 -->
+                        <p>
+                            <span class="text-gray-500">원하시는 상품이 품절인가요??</span>
+                            <a class="text-reset text-decoration-underline" data-bs-toggle="modal" href="#callcenter">담당자에게 연락 주세요!</a>
+                        </p>
                             <!-- 공유하기 -->
                             <p class="mb-0">
                                 <span class="me-4">공유하기:</span>
@@ -345,7 +395,8 @@ let register_review = {
     <div class="container">
         <div class="row">
             <div class="col-12">
-
+                <br>
+                <hr>
                 <!-- Heading -->
                 <h4 class="mb-10 text-center">판매랭킹 추천상품!</h4>
 
