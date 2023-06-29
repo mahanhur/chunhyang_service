@@ -63,7 +63,7 @@
     item_get.init();
     <%------------------------인기검색어-------------------------------%>
 
-    var defaultData = 'http://127.0.0.1/logs/itemcountlog.log';
+    var defaultData = 'https://49.50.160.198:8443/logs/itemcountlog.log';
     // var defaultData = 'http://49.50.160.198/logs/itemcountlog.log';
     var urlInput = document.getElementById('fetchURL1');
     var pollingCheckbox = document.getElementById('enablePolling1');
