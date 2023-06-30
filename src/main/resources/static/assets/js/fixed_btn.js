@@ -86,6 +86,30 @@ let chatbtn = {
                 modalLink.click(); // 모달 링크 클릭하여 모달 창 열기
             }, 0);
         });
+        // 버튼 5
+        const scrollBtn5 = document.createElement("button");
+        scrollBtn5.setAttribute("id", "scroll-btn5");
+        document.body.appendChild(scrollBtn5);
+        scrollBtn5.classList.add("show");
+
+        const div5 = document.createElement("div");
+        div4.setAttribute("id", "fix_icon");
+        scrollBtn5.appendChild(div5);
+
+        const img5 = document.createElement("img");
+        img5.setAttribute("src", "/uimg/chatbot_minibtn.png");
+        div5.appendChild(img5);
+
+        scrollBtn5.addEventListener("click", function(){
+            const modalLink = document.createElement("a");
+            modalLink.setAttribute("data-bs-toggle", "modal");
+            modalLink.setAttribute("data-bs-target", "#chatbot");
+            document.body.appendChild(modalLink);
+
+            setTimeout(() => {
+                modalLink.click(); // 모달 링크 클릭하여 모달 창 열기
+            }, 0);
+        });
     }
 };
 
