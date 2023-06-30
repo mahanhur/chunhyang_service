@@ -6,9 +6,6 @@
 <script>
 </script>
 
-<!doctype html>
-<html lang="en">
-
 <body>
 
 
@@ -63,7 +60,7 @@
 </nav>
 
 <!-- PRODUCT -->
-<section>
+<section style="padding: 50px 0;">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -74,7 +71,7 @@
                         <div class="card">
 
                             <!-- Badge -->
-                            <div class="badge bg-black card-badge ">
+                            <div class="badge bg-black card-badge" style="font-size: 15px">
                                 퀵 가능상품!!
                             </div>
 
@@ -194,14 +191,22 @@
                             <!-- 공유하기 -->
                             <p class="mb-0">
                                 <span class="me-4">공유하기:</span>
-                                <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                    <i class="fab fa-twitter"></i>
+                                <%--카카오공유하기--%>
+                                <a id="kakaotalk-sharing-btn" href="javascript:">
+                                    <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+                                         alt="카카오톡 공유 보내기 버튼" style="width:8%;margin: 5px"/>
                                 </a>
-                                <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                    <i class="fab fa-facebook-f"></i>
+                                <a id="facebook-sharing-btn" href="javascript:">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/1384/1384863.png"
+                                         alt="페이스북 공유 보내기 버튼" style="width:8%;border-radius: 10px;margin: 5px"/>
                                 </a>
-                                <a class="btn btn-xxs btn-circle btn-light fs-xxxs text-gray-350" href="#!">
-                                    <i class="fab fa-pinterest-p"></i>
+                                <a id="twitter-sharing-btn" href="javascript:">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/3938/3938028.png"
+                                         alt="트위터 공유 보내기 버튼" style="width:8%;margin: 5px"/>
+                                </a>
+                                <a id="pinterest-sharing-btn" href="javascript:">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/3536/3536559.png"
+                                         alt="핀터레스트 공유 보내기 버튼" style="width:8%;border-radius: 10px;margin: 5px"/>
                                 </a>
                             </p>
 
@@ -230,12 +235,12 @@
 
                         <!-- Heading -->
                         <h6 class="heading-xxs mb-1">
-                            Free shipping
+                            무료 배송
                         </h6>
 
                         <!-- Text -->
                         <p class="mb-0 fs-sm text-muted">
-                            From all orders over $100
+                            1송이만 구매해도 배송비 공짜! 개이득
                         </p>
 
                     </div>
@@ -256,12 +261,12 @@
 
                         <!-- Heading -->
                         <h6 class="mb-1 heading-xxs">
-                            Free returns
+                            언제든지 환불환영!
                         </h6>
 
                         <!-- Text -->
                         <p class="mb-0 fs-sm text-muted">
-                            Return money within 30 days
+                            환불 상품을 보내주시면 30일 이내에 환불 드립니다
                         </p>
 
                     </div>
@@ -282,12 +287,12 @@
 
                         <!-- Heading -->
                         <h6 class="mb-1 heading-xxs">
-                            Secure shopping
+                            퀵배송 가능!
                         </h6>
 
                         <!-- Text -->
                         <p class="mb-0 fs-sm text-muted">
-                            You're in safe hands
+                            급하신가요? 퀵으로 받아보세요!
                         </p>
 
                     </div>
@@ -308,12 +313,12 @@
 
                         <!-- Heading -->
                         <h6 class="mb-1 heading-xxs">
-                            Over 10,000 Styles
+                            다양한 상품 구비 완료!
                         </h6>
 
                         <!-- Text -->
                         <p class="mb-0 fs-sm text-muted">
-                            We have everything you need
+                            더 많은 상품을 제공하겠습니다!
                         </p>
 
                     </div>
@@ -335,5 +340,4 @@
 
 <!-- Theme JS -->
 <script src="./assets/js/theme.bundle.js"></script>
-</body>
-</html>
+

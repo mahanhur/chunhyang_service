@@ -293,6 +293,24 @@
 
   $(function(){
     callcenter.init();
+
+    if($('.pp').html() == 0) {
+      $('.pp').html(0);
+      $('.btn-spin').attr('disabled', true);
+    }
+    $('.btn-spin').click( function() {
+      toastr.info("100포인트를 사용하였습니다.");
+      $.ajax({
+        url:"/btnspin",
+        method:"post",
+        success: function(data) {
+          $('.pp').html(data);
+        },
+        error: function() {
+
+        }
+      })
+    })
   })
 </script>
 
@@ -381,6 +399,13 @@
     });
 </script>
 
+<style>
+  @media (max-width: 992px) {
+    .chatbot-icon {
+      display: none;
+    }
+  }
+</style>
 
 </head>
 
@@ -467,7 +492,9 @@
   </div>
 </div>
 
-<jsp:include page="/views/chatbot-icon.jsp"/>
+<div class="chatbot-icon">
+  <jsp:include page="/views/chatbot-icon.jsp"/>
+</div>
 
 <%--===============================================챗봇 끝==========================================--%>
 
@@ -549,9 +576,12 @@
                   </figure>
                   <div class="ticker"></div>
                   <button class="btn-spin">
-                    Spin the wheel
+                    게임시작!
                   </button>
                 </div>
+              </div>
+              <div>
+                <span>${logincust.cust_id}의 현재 보유 포인트 : </span><span class="pp">${pp}</span>
               </div>
             </div>
             <!-- 룰렛 end ---------------------------------------------->
@@ -572,7 +602,7 @@
 
     <!-- Promo -->
     <div class="me-xl-8">
-      <i class="fe fe-truck me-2"></i> <span class="heading-xxxs">Free shipping worldwide</span>
+      <i class="fe fe-truck me-2"></i> <span class="heading-xxxs">Free shipping</span>
     </div>
 
     <!-- Toggler -->
@@ -603,9 +633,9 @@
 
       <!-- Nav -->
       <ul class="nav navbar-nav me-8">
-        <li class="nav-item">
-          <a class="nav-link" href="./shipping-and-returns.jsp" style="padding-top: 0;padding-bottom: 0">Shipping</a>
-        </li>
+<%--        <li class="nav-item">--%>
+<%--          <a class="nav-link" href="./shipping-and-returns.jsp" style="padding-top: 0;padding-bottom: 0">Shipping</a>--%>
+<%--        </li>--%>
         <li class="nav-item">
           <a class="nav-link" href="/faq" style="padding-top: 0;padding-bottom: 0">FAQ</a>
         </li>
@@ -1006,6 +1036,9 @@
 <link rel="stylesheet" href="/assets/css/fixed_btn.css" />
 
 <!-- 메인 게임 모달 JS -->
+<%--toastr library--%>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/assets/js/game_modal.js"></script>
 <link rel="stylesheet" href="/assets/css/game_modal.css" />
 
@@ -1027,7 +1060,7 @@
 
   <!-- Body: Form -->
   <div class="offcanvas-body">
-<%--    <form>--%>
+    <%--<form>--%>
       <div class="form-group">
         <label class="visually-hidden" for="category">카테고리:</label>
         <select class="form-select" name="category" id="category">

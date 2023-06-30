@@ -63,8 +63,8 @@
     item_get.init();
     <%------------------------인기검색어-------------------------------%>
 
-    var defaultData = 'https://49.50.160.198:8443/logs/itemcountlog.log';
-    // var defaultData = 'http://49.50.160.198/logs/itemcountlog.log';
+    // var defaultData = 'https://49.50.160.198:8443/logs/itemcountlog.log';
+    var defaultData = 'http://127.0.0.1/logs/itemcountlog.log';
     var urlInput = document.getElementById('fetchURL1');
     var pollingCheckbox = document.getElementById('enablePolling1');
     var pollingInput = document.getElementById('pollingTime1');
@@ -305,16 +305,16 @@
                 '${todayFlower.imgUrl1}',
         link: {
           // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
-          mobileWebUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
-          webUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+          mobileWebUrl: 'https://49.50.160.198:8443/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+          webUrl: 'https://49.50.160.198:8443/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
         },
       },
       buttons: [
         {
           title: '자세히 보기',
           link: {
-            mobileWebUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
-            webUrl: 'http://49.50.160.198/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+            mobileWebUrl: 'https://49.50.160.198:8443/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
+            webUrl: 'https://49.50.160.198:8443/flowerdictionary/detail?dataNo=${todayFlower.dataNo}',
           },
         },
       ],
@@ -443,11 +443,11 @@
 
             <!-- Heading -->
             <h1 class="main_slide_title display-4 mb-10" style="font-weight: bold">
-              Better Things<br/>In a Better Way
+              <span class="slide_txt1_1">Better Things</span><br/><span class="slide_txt1_2">In a Better Way</span>
             </h1>
             <!-- Links -->
-            <a type="button" class="btn btn-outline-dark" href="/subs/subscribe" style="opacity: 70%;margin:10px">정기구독</a>
-            <a type="button" class="btn btn-outline-dark" href="/item/all" style="opacity: 70%;margin:10px">꽃선물</a>
+            <a type="button" class="btn btn-outline-dark slide_txt1_3" href="/subs/subscribe" style="opacity: 70%;margin:10px">정기구독</a>
+            <a type="button" class="btn btn-outline-dark slide_txt1_4" href="/item/all" style="opacity: 70%;margin:10px">꽃선물</a>
 
           </div>
         </div>
@@ -460,21 +460,21 @@
           <div class="col-12 col-md-7 col-lg-7 text-center text-black">
 
             <!-- Heading -->
-            <h6>
+            <h6 class="slide_txt2_1">
               VASE EDITION
             </h6>
-            <h1 class="main_slide_title display-4" style="font-weight: bold">
+            <h1 class="main_slide_title display-4 slide_txt2_2" style="font-weight: bold">
               PLEATS EDITION
             </h1>
-            <h1 class="main_slide_subtitle display-6 mb-5">
+            <h1 class="main_slide_subtitle display-6 mb-5 slide_txt2_3">
               화병&라그라스 패키지 오픈
             </h1>
-            <h9 class="mb-13">
+            <h9 class="mb-13 slide_txt2_4">
               꽃이 있어도 꽃이 없어도 공간에 무드를 더할거에요
             </h9> <br/>
 
             <!-- Button -->
-            <a type="button" class="btn btn-outline-dark" href="/bipum/all" style="opacity: 70%;margin:10px">상품 보러가기</a>
+            <a type="button" class="btn btn-outline-dark slide_txt2_5" href="/bipum/all" style="opacity: 70%;margin:10px">상품 보러가기</a>
 
           </div>
         </div>
@@ -487,22 +487,22 @@
         <div class="row justify-content-center align-items-center pt-15 pb-12" style="min-height:90vh!important">
           <div class="col-12 col-md-7 col-lg-7 text-center text-white">
 
-            <h6>
+            <h6 class="slide_txt3_1">
               COLLABORATION
             </h6>
             <!-- Heading -->
-            <h1 style="font-weight: bold">
+            <h1 class="slide_txt3_2" style="font-weight: bold">
               CHUNHYANG X KB
             </h1>
             <h4 style="font-weight: bold">
-              또 한번의 놀라운 콜라보에<br/>초대합니다
+              <span class="slide_txt3_3">또 한번의 놀라운 콜라보에</span><br/><span class="slide_txt3_4">초대합니다</span>
             </h4>
-            <h9 class="mb-13">
+            <h9 class="mb-13 slide_txt3_5">
               알파코 팝업스토어에 초대합니다
             </h9> <br/>
 
             <!-- Button -->
-            <a type="button" class="btn btn-outline-white" href="/about" style="opacity: 90%;margin:10px">보러가기</a>
+            <a type="button" class="btn btn-outline-white slide_txt3_6" href="/about" style="opacity: 90%;margin:10px">보러가기</a>
 
           </div>
         </div>
@@ -516,16 +516,16 @@
           <div class="col-12 col-md-7 col-lg-7 text-center text-black">
 
             <!-- Heading -->
-            <h3 class="main_slide_title display-4" style="font-weight: bold">
+            <h3 class="main_slide_title display-4 slide_txt4_1" style="font-weight: bold">
               생기발랄한 마가렛
             </h3>
             <h9 class="mb-13">
-              빈티지한 포인트를 주고싶다면 <br/>
-              데이지의 한 종류, 마가렛을 만나보세요
+              <span class="slide_txt4_2">빈티지한 포인트를 주고싶다면 </span><br/>
+              <span class="slide_txt4_3">데이지의 한 종류, 마가렛을 만나보세요</span>
             </h9> <br/>
 
             <!-- Button -->
-            <a type="button" class="btn btn-outline-dark" href="/item/all" style="opacity: 70%;margin:10px">보러가기</a>
+            <a type="button" class="btn btn-outline-dark slide_txt13" href="/item/all" style="opacity: 70%;margin:10px">보러가기</a>
 
           </div>
         </div>
@@ -779,11 +779,11 @@
 <section class="py-12 border-bottom" id="reviews">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-4">
+      <div class="col-12 col-md-10 col-lg-8 col-xl-6">
 
         <!-- Heading -->
-        <h2 class="mb-12 text-center">
-          [강추!!]<br>최근 후기 좋은 상품
+        <h2 class="mb-12 text-center mt-10">
+          <img src="/uimg/review_good.png">
         </h2>
 
       </div>

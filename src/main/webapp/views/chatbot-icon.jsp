@@ -2,9 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<!DOCTYPE html>
-<html>
-<head>
   <style>
     .bodymovin-wrap {
       margin: 0;
@@ -55,12 +52,16 @@
       left: 50%;
       transform: translateX(-50%) rotate(45deg);
     }
+    @media (max-width: 992px) {
+      .bodymovin-wrap{
+        display: none;
+      }
+    }
   </style>
 
   <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/49240/lottie.js"></script>
   <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/49240/lottie_api.js"></script>
-</head>
-<body>
+
 
   <div class="bodymovin-wrap" id="animation-container"
        style="display: inline-block;
@@ -189,7 +190,4 @@
   anim = lottie.loadAnimation(animData);
   anim.addEventListener('DOMLoaded', init);
 </script>
-
-</body>
-</html>
 
