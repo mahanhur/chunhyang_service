@@ -15,7 +15,7 @@
           error:function(){
           }
         });
-      },1000 );
+      },1000);
 
     },
     display:function(data){
@@ -63,8 +63,8 @@
     item_get.init();
     <%------------------------인기검색어-------------------------------%>
 
-    // var defaultData = 'https://49.50.160.198:8443/logs/itemcountlog.log';
-    var defaultData = 'http://127.0.0.1/logs/itemcountlog.log';
+    var defaultData = 'https://49.50.160.198:8443/logs/itemcountlog.log';
+    // var defaultData = 'http://127.0.0.1/logs/itemcountlog.log';
     var urlInput = document.getElementById('fetchURL1');
     var pollingCheckbox = document.getElementById('enablePolling1');
     var pollingInput = document.getElementById('pollingTime1');
@@ -769,7 +769,8 @@
     <div class="row">
       <div class="col-12 py-13 text-center">
         <!-- Button -->
-        <a href="https://www.instagram.com/explore/tags/flower/" class="btn btn-white px-8">@flower</a>
+<%--        <a href="https://www.instagram.com/explore/tags/flower/" class="btn btn-white px-8">@flower</a>--%>
+        <a href='#' class="btn btn-white px-8" onclick="window.open('https://www.instagram.com/explore/tags/flower/');return false" -nfocus=blur()>@flower</a>
       </div>
     </div>
   </div>

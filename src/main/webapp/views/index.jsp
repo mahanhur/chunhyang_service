@@ -626,7 +626,7 @@
             <a class="dropdown-item" href="#" data-value="ko_KR" onclick="changeLang(this)">한국어</a>
             <a class="dropdown-item" href="#" data-value="en_US" onclick="changeLang(this)">English</a>
             <a class="dropdown-item" href="#" data-value="ja" onclick="changeLang(this)">日本語</a>
-            <a class="dropdown-item" href="#" data-value="ch" onclick="changeLang(this)">中国话</a>
+            <a class="dropdown-item" href="#" data-value="ch" onclick="changeLang(this)">فارسى</a>
           </div>
         </li>
       </ul>
