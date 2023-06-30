@@ -96,7 +96,7 @@
           if (rsp.success) {
             var msg = '결제가 완료되었습니다.';
             alert(msg);
-            location.href = "/order/success_cart?order_amount=${totalprice}&minus_point="+use_point+"&pay_amount="+finalprice+"&addr_id="+addr_selected+""
+            location.href = "/order/success_cart?order_amount=${totalprice}&user_point="+use_point+"&pay_amount="+finalprice+"&addr_id="+addr_selected+""
           } else {
             let msg = rsp.error_msg;
             alert(msg);

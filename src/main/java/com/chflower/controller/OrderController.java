@@ -94,7 +94,7 @@ public class OrderController {
 
 
     @RequestMapping("/success")
-    public String success(Model model,HttpSession session, int item_id, int order_amount, int minus_point, int pay_amount, int order_cnt, int addr_id) throws Exception {
+    public String success(Model model,HttpSession session, int item_id, int order_amount, int user_point, int pay_amount, int order_cnt, int addr_id) throws Exception {
         Cust cust = (Cust) session.getAttribute("logincust");
         String cust_id = cust.getCust_id();
         String order_name = cust.getCust_name();
@@ -104,7 +104,7 @@ public class OrderController {
         String od_addr1 = addr.getDef_addr1();
         String od_addr2 = addr.getDef_addr2();
 
-            Order order = new Order(cust_id, order_amount, minus_point, pay_amount, order_name, order_phone, od_addr1, od_addr2);
+            Order order = new Order(cust_id, order_amount, user_point, pay_amount, order_name, order_phone, od_addr1, od_addr2);
             //order 적재
             orderService.register(order);
             Integer order_id = orderService.getlast();
@@ -124,8 +124,8 @@ public class OrderController {
             delinfoService.orderregister(delinfo);
 
             //point 적재
-                if (minus_point != 0) {
-                    Point point = new Point(cust_id, 0 ,minus_point);
+                if (user_point != 0) {
+                    Point point = new Point(cust_id, 0 ,user_point);
                     pointService.minuspoint(point);
             }
 
@@ -134,7 +134,7 @@ public class OrderController {
         return "index";
     }
     @RequestMapping("/success_cart")
-    public String success_cart(Model model,HttpSession session, int order_amount, int minus_point, int pay_amount, int addr_id) throws Exception {
+    public String success_cart(Model model,HttpSession session, int order_amount, int user_point, int pay_amount, int addr_id) throws Exception {
         Cust cust = (Cust) session.getAttribute("logincust");
 
         String cust_id = cust.getCust_id();
@@ -145,7 +145,7 @@ public class OrderController {
         String od_addr1 = addr.getDef_addr1();
         String od_addr2 = addr.getDef_addr2();
 
-        Order order = new Order(cust_id, order_amount, minus_point, pay_amount, order_name, order_phone, od_addr1, od_addr2);
+        Order order = new Order(cust_id, order_amount, user_point, pay_amount, order_name, order_phone, od_addr1, od_addr2);
         //order 적재
         orderService.register(order);
         int order_id = orderService.getlast();
@@ -160,9 +160,9 @@ public class OrderController {
         delinfoService.register(delinfo);
 
         //point 적재
-        log.info("============================"+minus_point);
-        if (minus_point != 0) {
-            Point point = new Point(cust_id,0, minus_point);
+        log.info("============================"+user_point);
+        if (user_point != 0) {
+            Point point = new Point(cust_id,0, user_point);
             pointService.minuspoint(point);
         }
 
