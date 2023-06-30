@@ -159,6 +159,7 @@ public class OrderController {
         delinfoService.register(delinfo);
 
         //point 적재
+        log.info("============================"+minus_point);
         if (minus_point != 0) {
             Point point = new Point(cust_id, minus_point);
             pointService.minuspoint(point);

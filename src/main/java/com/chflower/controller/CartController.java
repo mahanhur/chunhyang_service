@@ -4,10 +4,7 @@ import com.chflower.dto.Addr;
 import com.chflower.dto.Cart;
 import com.chflower.dto.Cust;
 import com.chflower.dto.Item;
-import com.chflower.service.AddrService;
-import com.chflower.service.CartService;
-import com.chflower.service.ItemService;
-import com.chflower.service.ItemimgService;
+import com.chflower.service.*;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +28,8 @@ public class CartController {
     CartService cartService;
     @Autowired
     AddrService addrService;
+    @Autowired
+    PointService pointService;
 
 
     String dir = "cart/";
@@ -54,7 +53,8 @@ public class CartController {
             throw new Exception("시스템장애:ERORR002");
         }
 
-        log.info("+++++++++++++++++++++"+list);
+        Integer point = pointService.presentpoint(cust_id);
+        model.addAttribute("point", point);
 
         model.addAttribute("clist", list);
         model.addAttribute("center", dir + "all");
@@ -108,6 +108,9 @@ public class CartController {
         log.info(list.toString());
         model.addAttribute("clist", list);
         model.addAttribute("totalprice",total);
+
+        Integer point = pointService.presentpoint(cust_id);
+        model.addAttribute("point", point);
 
         Cust cust = (Cust) session.getAttribute("logincust");
         if(cust != null) {
