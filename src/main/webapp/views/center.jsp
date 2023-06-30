@@ -15,7 +15,7 @@
           error:function(){
           }
         });
-      },1000);
+      },1000 );
 
     },
     display:function(data){
