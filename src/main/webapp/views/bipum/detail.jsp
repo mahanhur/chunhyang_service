@@ -398,7 +398,8 @@ let register_review = {
                 <br>
                 <hr>
                 <!-- Heading -->
-                <h4 class="mb-10 text-center">판매랭킹 추천상품!</h4>
+                <h4 class="mb-10 text-center">
+                    <img style="padding: 0px 20px 10px 0px" src="/uimg/ranking_good.png"></h4>
 
                 <!-- Items -->
                 <div class="row">
@@ -412,7 +413,7 @@ let register_review = {
 
                                 <!-- Badge -->
                                 <div class="badge bg-white text-body card-badge card-badge-start text-uppercase">
-                                    <strong>Rank: ${recommandlist.rank}</strong>
+                                    <strong>판매 ${recommandlist.rank}위</strong>
                                 </div>
 
                                 <!-- Image -->

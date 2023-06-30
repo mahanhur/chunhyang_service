@@ -780,11 +780,11 @@
 <section class="py-12 border-bottom" id="reviews">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-4">
+      <div class="col-12 col-md-10 col-lg-8 col-xl-6">
 
         <!-- Heading -->
-        <h2 class="mb-12 text-center">
-          [강추!!]<br>최근 후기 좋은 상품
+        <h2 class="mb-12 text-center mt-10">
+          <img src="/uimg/review_good.png">
         </h2>
 
       </div>

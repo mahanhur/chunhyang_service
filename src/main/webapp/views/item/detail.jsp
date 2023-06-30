@@ -587,7 +587,8 @@
                 <br>
                 <hr>
                 <!-- Heading -->
-                <h4 class="mb-10 text-center">춘향! 강력추천 상품!!</h4>
+                <h4 class="mt-10 mb-2 text-center">
+                    <img style="padding: 0px 20px 10px 0px" src="/uimg/strong_choocun.png"></h4>
 
                 <!-- Items -->
                 <div class="row">

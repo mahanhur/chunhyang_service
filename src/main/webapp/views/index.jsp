@@ -602,7 +602,7 @@
 
     <!-- Promo -->
     <div class="me-xl-8">
-      <i class="fe fe-truck me-2"></i> <span class="heading-xxxs">Free shipping worldwide</span>
+      <i class="fe fe-truck me-2"></i> <span class="heading-xxxs">Free shipping</span>
     </div>
 
     <!-- Toggler -->
@@ -633,9 +633,9 @@
 
       <!-- Nav -->
       <ul class="nav navbar-nav me-8">
-        <li class="nav-item">
-          <a class="nav-link" href="./shipping-and-returns.jsp" style="padding-top: 0;padding-bottom: 0">Shipping</a>
-        </li>
+<%--        <li class="nav-item">--%>
+<%--          <a class="nav-link" href="./shipping-and-returns.jsp" style="padding-top: 0;padding-bottom: 0">Shipping</a>--%>
+<%--        </li>--%>
         <li class="nav-item">
           <a class="nav-link" href="/faq" style="padding-top: 0;padding-bottom: 0">FAQ</a>
         </li>
@@ -1060,7 +1060,7 @@
 
   <!-- Body: Form -->
   <div class="offcanvas-body">
-<%--    <form>--%>
+    <%--<form>--%>
       <div class="form-group">
         <label class="visually-hidden" for="category">카테고리:</label>
         <select class="form-select" name="category" id="category">
