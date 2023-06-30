@@ -78,6 +78,7 @@ public class OrderController {
 
         Cust cust = (Cust) session.getAttribute("logincust");
         Order order = orderService.get(order_id);
+        log.info("+++++++++++++++++++++"+order);
         model.addAttribute("order", order);
 
         Orderdetail orderdetail;
@@ -124,7 +125,7 @@ public class OrderController {
 
             //point 적재
                 if (minus_point != 0) {
-                    Point point = new Point(cust_id, minus_point);
+                    Point point = new Point(cust_id, 0 ,minus_point);
                     pointService.minuspoint(point);
             }
 
@@ -161,7 +162,7 @@ public class OrderController {
         //point 적재
         log.info("============================"+minus_point);
         if (minus_point != 0) {
-            Point point = new Point(cust_id, minus_point);
+            Point point = new Point(cust_id,0, minus_point);
             pointService.minuspoint(point);
         }
 

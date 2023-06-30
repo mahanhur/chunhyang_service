@@ -161,7 +161,7 @@
               </li>
               <li class="list-group-item d-flex">
                 <span>사용포인트</span>
-                <span class="ms-auto"><fmt:formatNumber value="${order.minus_point}" pattern="###,###원"/></span>
+                <span class="ms-auto"><fmt:formatNumber value="${order.user_point}" pattern="###,###pt"/></span>
               </li>
               <li class="list-group-item d-flex fs-lg fw-bold">
                 <span>결제금액</span>
