@@ -769,7 +769,8 @@
     <div class="row">
       <div class="col-12 py-13 text-center">
         <!-- Button -->
-        <a href="https://www.instagram.com/explore/tags/flower/" class="btn btn-white px-8">@flower</a>
+<%--        <a href="https://www.instagram.com/explore/tags/flower/" class="btn btn-white px-8">@flower</a>--%>
+        <a href='#' class="btn btn-white px-8" onclick="window.open('https://www.instagram.com/explore/tags/flower/');return false" -nfocus=blur()>@flower</a>
       </div>
     </div>
   </div>

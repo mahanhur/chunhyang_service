@@ -85,8 +85,8 @@
                 'https://kukka.kr/static/kukkart_new/img/contents/subscribe_intro/lineup_003.png',
         link: {
           // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
-          mobileWebUrl: 'https://49.50.160.198:8443/subs/detail?subsitem_id=${obj.subsitem_id}',
-          webUrl: 'https://49.50.160.198:8443/subs/detail?subsitem_id=${obj.subsitem_id}',
+          mobileWebUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${obj.subsitem_id}',
+          webUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${obj.subsitem_id}',
         },
       },
       commerce: {
@@ -97,8 +97,8 @@
         {
           title: '자세히보기',
           link: {
-            mobileWebUrl: 'https://49.50.160.198:8443/subs/detail?subsitem_id=${obj.subsitem_id}',
-            webUrl: 'https://49.50.160.198:8443/subs/detail?subsitem_id=${obj.subsitem_id}',
+            mobileWebUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${obj.subsitem_id}',
+            webUrl: 'http://172.16.20.108/subs/detail?subsitem_id=${obj.subsitem_id}',
           },
         }
       ],
