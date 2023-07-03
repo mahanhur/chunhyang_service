@@ -72,7 +72,7 @@
 
     #to {
       /*width: 200px;*/
-      height: 200px;
+      height: 180px;
       border: 2px solid gray;
       overflow: auto;
     }
@@ -423,7 +423,7 @@
 
       <!-- Content -->
       <div class="row gx-0">
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6" style="height: 100%">
           <img src="/assets/img/callcenter.jpg" style="width: 100%" alt="채팅상담 이미지 출력 에러">
         </div>
         <div class="col-12 col-lg-6" style="padding: 0px">
@@ -448,8 +448,8 @@
             <div id="to" col-lg-7 style="margin-top: 10px;"></div>
             <div>
               <input type="text" id="target" value="유성진" hidden> <%--상담센터직원 이름 정해서 넣기--%>
-              <input type="text" id="totext" style="margin-top: 10px; height: 55px">
-              <button class="btn btn-outline-dark" id="sendto" >전송</button>
+              <input type="text" id="totext" style="margin-top: 2%; height: 40px">
+              <button class="btn btn-outline-dark" id="sendto" style="height: 40px;" >전송</button>
             </div>
           </div>
 
