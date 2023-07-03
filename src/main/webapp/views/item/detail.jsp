@@ -78,7 +78,7 @@
 
         }
     };
-    $(function () {
+    $(function () {ㅊ
         item_checkout.init();
     });
 </script>
