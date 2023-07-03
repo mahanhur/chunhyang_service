@@ -7,12 +7,16 @@
 
 
     <select id="lineuptotal" resultType="Item">
-        SELECT i.item_id, i.category_id, i.item_img, i.item_name, i.item_price, NVL(ROUND(SUM(i.item_price * od.order_cnt),0),0) AS total, COUNT(r.REVIEW_ID) as cnt, NVL(ROUND(AVG(r.REVIEW_SCORE), 0), 0) as avgscore
+        SELECT i.item_id, i.category_id, i.item_img, i.item_name, i.item_price,
+               NVL(ROUND(SUM(i.item_price * od.order_cnt),0),0) AS total,
+               r.cnt, r.avgscore
         FROM ITEM i
                  LEFT JOIN ORDERDETAIL od ON od.ITEM_ID = i.item_id
-                 LEFT JOIN Item_REVIEW r ON r.ITEM_ID = i.ITEM_ID
+                 LEFT JOIN (SELECT i.ITEM_id, COUNT(r.REVIEW_ID) as cnt, NVL(ROUND(AVG(r.REVIEW_SCORE), 0), 0) as avgscore
+                            FROM ITEM i LEFT JOIN Item_REVIEW r ON r.ITEM_ID = i.ITEM_ID
+                            GROUP BY i.item_id) r ON r.ITEM_ID = i.ITEM_ID
         WHERE i.category_id in (100,200)
-        GROUP BY i.item_id, i.category_id, i.item_img, i.item_name, i.item_price
+        GROUP BY i.item_id, i.category_id, i.item_img, i.item_name, i.item_price, r.cnt, r.avgscore
         ORDER BY total DESC
     </select>
     <select id="lineuphigh" resultType="Item">

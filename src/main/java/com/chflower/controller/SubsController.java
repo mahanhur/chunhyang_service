@@ -143,7 +143,7 @@ public class SubsController {
             paymentService.subsinsert(payment);
             //point 적재
             if(minus_point != 0) {
-                Point point = new Point(cust_id, minus_point);
+                Point point = new Point(cust_id, 0, minus_point);
                 pointService.minuspoint(point);
             }
             //subsdetail 적재

@@ -34,7 +34,7 @@
     <insert id="insert" parameterType="order">
         INSERT INTO item_order
             (order_id, cust_id, order_date, order_amount, user_point, pay_amount,order_name, order_phone, od_addr1, od_addr2)
-        VALUES (item_order_seq.NEXTVAL, #{cust_id}, SYSDATE, #{order_amount}, #{minus_point}, #{pay_amount}, #{order_name}, #{order_phone}, #{od_addr1}, #{od_addr2})
+        VALUES (item_order_seq.NEXTVAL, #{cust_id}, SYSDATE, #{order_amount}, #{user_point}, #{pay_amount}, #{order_name}, #{order_phone}, #{od_addr1}, #{od_addr2})
     </insert>
     <insert id="insertdetail" parameterType="orderdetail">
         INSERT INTO orderdetail

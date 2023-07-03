@@ -212,8 +212,8 @@
 
                     <div id="yourflower">
                         <input hidden id="yourage" value=${result.age}>
-                        <h6 class="mb-2" >너의 성별 [${result.gender}]</h6>
-                        <h6 class="mb-2">너의 나이 [${result.age}]</h6>
+                        <h6 class="mb-2" >당신의 성별은 [${result.gender}]</h6>
+                        <h6 class="mb-2">나이는 [${result.age}] 세 시군요</h6>
                         <h8>꽃번호:${yourlower.dataNo}</h8><br>
                         <h8>꽃번호 로직: [성별이 남자 1, 여자 2, 어린이 3] + 나이의 작은 값</h8>
                         <hr>
