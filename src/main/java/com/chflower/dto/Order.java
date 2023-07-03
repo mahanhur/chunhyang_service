@@ -14,7 +14,7 @@ public class Order {
     private String cust_id;
     private Date order_date;
     private int order_amount;
-    private int user_point;
+    private Integer user_point;
     private int pay_amount;
     private String order_name;
     private String order_phone;
@@ -22,7 +22,7 @@ public class Order {
     private String od_addr2;
     private String ship_memo;
 
-    public Order(String cust_id, int order_amount, int user_point, int pay_amount, String order_name, String order_phone, String od_addr1, String od_addr2) {
+    public Order(String cust_id, int order_amount, Integer user_point, int pay_amount, String order_name, String order_phone, String od_addr1, String od_addr2) {
         this.cust_id = cust_id;
         this.order_amount = order_amount;
         this.user_point = user_point;

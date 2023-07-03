@@ -19,7 +19,7 @@ public class Orderdetail {
     private String cust_id;
     private Date order_date;
     private int order_amount;
-    private int user_point;
+    private Integer user_point;
     private int pay_amount;
 
     private String item_img;

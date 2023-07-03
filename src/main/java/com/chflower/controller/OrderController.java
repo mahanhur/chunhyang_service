@@ -94,7 +94,7 @@ public class OrderController {
 
 
     @RequestMapping("/success")
-    public String success(Model model,HttpSession session, int item_id, int order_amount, int user_point, int pay_amount, int order_cnt, int addr_id) throws Exception {
+    public String success(Model model,HttpSession session, int item_id, int order_amount, Integer user_point, int pay_amount, int order_cnt, int addr_id) throws Exception {
         Cust cust = (Cust) session.getAttribute("logincust");
         String cust_id = cust.getCust_id();
         String order_name = cust.getCust_name();
@@ -134,7 +134,7 @@ public class OrderController {
         return "index";
     }
     @RequestMapping("/success_cart")
-    public String success_cart(Model model,HttpSession session, int order_amount, int user_point, int pay_amount, int addr_id) throws Exception {
+    public String success_cart(Model model,HttpSession session, int order_amount, Integer user_point, int pay_amount, int addr_id) throws Exception {
         Cust cust = (Cust) session.getAttribute("logincust");
 
         String cust_id = cust.getCust_id();
