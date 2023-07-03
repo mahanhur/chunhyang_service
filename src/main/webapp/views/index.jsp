@@ -727,7 +727,7 @@
         <!-- ------------------------------------------------------------------- -->
         <li class="nav-item dropdown">
           <!-- Toggle -->
-          <a class="nav-link lang_target" data-bs-toggle="dropdown" href="#">소개</a>
+          <a class="nav-link lang_target" href="/about">소개</a>
 
           <!-- Menu -->
           <div class="dropdown-menu">
