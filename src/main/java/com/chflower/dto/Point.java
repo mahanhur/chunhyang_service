@@ -29,4 +29,5 @@ public class Point {
         this.plus_point = plus_point;
         this.minus_point = minus_point;
     }
+
 }

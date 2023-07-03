@@ -436,7 +436,7 @@
 <%--          <div style="background-image: url('/uimg/chat_bg.png');">--%>
             <div id="status" style="display:flex;align-items: center;">
               <video autoplay loop muted style="width: 50px">
-                <source src="/uimg/connect_ing.mp4" type="video/mp4">
+<%--                <source src="/uimg/connect_ing.mp4" type="video/mp4">--%>
               </video>
               <h8>연결대기중</h8>
             </div>

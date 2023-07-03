@@ -1623,11 +1623,11 @@
                   </span>
                   </li>
                   <li class="list-group-item d-flex">
-                    <span>포인트 사용금액</span> <span class="ms-auto fs-sm"> <fmt:formatNumber value="0" pattern="###,###원"/></span>
+                    <span>사용가능 포인트</span> <span class="ms-auto fs-sm"> <fmt:formatNumber value="${point}" pattern="###,###pt"/></span>
                   </li>
                   <li class="list-group-item d-flex fs-lg fw-bold">
-                    <span>총 결제금액</span> <span class="ms-auto fs-sm">
-                    <fmt:formatNumber value="${total}" pattern="###,###원"/>
+                    <span>총 결제예상금액</span> <span class="ms-auto fs-sm">
+                    <fmt:formatNumber value="${total-point}" pattern="###,###원"/>
                   </span>
                   </li>
                   <li class="list-group-item fs-sm text-center text-gray-500">
