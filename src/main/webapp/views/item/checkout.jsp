@@ -102,7 +102,7 @@
             alert(msg);
             // location.href = "/subs/fail?msg="+msg;
             // 테스트용
-            location.href = location.href = "/order/success?item_id=${item.item_id}&order_amount=${totalprice}&minus_point="+use_point+"&pay_amount="+finalprice+"&addr_id="+addr_selected+"&order_cnt=${inputcnt}"
+            location.href = location.href = "/order/success?item_id=${item.item_id}&order_amount=${totalprice}&user_point="+use_point+"&pay_amount="+finalprice+"&addr_id="+addr_selected+"&order_cnt=${inputcnt}"
           }
         });
       });

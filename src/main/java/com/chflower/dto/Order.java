@@ -32,4 +32,25 @@ public class Order {
         this.od_addr1 = od_addr1;
         this.od_addr2 = od_addr2;
     }
+
+    public Order(String cust_id, Date order_date, int order_amount, int pay_amount, String order_name, String order_phone, String od_addr1, String od_addr2) {
+        this.cust_id = cust_id;
+        this.order_date = order_date;
+        this.order_amount = order_amount;
+        this.pay_amount = pay_amount;
+        this.order_name = order_name;
+        this.order_phone = order_phone;
+        this.od_addr1 = od_addr1;
+        this.od_addr2 = od_addr2;
+    }
+
+    public Order(String cust_id, Date order_date, int order_amount, int pay_amount, String order_name, String order_phone, String od_addr1) {
+        this.cust_id = cust_id;
+        this.order_date = order_date;
+        this.order_amount = order_amount;
+        this.pay_amount = pay_amount;
+        this.order_name = order_name;
+        this.order_phone = order_phone;
+        this.od_addr1 = od_addr1;
+    }
 }

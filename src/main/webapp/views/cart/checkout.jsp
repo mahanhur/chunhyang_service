@@ -102,7 +102,7 @@
             alert(msg);
             // location.href = "/subs/fail?msg="+msg;
             // 테스트용
-            location.href = "/order/success_cart?order_amount=${totalprice}&minus_point="+use_point+"&pay_amount="+finalprice+"&addr_id="+addr_selected+""
+            location.href = "/order/success_cart?order_amount=${totalprice}&user_point="+use_point+"&pay_amount="+finalprice+"&addr_id="+addr_selected+""
           }
         });
       });
@@ -310,7 +310,7 @@ height: 80px;
                   <span>사용포인트</span><br/>
                   <span style="font-size: 12px;">(보유 포인트 : <span id="getpoint"><c:if test="${point == null}">0</c:if>${point}</span>)</span>
                 </div>
-                <input class="ms-auto fs-sm " id="usepoint"/>
+                <input class="ms-auto fs-sm " id="usepoint" value="0"/>
               </li>
               <li class="list-group-item d-flex fs-lg fw-bold">
                 <span>결제금액</span> <span id="finalprice" class="ms-auto">${total}</span>
